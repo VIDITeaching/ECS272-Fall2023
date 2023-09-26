@@ -5,8 +5,8 @@ Still, you will use JavaScript/TypeScript with [D3.js](https://d3js.org/).
 ## Resources
 
 To implement interactions in your own visualizations, you may find the following links useful:
-* [Interactive Plots with Selection in Vega-Lite](https://vega.github.io/vega-lite/docs/selection.html)
 * [Event handling in D3.js](https://gramener.github.io/d3js-playbook/events.html) (Note: syntax is slightly different since this is old D3.js)
+* [Mose events](https://observablehq.com/@d3/multitouch)
 * [d3-drag](https://github.com/d3/d3-drag), [d3-zoom](https://github.com/d3/d3-zoom), [d3-brush](https://github.com/d3/d3-brush)
 * Demos for the use of [d3-drag](https://bl.ocks.org/mbostock/22994cc97fefaeede0d861e6815a847e), [d3-zoom](https://observablehq.com/@d3/zoomable-bar-chart), [d3-brush](https://observablehq.com/@d3/brushable-scatterplot)
 

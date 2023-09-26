@@ -5,7 +5,7 @@ Observable introduces the notebook paradigm to JavaScript projects. If you are f
 
 This is an individual assignment, so you may not work in groups. Your final submission will take the form of a report, including the visualizations you will create and the description of the insights you will gain from your visualizations.
 
-A full example of visualization and analysis of a multidimensional dataset using D3.js and Vega-Lite can be found in [here](https://observablehq.com/d/2600cf5224a01f25)
+A full example of visualization and analysis of a multidimensional dataset using D3.js and Vega-Lite can be found in [here](https://observablehq.com/d/2600cf5224a01f25). Note that for D3.js, please use version v6 or v7 (the latest). Versions earlier than v6 use very different and outdated syntax.
 
 * An Observable Tutorial:  [Five-Minute Introduction to Observable](https://observablehq.com/@observablehq/five-minute-introduction) 
 
@@ -35,9 +35,13 @@ For Observable, you can attach datasets as CSV files. To do so, first make sure 
 ## Step 2: Process and Visualize the Data
 Once the chosen dataset is now loaded into the Observable notebook, you can begin processing the data for visualization. For data processing, vanilla JavaScript should be sufficient. However, feel free to use any Javascript library for processing and analyzing the data. 
 
-After data processing, now you should have some subsets of the data you seek to visualize. **We encourage you to use D3.js to create visualizations, as D3.js is required for future homework.**
+After data processing, now you should have some subsets of the data you seek to visualize. **We encourage you to use D3.js to create visualizations, as D3.js is required for future homework and the final porject.**
 
-A library that you could use for both analysis and visualization is [Vega-Lite](https://vega.github.io/vega-lite/). Vega-Lite provides a more concise and convenient form to author common visualizations. **While you may use Vega-Lite to gain familiarity with visualizations in this homework, Vega-Lite would not be allowed in HW2, HW3, and the final project.**
+Two libraries you may use in this assignment: [Observable Plot](https://observablehq.com/@observablehq/plot-gallery) and [Vega-Lite](https://vega.github.io/vega-lite/).
+Observable Plot allows you to visualize data in an efficient manner on Observable.
+Vega-Lite provides a more concise and convenient form to author common visualizations. 
+**While you may use these libraries to gain familiarity with visualizations in this homework, BOTH WOULD NOT BE ALLOWED in HW2, HW3, and the final project.**
+On a side note, we will use Observable Plot in workshops.
 
 ### Example
 An example of visualization and analysis of a mutlidimensional dataset using D3 can be found in [this Observable Notebook](https://observablehq.com/d/2600cf5224a01f25). You may refer to this notebook; however, **if you submit this exact visualization and analysis you will not receive any credit**.
