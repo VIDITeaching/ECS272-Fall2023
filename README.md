@@ -22,4 +22,3 @@ There are there homework assignments and one final project. Please find all the 
 * [Homework 3: Interaction Design](Homework3)
 
 Here's a [list of resources](Resources.md) that can be helpful for the assignments and project.
-

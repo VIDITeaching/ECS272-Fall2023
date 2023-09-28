@@ -1,4 +1,4 @@
-# Homework 3:  Visualization Dashboard Pt 2 (Interactivty)
+# Homework 3:  Visualization Dashboard Pt 2 (Interactivity)
 For Homework 3, you will be extending your Homework 2 dashboard to include interactions and animated transitions. **You may start fresh, i.e., selecting different datasets from HW2 or designing different visualizations.**
 Still, you will use JavaScript/TypeScript with [D3.js](https://d3js.org/).
 
@@ -6,7 +6,7 @@ Still, you will use JavaScript/TypeScript with [D3.js](https://d3js.org/).
 
 To implement interactions in your own visualizations, you may find the following links useful:
 * [Event handling in D3.js](https://gramener.github.io/d3js-playbook/events.html) (Note: syntax is slightly different since this is old D3.js)
-* [Mose events](https://observablehq.com/@d3/multitouch)
+* [Mouse events](https://observablehq.com/@d3/multitouch)
 * [d3-drag](https://github.com/d3/d3-drag), [d3-zoom](https://github.com/d3/d3-zoom), [d3-brush](https://github.com/d3/d3-brush)
 * Demos for the use of [d3-drag](https://bl.ocks.org/mbostock/22994cc97fefaeede0d861e6815a847e), [d3-zoom](https://observablehq.com/@d3/zoomable-bar-chart), [d3-brush](https://observablehq.com/@d3/brushable-scatterplot)
 
@@ -30,7 +30,7 @@ The following are types of transitions between data graphics:
 Some design considerations to make before crafting your animated transitions:
 
 * Maintain valid data graphics during transitions. 
-  * Avoid uninformative animation, and considering the relation between axes and the data marks during transitions
+  * Avoid uninformative animation, and consider the relation between axes and the data marks during transitions
 * Use consistent semantic-syntactic mappings.
   * To aid understanding, similar semantic operators should have suitably similar transitions across different types of data graphics. For example, the filtering of items in and out of the display could be standardized across graphic types. That is if in one view you apply a fade animation to filter items out other views that also filter in and out items also fade them in and out. Consistency is key.
 * Respect semantic correspondence.
@@ -81,4 +81,4 @@ git add <your-filename>
 git commit -m "Homework3" 
 git push
 ```
-After you pushed your code to your repository, follow the instruction [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to create a pull request for this repository. Finally, submit the hyperlink of the pull request to UCD Canvas. The hyperlink should look like - "https://github.com/ucdavis/ECS272-Fall2022/pull/{your-pull-request-id}".
+After you push your code to your repository, follow the instructions [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to create a pull request for this repository. Finally, submit the hyperlink of the pull request to UCD Canvas. The hyperlink should look like this - "https://github.com/ucdavis/ECS272-Fall2022/pull/{your-pull-request-id}".
