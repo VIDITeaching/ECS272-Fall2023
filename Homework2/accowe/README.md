@@ -4,6 +4,9 @@
 Make sure to have Node.js v14.18.0 or above
 
 1. Clone the repo or download the folder as a zip folder
+2. Navigate to `accowe` folder via `cd <repo-path>/ECS272-Fall2023/Homework2/accowe`
+3. Run `npm install` to install dependencies from `package.json`
+4. Run `npm start` and the app should start on `localhost:3000`
   
 _______
 # Getting Started with Create React App
