@@ -43,7 +43,7 @@ export default {
                                                (d.salary_currency == ('USD'))&&                                                 
                                                (d.employment_type==('FT'))&&
                                                (d.work_year==(2023))&&
-                                               (d.company_size==('L')));
+                                               (d.salary_in_usd > (300000)));
         // console.log(this.dots)
         console.log(this.newdataC)
     },
@@ -87,13 +87,15 @@ export default {
                                 '#bab0ac',
                                 '#ff9da7',
                                 '#76b7b2',
-                                '#016651']);
+                                '#016651',
+                                '#b30000',
+                                '#542788']);
             
             // Compute the position of each group on the pie:
             var pie = d3.pie()
                         .sort(null) // Do not sort group by size
                         .value(function(d) {return d[1]; })
-            var data_ready = pie(Object.entries(Modified_Object))
+            var data_ready = pie(Object.entries(count))
             var margin = 40
             var radius = Math.min(this.size.width, this.size.height) / 2.3
             // The arc generator
@@ -134,8 +136,8 @@ export default {
                 var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
                 posC[0] = radius * 0.95 * (midangle < Math.PI ? 1:-1); // multiply by 1 or -1 to put it on the right or on the left
                 // posC[1] = posC[1] + (midangle < Math.PI+0.5 ? 5 : 0);
-                posC[1] = posC[1] + (midangle < Math.PI+0.5 ? 5 : 0);
-                posB[1] = posB[1] + (midangle < Math.PI+0.5 ? 5 : 0);
+                // posC[1] = posC[1] + (midangle < Math.PI ? 0 : 5);
+                // posB[1] = posB[1] + (midangle < Math.PI ? 0 : 5);
                 return [posA, posB, posC]
                 })
 
@@ -150,7 +152,7 @@ export default {
                     var pos = outerArc.centroid(d);
                     var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
                     pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-                    pos[1] = pos[1] + (midangle < Math.PI+0.5 ? 8 : 0);
+                    // pos[1] = pos[1] + (midangle < Math.PI ? 8 : 0);
                     // pos[1] += 20;
                     return 'translate(' + pos  + ')';
                 })
@@ -158,6 +160,7 @@ export default {
                     var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
                     return (midangle < Math.PI ? 'start' : 'end')
                 })
+                .style('font-size', '.9rem')
                 const title = donutContainer.append('g')
                     .append('text') // adding the text
                     .attr('transform', `translate(${this.size.width / 2}, ${this.size.height-this.margin.bottom})`)
@@ -165,7 +168,7 @@ export default {
                     .style('text-anchor', 'middle')
                     .style('font-weight', 'bold')
                     .style('font-size', '1rem')
-                    .text('Fig.3 Different Job Title for Data Scientist (exclude executor level) in Large company in 2023 US') // text content
+                    .text('Fig.3 Different Job Title for Data Scientist whose salary > 30,0000 in 2023 US') // text content
 
             
         }

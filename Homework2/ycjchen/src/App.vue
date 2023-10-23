@@ -37,8 +37,9 @@ export default {
           <Example class="scatter"/>
           <div class="scatterText " >
               Fig1. <br>
-              From the scatter plot we found out that most of the Data Scientists work in company in the US,
-              and their salary fall between 50,000 and 300,000. Also, Data Scients with high salary also works in the US.
+              From the scatter plot we found out that the United States(US), India(IN), United Kindom(GB), Franch(FR), Spain(ES), Germany(DE) and Canada(CA)  
+              have the most number of Data Scientists. Among all, the US has the most Data Scientists
+              and the largest salary range. Their salaries generally fall between 50,000(USD) to 30,0000(USD). 
           </div>
         </v-col>
         <v-col cols="6">
@@ -48,19 +49,19 @@ export default {
                   <div class="parallelText " >
                       Fig2. <br>
                       We only choose the Data Scientists who work in 2023 US with full time employment and discover the 
-                      relationship between experience level, salary, and company size. From the parallel coordinate chart 
-                      we can see that most of the companies are in medium size. 
-                      For the companies in large size, we highlight them in red color, we found out that 
-                      there are no Data Scientists in the highest level(executor).
+                      relationship between experience level( EN: entry level, MI: middile level, SE: senior level, EX: executor level), salary, and company size(S:small, M:medium, L:large). 
+                      From the parallel coordinate chart we can see that Data Scientists in the EX level do not have the highest salaries. 
+                      SE level has larger salary range, from lower than 50,000(USD) to almost 45,0000(USD).
+                      For the companies in large and small size, there are no Data Scientists in the EX level.
                   </div>
               </v-col>
               <v-col cols="12" style="height: 53vh;">
                   <JobTitle class="donut"/>
                   <div class="donutText " >
                       Fig3. <br>
-                      From the above choosing data, we continuouslly focus on Data Scientists in large company and 
+                      From the above choosing data, we continuouslly focus on Data Scientists with salary &gt 30,0000(USD) and 
                       observe the count of their job title. We can see from the donut chart, there are the most 
-                      applied scientist and data engineer.
+                      Machine Learning Engineer, Data Engineer and Data Scientist.
                   </div>
               </v-col>
             </v-row>
@@ -85,10 +86,10 @@ export default {
 .scatter:hover + .scatterText{
   display: block;
   position: absolute;
-  width:45vh;
-  height:20vh;
-  top: 30vh;
-  left: 53vh;
+  width:50vh;
+  height:25vh;
+  top: 60vh;
+  left: 70vh;
   text-align: justify;
   padding: 10px;
   border: 1px solid black;
@@ -102,8 +103,8 @@ export default {
 .parallel:hover + .parallelText{
   display: block;
   position: absolute;
-  width:45vh;
-  height:31vh;
+  width:50vh;
+  height:37vh;
   top: 25vh;
   left: 53vh;
   text-align: justify;
@@ -120,9 +121,9 @@ export default {
   display: block;
   position: absolute;
   width:45vh;
-  height:20vh;
-  top: 30vh;
-  left: 53vh;
+  height:23vh;
+  top: 60vh;
+  left: 65vh;
   text-align: justify;
   padding: 10px;
   border: 1px solid black;

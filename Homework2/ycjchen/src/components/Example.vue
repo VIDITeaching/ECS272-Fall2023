@@ -96,7 +96,7 @@ export default {
             let xExtents = d3.extent(this.dots.map((d: CategoricalDot) => d.salary_in_usd as number)) as [number, number]
             // console.log(yExtents)
             // This is to get the unique categories from the data using Set, then store in an array.
-            let yCategories: string[] = [ ...new Set(this.dots.map((d: CategoricalDot) => d.company_location as string))]
+            let yCategories: string[] = [ ...new Set(this.dots.map((d: CategoricalDot) => d.company_location as string))].sort()
             // console.log(yCategories)
 
             // We need a way to map our data to where it should be rendered within the svg (in screen pixels), based on the data value, 
@@ -108,12 +108,9 @@ export default {
             let yScale = d3.scalePoint()
                 .range([this.size.height - this.margin.bottom, this.margin.top])
                 .domain(yCategories)
-            // console.log(yScale)
-                // .padding(0.1) // spacing between the categories
-
             // In viewport (our screen), the topmost side always refer to 0 in the vertical coordinates in pixels (y). 
             let xScale = d3.scaleLinear()
-                .range([this.margin.left, this.size.width - this.margin.right+30]) //bottom side to the top side on the screen
+                .range([this.margin.left, this.size.width - this.margin.right+20]) //bottom side to the top side on the screen
                 .domain([0, xExtents[1]]) // This is based on your data, but if there is a natural value range for your data attribute, you should follow
                 // e.g., it is natural to define [0, 100] for the exame score, or [0, <maxVal>] for counts.
 
@@ -127,11 +124,31 @@ export default {
                 .call(d3.axisBottom(xScale))
                 .style("font-size", "8px")
 
+            
+            // chartContainer.selectAll(".xAxis text")
+            //     .data<CategoricalDot>(this.dots)
+            
+                
+
             const yAxis = chartContainer.append('g')
                 .attr('transform', `translate(${this.margin.left}, 0)`)
                 .call(d3.axisLeft(yScale))
                 .style("font-size", "8px")
-
+            
+            const highlight = yAxis.selectAll("text")                 
+                                .data(yCategories)
+                                .style('fill', function (d) { if(d == ('US')||
+                                                                 d == ('CA')||
+                                                                 d == ('DE')||
+                                                                 d == ('ES')||
+                                                                 d == ('FR')||
+                                                                 d == ('GB')||
+                                                                 d == ('IN')){
+                                                                    return 'red';
+                                                                 }
+                                                              
+                                        
+                                                              else{return "black"};})
             const yLabel = chartContainer.append('g')
                 .attr('transform', `translate(${7}, ${this.size.height / 2}) rotate(-90)`)
                 .append('text')
@@ -139,11 +156,10 @@ export default {
                 .style('font-size', '.9rem')
 
             const xLabel = chartContainer.append('g')
-                .attr('transform', `translate(${this.size.width - this.margin.left -20}, ${this.size.height - this.margin.top})`)
+                .attr('transform', `translate(${this.size.width - this.margin.left -15}, ${this.size.height - this.margin.top-10})`)
                 .append('text')
                 .text('Salary(USD)')
                 .style('font-size', '.9rem')
-            
             // "g" is grouping element that does nothing but helps avoid DOM looking like a mess
             // We iterate through each <CategoricalBar> element in the array, create a rectangle for each and indicate the coordinates, the rectangle, and the color.
             const dots = chartContainer.append('g')
@@ -155,13 +171,41 @@ export default {
                 .attr('cx', (d: CategoricalDot) => xScale(d.salary_in_usd) as number)
                 .attr('cy', (d: CategoricalDot) => yScale(d.company_location) as string)
                 // specify the size of the rectangle
-                .attr("stroke",function (d) { if(d.company_location == 'US'){
-                                                 return 'grey';
+                .attr("stroke",function (d) { if(d.company_location == 'US'||
+                                                 d.company_location == 'CA'||
+                                                 d.company_location == 'DE'||
+                                                 d.company_location == 'ES'||
+                                                 d.company_location == 'FR'||
+                                                 d.company_location == 'GB'||
+                                                 d.company_location == 'IN'){
+                                                 return '#3A3B3C'; //light black
                                             }
-                                            else{return "grey"};})
+                                            else{return "#8C8C8C"};})
                 .attr('fill','none')
                 .attr("r",2.5)
-
+            // console.log(xScale.ticks())
+            const grid = chartContainer.append('g')
+                .selectAll('line')
+                .data(xScale.ticks())
+                .enter()
+                .append('line')
+                .attr('x1', d => {return xScale(d)})
+                .attr('x2', d => xScale(d))
+                .attr('y1', this.margin.top)
+                .attr('y2', this.size.height - this.margin.bottom)
+                .style('stroke','lightgrey')
+                .style('opacity',0.3)
+            const grid2 = chartContainer.append('g')
+            .selectAll('line')
+            .data(yCategories)
+            .enter()
+            .append('line')
+            .attr('x1', this.margin.left)
+            .attr('x2', this.size.width-this.margin.right+20)
+            .attr('y1', d=> yScale(d))
+            .attr('y2', d=> yScale(d))
+            .style('stroke','lightgrey')
+            .style('opacity',0.3)
             // For transform, check out https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm, but essentially we are adjusting the positions of the selected elements.
             const title = chartContainer.append('g')
                 .append('text') // adding the text

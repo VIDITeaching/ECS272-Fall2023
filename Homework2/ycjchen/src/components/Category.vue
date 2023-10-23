@@ -94,7 +94,7 @@ export default {
                   .padding(0.01)
                   .domain(key);
 
-            var color = d3.scaleOrdinal(['#fde725','#41ae76','#081d58']).domain(['S','M','L'])
+            var color = d3.scaleOrdinal(['#fde725','#35b779','#31688e','#440154']).domain(['EN','MI','SE','EX'])
             
             var y = {}
             y[key[0]] = yLevel
@@ -115,11 +115,8 @@ export default {
                 .attr("d",  path)
                 .style("fill", "none")
                 .style("stroke", 
-                function (d) { if(d.company_size == 'L'){
-                                                 return 'red';
-                                            }
-                                            else{return "#D3D3D3"};})  //function(d){return color(d.company_size)})
-                .style("opacity", 0.5)
+                function(d){return color(d.experience_level)})
+                .style("opacity", 0.2)
                 .style('stroke-width', '1px')
             let yAxis1 = lineContainer.append("g").attr("transform", "translate(" + xScale(key[0]) + ",50)")
             .call(d3.axisLeft(yLevel))
@@ -129,19 +126,26 @@ export default {
             .attr("y", -15)
             .text(key[0])
             .style("fill", "black")
-            .style('font-size', '.9rem')
 
-            let yAxis2 = lineContainer.append("g")
+            const yAxis2 = lineContainer.append("g")
             // I translate this element to its right position on the x axis
             .attr("transform", "translate(" + xScale(key[1]) + ",50)")
             // And I build the axis with the call function
             .call(d3.axisLeft(ySalary))
+
+            const highlight = yAxis2.selectAll("text")
+                                  .style('font-weight', 'bold')
+                                //   .style('font-size', '1.1rem')
+
+            const y2title = yAxis2
             // Add axis title
             .append("text")
             .style("text-anchor", "middle")
             .attr("y", -15)
             .text(key[1])
             .style("fill", "black")
+
+
 
 
             let yAxis3 = lineContainer.append("g")
