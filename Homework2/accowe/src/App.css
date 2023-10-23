@@ -1,0 +1,17 @@
+.App {
+  margin: 0px 25px 25px 30px;
+}
+
+
+.App-header {
+}
+
+.dashboard{
+  text-align: center;
+
+}
+
+.dashboard_g{
+  border: black;
+  border-style: solid;
+}
