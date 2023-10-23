@@ -1,0 +1,11 @@
+{
+    "data":[
+   {
+     "salary_in_usd": 85847,
+     "company_location": "ES"
+   },
+   {
+     "salary_in_usd": 30000,
+     "company_location": "US"
+   }]
+}
