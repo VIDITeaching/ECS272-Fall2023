@@ -1,3 +1,11 @@
+# Set-up Instructions
+
+## Dependencies
+Make sure to have Node.js v14.18.0 or above
+
+1. Clone the repo or download the folder as a zip folder
+  
+_______
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
