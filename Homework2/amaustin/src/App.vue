@@ -1,13 +1,13 @@
 <script lang="ts">
 
 import DonutChart from './components/DonutChart.vue'
-import ScatterPlot from './components/ScatterPlot.vue'
+import HistogramChart from './components/HistogramChart.vue'
 import SankeyDiagram from './components/SankeyDiagram.vue'
 
 export default {
   components: {
     DonutChart,
-    ScatterPlot,
+    HistogramChart,
     SankeyDiagram
   }
 }
@@ -22,7 +22,7 @@ export default {
     </v-row>
     <v-row no-gutters>
       <v-col>
-        <ScatterPlot />
+        <HistogramChart />
       </v-col>
       <v-col>
         <DonutChart />
