@@ -10,6 +10,7 @@ Make sure you have Node.js v14.18.0 or above installed beforehand.
 4. Run `npm start` and the app should start on `localhost:3000`
 
 Additional details on the npm commands/scripts related to this react app are detailed below.
+(Feel free to reach out if the set-up above isn't working)
 
 _______
 # Getting Started with Create React App
