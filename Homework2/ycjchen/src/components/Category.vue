@@ -163,7 +163,7 @@ export default {
             .style('text-anchor', 'middle')
             .style('font-weight', 'bold')
             .style('font-size', '1rem')
-            .text('Data Scientist with different Salaries in 2023 US') // text content
+            .text('Fig.2 Data Scientist with different Salaries in 2023 US') // text content
            
 
             

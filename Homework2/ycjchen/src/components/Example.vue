@@ -113,7 +113,7 @@ export default {
 
             // In viewport (our screen), the topmost side always refer to 0 in the vertical coordinates in pixels (y). 
             let xScale = d3.scaleLinear()
-                .range([this.margin.left, this.size.width - this.margin.right]) //bottom side to the top side on the screen
+                .range([this.margin.left, this.size.width - this.margin.right+30]) //bottom side to the top side on the screen
                 .domain([0, xExtents[1]]) // This is based on your data, but if there is a natural value range for your data attribute, you should follow
                 // e.g., it is natural to define [0, 100] for the exame score, or [0, <maxVal>] for counts.
 
@@ -156,9 +156,9 @@ export default {
                 .attr('cy', (d: CategoricalDot) => yScale(d.company_location) as string)
                 // specify the size of the rectangle
                 .attr("stroke",function (d) { if(d.company_location == 'US'){
-                                                 return 'black';
+                                                 return 'grey';
                                             }
-                                            else{return "black"};})
+                                            else{return "grey"};})
                 .attr('fill','none')
                 .attr("r",2.5)
 
@@ -170,7 +170,7 @@ export default {
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
                 .style('font-size', '1rem')
-                .text('Data Scientist Salaries in different Countries') // text content
+                .text('Fig.1 Data Scientist Salaries in different Countries') // text content
         }
     },
     watch: {
@@ -222,16 +222,12 @@ export default {
 <style >
 .chart-container{
     height: 100%;
+    /* display: flex; */
     /* display: flex;
     position:relative; */
 }
 
-.yearslider{
-    display: absolute;
-    bottom:58rem;
-    left:40rem;
-    /* margin-left:75%; */
-}
+
 .v-slider.v-input--horizontal{
     position:absolute;
     width:45vh;

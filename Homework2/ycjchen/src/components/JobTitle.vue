@@ -43,8 +43,7 @@ export default {
                                                (d.salary_currency == ('USD'))&&                                                 
                                                (d.employment_type==('FT'))&&
                                                (d.work_year==(2023))&&
-                                               (d.company_size==('L'))&&
-                                               (d.experience_level!=('EX')));
+                                               (d.company_size==('L')));
         // console.log(this.dots)
         console.log(this.newdataC)
     },
@@ -166,7 +165,7 @@ export default {
                     .style('text-anchor', 'middle')
                     .style('font-weight', 'bold')
                     .style('font-size', '1rem')
-                    .text('Different Job Title for Data Scientist(exclude executor) in Large company in 2023 US') // text content
+                    .text('Fig.3 Different Job Title for Data Scientist (exclude executor level) in Large company in 2023 US') // text content
 
             
         }
