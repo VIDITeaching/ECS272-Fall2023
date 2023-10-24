@@ -89,7 +89,6 @@ export default {
                 .thresholds(x.ticks(16))
 
             let bins = histogram(processedData)
-            console.log(bins)
 
             // TODO: color bars based on hours per day, add legend
             // adding histogram bars

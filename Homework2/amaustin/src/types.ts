@@ -23,3 +23,8 @@ export interface Bar{
 export interface Pie{
     readonly count: number;
 }
+
+export interface Graph{
+    readonly nodes: [];
+    readonly links: []; 
+}

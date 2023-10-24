@@ -1,59 +1,43 @@
 <script lang="ts">
 import * as d3 from "d3";
+import * as d3Sankey from 'd3-sankey';
 import axios from 'axios';
 import { isEmpty, debounce } from 'lodash';
 
-import { Pie, Bar, ComponentSize, Margin } from '../types';
+import { Graph, ComponentSize, Margin } from '../types';
 
 // music & mental health survey data
 // https://www.kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results
 const data = await d3.csv('../../data/mxmh_survey_results.csv');
 
-// processing data for pie chart
-const ageGroups = groupBy(data, "Age");
-let ageData = [];
-Object.keys(ageGroups).forEach(a => {
-    if (!isNaN(parseInt(a))) {
-        let dataObj = {
-            age: a,
-            count: ageGroups[a].length
-        }
-        ageData.push(dataObj);
-    }
+let sankeyData = {"nodes": [], "links": []}
+
+// processing data for chart
+data.forEach(d => {
+    let source = d['Fav genre']
+    let target = d['Anxiety']
+    let value = d['Hours per day']
+    sankeyData.nodes.push({ "name": source })
+    sankeyData.nodes.push({ "name": target })
+    sankeyData.links.push({ "source": source, "target": target, "value": +value })
 })
-
-function groupBy(arr, property) {
-    return arr.reduce(function (acc, obj) {
-        let key = obj[property]
-        if (!acc[key]) {
-            acc[key] = []
-        }
-        acc[key].push(obj)
-            return acc
-        }, 
-    {})
-}
-
-interface CategoricalPie extends Pie{
-    age: string;
-}
 
 export default {
     data() {
         return {
-            sections: [] as CategoricalPie[],
-            size: { width: 780, height: 300 } as ComponentSize,
+            nodes: [] as Graph[],
+            size: { width: 700, height: 400 } as ComponentSize,
             margin: {left: 40, right: 40, top: 15, bottom: 40} as Margin
         }
     },
     computed: {
         rerender() {
-            return (!isEmpty(this.sections)) && this.size
+            return (!isEmpty(this.nodes)) && this.size
         }
     },
     created() { 
         if (isEmpty(data)) return;
-        this.sections = ageData;
+        this.nodes = sankeyData;
     },
     methods: {
         onResize() {
@@ -62,58 +46,53 @@ export default {
             this.size = { width: target.clientWidth, height: target.clientHeight };
         },
         initChart() {
+            // sankey diagram: https://observablehq.com/@d3/sankey-component
             let chartContainer = d3.select('#sankey-svg')
+
+            const format = d3.format(",.0f")
         
-            let yExtents = d3.extent(this.sections.map((d: CategoricalPie) => d.count as number)) as [number, number]
-            let xCategories: string[] = [ ...new Set(this.sections.map((d: CategoricalPie) => d.age as string))]
+            const sankey = d3Sankey.sankey()
+                .nodeWidth(15)
+                .nodePadding(10)
+                .extent([[this.margin.left, this.margin.top], [this.size.width - this.margin.right, this.size.height - this.margin.bottom]])
 
+            const path = sankey.links()
+            console.log(sankeyData)
+            const graph = sankey(sankeyData)
+
+            const colors = d3.scaleOrdinal(d3.schemeBlues)
+
+            // links
+            const link = chartContainer.append('g')
+                .selectAll('links')
+                .data(graph.links)
+                .join('path')
+                    .attr('class', 'link')
+                    .attr('d', d3Sankey.sankeyLinkHorizontal())
+                    .attr('stroke-width', (d) => d.width)
             
-            let xScale = d3.scaleBand()
-                .rangeRound([this.margin.left, this.size.width - this.margin.right])
-                .domain(xCategories)
-                .padding(0.1)
+            // link titles
+            link.append('title')
+                .text((d) => d.source.name + ' -> ' + d.target.name + '\n' + format(d.value))
 
-            let yScale = d3.scaleLinear()
-                .range([this.size.height - this.margin.bottom, this.margin.top]) 
-                .domain([0, yExtents[1]])
-
-            const xAxis = chartContainer.append('g')
-                .attr('transform', `translate(0, ${this.size.height - this.margin.bottom})`)
-                .call(d3.axisBottom(xScale))
-
-            const yAxis = chartContainer.append('g')
-                .attr('transform', `translate(${this.margin.left}, 0)`)
-                .call(d3.axisLeft(yScale))
-
-            const yLabel = chartContainer.append('g')
-                .attr('transform', `translate(${10}, ${this.size.height / 2}) rotate(-90)`)
-                .append('text')
-                .text('Value')
-                .style('font-size', '.8rem')
-
-            const xLabel = chartContainer.append('g')
-                .attr('transform', `translate(${this.size.width / 2 - this.margin.left}, ${this.size.height - this.margin.top + 10})`)
-                .append('text')
-                .text('Categories')
-                .style('font-size', '.8rem')
+            // nodes
+            const node = chartContainer.append('g')
+                .attr('x', (d) => d.x0)
+                .attr('y', (d) => d.y0)
+                .attr('height', (d) => d.y1 - d.y0)
+                .attr('width', sankey.nodeWidth())
+                .style('fill', function(d) {
+                    return d.color = colors(d.name.replace(/ .*/, ""))
+                })
+                
             
-            const bars = chartContainer.append('g')
-                .selectAll('rect')
-                .data<CategoricalPie>(this.sections)
-                .join('rect')
-                .attr('x', (d: CategoricalPie) => xScale(d.age) as number)
-                .attr('y', (d: CategoricalPie) => yScale(d.count) as number)
-                .attr('width', xScale.bandwidth())
-                .attr('height', (d: CategoricalPie) => Math.abs(yScale(0) - yScale(d.count))) 
-                .attr('fill', 'teal')
-
             const title = chartContainer.append('g')
                 .append('text')
                 .attr('transform', `translate(${this.size.width / 2}, ${this.size.height + this.margin.top})`)
                 .attr('dy', '0.5rem') 
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
-                .text('Distribution of Participant Ages')
+                .text('Focus View')
         }
     },
     watch: {

@@ -16,6 +16,7 @@ const data = await d3.csv('../../data/mxmh_survey_results.csv');
 // processing data for pie chart
 const streamGroups = groupBy(data, "Primary streaming service");
 let streamData = [];
+let sum = 0;
 Object.keys(streamGroups).forEach(a => {
     if (a != "") {
         let platform = ""
@@ -30,9 +31,10 @@ Object.keys(streamGroups).forEach(a => {
                 platform = a;
         }
         let dataObj = {
-        category: platform,
-        count: streamGroups[a].length
+            category: platform,
+            count: streamGroups[a].length
         }
+        sum += streamGroups[a].length
         streamData.push(dataObj);
     }
 })
@@ -79,6 +81,7 @@ export default {
             let radius = Math.min(this.size.width, this.size.height) / 2
             let donutWidth = 75
             const colors = d3.scaleOrdinal(d3.schemeCategory10)
+            const format = d3.format(",.1f")
             
             // arc generator
             let arc = d3.arc()
@@ -144,7 +147,7 @@ export default {
                         return (midAngle < Math.PI ? 'start' : 'end')
                     })
                     .style('font-size', '12px')
-                    .text((d) => d.data.category) // TODO: add percentages
+                    .text((d) => `${format((d.data.count / sum) * 100)}%  ${d.data.category}`)
 
             const title = chartContainer.append('g')
                 .append('text')

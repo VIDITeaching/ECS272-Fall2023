@@ -14,6 +14,9 @@ export default {
 </script>
 
 <template>
+  <h1 style="font-size:30px; font-family:monospace; margin:15px;">
+    Music & Mental Health Survey Results
+  </h1>
   <v-container id="main-container" class="d-flex flex-column flex-nowrap" fluid>
     <v-row>
       <v-col>
