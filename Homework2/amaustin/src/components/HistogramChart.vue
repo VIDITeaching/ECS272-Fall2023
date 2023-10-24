@@ -67,15 +67,15 @@ export default {
                 .attr('transform', `translate(0, ${this.size.height - this.margin.bottom})`)
                 .call(d3.axisBottom(x).ticks(16))
             
-            // const yAxis = chartContainer.append('g')
-            //     .attr('transform', `translate(${this.margin.left}, 0)`)
-            //     .call(d3.axisLeft(y))
+            const yAxis = chartContainer.append('g')
+                .attr('transform', `translate(${this.margin.left}, 0)`)
+                .call(d3.axisLeft(y))
 
-            // const yLabel = chartContainer.append('g')
-            //     .attr('transform', `translate(${10}, ${this.size.height / 2 + this.margin.bottom}) rotate(-90)`)
-            //     .append('text')
-            //     .text('Value')
-            //     .style('font-size', '.8rem')
+            const yLabel = chartContainer.append('g')
+                .attr('transform', `translate(${10}, ${this.size.height / 2 + this.margin.bottom}) rotate(-90)`)
+                .append('text')
+                .text('Value')
+                .style('font-size', '.8rem')
 
             const xLabel = chartContainer.append('g')
                 .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - this.margin.top + 10})`)
@@ -121,6 +121,8 @@ export default {
                 .attr('dy', '0.5rem') 
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
+                .style('font-family', 'monospace')
+                .style('font-size', '18')
                 .text('Distribution of Participant Ages')
         }
     },

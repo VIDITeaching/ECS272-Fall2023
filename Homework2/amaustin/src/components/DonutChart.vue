@@ -80,7 +80,7 @@ export default {
 
             let radius = Math.min(this.size.width, this.size.height) / 2
             let donutWidth = 75
-            const colors = d3.scaleOrdinal(d3.schemeCategory10)
+            const colors = d3.scaleOrdinal(d3.schemeAccent)
             const format = d3.format(",.1f")
             
             // arc generator
@@ -147,7 +147,7 @@ export default {
                         return (midAngle < Math.PI ? 'start' : 'end')
                     })
                     .style('font-size', '12px')
-                    .text((d) => `${format((d.data.count / sum) * 100)}%  ${d.data.category}`)
+                    .text((d) => `${format((d.data.count / sum) * 100)}% - ${d.data.category}`)
 
             const title = chartContainer.append('g')
                 .append('text')
@@ -155,6 +155,8 @@ export default {
                 .attr('dy', '0.5rem') 
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
+                .style('font-family', 'monospace')
+                .style('font-size', '18')
                 .text('Primary Streaming Services')
         }
     },
