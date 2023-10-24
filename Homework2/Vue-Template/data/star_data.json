@@ -1,0 +1,28 @@
+{
+	"data": [
+		{
+			"value": 68, 
+			"category": "HP"
+		}, 
+		{
+			"value": 69, 
+			"category": "Sp. Defense"
+		},
+		{
+			"value": 75, 
+			"category": "Attack"
+		}, 
+		{
+			"value": 69, 
+			"category": "Sp. Attack"
+		}, 
+		{
+			"value": 71, 
+			"category": "Defense"
+		}, 
+		{
+			"value": 66, 
+			"category": "Speed"
+		}
+	]
+}
