@@ -22,7 +22,7 @@ export default {
             // dots: [] as Title[], // "as <Type>" is a TypeScript expression to indicate what data structures this variable is supposed to store.
             newdataC: [] as Title[],
             size: { width: 0, height: 0 } as ComponentSize,
-            margin: {left: 50, right: 50, top: 0, bottom: 10} as Margin,
+            margin: {left: 50, right: 50, top: 0, bottom: 5} as Margin,
         }
     },
     computed: {
@@ -96,8 +96,7 @@ export default {
                         .sort(null) // Do not sort group by size
                         .value(function(d) {return d[1]; })
             var data_ready = pie(Object.entries(count))
-            var margin = 40
-            var radius = Math.min(this.size.width, this.size.height) / 2.3
+            var radius = Math.min(this.size.width, this.size.height) / 2.1
             // The arc generator
             var arc = d3.arc()
             .innerRadius(radius * 0.5)         // This is the size of the donut hole
@@ -168,7 +167,7 @@ export default {
                     .style('text-anchor', 'middle')
                     .style('font-weight', 'bold')
                     .style('font-size', '1rem')
-                    .text('Fig.3 Different Job Title for Data Scientist whose salary > 30,0000 in 2023 US') // text content
+                    .text('Fig. 3 The Job Titles of the Data Scientist of US in 2023 with salary > 300,000 USD') // text content
 
             
         }

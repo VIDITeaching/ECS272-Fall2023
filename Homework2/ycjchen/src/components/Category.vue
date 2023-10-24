@@ -38,7 +38,7 @@ export default {
             // dots: [] as JobInfo[], // "as <Type>" is a TypeScript expression to indicate what data structures this variable is supposed to store.
             newdata: [] as JobInfo[],
             size: { width: 0, height: 0 } as ComponentSize,
-            margin: {left: 50, right: 50, top: 10, bottom: 60} as Margin,
+            margin: {left: 50, right: 50, top: 5, bottom: 60} as Margin,
             // keys: ['work_year','experience_level','salary_in_usd','company_size'
             // ] as Array<String>,
         }
@@ -116,8 +116,8 @@ export default {
                 .style("fill", "none")
                 .style("stroke", 
                 function(d){return color(d.experience_level)})
-                .style("opacity", 0.2)
-                .style('stroke-width', '1px')
+                .style("opacity", 0.7)
+                .style('stroke-width', '0.8px')
             let yAxis1 = lineContainer.append("g").attr("transform", "translate(" + xScale(key[0]) + ",50)")
             .call(d3.axisLeft(yLevel))
             // Add axis title
@@ -126,6 +126,7 @@ export default {
             .attr("y", -15)
             .text(key[0])
             .style("fill", "black")
+            .style('font-size', '.9rem')
 
             const yAxis2 = lineContainer.append("g")
             // I translate this element to its right position on the x axis
@@ -144,6 +145,7 @@ export default {
             .attr("y", -15)
             .text(key[1])
             .style("fill", "black")
+            .style('font-size', '.9rem')
 
 
 
@@ -152,13 +154,14 @@ export default {
             // I translate this element to its right position on the x axis
             .attr("transform", "translate(" + xScale(key[2]) + ",50)")
             // And I build the axis with the call function
-            .call(d3.axisLeft(ySize))
+            .call(d3.axisRight(ySize))
             // Add axis title
             .append("text")
             .style("text-anchor", "middle")
             .attr("y", -15)
             .text(key[2])
             .style("fill", "black")
+            .style('font-size', '.9rem')
 
             const title = lineContainer.append('g')
             .append('text') // adding the text
@@ -167,7 +170,7 @@ export default {
             .style('text-anchor', 'middle')
             .style('font-weight', 'bold')
             .style('font-size', '1rem')
-            .text('Fig.2 Data Scientist with different Salaries in 2023 US') // text content
+            .text('Fig. 2 Full Time Data Science Job Salaries of US in 2023') // text content
            
 
             

@@ -150,13 +150,13 @@ export default {
                                         
                                                               else{return "black"};})
             const yLabel = chartContainer.append('g')
-                .attr('transform', `translate(${7}, ${this.size.height / 2}) rotate(-90)`)
+                .attr('transform', `translate(${10}, ${this.size.height / 2}) rotate(-90)`)
                 .append('text')
                 .text('Company location')
                 .style('font-size', '.9rem')
 
             const xLabel = chartContainer.append('g')
-                .attr('transform', `translate(${this.size.width - this.margin.left -15}, ${this.size.height - this.margin.top-10})`)
+                .attr('transform', `translate(${this.size.width - this.margin.left -40}, ${this.size.height - this.margin.top-10})`)
                 .append('text')
                 .text('Salary(USD)')
                 .style('font-size', '.9rem')
@@ -178,7 +178,7 @@ export default {
                                                  d.company_location == 'FR'||
                                                  d.company_location == 'GB'||
                                                  d.company_location == 'IN'){
-                                                 return '#3A3B3C'; //light black
+                                                 return '#454545'; //light black
                                             }
                                             else{return "#8C8C8C"};})
                 .attr('fill','none')
