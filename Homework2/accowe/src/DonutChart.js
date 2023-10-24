@@ -122,7 +122,7 @@ function DonutChart(props){
     const processedData = processData(props.data)
 
     // Set up dimensional constants for svg
-    const width = 660, height = 600;
+    const width = 410, height = 350;
     const margin = 40;
     const radius = Math.min(width, height) / 2;
 
@@ -201,10 +201,17 @@ function DonutChart(props){
 
         // Add title text
         svg.append("text")
-            .attr("x", -300)
-            .attr("y", -250)
+            .attr("x", -(width * 0.5))
+            .attr("y", -(height * 0.45))
             .attr("font-weight", "bold")
-            .text("No. Pokemon of Primary Type X");
+            .attr("font-size", 15)
+            .text("No. Pokemon");
+        svg.append("text")
+            .attr("x", -(width * 0.5))
+            .attr("y", -(height * 0.4))
+            .attr("font-weight", "bold")
+            .attr("font-size", 15)
+            .text("of Primary Type X");
     })
 
     // Return the svg chart

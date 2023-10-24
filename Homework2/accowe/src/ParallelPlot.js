@@ -38,7 +38,7 @@ function ParallelPlot(props){
     // Set up dimensional constants for svg
     const margin = {top: 30, right: 50, bottom: 10, left: 50},
         width = 1500,
-        height = 759;
+        height = 350;
 
     // Set up type colors for colored lines based on type
     const typeColors = {

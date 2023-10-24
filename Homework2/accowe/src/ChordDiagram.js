@@ -151,7 +151,7 @@ function ChordDiagram(props){
     const matrixData = processData(props.data)[1]
 
     // Set up dimensional constants for svg
-    const width = 600, height = 600;
+    const width = 350, height = 350, margin = 40;
     const outerRadius = Math.min(width, height) * 0.5 - 30;
     const innerRadius = outerRadius - 20;
 
@@ -194,7 +194,9 @@ function ChordDiagram(props){
             .attr("width", width)
             .attr("height", height)
             .attr("viewBox", [-width / 2 - 20, -height / 2 - 20 , width * 1.1, height * 1.1])
-            .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+            .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;")
+            .attr("transform",
+                "translate(" + margin + "," + margin + ")");
 
         // Set up instance of chords with matrix data
         const chords = chord(matrixData)
@@ -260,18 +262,18 @@ function ChordDiagram(props){
 
         // Add title text
         svg.append("text")
-            .attr("x", -320)
-            .attr("y", -280)
+            .attr("x", -(width * 0.55))
+            .attr("y", -(height * 0.5))
             .attr("font-weight", "bold")
             .attr("font-size", 15)
-            .text("No. Pokemon with Primary Type X ");
+            .text("No. Pokemon of Type X");
 
         svg.append("text")
-            .attr("x", -320)
-            .attr("y", -260)
+            .attr("x", -(width * 0.55))
+            .attr("y", -(height * 0.45))
             .attr("font-weight", "bold")
             .attr("font-size", 15)
-            .text("and Secondary Type Y");
+            .text("w/ Type Y");
 
 
 
