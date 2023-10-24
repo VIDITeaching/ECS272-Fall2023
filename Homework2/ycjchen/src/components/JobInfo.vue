@@ -6,7 +6,7 @@ import Data from '../../data/ds_salaries.json';
 import axios from 'axios';
 import { isEmpty, debounce } from 'lodash';
 
-import { Dot, ComponentSize, Margin, Key } from '../types';
+import { Dot, ComponentSize, Margin } from '../types';
 // A "extends" B means A inherits the properties and methods from B.
 
 interface JobInfo extends Dot{
@@ -15,32 +15,14 @@ interface JobInfo extends Dot{
     company_size:string;
     remote_ratio:number;
 }
-// interface YData {
-//   yWorkYear: number[];
-//   yLevel: string[];
-//   ySalary: [number, number];
-//   ySize: string[];
-// }
-// interface YData {
-//   [key: string]: d3.ScaleLinear<number, number> | d3.ScalePoint<string>;
-//   yWorkYear: d3.ScaleLinear<number, number>;
-//   yLevel: d3.ScalePoint<string>;
-//   ySalary: d3.ScaleLinear<number, number>;
-//   ySize: d3.ScalePoint<string>;
-// }
-// Computed property: https://vuejs.org/guide/essentials/computed.html
-// Lifecycle in vue.js: https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 
 export default {
     data() {
         // Here we define the local states of this component. If you think the component as a class, then these are like its private variables.
         return {
-            // dots: [] as JobInfo[], // "as <Type>" is a TypeScript expression to indicate what data structures this variable is supposed to store.
             newdata: [] as JobInfo[],
             size: { width: 0, height: 0 } as ComponentSize,
             margin: {left: 50, right: 50, top: 5, bottom: 60} as Margin,
-            // keys: ['work_year','experience_level','salary_in_usd','company_size'
-            // ] as Array<String>,
         }
     },
     computed: {
@@ -55,14 +37,11 @@ export default {
     // Refer to the lifecycle in Vue.js for more details, mentioned at the very top of this file.
     created() {
         if (isEmpty(Data)) return;
-        // this.dots = Data.data;
         this.newdata = Data.data.filter((d) => (d.company_location == ('US')) &&
                                                (d.employee_residence == ('US'))&&
                                                (d.salary_currency == ('USD'))&&                                                 
                                                (d.employment_type==('FT'))&&
                                                (d.work_year==(2023)));
-        // console.log(this.dots)
-        // console.log(this.newdata)
     },
     methods: {
         onResize() {  // record the updated size of the target element
@@ -72,13 +51,8 @@ export default {
         },
         
         initChart() {
-            // select the svg tag so that we can insert(render) elements, i.e., draw the chart, within it.
             let lineContainer = d3.select('#line-svg')
-            // console.log(this.dots)
             let key:string[] = ['experience_level','salary_in_usd','company_size']
-
-            
-
             let yLevel = d3.scalePoint()
                           .domain(['EN','MI','SE','EX'])
                           .range([this.size.height - this.margin.bottom-25, 0])
@@ -100,14 +74,10 @@ export default {
             y[key[0]] = yLevel
             y[key[1]] = ySalary
             y[key[2]] = ySize
-            // console.log(y)
-            
-              // The path function take a row of the csv as input, and return x and y coordinates of the line to draw for this raw.
+
             function path(d) {
                 return d3.line()(key.map(function(p) { return [xScale(p), y[p](d[p])+50]; }));
             }
-            //ordinal color map
-            // Draw the lines
             let lines = lineContainer.append('g')
                 .selectAll("myPath")
                 .data(this.newdata)
@@ -120,7 +90,6 @@ export default {
                 .style('stroke-width', '0.8px')
             let yAxis1 = lineContainer.append("g").attr("transform", "translate(" + xScale(key[0]) + ",50)")
             .call(d3.axisLeft(yLevel))
-            // Add axis title
             .append("text")
             .style("text-anchor", "middle")
             .attr("y", -15)
@@ -129,17 +98,13 @@ export default {
             .style('font-size', '.9rem')
 
             const yAxis2 = lineContainer.append("g")
-            // I translate this element to its right position on the x axis
             .attr("transform", "translate(" + xScale(key[1]) + ",50)")
-            // And I build the axis with the call function
             .call(d3.axisLeft(ySalary))
 
             const highlight = yAxis2.selectAll("text")
                                   .style('font-weight', 'bold')
-                                //   .style('font-size', '1.1rem')
 
             const y2title = yAxis2
-            // Add axis title
             .append("text")
             .style("text-anchor", "middle")
             .attr("y", -15)
@@ -147,15 +112,9 @@ export default {
             .style("fill", "black")
             .style('font-size', '.9rem')
 
-
-
-
             let yAxis3 = lineContainer.append("g")
-            // I translate this element to its right position on the x axis
             .attr("transform", "translate(" + xScale(key[2]) + ",50)")
-            // And I build the axis with the call function
             .call(d3.axisRight(ySize))
-            // Add axis title
             .append("text")
             .style("text-anchor", "middle")
             .attr("y", -15)
@@ -164,13 +123,12 @@ export default {
             .style('font-size', '.9rem')
 
             const title = lineContainer.append('g')
-            .append('text') // adding the text
+            .append('text') 
             .attr('transform', `translate(${this.size.width / 2}, ${this.size.height-this.margin.top})`)
-            // .attr('dy', '0.5rem') // relative distance from the indicated coordinates.
             .style('text-anchor', 'middle')
             .style('font-weight', 'bold')
             .style('font-size', '1rem')
-            .text('Fig. 2 Full Time Data Science Job Salaries of US in 2023') // text content
+            .text('Fig. 2 Full Time Data Science Job Salaries of US in 2023') 
            
 
             
@@ -179,14 +137,13 @@ export default {
     watch: {
         rerender(newSize) {
             if (!isEmpty(newSize)) {
-                d3.select('#line-svg').selectAll('*').remove() // Clean all the elements in the chart
+                d3.select('#line-svg').selectAll('*').remove() 
                 this.initChart()
             }
         },
         
     },
     
-    // The following are general setup for resize events.
     mounted() {
         window.addEventListener('resize', debounce(this.onResize, 100)) 
         this.onResize()
@@ -198,12 +155,9 @@ export default {
 
 </script>
 
-<!-- "ref" registers a reference to the HTML element so that we can access it via the reference in Vue.  -->
-<!-- We use flex (d-flex) to arrange the layout-->
 <template>
     <div class="chart-container-line" ref="lineContainer">
         <svg id="line-svg" width="100%" height="100%" >
-            <!-- all the visual elements we create in initChart() will be inserted here in DOM-->
         </svg>
 
     </div>
@@ -212,12 +166,6 @@ export default {
 <style >
 .chart-container-line{
     height: 100%;
-    /* display: flex; */
-    /* 
-    position:relative; */
 }
-
-
-
 </style>
 

@@ -1,10 +1,9 @@
 <script lang="ts">
 
-import Notes from './components/Notes.vue'
-import Example from './components/Example.vue'
-import JobInfo from './components/Category.vue'
+// import Notes from './components/Notes.vue'
+import JobLocation from './components/JobLocation.vue'
+import JobInfo from './components/JobInfo.vue'
 import JobTitle from './components/JobTitle.vue'
-// import { createVuetify } from 'vuetify'
 /*
 import ExampleWithLegend from './components/ExampleWithLegend.vue';
 import ExampleWithInteractions from './components/ExampleWithInteractions.vue';*/
@@ -16,13 +15,9 @@ export default {
       }
     },
   components: {
-    Notes,
-    Example,
+    JobLocation,
     JobInfo,
     JobTitle,
-    /*
-    ExampleWithLegend,
-    ExampleWithInteractions*/
   }
 }
 
@@ -34,7 +29,7 @@ export default {
   <v-container id="main-container" class="d-flex flex-column flex-nowrap" fluid>
     <v-row style="height:100vh"> <!-- no-gutters -->
         <v-col cols="6">
-          <Example class="scatter"/>
+          <JobLocation class="scatter"/>
           <div class="scatterText " >
             Fig. 1 shows the scatter plot of the data set "Data Science Job Salaries". Because there is 
             only one column (salary) whose data type is metric in the data set, "company location" is 
@@ -72,11 +67,6 @@ export default {
             </v-row>
         </v-col>
     </v-row>
-    <!-- <v-row no-gutters>
-      <v-col>
-        <Notes />
-      </v-col>
-    </v-row> -->
   </v-container>
 </template>
 
@@ -108,7 +98,6 @@ export default {
   display: inline;
   position: absolute;
   width:50vh;
-  /* height:37vh; */
   top: 25vh;
   left: 53vh;
   text-align: justify;

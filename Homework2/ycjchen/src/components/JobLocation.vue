@@ -1,8 +1,6 @@
 <script lang="ts">
 import * as d3 from "d3";
-// import Data from '../../data/demo.json'; /* Example of reading in data directly from file */
 import Data from '../../data/ds_salaries.json';
-// import Data from '../../data/test.json';
 
 import axios from 'axios';
 import { isEmpty, debounce } from 'lodash';
@@ -38,15 +36,6 @@ export default {
         rerender() {
             return (!isEmpty(this.dots)) && this.size
         },
-        // UpdateSliderValue(){
-        //     let range = this.SliderValue;
-        //     // console.log(this.dots)
-        //     return (this.dots).filter((d) => d.work_year === (this.tickLabels[range]));
-        //     // console.log(this.tickLabels[range])
-        //     // console.log(filteredData)
-        //     // this.dots = filteredData
-        //     // console.log(this.tickLabels[range])
-        // },
     
     },
     // Anything in here will only be executed once.
@@ -73,31 +62,14 @@ export default {
             if (target === undefined) return;
             this.size = { width: target.clientWidth, height: target.clientHeight };
         },
-        // UpdateChart(){
-        //     this.dots = this.UpdateSliderValue();
-        //     console.log(this.dots)
-        // },
-        // UpdateSliderValue(){
-        //     let range = this.SliderValue;
-        //     // console.log(this.dots)
-        //     const filteredData = (this.dots).filter((d) => d.work_year == 2020);  //this.tickLabels[range]
-        //     console.log(filteredData)
-        //     return filteredData;
-        //     // console.log(this.tickLabels[range])
-        //     // console.log(filteredData)
-        //     // this.dots = filteredData
-        //     // console.log(this.tickLabels[range])
-        // },
         initChart() {
             // select the svg tag so that we can insert(render) elements, i.e., draw the chart, within it.
             let chartContainer = d3.select('#dot-svg')
             
             // Here we compute the [min, max] from the data values of the attributes that will be used to represent x- and y-axis.
             let xExtents = d3.extent(this.dots.map((d: CategoricalDot) => d.salary_in_usd as number)) as [number, number]
-            // console.log(yExtents)
             // This is to get the unique categories from the data using Set, then store in an array.
             let yCategories: string[] = [ ...new Set(this.dots.map((d: CategoricalDot) => d.company_location as string))].sort()
-            // console.log(yCategories)
 
             // We need a way to map our data to where it should be rendered within the svg (in screen pixels), based on the data value, 
             //      so the extents and the unique values above help us define the limits.
@@ -122,13 +94,7 @@ export default {
             const xAxis = chartContainer.append('g')
                 .attr('transform', `translate(0, ${this.size.height - this.margin.bottom})`)
                 .call(d3.axisBottom(xScale))
-                .style("font-size", "8px")
-
-            
-            // chartContainer.selectAll(".xAxis text")
-            //     .data<CategoricalDot>(this.dots)
-            
-                
+                .style("font-size", "8px")                
 
             const yAxis = chartContainer.append('g')
                 .attr('transform', `translate(${this.margin.left}, 0)`)
@@ -146,8 +112,6 @@ export default {
                                                                  d == ('IN')){
                                                                     return 'red';
                                                                  }
-                                                              
-                                        
                                                               else{return "black"};})
             const yLabel = chartContainer.append('g')
                 .attr('transform', `translate(${10}, ${this.size.height / 2}) rotate(-90)`)
@@ -183,7 +147,6 @@ export default {
                                             else{return "#8C8C8C"};})
                 .attr('fill','none')
                 .attr("r",2.5)
-            // console.log(xScale.ticks())
             const grid = chartContainer.append('g')
                 .selectAll('line')
                 .data(xScale.ticks())
@@ -224,10 +187,6 @@ export default {
                 this.initChart()
             }
         },
-        // SliderValue:{
-        //     handler: 'UpdateChart',
-        //     immediate: true,
-        // }
         
     },
     
@@ -250,33 +209,12 @@ export default {
         <svg id="dot-svg" width="100%" height="100%">
             <!-- all the visual elements we create in initChart() will be inserted here in DOM-->
         </svg>
-        <!-- <v-slider v-model = "SliderValue" class="yearslider" id="year-slider" @input = "UpdateChart"
-            :ticks="tickLabels"
-            :max="3"
-            :thumb-size="13"
-            step="1"
-            color="grey"
-            thumb-color="grey"
-            show-ticks="always"
-            tick-size="5"
-        ></v-slider> -->
     </div>
 </template>
 
 <style >
 .chart-container{
     height: 100%;
-    /* display: flex; */
-    /* display: flex;
-    position:relative; */
-}
-
-
-.v-slider.v-input--horizontal{
-    position:absolute;
-    width:45vh;
-    /* margin: left 35%;; */
-    /* margin-left:10vh; */
 }
 </style>
 
