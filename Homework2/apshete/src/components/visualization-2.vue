@@ -112,11 +112,11 @@ export default {
 
 
     svg.append("text")
-    .attr("x", width / 2)  // Adjust to center the title horizontally
-    .attr("y", -15) // relative distance from the indicated coordinates
+    .attr("x", width / 2) 
+    .attr("y", -15)
     .style('text-anchor', 'middle')
     .style('font-weight', 'bold')
-    .text('10 job titles with highest Salary and experience levels') // text content;
+    .text('10 job titles with highest Salary and experience levels') 
     }
   }
 }

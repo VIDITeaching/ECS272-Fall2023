@@ -95,15 +95,13 @@ export default{
 
             svg.append("text")
                 .attr("x", 10) 
-                .attr("y", -radius- 30) // relative distance from the indicated coordinates
+                .attr("y", -radius- 30) 
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
-                .text('Percentage of Company Sizes') // text content;
-            // Create an array of labels based on your dataset
+                .text('Percentage of Company Sizes')
+            
             const labels = this.piechartData.map(d => d.key);
 
-            // Assuming you already have the color scale defined as 'color'
-            // and your data as 'data'
 
             // Define legend's position and dimensions
             const legendRectSize = 18; // Defines the size of the colored squares

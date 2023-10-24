@@ -39,8 +39,6 @@ export default{
     this.loadDataAndConvert().then(() => {
         this.drawheatmap();
     });
-
-        //this.drawheatmap();
     },
     methods:{
         async loadDataAndConvert() {
@@ -87,7 +85,6 @@ export default{
         drawheatmap(){
             const data = this.heatmapData;
             const correlationMatrix = this.calculateCorrelationMatrix(data);
-            //console.log(correlationMatrix, "correlation matrix")
             const correlationMatrix2= [
                     [1, -0.095, 0.23, -0.24],
                     [-0.095, 1, -0.24, 0.029],
@@ -95,7 +92,6 @@ export default{
                     [-0.24, 0.29, -0.064, 1]
                 ];
             const labels = Object.keys(data[0]);
-            //console.log(labels, "labels")
 
             const labels2= ["work_year", "salary", "company_size", "remote_ratio"];
 
@@ -146,7 +142,7 @@ export default{
                 .append('title')
                 .text(d => d.value.toFixed(2));
 
-                // Add text labels
+            
             svg.selectAll()
                 .data(correlationMatrix2.flatMap((row, i) => row.map((value, j) => ({group: labels2[j], variable: labels2[i], value}))))
                 .enter()
@@ -158,11 +154,11 @@ export default{
                 .text(d => d.value.toFixed(2));
 
             svg.append("text")
-                .attr("x", width / 2)  // Adjust to center the title horizontally
-                .attr("y", -20) // relative distance from the indicated coordinates
+                .attr("x", width / 2)  
+                .attr("y", -20) 
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
-                .text('Correlation Matrix') // text content;
+                .text('Correlation Matrix') 
 
             console.log("heatmap heated!!");
             

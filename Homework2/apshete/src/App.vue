@@ -5,9 +5,6 @@ import visualization2 from './components/visualization-2.vue';
 import visualization3 from './components/visualization3.vue';
 import visualization4 from './components/visualization4.vue';
 
-/*
-import ExampleWithLegend from './components/ExampleWithLegend.vue';
-import ExampleWithInteractions from './components/ExampleWithInteractions.vue';*/
 
 export default {
   components: {
