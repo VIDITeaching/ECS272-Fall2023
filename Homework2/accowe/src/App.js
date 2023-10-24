@@ -29,10 +29,11 @@ function App() {
     // <p>Here, have a {data[(3 * randVal)].Name}!</p>
   return (
     <div className="App">
-        <div className={"App-header"}><h1>Information Visualization HW #2: Visualization Dashboard</h1> <div></div> <p>Details: Off</p></div>
+        <div className={"App-header"}><h1>Information Visualization HW #2: Visualization Dashboard</h1> <p onClick={(e) => setDetailView(!detailView)}>Detailed View  {detailView ?  "[-]" : "[+]"}</p></div>
         <h3 style={{marginBottom:10 +"px", marginTop:10 + "px"}}>Arisa Cowe</h3>
-        <h3 style={{marginTop:0 +"px"}}>Dataset: Pokémon for Data Mining and Machine Learning</h3>
-        {(detailView && dataDetails) &&
+        {detailView && <h2>Dataset: Pokémon for Data Mining and Machine Learning</h2>}
+        {!detailView && <h3 style={{marginTop:0 +"px"}}>Dataset: Pokémon for Data Mining and Machine Learning</h3>}
+        {dataDetails &&
             <div>
                 <p><a href={"https://www.kaggle.com/datasets/alopez247/pokemon/data"}>https://www.kaggle.com/datasets/faisaljanjua0555/best-video-games-of-all-time</a></p>
                 <p><b>Author:</b> ALOPEZ247</p>

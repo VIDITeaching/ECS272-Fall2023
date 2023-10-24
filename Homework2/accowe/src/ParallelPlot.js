@@ -74,7 +74,7 @@ function ParallelPlot(props){
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
-            .attr("viewBox", [-height/6, -40, 1.25 * width, 1.25 * height])
+            .attr("viewBox", [-height/6, -40, 1.35 * width, 1.35 * height])
             .attr("style", "max-width: 100%; height: auto;")
             .append("g")
             .attr("transform",

@@ -1,9 +1,14 @@
 .App {
-  margin: 0px 25px 25px 30px;
+  margin: 15px 25px 25px 30px;
 }
 
+.App-header h1{
+  display: inline;
+}
 
-.App-header {
+.App-header p{
+  display: inline;
+  float: right;
 }
 
 .dashboard{
