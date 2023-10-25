@@ -86,13 +86,14 @@ let rectangle;
 function createStarChart(data) {
     var svgWidth = size.width;
     var svgHeight = size.height;
-    console.log(svgWidth, svgHeight)
     var svg = d3.select("#star-svg")
         .attr("width", svgWidth)
         .attr("height", svgHeight);
 
     var centerX = svgWidth / 2 - 75;
     var centerY = svgHeight / 2;
+    centerX = Math.round(centerX * 10) / 10;
+    centerY = Math.round(centerY * 10) / 10;
 
     var circleRadius = Math.min(svgWidth, svgHeight) / 3.75;
 
@@ -136,6 +137,8 @@ function createStarChart(data) {
         var y1 = centerY;
         var x2 = centerX + circleRadius * Math.cos(angle);
         var y2 = centerY + circleRadius * Math.sin(angle);
+        x2 = Math.round(x2 * 10) / 10;
+        y2 = Math.round(y2 * 10) / 10;
 
         svg.append("line")
             .attr("x1", x1)
@@ -147,11 +150,13 @@ function createStarChart(data) {
         svg.append("text")
             .attr("x", x2)
             .attr("y", y2)
-            .attr("dx", x2 > centerX ? 10 : -10)
-            .attr("dy", y2 < centerY ? -10 : 20)
+            .attr("text-anchor", "middle")
+            .attr("dx", x2 == centerX ? 20 : (x2 > centerX ? 10 : -10))
+            .attr("dy", y2 == centerY ? 10 : (y2 < centerY ? -10 : 20))
             .text(function () {
                 return elements[i].split("_").map(function (word) {
-                    return word.charAt(0).toUpperCase() + word.slice(1);
+                    return word.charAt(0).toUpperCase()
+                        + word.slice(1);
                 }).join(" ");
             })
             .attr("text-anchor", x2 > centerX ? "start" : "end")
