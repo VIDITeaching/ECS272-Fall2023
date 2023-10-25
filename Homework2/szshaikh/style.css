@@ -1,0 +1,100 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+#main-container {
+  height: 100%;
+}
+
+
+.split {
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 9%;
+  overflow-x: hidden;
+  
+}
+
+
+.left {
+  left: 0;
+  width: 65%;
+  background-color: #ffffff;
+}
+
+.right {
+  right: 0;
+  width : 35%;
+  background-color: white;
+}
+
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+h5 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+#sankey-container {
+  height: 80%; 
+  width: 90%;
+  margin-bottom: -20%; 
+  
+}
+
+.chart-container {
+  height: 70%; 
+  width: 90%; 
+  bottom: 25%;
+  position: absolute;
+  
+}
+
+#note-card {
+  margin: 1rem 1rem;
+  top: 20%; /* Adjusted top position */
+
+}
+
+
+
+
