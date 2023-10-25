@@ -58,6 +58,14 @@ export default {
                 .domain([-5000, 5000])
                 .range([height, 0]);
 
+            // Add Y axis label:
+            svg.append("text")
+                .attr("text-anchor", "end")
+                .attr("x", 0)
+                .attr("y", 30)
+                .text("Number of attacks")
+                .attr("text-anchor", "start")
+
             // color palette
             const color = d3.scaleOrdinal()
                 .domain(keys)
@@ -77,15 +85,15 @@ export default {
                 .style('text-anchor', 'middle')
                 .style('font-size', '18px')
                 .style('font-weight', 'bold')
-                .text('Stream graph of terrorist attacks in top 10 most affected countries');
+                .text('Stream graph of terrorist attacks in top 10 most affected countries (hover to highlight)');
 
             // create a tooltip
             const Tooltip = svg
                 .append("text")
                 .attr("x", width / 2)
-                .attr("y", 20)
+                .attr("y", 60)
                 .style("opacity", 0)
-                .style("font-size", 17)
+                .style("font-size", 20)
 
             // Three function that change the tooltip when user hover / move / leave a cell
             const mouseover = function (event, d) {

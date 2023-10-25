@@ -171,7 +171,7 @@ export default {
         .style('text-anchor', 'middle')
         .style('font-size', '18px')
         .style('font-weight', 'bold')
-        .text('Terrorist attacks over the year by type of attack');
+        .text('Terrorist attacks over the year by type of attack (hover to highlight)');
 
 
 
