@@ -42,7 +42,8 @@ export default {
         .range([height, 0]);
 
       var color = d3.scaleOrdinal()
-        .domain(['IL', 'US', 'PR', 'RU', 'NZ', 'CA'])
+        .domain(['US', 'GB', 'CA', 'ES', 'IN', 'DE'])
+        //.domain(['IL', 'US', 'PR', 'RU', 'NZ', 'CA'])
         .range(['red', 'blue', 'orange', 'pink', 'gray', 'purple']);
 
       svg.append("g")
@@ -133,7 +134,7 @@ export default {
   <!-- We use flex (d-flex) to arrange the layout-->
 <template>
   <div>
-    <h2>Box Plot </h2>
+    <h3>Box Plot of the yearly salaries of the top 6 most frequent countries</h3>
     <svg id="plot3"></svg>
   </div>
 </template>

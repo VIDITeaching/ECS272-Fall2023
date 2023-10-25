@@ -10,7 +10,7 @@ export default {
       const categoryOrder = data_radar.map(x => x.company_location);
       const data = data_radar.map(x => x.salary_in_usd);
       console.log(categoryOrder, data);
-      const margin = { top: 5, right: 5, bottom: 5, left: 20 }; // Minimal margin values
+      const margin = { top: 5, right: 5, bottom: 5, left: 20 }; 
       const width = 450 - margin.left - margin.right;
       const height = 450 - margin.top - margin.bottom;
       const radius = Math.min(width, height) / 2 - 50;
@@ -64,11 +64,11 @@ export default {
         .attr('stroke-width', 2)
         .style("transform", "rotate(90deg)");
 
-      // Adjust radius and label positions for better spacing
-      const labelRadius = radius * 1.3; // Radius for labels
-      const valueRadius = radius * 1.1; // Radius for values
+      
+      const labelRadius = radius * 1.275; 
+      const valueRadius = radius * 1.1175; 
 
-      // Add axis labels
+  
       const labelPositions = [
         { x: 0, y: -labelRadius + 5 }, 
         { x: labelRadius * Math.cos(Math.PI / 6) + 5, y: labelRadius * Math.sin(Math.PI / 6) - 15}, 
@@ -91,7 +91,7 @@ export default {
         .attr('alignment-baseline', 'middle')
         .attr('fill', 'black');
 
-      // Add axis values
+ 
       const valuePositions = [
         { x: 0, y: -valueRadius },
         { x: valueRadius * Math.cos(Math.PI / 6) + 28, y: valueRadius * Math.sin(Math.PI / 6) + 22}, 
@@ -128,9 +128,7 @@ export default {
 </script>
 
 
-  
-  <!-- "ref" registers a reference to the HTML element so that we can access it via the reference in Vue.  -->
-  <!-- We use flex (d-flex) to arrange the layout-->
+
 <template>
   <div>
     <h3>Radar Plot of the Mean Salaries of the top 6 Highest Paid Countries</h3>

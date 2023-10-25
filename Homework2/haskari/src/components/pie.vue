@@ -90,8 +90,6 @@ export default {
 
 
   
-  <!-- "ref" registers a reference to the HTML element so that we can access it via the reference in Vue.  -->
-  <!-- We use flex (d-flex) to arrange the layout-->
 <template>
   <div>
     <h3>Pie Plot of 2023 Salaries by Experience Level</h3>
