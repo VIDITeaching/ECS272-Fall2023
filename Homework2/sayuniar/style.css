@@ -1,12 +1,22 @@
 :root {
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 0.6rem;
+    color: #333 !important;
+    fill: #333 !important;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+}
+
+select {
+    color: #333 !important;
+}
+
+text {
+    fill: #333;
 }
 
 * {
@@ -30,7 +40,7 @@ html, body {
     height: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: auto;
+    grid-template-rows: 60% 40%;
     grid-template-areas: 
       "overview detailtop"
       "overview detailbot"
@@ -38,19 +48,31 @@ html, body {
 
 #overview {
     grid-area: overview;
-    background: #aaa;
+    background: #ccc;
 }
 
 #overview > span {
     text-align: center;
     margin: 0;
     padding: 0;
-    margin-top: 4em;
+    margin-top: 3.5em;
+    font-style: italic;
+    font-size: 1.5rem;
+    position: absolute;
+    width: 100%;
+    display: block;
+}
+
+#overview > p {
+    text-align: center;
+    margin: 0;
+    padding: 2rem;
     font-style: italic;
     font-size: 1.3rem;
     position: absolute;
     width: 100%;
     display: block;
+    bottom: 0;
 }
 
 #detailtop {
@@ -60,7 +82,7 @@ html, body {
 
 #detailbot {
     grid-area: detailbot;
-    background: #ccc;
+    background: #bbb;
 }
 
 h1, h2 {    

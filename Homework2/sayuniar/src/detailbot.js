@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import { isEmpty, debounce } from 'lodash';
 import { groupBy } from './utils';
 
-const margin = { left: 40, right: 40, top: 50, bottom: 100 }
+const margin = { left: 50, right: 40, top: 50, bottom: 100 }
 let size = { width: 0, height: 0 }
 let gdata, gcontext
 let gstacked = false
@@ -50,7 +50,7 @@ function processData(_data) {
 
 export const DetailBot = () => (`
     <div class='viewcard' id='detailbot'>
-    <h2>Average Mental Ailment By Genre</h2>
+    <h2>Average Mental Health By Genre</h2>
     <svg id='detailbot-svg' width='100%' height='100%'>
     </svg>
     <div id="bar-stacked">
@@ -76,7 +76,7 @@ function initChart() {
 
     let dd = document.querySelector('#bar-stacked').style
     dd.left = `${(size.width - margin.left - margin.right) / 2}px`
-    dd.top = `${size.height - margin.bottom + 50}px`
+    dd.top = `${size.height - margin.bottom + 70}px`
 
     const svg = d3.select("#detailbot-svg")
 
@@ -194,13 +194,13 @@ function initChart() {
                 .attr("transform", `rotate(-90)`)
                 .attr("text-anchor", "middle")
                 .attr("x", -(size.height - margin.top - margin.bottom) / 2)
-                .attr("y", -20)
+                .attr("y", -30)
                 .attr("font-weight", "bold")
                 .text("Rank")
         );
 
     const legend = svg.append("g")
-        .attr("transform", `translate(${size.width / 4},${size.height - margin.bottom + 50})`)
+        .attr("transform", `translate(${size.width / 4},${size.height - margin.bottom + 60})`)
 
     let offset = 0
     for (let val of ["Anxiety", "Depression", "Insomnia", "OCD"]) {

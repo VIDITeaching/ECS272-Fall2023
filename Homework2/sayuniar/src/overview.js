@@ -26,10 +26,11 @@ const chartObserver = new ResizeObserver(debounce(onResize, 100))
 
 export const Overview = () => (`
     <div class='viewcard' id='overview'>
-    <h1>Overview</h1>
-    <span>Hover over genres</span>
+    <h1>Music & Mental Health</h1>
+    <span class="size-3">Hover over genres</span>
     <svg id='overview-svg' width='100%' height='100%'>
     </svg>
+    <p>Mental Health Rankings: 0 - I do not experience this; 10 - I experience this regularly, constantly/or to an extreme.</p>
     </div>
 `)
 
@@ -48,7 +49,7 @@ function initChart() {
         .domain(["Latin", "Rock", "Video game music", "Jazz", "R&B", "K pop", "Country", "EDM", "Hip hop", "Pop", "Rap", "Classical", "Metal", "Folk", "Lofi", "Gospel"])
         .range(["#2f4f4f", "#800000", "#006400", "#b8860b", "#00008b", "#ff0000", "#00ced1", "#7cfc00", "#00fa9a", "#0000ff", "#ff00ff", "#1e90ff", "#ffff54", "#dda0dd", "#ff1493", "#ffe4b5"])
 
-    const dimensions = ["Anxiety", "Depression", "Insomnia", "OCD"]
+    const dimensions = ["Age", "Anxiety", "Depression", "Insomnia", "OCD"]
 
     const y = {}
     for (let i in dimensions) {
@@ -70,9 +71,15 @@ function initChart() {
             .transition().duration(200)
             .style("stroke", "lightgrey")
             .style("opacity", "0.05")
+        d3.selectAll(".leg-item")
+            .transition().duration(200)
+            .style("opacity", "0.3")
         d3.selectAll("." + escapeCSS(selected_genre))
             .transition().duration(200)
             .style("stroke", color(selected_genre))
+            .style("opacity", "1")
+        d3.selectAll(".leg-" + escapeCSS(selected_genre))
+            .transition().duration(200)
             .style("opacity", "1")
 
         gcontext.genre = selected_genre
@@ -82,8 +89,12 @@ function initChart() {
 
     const doNotHighlight = function (event, d) {
         d3.selectAll(".line")
-            .transition().duration(200).delay(1000)
+            .transition().duration(200)
             .style("stroke", function (d) { return (color(d["Fav genre"])) })
+            .style("opacity", "1")
+            
+        d3.selectAll(".leg-item")
+            .transition().duration(200)
             .style("opacity", "1")
         gcontext.genre = null
         gcontext.keepsame = "overview"
@@ -117,7 +128,7 @@ function initChart() {
         .style("text-anchor", "middle")
         .attr("y", margin.top - 10)
         .text(d => d)
-        .style("fill", "black")
+        // .style("fill", "#ccc")
 
     const legend = svg.append("g")
         .attr("transform", `translate(${20},${margin.top})`)
@@ -126,6 +137,7 @@ function initChart() {
     for (let val of ["Latin", "Rock", "Video game music", "Jazz", "R&B", "K pop", "Country", "EDM", "Hip hop", "Pop", "Rap", "Classical", "Metal", "Folk", "Lofi", "Gospel"]) {
 
         let key = legend.append("g")
+            .attr("class", "leg-item leg-" + escapeCSS(val))
             .attr("transform", `translate(0, ${offset})`)
             .on("mouseover", evt => highlight(evt, { "Fav genre": val }))
             .on("mouseleave", evt => doNotHighlight(evt, { "Fav genre": val }))

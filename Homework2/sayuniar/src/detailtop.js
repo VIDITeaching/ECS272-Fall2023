@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { isEmpty, debounce } from 'lodash';
 
-const margin = { left: 40, right: 40, top: 50, bottom: 100 }
+const margin = { left: 50, right: 40, top: 50, bottom: 90 }
 let size = { width: 0, height: 0 }
 let gdata, gcontext
 let gmode = "Hours per day"
@@ -27,7 +27,7 @@ const chartObserver = new ResizeObserver(debounce(onResize, 100))
 
 export const DetailTop = () => (`
     <div class='viewcard' id='detailtop'>
-    <h2>Mental Ailment Rankings</h2>
+    <h2>Mental Health Rankings</h2>
     <svg id='detailtop-svg' width='100%' height='100%'>
     </svg>
     <select id="scat-param" name="scat-param">
@@ -54,7 +54,7 @@ function initChart() {
     
     let dd = document.querySelector('#scat-param').style
         dd.left = `${(size.width - margin.left - margin.right) / 2}px`
-        dd.top = `${size.height - margin.bottom + 20}px`
+        dd.top = `${size.height - margin.bottom + 30}px`
     
     const svg = d3.select("#detailtop-svg")
 
@@ -127,13 +127,13 @@ function initChart() {
                 .attr("transform", `rotate(-90)`)
                 .attr("text-anchor", "middle")
                 .attr("x", -(size.height - margin.top - margin.bottom) / 2)
-                .attr("y", -20)
+                .attr("y", -30)
                 .attr("font-weight", "bold")
                 .text("Rank")
         );
 
     const legend = svg.append("g")
-        .attr("transform", `translate(${size.width / 4},${size.height - margin.bottom + 50})`)
+        .attr("transform", `translate(${size.width / 4},${size.height - margin.bottom + 65})`)
 
     let offset = 0
     for (let val of ["Anxiety", "Depression", "Insomnia", "OCD"]) {
