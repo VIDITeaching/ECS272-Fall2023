@@ -38,3 +38,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Screenshot
+<img src="./public/screenshot.png">
