@@ -13,6 +13,7 @@ const onResize = (entries) => {
     if (entry.target.getAttribute('id') !== 'parallel-coordinates-container') return;
     size = { width: entry.contentRect.width, height: entry.contentRect.height };
     if (!isEmpty(size) && !isEmpty(data)) {
+      d3.select('#parallel-coordinates-svg').selectAll('*').remove();  // Remove existing chart elements.
       initParallelCoordinates();
     }
   });
@@ -37,7 +38,7 @@ function initParallelCoordinates() {
 
   var margin = { top: 30, right: 0, bottom: 10, left: 0 },
     width = 750 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
+    height = 700 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   chartContainer
