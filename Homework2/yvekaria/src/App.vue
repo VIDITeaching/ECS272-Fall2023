@@ -2,7 +2,7 @@
 
 import Notes from './components/Notes.vue'
 import BarPlot from './components/BarPlot.vue'
-import StarPlot from './components/StarPlot.vue'
+import RadialPlot from './components/RadialPlot.vue'
 import ScatterPlot from './components/ScatterPlot.vue'
 /*
 import Example from './components/Example.vue'
@@ -14,7 +14,7 @@ export default {
   components: {
     Notes,
     BarPlot,
-    StarPlot,
+    RadialPlot,
     ScatterPlot
     /*
     Example,
@@ -33,8 +33,8 @@ export default {
       <v-col class="barplot-col" cols="8">
         <BarPlot />
       </v-col>
-      <v-col class="starplot-col" cols="3.8">
-        <StarPlot />
+      <v-col class="starplot-col" cols="3.7">
+        <RadialPlot />
       </v-col>
     </v-row>
     <v-row class="scatterplot-row" rows="3">
@@ -60,8 +60,8 @@ export default {
 }
 .scatterplot-row{
   height: 33vh;
-  width: 100vw - 50;
-  margin: 0.5rem;
+  width: 100vw - 500;
+  margin: 0.3rem;
   border: 2px solid;
 }
 </style>

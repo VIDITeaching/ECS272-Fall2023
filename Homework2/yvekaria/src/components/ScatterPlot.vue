@@ -49,9 +49,31 @@ export default {
         .range([1.5, 16.5]);
 
       // Color scale for Body_Style
+      
+      // Define an array of distinct light hue-based colors for your categories
+      const lightColors = [
+        "#B57EDC",
+        "#ffa6c9",
+        "#FA8072",
+        "#ff55a3",
+        "#DC143C",
+        "#9e146c",
+        "#ffb90f",
+        "#b07922",
+        "#808000",
+        "#CDEE2B",
+        "#00dfaf",
+        "#0bbed8",
+        "#417881",
+        "#020385"
+      ];
+
+      // Create a custom color scale using the distinct light colors
       const colorScale = d3
-        .scaleOrdinal(d3.schemeCategory10)
-        .domain(data.map(d => d.Body_Style));
+        .scaleOrdinal()
+        .domain(data.map(d => d.Body_Style))
+        .range(lightColors);
+
 
       // Draw circles
       svg.selectAll('circle')
@@ -62,6 +84,10 @@ export default {
         .attr('cy', d => yScale(d.Weight_kg))
         .attr('r', d => sizeScale(0.5 * d.Catch_Rate))
         .attr('fill', d => colorScale(d.Body_Style));
+        //.attr('fill-opacity', 1);
+        //.attr('stroke', d => colorScale(d.Body_Style))
+        //.attr('fill', 'none');
+
 
       // X-axis
       svg.append('g')
