@@ -5,10 +5,6 @@ import Example from './components/Example.vue'
 import Bar from './components/Bar.vue'
 import Pie from './components/Pie.vue'
 import Parallel from './components/Parallel.vue'
-import Sankey from './components/Sankey.vue'
-/*
-import ExampleWithLegend from './components/ExampleWithLegend.vue';
-import ExampleWithInteractions from './components/ExampleWithInteractions.vue';*/
 
 export default {
   components: {
@@ -16,11 +12,7 @@ export default {
     Example,
     Bar,
     Pie,
-    Parallel,
-    Sankey,
-    /*
-    ExampleWithLegend,
-    ExampleWithInteractions*/
+    Parallel
   }
 }
 </script>
@@ -41,11 +33,6 @@ export default {
         <Parallel />
       </v-col>
     </v-row>
-    <!--v-row no-gutters>
-      <v-col>
-        <Sankey />
-      </v-col>
-    </v-row-->
   </v-container>
 
 </template>
