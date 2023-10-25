@@ -92,22 +92,13 @@ function plot() {
         .selectAll()
         .data(data);
 
-    bars
-        .join("rect")
-        .attr("x", (d, ind) => xScale(ind))
-        .attr("width", 25)
-        .attr("y", (d) => yScale(d))
-        .attr("height", d => yScale(0) - yScale(d))
-        .attr("transform", "translate(60,0)")
-        .attr("fill", (d, ind) => type_colors[pokemon[ind].Type_1]);
-
     bars.enter()
         .append('image')
         .attr("x", (d, ind) => xScale(ind))
         .attr("y", (d, ind) => yScale(d))
         .style("width", "100%")
         .style("height", d => yScale(0) - yScale(d))
-        .attr("width",  d => 300)
+        .attr("width", d => 300)
         .attr("height", d => yScale(0) - yScale(d))
         .attr("transform", "translate(-400,0)")
         .attr("xlink:href", (d, ind) => `https://haroon96.github.io/Pokemon/${formatNumber(pokemon[ind].Number)}.png`);
@@ -133,6 +124,16 @@ function plot() {
         .attr("fill", (d, ind) => type_colors[pokemon[ind].Type_1])
         .style("font-size", "0.9em")
         .text((d, ind) => `${pokemon[ind].Height_m}m`);
+
+    bars
+        .join("rect")
+        .attr("x", (d, ind) => xScale(ind))
+        .attr("width", 25)
+        .attr("y", (d) => yScale(d))
+        .attr("height", d => yScale(0) - yScale(d))
+        .attr("transform", "translate(60,0)")
+        .attr("opacity", 0.75)
+        .attr("fill", (d, ind) => type_colors[pokemon[ind].Type_1]);
 
 }
 
