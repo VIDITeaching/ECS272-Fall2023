@@ -2,18 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import PageHeader from './PageHeader';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import { Box, Container, Grid, Typography } from '@mui/material';
-import Footer from 'src/components/Footer';
-import { PokemonData } from 'src/data/PokemonData';
-
-import AccountBalance from './AccountBalance';
-import Wallets from './Wallets';
-import AccountSecurity from './AccountSecurity';
-import WatchList from './WatchList';
-import csv2Json from 'csvtojson';
-import { useState } from 'react';
 import { pokemonData } from '../../../data/PokemonData';
 import { Sankey } from './Sankey';
-import { string } from 'prop-types';
 import { PieChart } from './PieChart';
 import { Scatterplot } from './Scatterplot';
 
