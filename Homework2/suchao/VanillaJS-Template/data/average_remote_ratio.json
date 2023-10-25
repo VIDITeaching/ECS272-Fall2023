@@ -1,0 +1,328 @@
+{
+  "data":[
+    {
+      "job_title": "PDS",
+      "job_title_average_remote_ratio": 88
+    },
+    {
+      "job_title": "MLE",
+      "job_title_average_remote_ratio": 68
+    },
+    {
+      "job_title": "DS",
+      "job_title_average_remote_ratio": 48
+    },
+    {
+      "job_title": "AS",
+      "job_title_average_remote_ratio": 45
+    },
+    {
+      "job_title": "DA",
+      "job_title_average_remote_ratio": 46
+    },
+    {
+      "job_title": "DM",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "RE",
+      "job_title_average_remote_ratio": 19
+    },
+    {
+      "job_title": "AE",
+      "job_title_average_remote_ratio": 54
+    },
+    {
+      "job_title": "BIE",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "MLE",
+      "job_title_average_remote_ratio": 41
+    },
+    {
+      "job_title": "DSG",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "DE",
+      "job_title_average_remote_ratio": 42
+    },
+    {
+      "job_title": "CVE",
+      "job_title_average_remote_ratio": 36
+    },
+    {
+      "job_title": "DQA",
+      "job_title_average_remote_ratio": 14
+    },
+    {
+      "job_title": "CDA",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "DAr",
+      "job_title_average_remote_ratio": 68
+    },
+    {
+      "job_title": "AMLE",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "AID",
+      "job_title_average_remote_ratio": 32
+    },
+    {
+      "job_title": "RS",
+      "job_title_average_remote_ratio": 27
+    },
+    {
+      "job_title": "DAM",
+      "job_title_average_remote_ratio": 36
+    },
+    {
+      "job_title": "BDA",
+      "job_title_average_remote_ratio": 70
+    },
+    {
+      "job_title": "ADS",
+      "job_title_average_remote_ratio": 80
+    },
+    {
+      "job_title": "SDA",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "ETLE",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "DDE",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "HoD",
+      "job_title_average_remote_ratio": 55
+    },
+    {
+      "job_title": "DSM",
+      "job_title_average_remote_ratio": 47
+    },
+    {
+      "job_title": "DM",
+      "job_title_average_remote_ratio": 16
+    },
+    {
+      "job_title": "MLR",
+      "job_title_average_remote_ratio": 83
+    },
+    {
+      "job_title": "BDE",
+      "job_title_average_remote_ratio": 59
+    },
+    {
+      "job_title": "DSp",
+      "job_title_average_remote_ratio": 43
+    },
+    {
+      "job_title": "LDA",
+      "job_title_average_remote_ratio": 70
+    },
+    {
+      "job_title": "BIDE",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "DDS",
+      "job_title_average_remote_ratio": 36
+    },
+    {
+      "job_title": "MLS",
+      "job_title_average_remote_ratio": 44
+    },
+    {
+      "job_title": "MLOE",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "AIS",
+      "job_title_average_remote_ratio": 72
+    },
+    {
+      "job_title": "AVT",
+      "job_title_average_remote_ratio": 25
+    },
+    {
+      "job_title": "AMLES",
+      "job_title_average_remote_ratio": 79
+    },
+    {
+      "job_title": "LDS",
+      "job_title_average_remote_ratio": 61
+    },
+    {
+      "job_title": "CDE",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "FDA",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "DIE",
+      "job_title_average_remote_ratio": 67
+    },
+    {
+      "job_title": "SDE",
+      "job_title_average_remote_ratio": 75
+    },
+    {
+      "job_title": "AIP",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "DOE",
+      "job_title_average_remote_ratio": 80
+    },
+    {
+      "job_title": "BIDE",
+      "job_title_average_remote_ratio": 69
+    },
+    {
+      "job_title": "DSL",
+      "job_title_average_remote_ratio": 19
+    },
+    {
+      "job_title": "DLE",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "BIA",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "DSC",
+      "job_title_average_remote_ratio": 27
+    },
+    {
+      "job_title": "DAS",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "MLIE",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "BIDA",
+      "job_title_average_remote_ratio": 73
+    },
+    {
+      "job_title": "HoDS",
+      "job_title_average_remote_ratio": 28
+    },
+    {
+      "job_title": "IA",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "DLE",
+      "job_title_average_remote_ratio": 67
+    },
+    {
+      "job_title": "MLSE",
+      "job_title_average_remote_ratio": 55
+    },
+    {
+      "job_title": "BDA",
+      "job_title_average_remote_ratio": 75
+    },
+    {
+      "job_title": "PDA",
+      "job_title_average_remote_ratio": 80
+    },
+    {
+      "job_title": "CVSE",
+      "job_title_average_remote_ratio": 90
+    },
+    {
+      "job_title": "ADE",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "MDE",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "NLE",
+      "job_title_average_remote_ratio": 43
+    },
+    {
+      "job_title": "MDM",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "MLD",
+      "job_title_average_remote_ratio": 93
+    },
+    {
+      "job_title": "3DCVR",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "PMLSE",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "DAE",
+      "job_title_average_remote_ratio": 83
+    },
+    {
+      "job_title": "DAC",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "DMS",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "DSTL",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "DSL",
+      "job_title_average_remote_ratio": 75
+    },
+    {
+      "job_title": "CDE",
+      "job_title_average_remote_ratio": 83
+    },
+    {
+      "job_title": "DOA",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "MDA",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "PBID",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "PDS",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "MDM",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "SDS",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "FDA",
+      "job_title_average_remote_ratio": 50
+    }
+  ]
+}

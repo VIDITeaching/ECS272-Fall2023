@@ -1,0 +1,20 @@
+{
+  "data":[
+    {
+      "experience_level": "EN",
+      "average_salary": 78546
+    },
+    {
+      "experience_level": "MI",
+      "average_salary": 104526
+    },
+    {
+      "experience_level": "SE",
+      "average_salary": 153051
+    },
+    {
+      "experience_level": "EX",
+      "average_salary": 194931
+    }
+  ]
+}

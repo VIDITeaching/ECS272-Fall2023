@@ -1,0 +1,376 @@
+{
+  "data":[
+    {
+      "job_title": "Principal Data Scientist",
+      "job_title_count": 8
+    },
+    {
+      "job_title": "ML Engineer",
+      "job_title_count": 34
+    },
+    {
+      "job_title": "Data Scientist",
+      "job_title_count": 840
+    },
+    {
+      "job_title": "Applied Scientist",
+      "job_title_count": 58
+    },
+    {
+      "job_title": "Data Analyst",
+      "job_title_count": 612
+    },
+    {
+      "job_title": "Data Modeler",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Research Engineer",
+      "job_title_count": 37
+    },
+    {
+      "job_title": "Analytics Engineer",
+      "job_title_count": 103
+    },
+    {
+      "job_title": "Business Intelligence Engineer",
+      "job_title_count": 4
+    },
+    {
+      "job_title": "Machine Learning Engineer",
+      "job_title_count": 289
+    },
+    {
+      "job_title": "Data Strategist",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Data Engineer",
+      "job_title_count": 1040
+    },
+    {
+      "job_title": "Computer Vision Engineer",
+      "job_title_count": 18
+    },
+    {
+      "job_title": "Data Quality Analyst",
+      "job_title_count": 7
+    },
+    {
+      "job_title": "Compliance Data Analyst",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Data Architect",
+      "job_title_count": 101
+    },
+    {
+      "job_title": "Applied Machine Learning Engineer",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "AI Developer",
+      "job_title_count": 11
+    },
+    {
+      "job_title": "Research Scientist",
+      "job_title_count": 82
+    },
+    {
+      "job_title": "Data Analytics Manager",
+      "job_title_count": 22
+    },
+    {
+      "job_title": "Business Data Analyst",
+      "job_title_count": 15
+    },
+    {
+      "job_title": "Applied Data Scientist",
+      "job_title_count": 10
+    },
+    {
+      "job_title": "Staff Data Analyst",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "ETL Engineer",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Data DevOps Engineer",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Head of Data",
+      "job_title_count": 10
+    },
+    {
+      "job_title": "Data Science Manager",
+      "job_title_count": 58
+    },
+    {
+      "job_title": "Data Manager",
+      "job_title_count": 29
+    },
+    {
+      "job_title": "Machine Learning Researcher",
+      "job_title_count": 6
+    },
+    {
+      "job_title": "Big Data Engineer",
+      "job_title_count": 11
+    },
+    {
+      "job_title": "Data Specialist",
+      "job_title_count": 14
+    },
+    {
+      "job_title": "Lead Data Analyst",
+      "job_title_count": 5
+    },
+    {
+      "job_title": "BI Data Engineer",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Director of Data Science",
+      "job_title_count": 11
+    },
+    {
+      "job_title": "Machine Learning Scientist",
+      "job_title_count": 26
+    },
+    {
+      "job_title": "MLOps Engineer",
+      "job_title_count": 4
+    },
+    {
+      "job_title": "AI Scientist",
+      "job_title_count": 16
+    },
+    {
+      "job_title": "Autonomous Vehicle Technician",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Applied Machine Learning Scientist",
+      "job_title_count": 12
+    },
+    {
+      "job_title": "Lead Data Scientist",
+      "job_title_count": 12
+    },
+    {
+      "job_title": "Cloud Database Engineer",
+      "job_title_count": 5
+    },
+    {
+      "job_title": "Financial Data Analyst",
+      "job_title_count": 3
+    },
+    {
+      "job_title": "Data Infrastructure Engineer",
+      "job_title_count": 6
+    },
+    {
+      "job_title": "Software Data Engineer",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "AI Programmer",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Data Operations Engineer",
+      "job_title_count": 10
+    },
+    {
+      "job_title": "BI Developer",
+      "job_title_count": 13
+    },
+    {
+      "job_title": "Data Science Lead",
+      "job_title_count": 8
+    },
+    {
+      "job_title": "Deep Learning Researcher",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "BI Analyst",
+      "job_title_count": 9
+    },
+    {
+      "job_title": "Data Science Consultant",
+      "job_title_count": 24
+    },
+    {
+      "job_title": "Data Analytics Specialist",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Machine Learning Infrastructure Engineer",
+      "job_title_count": 11
+    },
+    {
+      "job_title": "BI Data Analyst",
+      "job_title_count": 15
+    },
+    {
+      "job_title": "Head of Data Science",
+      "job_title_count": 9
+    },
+    {
+      "job_title": "Insight Analyst",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Deep Learning Engineer",
+      "job_title_count": 6
+    },
+    {
+      "job_title": "Machine Learning Software Engineer",
+      "job_title_count": 10
+    },
+    {
+      "job_title": "Big Data Architect",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Product Data Analyst",
+      "job_title_count": 5
+    },
+    {
+      "job_title": "Computer Vision Software Engineer",
+      "job_title_count": 5
+    },
+    {
+      "job_title": "Azure Data Engineer",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Marketing Data Engineer",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Data Analytics Lead",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Data Lead",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Data Science Engineer",
+      "job_title_count": 5
+    },
+    {
+      "job_title": "Machine Learning Research Engineer",
+      "job_title_count": 4
+    },
+    {
+      "job_title": "NLP Engineer",
+      "job_title_count": 7
+    },
+    {
+      "job_title": "Manager Data Management",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Machine Learning Developer",
+      "job_title_count": 7
+    },
+    {
+      "job_title": "3D Computer Vision Researcher",
+      "job_title_count": 4
+    },
+    {
+      "job_title": "Principal Machine Learning Engineer",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Data Analytics Engineer",
+      "job_title_count": 6
+    },
+    {
+      "job_title": "Data Analytics Consultant",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Data Management Specialist",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Data Science Tech Lead",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Data Scientist Lead",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Cloud Data Engineer",
+      "job_title_count": 3
+    },
+    {
+      "job_title": "Data Operations Analyst",
+      "job_title_count": 4
+    },
+    {
+      "job_title": "Marketing Data Analyst",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Power BI Developer",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Product Data Scientist",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Principal Data Architect",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Machine Learning Manager",
+      "job_title_count": 3
+    },
+    {
+      "job_title": "Lead Machine Learning Engineer",
+      "job_title_count": 3
+    },
+    {
+      "job_title": "ETL Developer",
+      "job_title_count": 10
+    },
+    {
+      "job_title": "Cloud Data Architect",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Lead Data Engineer",
+      "job_title_count": 6
+    },
+    {
+      "job_title": "Head of Machine Learning",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Principal Data Analyst",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Principal Data Engineer",
+      "job_title_count": 2
+    },
+    {
+      "job_title": "Staff Data Scientist",
+      "job_title_count": 1
+    },
+    {
+      "job_title": "Finance Data Analyst",
+      "job_title_count": 1
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "data": [
+    {
+      "job_title": "PDS",
+      "job_title_average_salary": 198171
+    },
+    {
+      "job_title": "MLE",
+      "job_title_average_salary": 158352
+    },
+    {
+      "job_title": "DS",
+      "job_title_average_salary": 140870
+    },
+    {
+      "job_title": "AS",
+      "job_title_average_salary": 190264
+    },
+    {
+      "job_title": "DA",
+      "job_title_average_salary": 108716
+    },
+    {
+      "job_title": "DM",
+      "job_title_average_salary": 118900
+    },
+    {
+      "job_title": "RE",
+      "job_title_average_salary": 163108
+    },
+    {
+      "job_title": "AE",
+      "job_title_average_salary": 152369
+    },
+    {
+      "job_title": "BIE",
+      "job_title_average_salary": 174150
+    },
+    {
+      "job_title": "MLE",
+      "job_title_average_salary": 154691
+    },
+    {
+      "job_title": "DS",
+      "job_title_average_salary": 81000
+    },
+    {
+      "job_title": "DE",
+      "job_title_average_salary": 142786
+    },
+    {
+      "job_title": "CVE",
+      "job_title_average_salary": 143536
+    },
+    {
+      "job_title": "DQA",
+      "job_title_average_salary": 85311
+    },
+    {
+      "job_title": "CDA",
+      "job_title_average_salary": 30000
+    },
+    {
+      "job_title": "DA",
+      "job_title_average_salary": 161714
+    },
+    {
+      "job_title": "AMLE",
+      "job_title_average_salary": 99876
+    },
+    {
+      "job_title": "AID",
+      "job_title_average_salary": 136666
+    },
+    {
+      "job_title": "RS",
+      "job_title_average_salary": 161214
+    },
+    {
+      "job_title": "DAM",
+      "job_title_average_salary": 141879
+    },
+    {
+      "job_title": "BDA",
+      "job_title_average_salary": 66065
+    },
+    {
+      "job_title": "ADS",
+      "job_title_average_salary": 113726
+    },
+    {
+      "job_title": "SDA",
+      "job_title_average_salary": 15000
+    },
+    {
+      "job_title": "EE",
+      "job_title_average_salary": 71395
+    },
+    {
+      "job_title": "DDE",
+      "job_title_average_salary": 53654
+    },
+    {
+      "job_title": "HD",
+      "job_title_average_salary": 183858
+    },
+    {
+      "job_title": "DSM",
+      "job_title_average_salary": 191279
+    },
+    {
+      "job_title": "DM",
+      "job_title_average_salary": 116613
+    },
+    {
+      "job_title": "MLR",
+      "job_title_average_salary": 105873
+    },
+    {
+      "job_title": "BDE",
+      "job_title_average_salary": 68672
+    },
+    {
+      "job_title": "DS",
+      "job_title_average_salary": 119643
+    },
+    {
+      "job_title": "LDA",
+      "job_title_average_salary": 72569
+    },
+    {
+      "job_title": "BIE",
+      "job_title_average_salary": 60000
+    },
+    {
+      "job_title": "DDS",
+      "job_title_average_salary": 195141
+    },
+    {
+      "job_title": "MLS",
+      "job_title_average_salary": 163220
+    },
+    {
+      "job_title": "MLE",
+      "job_title_average_salary": 129000
+    },
+    {
+      "job_title": "AIS",
+      "job_title_average_salary": 110121
+    },
+    {
+      "job_title": "AVT",
+      "job_title_average_salary": 26278
+    },
+    {
+      "job_title": "AMLS",
+      "job_title_average_salary": 109453
+    },
+    {
+      "job_title": "LDS",
+      "job_title_average_salary": 112776
+    },
+    {
+      "job_title": "CDE",
+      "job_title_average_salary": 155000
+    },
+    {
+      "job_title": "FDA",
+      "job_title_average_salary": 101667
+    },
+    {
+      "job_title": "DIE",
+      "job_title_average_salary": 175052
+    },
+    {
+      "job_title": "SDE",
+      "job_title_average_salary": 62510
+    },
+    {
+      "job_title": "AIP",
+      "job_title_average_salary": 55000
+    },
+    {
+      "job_title": "DOE",
+      "job_title_average_salary": 98485
+    },
+    {
+      "job_title": "BID",
+      "job_title_average_salary": 129846
+    },
+    {
+      "job_title": "DSL",
+      "job_title_average_salary": 156334
+    },
+    {
+      "job_title": "DLR",
+      "job_title_average_salary": 123405
+    },
+    {
+      "job_title": "BIA",
+      "job_title_average_salary": 104889
+    },
+    {
+      "job_title": "DSC",
+      "job_title_average_salary": 87012
+    },
+    {
+      "job_title": "DAS",
+      "job_title_average_salary": 95000
+    },
+    {
+      "job_title": "MLIE",
+      "job_title_average_salary": 143012
+    },
+    {
+      "job_title": "BDA",
+      "job_title_average_salary": 60440
+    },
+    {
+      "job_title": "HDS",
+      "job_title_average_salary": 160592
+    },
+    {
+      "job_title": "IA",
+      "job_title_average_salary": 46786
+    },
+    {
+      "job_title": "DLE",
+      "job_title_average_salary": 109241
+    },
+    {
+      "job_title": "MLSE",
+      "job_title_average_salary": 192420
+    },
+    {
+      "job_title": "BDA",
+      "job_title_average_salary": 125803
+    },
+    {
+      "job_title": "PDA",
+      "job_title_average_salary": 56497
+    },
+    {
+      "job_title": "CVSE",
+      "job_title_average_salary": 77695
+    },
+    {
+      "job_title": "ADE",
+      "job_title_average_salary": 100000
+    },
+    {
+      "job_title": "MDE",
+      "job_title_average_salary": 66970
+    },
+    {
+      "job_title": "DAL",
+      "job_title_average_salary": 211255
+    },
+    {
+      "job_title": "DL",
+      "job_title_average_salary": 212500
+    },
+    {
+      "job_title": "DSE",
+      "job_title_average_salary": 93482
+    },
+    {
+      "job_title": "MLRE",
+      "job_title_average_salary": 42819
+    },
+    {
+      "job_title": "NLPE",
+      "job_title_average_salary": 132785
+    },
+    {
+      "job_title": "MDM",
+      "job_title_average_salary": 125000
+    },
+    {
+      "job_title": "MLDE",
+      "job_title_average_salary": 74518
+    },
+    {
+      "job_title": "3DCVR",
+      "job_title_average_salary": 21352
+    },
+    {
+      "job_title": "PMLE",
+      "job_title_average_salary": 190000
+    },
+    {
+      "job_title": "DAE",
+      "job_title_average_salary": 67866
+    },
+    {
+      "job_title": "DAL",
+      "job_title_average_salary": 81500
+    },
+    {
+      "job_title": "DMS",
+      "job_title_average_salary": 68293
+    },
+    {
+      "job_title": "DSTL",
+      "job_title_average_salary": 375000
+    },
+    {
+      "job_title": "DSL",
+      "job_title_average_salary": 136153
+    },
+    {
+      "job_title": "CDE",
+      "job_title_average_salary": 87301
+    },
+    {
+      "job_title": "DOA",
+      "job_title_average_salary": 90563
+    },
+    {
+      "job_title": "MDA",
+      "job_title_average_salary": 144327
+    },
+    {
+      "job_title": "PBID",
+      "job_title_average_salary": 5409
+    },
+    {
+      "job_title": "PDA",
+      "job_title_average_salary": 8000
+    },
+    {
+      "job_title": "PDA",
+      "job_title_average_salary": 38154
+    },
+    {
+      "job_title": "MLM",
+      "job_title_average_salary": 155701
+    },
+    {
+      "job_title": "LMLE",
+      "job_title_average_salary": 82928
+    },
+    {
+      "job_title": "ED",
+      "job_title_average_salary": 131454
+    },
+    {
+      "job_title": "CDA",
+      "job_title_average_salary": 250000
+    },
+    {
+      "job_title": "LDE",
+      "job_title_average_salary": 139230
+    },
+    {
+      "job_title": "HML",
+      "job_title_average_salary": 76309
+    },
+    {
+      "job_title": "PDA",
+      "job_title_average_salary": 122500
+    },
+    {
+      "job_title": "PDE",
+      "job_title_average_salary": 192500
+    },
+    {
+      "job_title": "SDS",
+      "job_title_average_salary": 105000
+    },
+    {
+      "job_title": "FDA",
+      "job_title_average_salary": 61896
+    }
+  ]
+}
