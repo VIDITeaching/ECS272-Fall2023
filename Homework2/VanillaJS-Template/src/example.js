@@ -95,7 +95,7 @@ function initChart() {
         .attr('y', (d) => yScale(d.value))
         // specify the size of the rectangle
         .attr('width', xScale.bandwidth())
-        .attr('height', (d) => yScale(0) - yScale(d.value)) // this substraction is reversed so the result is non-negative
+        .attr('height', (d) => Math.abs(yScale(0) - yScale(d.value))) // this substraction is reversed so the result is non-negative
         .attr('fill', 'teal')
 
     // For transform, check out https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm, but essentially we are adjusting the positions of the selected elements.

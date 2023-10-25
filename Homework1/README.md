@@ -1,11 +1,11 @@
 # Homework 1: Static Visualizations with Observable Notebook
 In this homework, you will be getting familiar with visualizations using [Observable Notebook](https://observablehq.com/). 
 Your task is to create at least three visualizations from a dataset of your choice, then present two or more insights dervied from your work.
-Observable introduces the notebook paradigm to JavaScript projects. If you are familiar with Jupyter notebooks, this is the equivalent with JavaScript instead of Python. 
+Observable introduces the notebook paradigm to JavaScript projects. If you are familiar with Jupyter notebooks, this is the equivalent to JavaScript instead of Python. 
 
 This is an individual assignment, so you may not work in groups. Your final submission will take the form of a report, including the visualizations you will create and the description of the insights you will gain from your visualizations.
 
-A full example of visualization and analysis of a multidimensional dataset using D3.js and Vega-Lite can be found in [here](https://observablehq.com/d/2600cf5224a01f25)
+A full example of visualization and analysis of a multidimensional dataset using D3.js and Vega-Lite can be found in [here](https://observablehq.com/d/2600cf5224a01f25). Note that for D3.js, please use version v6 or v7 (the latest). Versions earlier than v6 use very different and outdated syntax.
 
 * An Observable Tutorial:  [Five-Minute Introduction to Observable](https://observablehq.com/@observablehq/five-minute-introduction) 
 
@@ -33,21 +33,25 @@ Each of the following datasets can be downloaded as CSV files.
 For Observable, you can attach datasets as CSV files. To do so, first make sure you have opened either an existing observable notebook or an empty notebook, using your account. Select the (...) botton on the top right (located next to Publish and Like buttons), which will open a drop-down menu. Select the option "File Attachments". You should now see a menu on the right-hand side where you can upload your data (Max file size: 15MB).
 
 ## Step 2: Process and Visualize the Data
-Once the chosen dataset is now loaded into the Observable notebook, you can begin processing the data for visualization. For data processing, vanilla JavaScript should be sufficient. However, feel free to use any Javascript library for processing and analyzing the data. 
+Once the chosen dataset is loaded into the Observable notebook, you can begin processing the data for visualization. For data processing, vanilla JavaScript should be sufficient. However, feel free to use any Javascript library for processing and analyzing the data. 
 
-After data processing, now you should have some subsets of the data you seek to visualize. **We encourage you to use D3.js to create visualizations, as D3.js is required for future homework.**
+After data processing, you should have some subsets of the data you seek to visualize. **We encourage you to use D3.js to create visualizations, as D3.js is required for future homework and the final project.**
 
-A library that you could use for both analysis and visualization is [Vega-Lite](https://vega.github.io/vega-lite/). Vega-Lite provides a more concise and convenient form to author common visualizations. **While you may use Vega-Lite to gain familiarity with visualizations in this homework, Vega-Lite would not be allowed in HW2, HW3, and the final project.**
+Two libraries you may use in this assignment: [Observable Plot](https://observablehq.com/@observablehq/plot-gallery) and [Vega-Lite](https://vega.github.io/vega-lite/).
+Observable Plot allows you to visualize data in an efficient manner on Observable.
+Vega-Lite provides a more concise and convenient form to author common visualizations. 
+**While you may use these libraries to gain familiarity with visualizations in this homework, BOTH WOULD NOT BE ALLOWED in HW2, HW3, and the final project.**
+On a side note, we will use Observable Plot in workshops.
 
 ### Example
-An example of visualization and analysis of a mutlidimensional dataset using D3 can be found in [this Observable Notebook](https://observablehq.com/d/2600cf5224a01f25). You may refer to this notebook; however, **if you submit this exact visualization and analysis you will not receive any credit**.
+An example of visualization and analysis of a multidimensional dataset using D3 can be found in [this Observable Notebook](https://observablehq.com/d/2600cf5224a01f25). You may refer to this notebook; however, **if you submit this exact visualization and analysis you will not receive any credit**.
 
 ---
 
 ## Requirements
 You need to create **at least three different visualizations**, and you need to describe at least two insights (e.g. useful or important information) from your visualizations. 
 
-### Examples of Visualizetion Methods
+### Examples of Visualization Methods
 
 Note that you have to pick different methods for each of your visualizations. For example, creating a bar chart and a histogram only counts as using only one method, since their implementation is nearly the same.
 

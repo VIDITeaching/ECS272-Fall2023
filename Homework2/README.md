@@ -38,7 +38,7 @@ To use a dataset, download the data file from the respective URL above and put i
 ## Step 1: Set Up the Environment
 We have provided two templates; one in TypeScript using [Vue 3](https://vuejs.org/guide/introduction.html), and the other in vanilla Javascript. Both are built with the help of [Vite](https://vitejs.dev/guide/). You can find them and more technical details in `./Homework2/Vue-Template` and `./Homework2/VanillaJS-Template`.
 
-Vue.js is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.
+Vue.js is designed from the ground up to be incrementally adaptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.
 
 Note that you are free to use other existing frameworks and libraries in JavaScript/TypeScript to implement your interface, while d3.js remains required for completing this assignment.
 For example, [React](https://reactjs.org/tutorial/tutorial.html) is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
@@ -123,4 +123,4 @@ git add <your-filename>
 git commit -m "Homework2" 
 git push
 ```
-After you pushed your code to your repository, follow the instruction [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to create a pull request for this repository. Finally, submit the hyperlink of the pull request to UCD Canvas. The hyperlink should look like - "https://github.com/VIDITeaching/ECS272-Fall2023/pull/{your-pull-request-id}".
+After you push your code to your repository, follow the instructions [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to create a pull request for this repository. Finally, submit the hyperlink of the pull request to UCD Canvas. The hyperlink should look like this- "https://github.com/VIDITeaching/ECS272-Fall2023/pull/{your-pull-request-id}".
