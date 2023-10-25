@@ -123,7 +123,7 @@ function createHeatMap(data) {
         .padding(0.01);
 
     svg.append("g")
-        .style("font-size", "8px")
+        .style("font-size", "9px")
         .attr("class", "x-axis")
         .attr("transform", `translate(0, ${height})`)
         .call(d3.axisBottom(x));
@@ -134,7 +134,7 @@ function createHeatMap(data) {
         .padding(0.01);
 
     svg.append("g")
-        .style("font-size", "8px")
+        .style("font-size", "9px")
         .attr("class", "y-axis")
         .call(d3.axisLeft(y).tickFormat(label => label.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')));
 
