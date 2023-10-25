@@ -175,15 +175,47 @@ export default {
         ) // this substraction is reversed so the result is non-negative
         .attr("fill", "pink");
 
-      // For transform, check out https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm, but essentially we are adjusting the positions of the selected elements.
-      const title = chartContainer
+
+      const titleContainer = chartContainer
         .append("g")
-        .append("text") // adding the text
+        .append("text")
+        .attr("class", "title-container")
+
+      // add tooltip
+      var tooltip = d3.select("div.chart-container-bar")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("position", 'absolute')
+        .style("background", '#000')
+        .style("color", '#fff')
+        .style("padding", "5px")
+
+      titleContainer
+        .append("text")
+        .style("opacity", 0)
+        .style("position", "absolute")
+        .style("background", (d) => {
+          // console.log('sssss')
+          return '#000'
+        })
+              
+      const title = titleContainer
         .attr('transform', `translate(${this.size.width / 2}, ${this.margin.top + 5})`)
         .attr("dy", "0.5rem") // relative distance from the indicated coordinates.
         .style("text-anchor", "middle")
         .style("font-weight", "bold")
-        .text("Pokemon"); // text content
+        .text("Pokemon") // text content
+        .on("mouseover", function(d){ 
+          console.log('this', this);
+          d3.select(this).style("fill", "lightgreen");
+          tooltip.html("Overview: Average parameters of different Pokemon types")
+            .style("right", "20px")
+            .style("top", "60px")
+          return tooltip.style("opacity", .5);})
+        .on("mouseout", (d) => {
+          d3.select("text.title-container").style("fill", "black");
+          return tooltip.style("opacity", 0)});
     },
   },
   watch: {
@@ -218,5 +250,6 @@ export default {
 <style scoped>
 .chart-container-bar {
   height: 50vh;
+  position: relative;
 }
 </style>

@@ -2,11 +2,7 @@
 import * as d3 from "d3";
 import Data from "../../data/data.json"; /* Example of reading in data directly from file */
 import { isEmpty, debounce } from "lodash";
-
 import { Spider, ComponentSize, Margin, FeatureData } from "../types";
-
-// Computed property: https://vuejs.org/guide/essentials/computed.html
-// Lifecycle in vue.js: https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 
 export default {
   data() {
@@ -16,6 +12,7 @@ export default {
       names: [],
       size: { width: 0, height: 0 } as ComponentSize,
       margin: { left: 40, right: 20, top: 20, bottom: 60 } as Margin,
+      colors: [],
     };
   },
   computed: {
@@ -24,19 +21,7 @@ export default {
       return !isEmpty(this.spider) && this.size;
     },
   },
-  // Anything in here will only be executed once.
-  // Refer to the lifecycle in Vue.js for more details, mentioned at the very top of this file.
   created() {
-    // fetch the data via GET request when we init this component.
-    // In axios anything we send back in the response are always bound to the "data" property.
-    /*
-        axios.get(`<some-API-endpoint>`)
-            .then(resp => { 
-                this.bars = resp.data; // resp.data contains the content, with the format specified by the API you use.
-                return true;
-            })
-            .catch(error => console.log(error));
-        */
     function groupBy(objectArray, property) {
       return objectArray.reduce(function (acc, obj) {
         let key = obj[property];
@@ -49,10 +34,11 @@ export default {
     }
     let styles = groupBy(Data, "Body_Style");
 
-    this.names = ["Catch_Rate", "Hp", "Attack", "Defense", "Speed"];
+    this.names = ["Defense", "Speed", "Hp", "Catch_Rate", "Attack"];
 
     let totalByTypeOne = [];
     let spiderByStyles = [];
+    let styleColors = [];
     Object.keys(styles).forEach((d) => {
       let initialValue = 0;
       let cumulativeSpd = styles[d].reduce(
@@ -87,12 +73,21 @@ export default {
         defense: Math.round(averageDfs),
         catch_rate: Math.round(averageCth),
       };
+      let processedColor = {
+        style: d,
+        catch_rate: Math.round(averageCth),
+      }
       spiderByStyles.push(processedObj);
+      styleColors.push(processedColor);
       totalByTypeOne[d] = processedObj;
     });
+    const a = spiderByStyles.filter((v) => v.catch_rate < 100)
+    const b = styleColors.filter((v) => v.catch_rate < 100).map((v)=> v.style)
+    console.log("xxx", a)
     console.log("xxxx", spiderByStyles);
     console.log("xxxx", totalByTypeOne);
-    this.spider = spiderByStyles;
+    this.spider = a;
+    this.colors = b;
   },
   methods: {
     onResize() {
@@ -109,9 +104,9 @@ export default {
       let radius = width / 3
       let radialScale = d3
         .scaleLinear()
-        .domain([0, 180])
+        .domain([0, 100])
         .range([0, radius]);
-      let ticks = [20, 60, 100, 140, 180];
+      let ticks = [20, 40, 60, 80, 100];
 
       spiderContainer
         .selectAll("circle")
@@ -149,8 +144,8 @@ export default {
         return {
           name: f,
           angle: angle,
-          line_coord: angleToCoordinate(angle, 180),
-          label_coord: angleToCoordinate(angle, 220),
+          line_coord: angleToCoordinate(angle, 100),
+          label_coord: angleToCoordinate(angle, 130),
         };
       });
 
@@ -184,56 +179,111 @@ export default {
         .line()
         .x((d) => d.x)
         .y((d) => d.y);
+        
       let color = [
-        "#e6194b",
-        "#f58231",
-        "#ffe119",
-        "#bcf60c",
-        "#3cb44b",
-        "#008080",
-        "#aaffc3",
-        "#46f0f0",
-        "#4363d8",
-        "#911eb4",
-        "#f032e6",
-        "#fabebe",
-        "#e6beff",
-        "#ffd8b1",
-        "#fffac8",
-        "#800000",
-        "#000075",
-        "#000000",
+        "#ec8a83",
+        "#ffad85",
+        "#f9f176",
+        "#8be59d",
+        "#6ab4f1",
+        "#a983d8",
       ];
 
-      function getPathCoordinates(data_point) {
+      function getPathCoordinates(vm, data_point) {
         let coordinates = [];
-        for (var i = 0; i < this.names.length; i++) {
-          let ft_name = this.names[i];
-          console.log("xxxx-data_point[ft_name]", data_point[ft_name]);
-          console.log("xxxx-ft_name", ft_name);
-          console.log("xxxx-data_point", data_point);
-          let angle = Math.PI / 2 + (2 * Math.PI * i) / this.names.length;
+        for (var i = 0; i < vm.names.length; i++) {
+          let ft_name = vm.names[i].toLowerCase();
+          let angle = Math.PI / 2 + (2 * Math.PI * i) / vm.names.length;
           coordinates.push(angleToCoordinate(angle, data_point[ft_name]));
         }
         return coordinates;
       }
-    //   spiderContainer
-    //     .selectAll("path")
-    //     .data(this.spider)
-    //     .join((enter) =>
-    //       enter
-    //         .append("path")
-    //         .datum((d) => {
-    //           console.log("xxx-1", d);
-    //           return getPathCoordinates(d);
-    //         })
-    //         .attr("d", line)
-    //         .attr("stroke-width", 3)
-    //         .attr("stroke", (_, i) => color[i])
-    //         .attr("fill", (_, i) => color[i])
-    //         .attr("stroke-opacity", 1)
-    //         .attr("opacity", 0.5)
-    //     );
+      const vm = this;
+      spiderContainer
+        .selectAll("path")
+        .data(this.spider)
+        .join((enter) =>
+          enter
+            .append("path")
+            .datum((d) => {
+              return getPathCoordinates(vm, d);
+            })
+            .attr("d", line)
+            .attr("stroke-width", 3)
+            .attr("stroke", (_, i) => color[i])
+            .attr("fill", (_, i) => color[i])
+            .attr("stroke-opacity", 1)
+            .attr("opacity", 0.3)
+        );
+        
+        const title = spiderContainer.append('g')
+            .append('text')
+            .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - this.margin.top * 7})`)
+            .attr('dy', '0.5rem')
+            .style('text-anchor', 'middle')
+            .style('font-weight', 'bold')
+            .text('POKEMON') // text content
+            .style("font-size", 35)
+
+        const description1 = spiderContainer.append('g')
+            .append('text')
+            .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - this.margin.top * 5})`)
+            .attr('dy', '0.5rem')
+            .style('text-anchor', 'middle')
+            .text('Parameters of Pokemons')
+            .style("font-size", 15)
+            .attr("fill", 'grey')
+
+        const description2 = spiderContainer.append('g')
+            .append('text')
+            .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - this.margin.top * 4})`)
+            .attr('dy', '0.5rem')
+            .style('text-anchor', 'middle')
+            .text('among different body styles')
+            .style("font-size", 15)
+            .attr("fill", 'grey')
+        
+        const description3 = spiderContainer.append('g')
+            .append('text')
+            .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - this.margin.top * 3})`)
+            .attr('dy', '0.5rem')
+            .style('text-anchor', 'middle')
+            .text('with catch rate less than 100')
+            .style("font-size", 15)
+            .attr("fill", 'grey')
+
+        const description4 = spiderContainer.append('g')
+            .append('text')
+            .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - this.margin.top * 2})`)
+            .attr('dy', '0.5rem')
+            .style('text-anchor', 'middle')
+            .text('RARE POKEMONS!!')
+            .style('font-weight', 'bold')
+            .style("font-size", 13)
+            .attr("fill", 'red')
+
+        // draw labels & dots
+        spiderContainer.selectAll("dots")
+          .data(this.colors)
+          .enter()
+          .append("circle")
+          .attr("cx", width / 6)
+          .attr("cy", (_,i)=> i * 12 + 80) 
+          .attr("r", 3)
+          .style("fill", (_, i) => color[i])
+        
+        spiderContainer.selectAll("mylabels")
+          .data(this.colors)
+          .enter()
+          .append("text")
+          .attr("x", width / 6 + 20)
+          .attr("y", (_,i)=> i * 12 + 80) 
+          .style("fill", (_, i) => color[i])
+          .text((d) =>  d)
+          .style("alignment-baseline", "middle")
+          .style("font-weight", 600)
+          .style("font-size", 10)
+        
     },
   },
   watch: {
