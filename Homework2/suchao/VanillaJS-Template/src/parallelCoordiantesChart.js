@@ -35,9 +35,9 @@ export function mountParallelCoordinatesPlot() {
 function initParallelCoordinates() {
   const chartContainer = d3.select('#parallel-coordinates-svg');
 
-  var margin = { top: 30, right: 10, bottom: 10, left: 0 },
-    width = 500 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+  var margin = { top: 30, right: 0, bottom: 10, left: 0 },
+    width = 750 - margin.left - margin.right,
+    height = 800 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   chartContainer
@@ -46,6 +46,7 @@ function initParallelCoordinates() {
     .append("g")
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
+    
 
   // Extract the list of dimensions we want to keep in the plot. Here I keep all except the column called Species
   const dimensions = ['remote_ratio', 'salary_in_usd', "work_year"];
@@ -98,9 +99,37 @@ function initParallelCoordinates() {
 
   const title = chartContainer.append('g')  // Add a title to the chart.
     .append('text')
-    .attr('transform', `translate(${size.width / 2}, ${margin.top - 15})`)
+    .attr('transform', `translate(${size.width / 2}, ${margin.top - 25})`)
     .attr('dy', '0.5rem')
     .style('text-anchor', 'middle')
     .style('font-size', '.9rem')
-    .text('Overview of 71 average remote ratio by occupation');
+    .text('Overview of the top 5 popular job titles in terms of remote_ratio, salary, and years');
+
+      // Draw the axis and labels
+  dimensions.forEach((dimension, i) => {
+    chartContainer.append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(${x(dimension)}, 0)`)
+      // .call(d3.axisLeft().scale(y[dimension]))
+      .append("text")
+      .style("text-anchor", "middle")
+      .attr("y", -15)
+      .text(dimension)
+      .style("fill", "black");
+  });
+
+  // Add labels for y-axis
+  dimensions.forEach((dimension) => {
+    chartContainer.append("g")
+    .attr('transform', `translate(${10}, ${size.height / 2}) rotate(-90)`)
+    .attr("class", "axis")
+    .append("text")
+    .style("text-anchor", "middle")
+    .attr("x", -15)
+    .attr("y", height / 2)
+    .text(dimension)
+    // .padding(0.1)
+    .style("fill", "black");
+  });
+
 }
