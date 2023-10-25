@@ -9,12 +9,13 @@ export default {
       // set the dimensions and margins of the graph
       var margin = { top: 10, right: 30, bottom: 30, left: 60 },
         width = 800 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+        height = 600 - margin.top - margin.bottom;
 
       // append the svg object to the body of the page
       var svg = d3.select("#plot3")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
+        .attr("viewBox", `-100 0 ${ width + margin.left + margin.right} ${height + margin.top + margin.bottom + 60}`)
         .append("g")
         .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
@@ -47,6 +48,13 @@ export default {
       svg.append("g")
         .call(d3.axisLeft(y));
 
+      svg.append("text")
+        .text("Salary (in USD)")
+        .attr("transform", `translate(-80, ${height / 2 + 80}) rotate(-90)`)
+
+      svg.append("text")
+        .text("Year")
+        .attr("transform", `translate(${width / 2 - 80}, ${height + 50})`)
 
       let boxplot = this.boxplot_data(data);
       console.log(boxplot);
@@ -125,7 +133,7 @@ export default {
   <!-- We use flex (d-flex) to arrange the layout-->
 <template>
   <div>
-    <h2>Box Plot</h2>
+    <h2>Box Plot </h2>
     <svg id="plot3"></svg>
   </div>
 </template>
