@@ -14,13 +14,13 @@ export default {
 </script>
 
 <template>
-  <h1 style="font-size:30px; font-family:monospace; margin:15px;">
+  <h2 style="font-size:30px; font-family:monospace; margin:15px;">
     Music & Mental Health Survey Results
-  </h1>
+  </h2>
   <v-container id="main-container" class="d-flex flex-column flex-nowrap" fluid>
-    <v-row>
+    <v-row no-gutters>
       <v-col>
-      <SankeyDiagram />
+        <SankeyDiagram />
       </v-col>
     </v-row>
     <v-row no-gutters>

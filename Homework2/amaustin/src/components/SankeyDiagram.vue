@@ -10,21 +10,84 @@ import { Graph, ComponentSize, Margin } from '../types';
 // https://www.kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results
 const data = await d3.csv('../../data/mxmh_survey_results.csv');
 const genreGrouped = groupBy(data, "Fav genre")
+const workingGrouped = groupBy(data, "While working")
+const anxietyGrouped = groupBy(data, "Anxiety")
+const depressionGrouped = groupBy(data, "Depression")
+const musicEffectGrouped = groupBy(data, "Music effects")
 
 let sankeyData = {"nodes": [], "links": []}
+
+// nodes
+Object.keys(genreGrouped).forEach(g => {
+    if (g != "") sankeyData.nodes.push({ "name": g })
+})
+Object.keys(musicEffectGrouped).forEach(g => {
+    if (g != "") sankeyData.nodes.push({ "name": 'Music effect on mental health - '+g })
+})
+sankeyData.nodes.push({ "name": 'Listen while working? Yes' })
+sankeyData.nodes.push({ "name": 'Listen while working? No' })
+
+sankeyData.nodes.push({ "name": 'Anxiety Level 0-3' })
+sankeyData.nodes.push({ "name": 'Anxiety Level 4-7' })
+sankeyData.nodes.push({ "name": 'Anxiety Level 8-10' })
+
+sankeyData.nodes.push({ "name": "Depression Level 0-3" })
+sankeyData.nodes.push({ "name": "Depression Level 4-7"})
+sankeyData.nodes.push({ "name": "Depression Level 8-10"})
+
+function levels(value) {
+    if (parseInt(value) <= 3) return '0-3'
+    if (parseInt(value) > 3 && value < 8) return '4-7'
+    if (parseInt(value) <= 10 && value >= 8) return '8-10'
+}
 
 // processing data for chart
 // fav genre -> working with music
 data.forEach(d => {
-    let source = d['Fav genre'] as string
-    let target = d['While working']
-    let value = genreGrouped[source].length
-    if (!isEmpty(target)) {
-        sankeyData.nodes.push({ "name": source })
-        sankeyData.nodes.push({ "name": 'Listen while working? ' + target })
-        sankeyData.links.push({ "source": source, "target": 'Listen while working? ' + target, "value": +value })
+    // fav genre -> working with music
+    let genre = d['Fav genre'] as string
+    let working = d['While working'] as string
+    let genreWorking = genreGrouped[genre].length
+
+    // working -> anxiety level
+    let anxiety = d['Anxiety'] as string
+    let workingAnxiety = workingGrouped[working].length
+
+    // anxiety -> depression level
+    let depression = d['Depression'] as string
+    let aDepValue = anxietyGrouped[anxiety].length
+
+    // depression level -> music helping ?
+    let musicEffect = d['Music effects']
+    let depEffectValue = depressionGrouped[depression].length
+
+    if (!isEmpty(working) && !isEmpty(musicEffect)) {
+        // links
+        sankeyData.links.push({ "source": genre, "target": 'Listen while working? ' + working, "value": +genreWorking })
+
+        if (anxiety <= 3 && anxiety >= 0) {
+            sankeyData.links.push({ "source": 'Listen while working? ' + working, "target": 'Anxiety Level 0-3', "value": +workingAnxiety })
+        } else if (anxiety <= 7 && anxiety > 3) {
+            sankeyData.links.push({ "source": 'Listen while working? ' + working, "target": 'Anxiety Level 4-7', "value": +workingAnxiety })
+        } else if (anxiety <= 10 && anxiety > 7) {
+            sankeyData.links.push({ "source": 'Listen while working? ' + working, "target": 'Anxiety Level 8-10', "value": +workingAnxiety })
+        }
+
+        if (depression <= 3 && depression >= 0) {
+            sankeyData.links.push({ "source": 'Anxiety Level '+levels(anxiety), "target": 'Depression Level 0-3', "value": +aDepValue })
+        } else if (depression <= 7 && depression > 3) {
+            sankeyData.links.push({ "source": 'Anxiety Level '+levels(anxiety), "target": 'Depression Level 4-7', "value": +aDepValue })
+        } else if (depression <= 10 && depression > 7) {
+            sankeyData.links.push({ "source": 'Anxiety Level '+levels(anxiety), "target": 'Depression Level 8-10', "value": +aDepValue })
+        }
+        
+        sankeyData.links.push({ "source": 'Depression Level '+levels(depression), "target": 'Music effect on mental health - ' + musicEffect, "value": +depEffectValue })
     }
 })
+
+
+// anxiety -> depression level 0-5 and 6-10
+// depression -> music helps
 
 sankeyData.nodes = Array.from(d3.group(sankeyData.nodes, d => d.name), ([value]) => value)
 
@@ -53,7 +116,7 @@ export default {
     data() {
         return {
             nodes: [] as Graph[],
-            size: { width: 700, height: 400 } as ComponentSize,
+            size: { width: 940, height: 260 } as ComponentSize,
             margin: {left: 40, right: 40, top: 15, bottom: 40} as Margin
         }
     },
@@ -101,6 +164,7 @@ export default {
                     .attr('height', (d) => d.y1 - d.y0)
                     .attr('width', (d) => d.x1 - d.x0)
                     .attr('fill', ({index: i}) => colors(sankeyData.nodes[i]))
+                    .style('opacity', '0.5')    
             
             // node titles
             const nodeTitles = chartContainer.append('g')

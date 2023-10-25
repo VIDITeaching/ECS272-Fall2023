@@ -28,7 +28,7 @@ export default {
     data() {
         return {
             bars: [] as CategoricalBar[],
-            size: { width: 530, height: 340 } as ComponentSize,
+            size: { width: 600, height: 260 } as ComponentSize,
             margin: {left: 40, right: 40, top: 15, bottom: 40} as Margin
         }
     },
@@ -58,9 +58,16 @@ export default {
                 .rangeRound([this.margin.left, this.size.width])
                 .domain(xDomain)
 
+            const histogram = d3.bin()
+                .value(d => d.age)
+                .domain(x.domain())
+                .thresholds(x.ticks(16))
+
+            let bins = histogram(processedData)
+
             let y = d3.scaleLinear()
-                .range([this.size.height - this.margin.bottom, this.margin.top]) 
-                .domain([0, 285]) // FIX ME
+                .rangeRound([this.size.height - this.margin.bottom, this.margin.top]) 
+                .domain([0, d3.max(bins.map(x => x.length)) + 10])
 
             // adding axis and labels
             const xAxis = chartContainer.append('g')
@@ -72,7 +79,7 @@ export default {
                 .call(d3.axisLeft(y))
 
             const yLabel = chartContainer.append('g')
-                .attr('transform', `translate(${10}, ${this.size.height / 2 + this.margin.bottom}) rotate(-90)`)
+                .attr('transform', `translate(${10}, ${this.size.height / 2}) rotate(-90)`)
                 .append('text')
                 .text('Value')
                 .style('font-size', '.8rem')
@@ -82,13 +89,6 @@ export default {
                 .append('text')
                 .text('Age')
                 .style('font-size', '.8rem')
-
-            const histogram = d3.bin()
-                .value(d => d.age)
-                .domain(x.domain())
-                .thresholds(x.ticks(16))
-
-            let bins = histogram(processedData)
 
             // TODO: color bars based on hours per day, add legend
             // adding histogram bars
@@ -100,15 +100,16 @@ export default {
                     return `translate(${x(d.x0)}, ${y(d.length)})`
                 })
                 .attr('width', d => x(d.x1) - x(d.x0) - 1)
-                .attr('height', d => d.length)
+                .attr('height', d => this.size.height - this.margin.bottom - y(d.length))
                 .attr('fill', 'teal')
+                .style('opacity', '0.5')    
 
             const labels = chartContainer.append('g')
                 .selectAll('allLabels')
                 .data(bins)
                 .join('text')
                     .attr('transform', function(d) {
-                        return `translate(${x(d.x0) + x(d.x1 - d.x0) / 2}, ${y(d.length) - 8})`
+                        return `translate(${x(d.x0) - x(d.x1 - d.x0) / 2 + 10}, ${y(d.length) - 8})`
                     })
                     .style('font-size', '12px')
                     .text((d) => d.length)

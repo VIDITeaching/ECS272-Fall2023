@@ -110,7 +110,8 @@ export default {
                 .attr('height', this.size.height)
                 .attr('transform', `translate(${this.size.width / 2}, ${this.size.height / 2})`)
                 .attr('fill', d => colors(d.data.category))
-                .style('stroke-width", "2px"')    
+                .style('opacity', '0.5')    
+                .style('stroke-width", "2px"')
                 
             // polylines
             const polyLines = chartContainer.append('g')
