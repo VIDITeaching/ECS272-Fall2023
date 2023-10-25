@@ -5,9 +5,16 @@ import { pokemonStore } from '../stores/pokemon';
 import { ref } from 'vue'
 
 const emit = defineEmits(['onSelect']);
+const props = defineProps(['randomize']);
 
+// load store
 const store = computed(() => pokemonStore());
+
 let pokemon = ref(null);
+if (props.randomize == '') {
+  const n = store.value.pokemon.length;
+  pokemon.value = store.value.pokemon[Math.floor(Math.random() * n)];
+}
 
 </script>
 

@@ -1,44 +1,54 @@
 <script setup lang="ts">
 
-import { ref } from 'vue';
-
 // components
-import Search from './components/Search.vue';
+import Stats from './components/Stats.vue';
+import Height from './components/Height.vue';
+import Overview from './components/Overview.vue';
 
-// types
-import type { Pokemon } from '@/types/Pokemon';
 
 // stores
 import { pokemonStore } from './stores/pokemon';
-
-// initialize store
-const store = pokemonStore();
-store.loadPokedex();
-
-
-// initialize data
-let pokemon: Pokemon = ref(null);
-
-
-// methods
-function formatNumber(num) {
-  let numInt = parseInt(num);
-  if (numInt < 10) {
-    return "00" + num;
-  } else if (numInt < 100) {
-    return "0" + num;
-  }
-  return num;
-}
+pokemonStore().loadPokedex();
 
 </script>
 
 <template>
-  <Search @on-select="(pk) => pokemon = pk"></Search>
-  <div v-if="pokemon">
-    <img :src="`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${formatNumber(pokemon.Number)}.png`">
+  <div class="container">
+    <div class="flex-row">
+      <div class="widget1">
+        <h1>Types by Generation</h1>
+        <Overview></Overview>
+      </div>
+      <div class="widget2">
+        <h1>Stats</h1>
+        <Stats></Stats>
+      </div>
+    </div>
+    <div class="flex-row">
+      <div class="widget3">
+        <h1>Height Compare</h1>
+        <Height></Height>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.widget1,
+.widget2,
+.widget3 {
+  flex-basis: 100%;
+  padding: 8px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 8px 12px;
+}
+
+.widget3,
+.widget2,
+.widget1 {
+  background: white;
+  color: black;
+}
+
 </style>
