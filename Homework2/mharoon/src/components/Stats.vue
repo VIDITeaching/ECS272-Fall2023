@@ -151,7 +151,7 @@ function plot() {
         .attr("y", margin * 2)
         .attr("width", width * 0.75)
         .attr("height", height * 0.75)
-        .attr("xlink:href", `../data/img/${formatNumber(pokemon.value.Number)}.png`);
+        .attr("xlink:href", `https://haroon96.github.io/Pokemon/${formatNumber(pokemon.value.Number)}.png`);
 
 
 }

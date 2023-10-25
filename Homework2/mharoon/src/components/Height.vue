@@ -107,10 +107,10 @@ function plot() {
         .attr("y", (d, ind) => yScale(d))
         .style("width", "100%")
         .style("height", d => yScale(0) - yScale(d))
-        // .attr("width",  d => 300)
-        // .attr("height", d => yScale(0) - yScale(d))
+        .attr("width",  d => 300)
+        .attr("height", d => yScale(0) - yScale(d))
         .attr("transform", "translate(-400,0)")
-        .attr("xlink:href", (d, ind) => `../data/img/${formatNumber(pokemon[ind].Number)}.png`);
+        .attr("xlink:href", (d, ind) => `https://haroon96.github.io/Pokemon/${formatNumber(pokemon[ind].Number)}.png`);
 
     bars.enter()
         .append('text')
