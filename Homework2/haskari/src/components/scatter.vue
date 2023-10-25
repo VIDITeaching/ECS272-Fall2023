@@ -85,7 +85,7 @@ export default {
         .attr("height", function (d) { return (y(d.q1) - y(d.q3)) })
         .attr("width", boxWidth)
         .attr("stroke", "black")
-        .style("fill", "white")
+        .style("fill", "steelblue")
 
       // Show the median
       svg
