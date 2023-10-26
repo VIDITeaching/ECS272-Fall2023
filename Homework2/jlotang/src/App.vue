@@ -26,7 +26,7 @@ export default {
 <!--This is using the grid component from Vuetify to do layout design-->
 <template>
   <!-- <v-container id="main-container" class="d-flex flex-column flex-nowrap" fluid> -->
-    <v-container id="main-container">
+  <v-container id="main-container">
     <!-- <v-row no-gutters>
       <v-col cols="5">
         <Example />
@@ -54,7 +54,21 @@ export default {
     </v-row>
     <v-row no-gutters>
       <v-col>
-        <text style="font-weight:bold">Note:Please wait for 10-15s until three charts to be loaded completely. According to the plain csv, we cannot know the corresponding region from region code 1-12.</text>
+        <text style="font-weight:bold">
+          Region Note:
+          1-North America
+          2-Central America & Caribbean
+          3-South America
+          4-East Asia
+          5-Southeast Asia
+          6-South Asia
+          7-Central Asia
+          8-Western Europe
+          9-Eastern Europe
+          10-Middle East & North Africa
+          11-Sub-Saharan Africa
+          12-Australasia & Oceania
+        </text>
       </v-col>
     </v-row>
     <br>
@@ -62,7 +76,7 @@ export default {
 </template>
 
 <style scoped>
-#main-container{
+#main-container {
   height: 100%;
 }
 </style>
