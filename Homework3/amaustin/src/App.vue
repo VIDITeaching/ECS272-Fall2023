@@ -23,12 +23,12 @@ export default {
         <SankeyDiagram />
       </v-col>
     </v-row>
-    <v-row no-gutters>
-      <v-col>
-        <HistogramChart />
+    <v-row>
+      <v-col cols="6">
+        <DonutChart />
       </v-col>
       <v-col>
-        <DonutChart />
+        <HistogramChart />
       </v-col>
     </v-row>
   </v-container>

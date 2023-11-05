@@ -55,7 +55,7 @@ export default {
     data() {
         return {
             sections: [] as CategoricalPie[],
-            size: { width: 600, height: 260 } as ComponentSize,
+            size: { width: 600, height: 240 } as ComponentSize,
             margin: {left: 30, right: 40, top: 15, bottom: 40} as Margin
         }
     },
@@ -77,6 +77,8 @@ export default {
         initChart() {
             // donut chart: https://d3-graph-gallery.com/graph/donut_label.html
             let chartContainer = d3.select('#donut-svg')
+                .attr('viewBox', [0, 0, this.size.width + 10, this.size.height])
+                .attr('style', 'max-width: 100%; height: auto;')
 
             let radius = Math.min(this.size.width, this.size.height) / 2
             let donutWidth = 75
@@ -100,59 +102,76 @@ export default {
             
             let pieData = pie(streamData)
 
+            function calcTranslate(data, move=4) {
+                const moveAngle = data.startAngle + ((data.endAngle - data.startAngle) / 2);
+                return `translate(${-move * Math.cos(moveAngle + Math.PI / 2)}, ${-move * Math.sin(moveAngle + Math.PI / 2)})`
+            }
+
             // building pie chart
-            const path = chartContainer.append('g')
-                .selectAll('path')
+            const chartArc = chartContainer
+                .selectAll('arc')
+                .append('g')
                 .data(pieData)
-                .join('path')
-                .attr('d', arc)
+                .join('g')
+                .style('cursor', 'pointer')
+                .attr('opacity', '0.6')
+                .on('mouseover', (event, v) => {
+                    d3.select(event.currentTarget)
+                        .transition()
+                        .duration(250)
+                        .attr('transform', calcTranslate(v, 6))
+                    d3.select(event.currentTarget).select('path')
+                        .transition()
+                        .duration(250)
+                        .attr('stroke', 'rgba(100, 100, 100, 0.2)')
+                        .attr('stroke-width', 4)
+                    d3.select(event.currentTarget)
+                        .append('text')
+                        .attr('transform', function(d) {
+                            let pos = outerArc.centroid(d)
+                            let midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
+                            pos[0] = (radius * 1.04 * (midAngle < Math.PI ? 1 : -1)) + 300
+                            pos[1] = pos[1] + 135
+                            return `translate(${pos})`
+                        })
+                        .style('text-anchor', function(d) {
+                            let midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
+                            return (midAngle < Math.PI ? 'start' : 'end')
+                        })
+                        .style('font-size', '14px')
+                        .style('font-family', 'monospace')
+                        .attr('class', 'pielabel')
+                        .text((d) => `${format((d.data.count / sum) * 100)}% - ${d.data.category}`)
+                })
+                .on('mouseout', (event, v) => {
+                    d3.select(event.currentTarget)
+                        .transition()
+                        .duration(250)
+                        .attr('transform', 'translate(0, 0)');
+                    d3.select(event.currentTarget).select('path')
+                  		.transition()
+                  		.duration(250)
+                  		.attr('stroke', 'white')
+                  		.attr('stroke-width', 1);
+                    d3.selectAll('.pielabel').remove()
+                });
+
+            const path = d3.arc()
+                .outerRadius(radius)
+                .innerRadius((radius) / 2)
+
+            chartArc
+                .append('path')
+                .attr('d', path)
                 .attr('width', this.size.width)
                 .attr('height', this.size.height)
                 .attr('transform', `translate(${this.size.width / 2}, ${this.size.height / 2})`)
-                .attr('fill', d => colors(d.data.category))
-                .style('opacity', '0.5')    
-                .style('stroke-width", "2px"')
-                
-            // polylines
-            const polyLines = chartContainer.append('g')
-                .selectAll('polyLines')
-                .data(pieData)
-                .join('polyline')
-                    .attr('stroke', 'black')
-                    .style('fill', 'none')
-                    .attr('stroke-width', 1.5)
-                    .attr('transform', `translate(${this.size.width / 2}, ${this.size.height / 2})`)
-                    .attr('points', function(d) {
-                        let posA = arc.centroid(d) // line insertion into the slice
-                        let posB = outerArc.centroid(d) // line break 
-                        let posC = outerArc.centroid(d) // label position
-                        let midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                        posC[0] = radius * 0.99 * (midAngle < Math.PI ? 1 : -1)
-                        return [posA, posB, posC]
-                    })
+                .attr('fill', d => colors(d))
             
-            // data labels
-            const labels = chartContainer.append('g')
-                .selectAll('allLabels')
-                .data(pieData)
-                .join('text')
-                    .attr('transform', function(d) {
-                        let pos = outerArc.centroid(d)
-                        let midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                        pos[0] = (radius * 1.04 * (midAngle < Math.PI ? 1 : -1)) + 300
-                        pos[1] = pos[1] + 135
-                        return `translate(${pos})`
-                    })
-                    .style('text-anchor', function(d) {
-                        let midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                        return (midAngle < Math.PI ? 'start' : 'end')
-                    })
-                    .style('font-size', '12px')
-                    .text((d) => `${format((d.data.count / sum) * 100)}% - ${d.data.category}`)
 
             const title = chartContainer.append('g')
                 .append('text')
-                .attr('transform', `translate(${this.size.width / 2}, ${this.size.height + this.margin.top + 10})`)
+                .attr('transform', `translate(${this.size.width / 2}, ${this.size.height + this.margin.top})`)
                 .attr('dy', '0.5rem') 
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')

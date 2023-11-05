@@ -26,9 +26,9 @@ sankeyData.nodes.push({ "name": 'Anxiety Level 8-10' })
 sankeyData.nodes.push({ "name": "Depression Level 0-3" })
 sankeyData.nodes.push({ "name": "Depression Level 4-7"})
 sankeyData.nodes.push({ "name": "Depression Level 8-10"})
-sankeyData.nodes.push({ "name": 'Music effect on mental health - Improved' })
-sankeyData.nodes.push({ "name": 'Music effect on mental health - Worsened' })
-sankeyData.nodes.push({ "name": 'Music effect on mental health - None' })
+sankeyData.nodes.push({ "name": 'Improved mental health' })
+sankeyData.nodes.push({ "name": 'Worsened mental health' })
+sankeyData.nodes.push({ "name": 'No effect on mental health' })
 
 
 // genre -> listen while working
@@ -128,9 +128,9 @@ depression.forEach(d => {
               e_counts[e] += 1
             }
         })
-      sankeyData.links.push({ "source": 'Depression Level '+ levels(g), "target": 'Music effect on mental health - Improved', "value": isNaN(e_counts['Improve']) ? 0 : +e_counts['Improve'] })
-      sankeyData.links.push({ "source": 'Depression Level '+ levels(g), "target": 'Music effect on mental health - Worsened', "value": isNaN(e_counts['Worsen']) ? 0 : +e_counts['Worsen'] })
-      sankeyData.links.push({ "source": 'Depression Level '+ levels(g), "target": 'Music effect on mental health - None', "value": isNaN(e_counts['No effect']) ? 0 : +e_counts['No effect'] })
+      sankeyData.links.push({ "source": 'Depression Level '+ levels(g), "target": 'Improved mental health', "value": isNaN(e_counts['Improve']) ? 0 : +e_counts['Improve'] })
+      sankeyData.links.push({ "source": 'Depression Level '+ levels(g), "target": 'Worsened mental health', "value": isNaN(e_counts['Worsen']) ? 0 : +e_counts['Worsen'] })
+      sankeyData.links.push({ "source": 'Depression Level '+ levels(g), "target": 'No effect on mental health', "value": isNaN(e_counts['No effect']) ? 0 : +e_counts['No effect'] })
       }
   })
 
@@ -157,7 +157,7 @@ export default {
     data() {
         return {
             nodes: [] as Graph[],
-            size: { width: 940, height: 500 } as ComponentSize,
+            size: { width: 900, height: 300 } as ComponentSize,
             margin: {left: 40, right: 40, top: 15, bottom: 40} as Margin
         }
     },
@@ -181,6 +181,9 @@ export default {
             // https://github.com/d3/d3-sankey
             // https://observablehq.com/@d3/sankey-component
             let chartContainer = d3.select('#sankey-svg')
+                .attr('viewBox', [0, 0, this.size.width + 10, this.size.height])
+                .attr('style', 'max-width: 100%; height: auto;')
+
 
             const format = d3.format(",.0f")
 
@@ -211,11 +214,11 @@ export default {
                     .attr('height', (d) => d.y1 - d.y0)
                     .attr('width', (d) => d.x1 - d.x0)
                     .attr('fill', d => colors(d.name))
-                    .style('opacity', '0.5')    
+                    .style('opacity', '0.5')   
             
             // node titles
             node.append("title")
-                .text(d => `${d.name}\n${format(d.value)} TWh`);
+                .text(d => `${d.name}\n${format(d.value)}`);
 
             // links
             const link = chartContainer.append('g')
@@ -224,17 +227,19 @@ export default {
                 .selectAll()
                 .data(links)
                 .join('g')
-                    .style('mix-blend-mode', 'multiply')
+                    .style('mix-blend-mode', 'multiply');
 
             link.append('path')
                 .attr('d', d3Sankey.sankeyLinkHorizontal())
+                .transition()
+                .duration(250) 
                 .attr('stroke', (d) => d.uid)
                 .attr('stroke-width', d => Math.max(1, d.width))
                 .attr('stroke', d => colors(d.source))
                 .attr('opacity', 0.3)
 
             link.append('title')
-                .text(d => `${d.source} -> ${d.target}\n${format(d.value)} TWh`)
+                .text(d => `${d.source.name} -> ${d.target.name}\n${format(d.value)}`)
 
             // Adding labels to nodes
             const labels = chartContainer.append('g')
@@ -247,11 +252,12 @@ export default {
                     .attr('text-anchor', d => d.x0 < this.size.width / 2 ? 'start' : 'end')
                     .text(d => d.name)
                     .style('font-size', '10')
+                    .style('font-family', 'monospace')
             
             // chart title
             const title = chartContainer.append('g')
                 .append('text')
-                .attr('transform', `translate(${this.size.width / 2}, ${this.size.height + this.margin.top})`)
+                .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - this.margin.bottom - 40})`)
                 .attr('dy', '0.5rem') 
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')

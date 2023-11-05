@@ -1,7 +1,7 @@
 <script lang="ts">
 import * as d3 from "d3";
 import axios from 'axios';
-import { isEmpty, debounce } from 'lodash';
+import { isEmpty, debounce, update } from 'lodash';
 
 import { Bar, ComponentSize, Margin } from '../types';
 
@@ -24,12 +24,16 @@ Object.values(csvData).forEach(p => {
     }
 })
 
+function updateBars(d) {
+    console.log(d)
+}
+
 export default {
     data() {
         return {
             bars: [] as CategoricalBar[],
-            size: { width: 600, height: 260 } as ComponentSize,
-            margin: {left: 40, right: 40, top: 15, bottom: 40} as Margin
+            size: { width: 500, height: 240 } as ComponentSize,
+            margin: {left: 40, right: 25, top: 20, bottom: 20} as Margin
         }
     },
     computed: {
@@ -51,11 +55,15 @@ export default {
             // histogram: https://gist.github.com/d3noob/a30f746eddb9f150bfd9872982f52a4a
             let chartContainer = d3.select('#hist-svg')
 
+            chartContainer
+                .attr('viewBox', [0, 0, this.size.width + 20, this.size.height + this.margin.bottom + this.margin.top])
+                .attr('style', 'max-width: 100%; height: auto;')
+
             // scaling range of the data
             let xDomain = d3.extent(this.bars.map((d) => d.age as number ))
 
             let x = d3.scaleLinear()
-                .rangeRound([this.margin.left, this.size.width])
+                .range([this.margin.left, this.size.width])
                 .domain(xDomain)
 
             const histogram = d3.bin()
@@ -66,53 +74,59 @@ export default {
             let bins = histogram(processedData)
 
             let y = d3.scaleLinear()
-                .rangeRound([this.size.height - this.margin.bottom, this.margin.top]) 
-                .domain([0, d3.max(bins.map(x => x.length)) + 10])
+                .domain([0, d3.max(bins, (x) => x.length)])
+                .range([this.size.height - this.margin.bottom, this.margin.top]) 
 
             // adding axis and labels
             const xAxis = chartContainer.append('g')
                 .attr('transform', `translate(0, ${this.size.height - this.margin.bottom})`)
+                .style('font-family', 'monospace')
                 .call(d3.axisBottom(x).ticks(16))
             
             const yAxis = chartContainer.append('g')
                 .attr('transform', `translate(${this.margin.left}, 0)`)
+                .style('font-family', 'monospace')
                 .call(d3.axisLeft(y))
 
             const yLabel = chartContainer.append('g')
-                .attr('transform', `translate(${10}, ${this.size.height / 2}) rotate(-90)`)
+                .attr('transform', `translate(0, 10)`)
                 .append('text')
                 .text('Value')
                 .style('font-size', '.8rem')
+                .style('font-family', 'monospace')
 
             const xLabel = chartContainer.append('g')
-                .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - this.margin.top + 10})`)
+                .attr('transform', `translate(${this.size.width - this.margin.right}, ${this.size.height + 15})`)
                 .append('text')
                 .text('Age')
                 .style('font-size', '.8rem')
+                .style('font-family', 'monospace')
 
-            // TODO: color bars based on hours per day, add legend
             // adding histogram bars
             const bars = chartContainer.append('g')
                 .selectAll('rect')    
                 .data(bins)
-                .join('rect')
+                .join('rect') 
+                .attr('pointer-events', 'all')
                 .attr('transform', function(d) {
                     return `translate(${x(d.x0)}, ${y(d.length)})`
                 })
                 .attr('width', d => x(d.x1) - x(d.x0) - 1)
                 .attr('height', d => this.size.height - this.margin.bottom - y(d.length))
+                .attr('cursor', 'pointer')
                 .attr('fill', 'teal')
-                .style('opacity', '0.5')    
+                .attr('opacity', '0.6')
+                .on('click', (event, d) => updateBars(d));        
 
-            const labels = chartContainer.append('g')
-                .selectAll('allLabels')
-                .data(bins)
-                .join('text')
-                    .attr('transform', function(d) {
-                        return `translate(${x(d.x0) - x(d.x1 - d.x0) / 2 + 10}, ${y(d.length) - 8})`
-                    })
-                    .style('font-size', '12px')
-                    .text((d) => d.length)
+            // const labels = chartContainer.append('g')
+            //     .selectAll('allLabels')
+            //     .data(bins)
+            //     .join('text')
+            //         .attr('transform', function(d) {
+            //             return `translate(${x(d.x0) - x(d.x1 - d.x0) / 2 + 10}, ${y(d.length) - 8})`
+            //         })
+            //         .style('font-size', '12px')
+            //         .text((d) => d.length)
                 
 
             // chart title
