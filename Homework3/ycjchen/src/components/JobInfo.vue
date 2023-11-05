@@ -26,7 +26,7 @@ export default {
             newdata: [] as JobInfo[],
             size: { width: 0, height: 0 } as ComponentSize,
             margin: {left: 50, right: 50, top: 5, bottom: 60} as Margin,
-            country: 'US',
+            country: 'your interested country',
         }
     },
     computed: {
@@ -57,7 +57,23 @@ export default {
             if (target === undefined) return;
             this.size = { width: target.clientWidth, height: target.clientHeight };
         },
-        
+        no_chosen(){
+            const box = d3.select('#line-svg').append('g')
+                .append("rect")
+                .attr("x", this.margin.top )
+                .attr("y", this.margin.top+50)
+                .attr("width", this.size.width-this.margin.right)
+                .attr("height", this.size.height-this.margin.bottom )
+                .style("fill", "#CEE3F6")
+            d3.select('#line-svg').append('g')
+                .append('text')
+                .attr('transform', `translate(${(this.size.width)/ 4.3}, ${this.margin.top+50+(this.size.height-this.margin.bottom)/2})`)
+                .style('font-weight', 'bold')
+                .style('font-size', '1rem')
+                .text('choose the country from the y-axis of the scatter plot first')
+             
+
+        },
         initChart() {
             d3.select('#line-svg').selectAll('*').remove()
             let lineContainer = d3.select('#line-svg')
@@ -260,7 +276,7 @@ export default {
         rerender(newSize) {
             if (!isEmpty(newSize)) {
                 d3.select('#line-svg').selectAll('*').remove() 
-                // this.initChart()
+                this.no_chosen()
             }
         },
         country: function(value){
@@ -288,9 +304,10 @@ export default {
     <div class="chart-container-line" ref="lineContainer">
         <svg id="line-svg" width="100%" height="100%" >
         </svg>
-        <div class="titlebox">
-            <p class="title">Fig. 2 Data Science Job Salaries of {{ country }}</p>
+        <div class="titlebox" v-if="country !== 'your interested country'">
+            <p class="title">Fig. 2 Data Science Job Salaries with their Experience level and remote ratio in {{ country }}</p>
         </div>
+        
     </div>
 </template>
 
