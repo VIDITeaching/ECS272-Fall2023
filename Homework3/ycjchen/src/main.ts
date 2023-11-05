@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import mitt from 'mitt'
 
 import { createPinia } from "pinia";
 
@@ -10,7 +11,7 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { md3 } from 'vuetify/blueprints'
 
-
+const eventBus = mitt()
 const vuetify = createVuetify({
     components,
     directives,
@@ -20,4 +21,8 @@ const vuetify = createVuetify({
 const app = createApp(App);
 app.use(vuetify)
 app.use(createPinia())
+app.provide('eventBus',eventBus)
 app.mount('#app')
+
+
+// export default app; 

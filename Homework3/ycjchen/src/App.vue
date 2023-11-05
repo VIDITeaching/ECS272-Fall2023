@@ -44,7 +44,7 @@ export default {
         <v-col cols="6">
             <v-row>
               <v-col cols="12" style="height: 46vh;">
-                  <!-- <JobInfo class="parallel"/> -->
+                  <JobInfo class="parallel"/>
                   <!-- <div class="parallelText " >
                     Fig. 2 shows the parallel set plot of the full time data scientist job salaries of US in 2023. 
                     In this plot we are interested in the relationship between Experience Level (EN: entry, MI: 

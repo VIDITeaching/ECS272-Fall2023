@@ -1,11 +1,12 @@
 <script lang="ts">
 import * as d3 from "d3";
 import Data from '../../data/ds_salaries.json';
-
+// import app from '../main.js';
 import axios from 'axios';
 import { isEmpty, debounce } from 'lodash';
 
 import { Dot, ComponentSize, Margin } from '../types';
+import { drag } from 'd3';
 // A "extends" B means A inherits the properties and methods from B.
 interface CategoricalDot extends Dot{
     company_location: string;
@@ -18,6 +19,7 @@ interface CategoricalDot extends Dot{
 // Lifecycle in vue.js: https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 
 export default {
+    inject:['eventBus'],
     data() {
         // Here we define the local states of this component. If you think the component as a class, then these are like its private variables.
         return {
@@ -36,8 +38,9 @@ export default {
             //     2: 'SE',
             //     3: 'EX',
             // },
-            
             SliderValue:0,
+            // eventBus:'none',
+            country:'none',
         }
     },
     computed: {
@@ -76,7 +79,7 @@ export default {
                 .append('circle')
                 .attr('cx', (d: CategoricalDot) => xScale(d.salary_in_usd) as number)
                 .attr('cy', (d: CategoricalDot) => yScale(d.company_location) as string)
-                .attr("stroke","#BDBDBD")
+                .attr("stroke","#D8D8D8")
                 .attr('fill','none')
                 .attr("r",2.5)
 
@@ -115,14 +118,35 @@ export default {
         },
         
         initChart() {
+            const temp = this
             let chartContainer = d3.select('#dot-svg')
             
             let xExtents = d3.extent(this.dots.map((d: CategoricalDot) => d.salary_in_usd as number)) as [number, number]
             let yCategories: string[] = [ ...new Set(this.dots.map((d: CategoricalDot) => d.company_location as string))].sort()
+              // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
+            let groupData = d3.group(this.dots, (d) => d.company_location);
+            const sortedGroupData = new Map(yCategories.map((key) => [key, groupData.get(key)]));
+            // console.log(sortedGroupData)
+            const sumstat = Array.from(sortedGroupData, ([key, values]) => {
+                // console.log(values.length)
+                const length_of_data = values.length
+                const salaries = values.map((g) => g.salary_in_usd).sort(d3.ascending);
+                const q1 = d3.quantile(salaries, 0.25);
+                const median = d3.quantile(salaries, 0.5);
+                const q3 = d3.quantile(salaries, 0.75);
+                const interQuantileRange = q3 - q1;
+                const min = d3.min(salaries);
+                const max = d3.max(salaries);
 
+                return {
+                    key,
+                    value: { q1, median, q3, interQuantileRange, min, max , length_of_data},
+                };
+            });
+            // console.log(sumstat)
             
             let yScale = d3.scalePoint()
-                .range([this.size.height - this.margin.bottom, this.margin.top])
+                .range([this.size.height - this.margin.bottom -5, this.margin.top])
                 .domain(yCategories)
             
             let xScale = d3.scaleLinear()
@@ -138,10 +162,30 @@ export default {
                 .attr('transform', `translate(${this.margin.left}, 0)`)
                 .call(d3.axisLeft(yScale))
                 .style("font-size", "8px")
+
             
-            const highlight = yAxis.selectAll("text")                 
+            let self = this
+            // let self = ''
+            const highlight = yAxis
+                                .selectAll("text")                 
                                 .data(yCategories)
-                                .style('fill', "black")
+                                // .style('fill', "red")
+                                .attr('class','zoom')
+                                .on('mouseover',function(){
+                                    d3.select(this)
+                                      .style("fill", "red");})
+                                .on('mouseout',function(){
+                                    d3.select(this)
+                                    .style("fill", "black");
+                                })
+                                .on('click', function(e,d){
+                                
+                                    // self.country = d
+                                    self.eventBus.emit('countrymsg',d)
+                                })
+            
+            
+            // this.eventBus.emit('countrymsg','test')
             const yLabel = chartContainer.append('g')
                 .attr('transform', `translate(${10}, ${this.size.height / 2}) rotate(-90)`)
                 .append('text')
@@ -154,16 +198,92 @@ export default {
                 .text('Salary(USD)')
                 .style('font-size', '.9rem')
            
-            // const dots = chartContainer.append('g')
-            //     .selectAll('circle')
-            //     .data<CategoricalDot>(this.dots) // TypeScript expression. This always expects an array of objects.
-            //     .enter()
-            //     .append('circle')
-            //     .attr('cx', (d: CategoricalDot) => xScale(d.salary_in_usd) as number)
-            //     .attr('cy', (d: CategoricalDot) => yScale(d.company_location) as string)
-            //     .attr("stroke",function (d) { return "#8C8C8C"})
-            //     .attr('fill','none')
-            //     .attr("r",2.5)
+            const dots = chartContainer.append('g')
+                .selectAll('circle')
+                .data<CategoricalDot>(this.dots) // TypeScript expression. This always expects an array of objects.
+                .enter()
+                .append('circle')
+                .attr('cx', (d: CategoricalDot) => xScale(d.salary_in_usd) as number)
+                .attr('cy', (d: CategoricalDot) => yScale(d.company_location) as string)
+                .attr("stroke",function (d) { return "#A4A4A4"})
+                .attr('fill','none')
+                .attr("r",2.5)
+            
+            // Show the main vertical line
+            
+            const ver_line = chartContainer.append('g')
+                .selectAll("vertLines")
+                .data(sumstat.filter(d => d.value.length_of_data > 5))
+                .enter()
+                .append("line")
+                .attr("x1", function(d){return(xScale(d.value.min))})
+                .attr("x2", function(d){return(xScale(d.value.max))})
+                .attr("y1", function(d){return(yScale(d.key))})
+                .attr("y2", function(d){return(yScale(d.key))})
+                .attr("stroke", "black")
+                .style("width", 40)
+
+              // rectangle for the main box
+            var boxWidth = 5
+            const boxes = chartContainer.append('g')
+                .selectAll("boxes")
+                .data(sumstat.filter(d => d.value.length_of_data > 5))
+                .enter()
+                .append("rect")
+                .attr("x", function(d){return(xScale(d.value.q1))})
+                .attr("y", function(d){return(yScale(d.key)-boxWidth/2)})
+                .attr("width", function(d){return(xScale(d.value.q3)-xScale(d.value.q1))})
+                .attr("height", boxWidth )
+                .attr("stroke", "black")
+                .style("fill", "#f6e8c3")
+                .on('mouseover', function(e,d) {
+                    let median = d.value.median;
+                    // console.log(d.value);
+
+                    // Create a new <g> element for text and position it
+                    const textGroup = chartContainer.append('g')
+                        .attr('class', 'tooltip');
+                    const textbox = textGroup.append('rect')
+                        .attr('class', 'tooltiprect')
+                        .attr('x', e.clientX + 10)
+                        .attr('y', e.clientY - 10) // Add a rectangle for background
+                        // .attr('width', 45) // Set the width
+                        // .attr('height', 15) // Set the height
+                        // .attr('fill', '#f6e8c3') // Set the background color
+                        // .attr('stroke', 'black') // Add a border color
+                        // .attr('stroke-width', 1) // Set the border width
+                        // .attr('display','inline')
+
+
+                    const text = textGroup.append('text')
+                        .attr('class', 'tooltiptext')
+                        .attr('x', e.clientX + 15)
+                        .attr('y', e.clientY ) // Adjust the y position to position it above the cursor
+                        .style('font-weight', 500)
+                        .style('font-family', 'Arial')
+                        .style('fill', 'black')
+                        .style('text-anchor', 'justify')
+                        .text(median);
+
+                    // Add a mouseout event to remove the text when not hovering
+                    d3.select(this)
+                        .on('mouseout', function () {
+                            textGroup.remove();
+                        });
+                })
+            
+            // Show the median
+            const median = chartContainer.append('g')
+                    .selectAll("medianLines")
+                    .data(sumstat.filter(d => d.value.length_of_data > 5))
+                    .enter()
+                    .append("line")
+                    .attr("x1", function(d){return(xScale(d.value.median)) })
+                    .attr("x2", function(d){return(xScale(d.value.median)) })
+                    .attr("y1", function(d){return(yScale(d.key)+boxWidth/2)})
+                    .attr("y2", function(d){return(yScale(d.key)-boxWidth/2)})
+                    .attr("stroke", "black")
+                    .style("width", 80)
             const grid = chartContainer.append('g')
                 .selectAll('line')
                 .data(xScale.ticks())
@@ -225,7 +345,7 @@ export default {
         <svg id="dot-svg" width="100%" height="100%">
             <!-- all the visual elements we create in initChart() will be inserted here in DOM-->
         </svg>
-        <v-slider v-model = "SliderValue" class="yearslider" id="year-slider" @input="updateChart" 
+        <!-- <v-slider v-model = "SliderValue" class="yearslider" id="year-slider" @input="updateChart" 
             :ticks="tickLabels"
             :max="3"
             :thumb-size="15"
@@ -235,7 +355,7 @@ export default {
             label="work year"
             show-ticks="always"
             tick-size="5"
-        ></v-slider>
+        ></v-slider> -->
     </div>
 </template>
 
@@ -254,5 +374,43 @@ export default {
     position:absolute;
     width:43vh;
 }
+/* .tooltip{
+    border: 1px solid black;
+} */
+/* .tooltip .tooltiprect:hover + .tooltiptext{
+    display: inline;
+  position: absolute;
+  width:50vh;
+  top: 30vh;
+  left: 100vh;
+  text-align: justify;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #f6e8c3;
+  font-size: 12px;
+} */
+
+.zoom{
+  transition: transform .2s;
+}
+.zoom:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+
+
+
+/* ul li p {
+  opacity: 0;
+  transform: scale(10);
+  transition: all 0.3s ease-in-out 0.2s;
+}
+ul li:hover p{
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out 0.1s;
+} */
 </style>
 
