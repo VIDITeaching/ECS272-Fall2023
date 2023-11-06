@@ -127,7 +127,6 @@ export default {
             //         })
             //         .style('font-size', '12px')
             //         .text((d) => d.length)
-                
 
             // chart title
             const title = chartContainer.append('g')

@@ -214,7 +214,42 @@ export default {
                     .attr('height', (d) => d.y1 - d.y0)
                     .attr('width', (d) => d.x1 - d.x0)
                     .attr('fill', d => colors(d.name))
-                    .style('opacity', '0.5')   
+                    .style('opacity', '0.5') 
+                    .attr('class', 'node')  
+                .on('mouseover', (event, v) => {
+                    const linkedNodes = [];
+                    var traverse = [{
+                        linkType : 'sourceLinks',
+                        nodeType : 'target',
+                        }, {
+                        linkType : 'targetLinks',
+                        nodeType : 'source',
+                    }];
+                    
+                    traverse.forEach((step) => {
+                        v[step.linkType].forEach((l) => {
+                            linkedNodes.push(l[step.nodeType]);
+                        });
+                    });
+                    
+                    // Update linked nodes style
+                    d3.selectAll('.node').style('opacity', r => linkedNodes.find(remainingNode => remainingNode.name === r.name) ? '1' : '0.5');
+                    
+                    // Update hovered node style
+                    d3.select(event.currentTarget).style('opacity', '1');
+                    
+                    // Update links style
+                    d3.selectAll('.link').style('stroke', p => (p && (p.source.name === v.name || p.target.name === v.name)) ? colors(v.name) : '#aaa')
+                    d3.selectAll('.link').style('opacity', p => (p && (p.source.name === v.name || p.target.name === v.name)) ? '0.5' : '0.3');
+                })
+                .on('mouseout', (event, v) => {
+                    // Update nodes style
+                    d3.selectAll('.node').style('opacity', '0.5');
+                    
+                    // Update links style
+                    d3.selectAll('.link').style('opacity', '0.3');
+                    d3.selectAll('.link').style('stroke', '#aaa')
+                })
             
             // node titles
             node.append("title")
@@ -222,21 +257,21 @@ export default {
 
             // links
             const link = chartContainer.append('g')
-                .attr('fill', 'none')
-                .attr('stroke-opacity', 0.5)
                 .selectAll()
                 .data(links)
                 .join('g')
-                    .style('mix-blend-mode', 'multiply');
 
             link.append('path')
                 .attr('d', d3Sankey.sankeyLinkHorizontal())
                 .transition()
-                .duration(250) 
+                .duration(350) 
                 .attr('stroke', (d) => d.uid)
                 .attr('stroke-width', d => Math.max(1, d.width))
-                .attr('stroke', d => colors(d.source))
                 .attr('opacity', 0.3)
+                .attr('stroke', '#aaa')
+                .attr('fill', 'none')
+                .attr('class', 'link')
+
 
             link.append('title')
                 .text(d => `${d.source.name} -> ${d.target.name}\n${format(d.value)}`)
