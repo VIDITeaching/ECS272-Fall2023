@@ -3,6 +3,7 @@
 // import Notes from './components/Notes.vue'
 import JobLocation from './components/JobLocation.vue'
 import JobInfo from './components/JobInfo.vue'
+import JobInfoSan from './components/JobInfoSan.vue'
 import JobTitle from './components/JobTitle.vue'
 /*
 import ExampleWithLegend from './components/ExampleWithLegend.vue';
@@ -16,8 +17,10 @@ export default {
     },
   components: {
     JobLocation,
-    JobInfo,
+    JobInfoSan,
+    // JobInfo,
     JobTitle,
+    
   }
 }
 
@@ -43,8 +46,9 @@ export default {
         </v-col>
         <v-col cols="6">
             <v-row>
-              <v-col cols="12" style="height: 46vh;">
-                  <JobInfo class="parallel"/>
+              <v-col cols="12" style="height: 55vh;">
+                  <JobInfoSan class="parallel"/>
+                  <!-- <JobInfo class="parallel"/> -->
                   <!-- <div class="parallelText " >
                     Fig. 2 shows the parallel set plot of the full time data scientist job salaries of US in 2023. 
                     In this plot we are interested in the relationship between Experience Level (EN: entry, MI: 
@@ -55,7 +59,7 @@ export default {
                     in EX level get the highest salary.
                   </div> -->
               </v-col>
-              <v-col cols="12" style="height: 53vh;">
+              <v-col cols="12" style="height: 45vh;">
                   <!-- <JobTitle class="donut"/> -->
                   <!-- <div class="donutText " >
                     Fig. 3 shows the donut chart of the job titles of the data scientists of US in 2023 with salary &gt 

@@ -66,7 +66,7 @@ export default {
                     .domain([0, xExtents[1]]) 
                 let groupData = d3.group(this.dots, (d) => d.company_location);
                 const sortedGroupData = new Map(yCategories.map((key) => [key, groupData.get(key)]));
-                console.log(sortedGroupData)
+                // console.log(sortedGroupData)
                 const sumstat = Array.from(sortedGroupData, ([key, values]) => {
                     // console.log(values.length)
                     const length_of_data = values.length
@@ -85,7 +85,7 @@ export default {
                 });
                 const ver_line = chartContainer.append('g')
                     .selectAll("vertLines")
-                    .data(sumstat.filter(d => d.value.length_of_data > 5))
+                    .data(sumstat.filter(d => d.value.length_of_data > 10))
                     .enter()
                     .append("line")
                     .attr('class','vertLines')
@@ -100,7 +100,7 @@ export default {
                 var boxWidth = 5
                 const boxes = chartContainer.append('g')
                     .selectAll("boxes")
-                    .data(sumstat.filter(d => d.value.length_of_data > 5))
+                    .data(sumstat.filter(d => d.value.length_of_data > 10))
                     .enter()
                     .append("rect")
                     .attr('class','boxes')
@@ -112,33 +112,56 @@ export default {
                     .style("fill", "#CEE3F6")
                     .on('mouseover', function(e,d) {
                         let median = d.value.median;
-                        // console.log(d.value);
-
                         // Create a new <g> element for text and position it
                         const textGroup = chartContainer.append('g')
                             .attr('class', 'tooltip');
                         const textbox = textGroup.append('rect')
                             .attr('class', 'tooltiprect')
-                            .attr('x', e.clientX + 10)
-                            .attr('y', e.clientY - 10) // Add a rectangle for background
-                            // .attr('width', 45) // Set the width
-                            // .attr('height', 15) // Set the height
-                            // .attr('fill', '#f6e8c3') // Set the background color
-                            // .attr('stroke', 'black') // Add a border color
-                            // .attr('stroke-width', 1) // Set the border width
-                            // .attr('display','inline')
+                            .attr('x', e.clientX +10 )
+                            .attr('y', e.clientY -10) 
+                            .attr('width', 30) 
+                            .attr('height', 35) 
+                            .attr('rx',3)
+                            .attr('fill', '#FBF8EF') 
+                            .attr('stroke', 'black') 
+                            .attr('stroke-width', 1) 
 
-
-                        const text = textGroup.append('text')
+                        const text1 = textGroup.append('text')
                             .attr('class', 'tooltiptext')
-                            .attr('x', e.clientX + 15)
-                            .attr('y', e.clientY ) // Adjust the y position to position it above the cursor
+                            .attr('x', e.clientX + 20)
+                            .attr('y', e.clientY +5) 
                             .style('font-weight', 500)
                             .style('font-family', 'Arial')
                             .style('fill', 'black')
                             .style('text-anchor', 'justify')
-                            .text(median);
-
+                            .text("minimum: "+(d.value.min).toLocaleString()+" (USD)");
+                        const text2 = textGroup.append('text')
+                            .attr('class', 'tooltiptext')
+                            .attr('x', e.clientX + 20)
+                            .attr('y', e.clientY +15) 
+                            .style('font-weight', 500)
+                            .style('font-family', 'Arial')
+                            .style('fill', 'black')
+                            .style('text-anchor', 'justify')
+                            .text("maximum: "+(d.value.max).toLocaleString()+" (USD)");
+                        const text3 = textGroup.append('text')
+                            .attr('class', 'tooltiptext')
+                            .attr('x', e.clientX + 20)
+                            .attr('y', e.clientY +25) 
+                            .style('font-weight', 500)
+                            .style('font-family', 'Arial')
+                            .style('fill', 'black')
+                            .style('text-anchor', 'justify')
+                            .text("median: "+median.toLocaleString()+" (USD)");  
+                        const text4 = textGroup.append('text')
+                            .attr('class', 'tooltiptext')
+                            .attr('x', e.clientX + 20)
+                            .attr('y', e.clientY+35 ) 
+                            .style('font-weight', 500)
+                            .style('font-family', 'Arial')
+                            .style('fill', 'black')
+                            .style('text-anchor', 'justify')
+                            .text("the total number of Data Scientists:"+d.value.length_of_data); 
                         // Add a mouseout event to remove the text when not hovering
                         d3.select(this)
                             .on('mouseout', function () {
@@ -359,7 +382,7 @@ export default {
             @input="updateChart" 
             v-model="model"
             color="blue"
-            label="toggle and hover the box to see the statistic info. for data size > 10"
+            label="toggle and hover the box to see the statistic info. for the country which data scientists > 10"
             hide-details
         ></v-switch>
         <!-- <v-slider v-model = "SliderValue" class="yearslider" id="year-slider" @input="updateChart" 
@@ -384,29 +407,19 @@ export default {
 
 .button{
     display: absolute;
-    bottom:93.5vh;
+    bottom:92vh;
     left:15vh;
 }
 .v-switch.v-input--horizontal{
     position:absolute;
 }
 
-/* .tooltip{
-    border: 1px solid black;
-} */
-/* .tooltip .tooltiprect:hover + .tooltiptext{
-    display: inline;
-  position: absolute;
-  width:50vh;
-  top: 30vh;
-  left: 100vh;
-  text-align: justify;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 15px;
-  background-color: #f6e8c3;
-  font-size: 12px;
-} */
+.chart-container g rect.tooltiprect{
+    width: 38vh;
+    height:8vh;
+    
+}
+
 
 .zoom{
   transition: transform .2s;

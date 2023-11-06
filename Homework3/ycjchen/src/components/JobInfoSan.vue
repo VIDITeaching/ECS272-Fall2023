@@ -1,5 +1,6 @@
 <script lang="ts">
 import * as d3 from "d3";
+import { sankey as d3Sankey, sankeyLinkHorizontal as d3SsankeyLinkHorizontal } from 'd3-sankey';
 import Data from '../../data/ds_salaries.json';
 import app from '../main.js';
 // import Data from '../../data/test.json';
@@ -16,6 +17,7 @@ interface JobInfo extends Dot{
     salary_in_usd: number;
     company_size:string;
     remote_ratio:string;
+    cat_salary:string;
 }
 
 export default {
@@ -25,7 +27,7 @@ export default {
         return {
             newdata: [] as JobInfo[],
             size: { width: 0, height: 0 } as ComponentSize,
-            margin: {left: 50, right: 50, top: 5, bottom: 60} as Margin,
+            margin: {left: 50, right: 50, top: 10, bottom: 30} as Margin,
             country: 'your interested country',
         }
     },
@@ -57,17 +59,190 @@ export default {
             if (target === undefined) return;
             this.size = { width: target.clientWidth, height: target.clientHeight };
         },
+        initSan(){
+            d3.select('#line-svg').selectAll('*').remove()
+            let lineContainer = d3.select('#line-svg')
+            // Define the salary categories and their corresponding ranges
+            const salaryCategories = [
+            { range: [0, 50000], category: "0-50k" },
+            { range: [50000, 100000], category: "50-100k" },
+            { range: [100000, 150000], category: "100-150k" },
+            { range: [150000, 200000], category: "150-200k" },
+            { range: [200000, 250000], category: "200-250k" },
+            { range: [250000, 300000], category: "250-300k" },
+            { range: [300000, 450000], category: ">300k" },
+            // { range: [300000, 350000], category: "300-350k" },
+            // { range: [350000, 400000], category: "350-400k" },
+            // { range: [400000, 450000], category: "400-450k" },
+            ];
+            
+            this.newdata.forEach((item) => {
+                const salary = item.salary_in_usd;
+                const category = salaryCategories.find((cat) => salary >= cat.range[0] && salary < cat.range[1]);
+                item.cat_salary = category ? category.category : "Unknown";
+            });
+            // console.log(this.newdata)
+            const updatedData = this.newdata.map((d) => ({
+                    ...d,
+                    remote_ratio: d.remote_ratio.toString()
+            }));
+            // console.log(updatedData)
+            // Define possible values for each property
+            const experienceLevels = ["EN", "MI", "SE", "EX"];
+            const catSalaries = ["0-50k", "50-100k", "100-150k", "150-200k","200-250k",
+                                 "250-300k", ">300k"]; //{ range: [300000, 350000], category: "300-350k" },
+            const remoteRatios = ["0", "50", "100"];
+
+            // Iterate over the combinations and count occurrences
+            // console.log(this.newdata);
+            const result=[]
+            experienceLevels.forEach((experienceLevel) => {
+                catSalaries.forEach((catSalary) => {
+                    remoteRatios.forEach((remoteRatio) => {
+                        const count = updatedData.filter((item) =>
+                            item.experience_level === experienceLevel &&
+                            item.cat_salary === catSalary &&
+                            item.remote_ratio === remoteRatio
+                        ).length;
+                        console.log(count)
+
+                    result.push({
+                        "experience-level": experienceLevel,
+                        "cat_salary": catSalary,
+                        "remote-ratio": remoteRatio,
+                        "value": count,
+                    });
+                    });
+                });
+            });
+
+            // console.log(result);
+            
+            const keys = ["experience-level","cat_salary","remote-ratio"]
+            let index = -1;
+            const Nodes = [];
+            const nodeByKey = new d3.InternMap([], JSON.stringify);;
+            const indexByKey = new d3.InternMap([], JSON.stringify);;
+            const Links = [];
+
+            for (const k of keys) {
+                for (const d of result) {
+                const key = [k, d[k]];
+                if (nodeByKey.has(key)) continue;
+                const node = {name: d[k]};
+                Nodes.push(node);
+                nodeByKey.set(key, node);
+                indexByKey.set(key, ++index);
+                }
+            }
+
+            for (let i = 1; i < keys.length; ++i) {
+                const a = keys[i - 1];
+                const b = keys[i];
+                const prefix = keys.slice(0, i + 1);
+                const linkByKey = new d3.InternMap([], JSON.stringify);
+                for (const d of result) {
+                const names = prefix.map(k => d[k]);
+                const value = d.value || 0;
+                let link = linkByKey.get(names);
+                if (link) { link.value += value; continue; }
+                link = {
+                    source: indexByKey.get([a, d[a]]),
+                    target: indexByKey.get([b, d[b]]),
+                    names,
+                    value
+                };
+                Links.push(link);
+                linkByKey.set(names, link);
+                }
+            }
+            
+            const sankey = d3Sankey()
+                            .nodeSort(null)
+                            .linkSort(null)
+                            .nodeWidth(3)
+                            .nodePadding(15)
+                            .extent([[0, 0], [this.size.width-this.margin.right, this.size.height-this.margin.bottom]])
+
+            const {nodes, links} = sankey({
+                nodes: Nodes.map(d => Object.create(d)),
+                links: Links.map(d => Object.create(d))
+            });
+            console.log({nodes, links})
+            let axislabel1 = lineContainer.append("g")
+                            .append('text')
+                            .attr("transform", d => `translate(${this.margin.left-10},${this.margin.top})`)
+                            .style('text-anchor', 'middle')
+                            .style('font-size', '1rem')
+                            .text('experience level') // text content
+            let axislabel2 = lineContainer.append("g")
+                            .append('text')
+                            .attr("transform", d => `translate(${this.size.width / 2},${this.margin.top})`)
+                            .style('text-anchor', 'middle')
+                            .style('font-size', '1rem')
+                            .text('salary (USD)') // text content
+            let axislabel3 = lineContainer.append("g")
+                            .append('text')
+                            .attr("transform", d => `translate(${this.size.width-this.margin.right},${this.margin.top})`)
+                            .style('text-anchor', 'middle')
+                            .style('font-size', '1rem')
+                            .text('remote ratio (%)') // text content
+                //             const title = chartContainer.append('g')
+                // .append('text') // adding the text
+                // .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - 3})`)
+                // .style('text-anchor', 'middle')
+                // .style('font-weight', 'bold')
+                // .style('font-size', '1rem')
+                // .text('Fig.1 Data Scientist Salaries in different Countries') // text content
+            let allnodes = lineContainer.append("g")
+                        .attr("transform", d => `translate(10,20)`)
+                        .selectAll("rect")
+                        .data(nodes)
+                        .join("rect")
+                        .attr("x", d => d.x0)
+                        .attr("y", d => d.y0)
+                        .attr("height", d => d.y1 - d.y0)
+                        .attr("width", d => d.x1 - d.x0 +2)
+                        .append("title")
+                        .text(d => `${d.name}\n${d.value.toLocaleString()}`);
+            const color = d3.scaleOrdinal(d3.schemeGnBu[4]).domain(['EN','MI','SE','EX'])
+            // var color = d3.scaleOrdinal(['#FFE366','#64D19E','#578FB5','#3e4989']).domain(['EN','MI','SE','EX'])
+            let alllinks = lineContainer.append("g")
+                        .attr("transform", d => `translate(10,20)`)
+                        .attr("fill", "none")
+                        .selectAll("g")
+                        .data(links)
+                        .join("path")
+                        .attr("d", d3SsankeyLinkHorizontal())
+                        .attr("stroke",d => color(d.names[0]))
+                        .attr("stroke-width", d => d.width)
+                        .style("mix-blend-mode", "multiply")
+                        .append("title")
+                        .text(d => `${d.names.join(" → ")}\n${d.value.toLocaleString()}`);
+            let labels = lineContainer.append("g")
+                        .attr("transform", d => `translate(10,20)`)
+                        .style("font", "10px sans-serif")
+                        .selectAll("text")
+                        .data(nodes)
+                        .join("text")
+                        .attr("x", d => d.x0 < this.size.width / 2 ? d.x1 + 6 : d.x0 - 6)
+                        .attr("y", d => (d.y1 + d.y0) / 2)
+                        .attr("dy", "0.35em")
+                        .attr("text-anchor", d => d.x0 < this.size.width / 2 ? "start" : "end")
+                        .text(d => d.name)
+                        
+        },
         no_chosen(){
             const box = d3.select('#line-svg').append('g')
                 .append("rect")
                 .attr("x", this.margin.top )
-                .attr("y", this.margin.top+50)
+                .attr("y", this.margin.top+20)
                 .attr("width", this.size.width-this.margin.right)
                 .attr("height", this.size.height-this.margin.bottom )
                 .style("fill", "#CEE3F6")
             d3.select('#line-svg').append('g')
                 .append('text')
-                .attr('transform', `translate(${(this.size.width)/ 4.3}, ${this.margin.top+50+(this.size.height-this.margin.bottom)/2})`)
+                .attr('transform', `translate(${(this.size.width)/ 4.3}, ${this.margin.top+20+(this.size.height-this.margin.bottom)/2})`)
                 .style('font-weight', 'bold')
                 .style('font-size', '1rem')
                 .text('choose the country from the y-axis of the scatter plot first')
@@ -97,7 +272,7 @@ export default {
                   .padding(0.01)
                   .domain(key);
 
-            var color = d3.scaleOrdinal(['#FFBF00','#35b779','#31688e','#440154']).domain(['EN','MI','SE','EX'])
+            var color = d3.scaleOrdinal(['#FFBF00','#35b779','#31688e','#6A1B78']).domain(['EN','MI','SE','EX'])
             
             var y = {}
             y[key[0]] = yLevel
@@ -283,7 +458,7 @@ export default {
             
             this.newdata = Data.data.filter((d) => (d.company_location == value))
                        
-            this.initChart()
+            this.initSan()
         },
         
     },
@@ -304,8 +479,9 @@ export default {
     <div class="chart-container-line" ref="lineContainer">
         <svg id="line-svg" width="100%" height="100%" >
         </svg>
-        <div class="titlebox" v-if="country !== 'your interested country'">
-            <p class="title">Fig. 2 Data Science Job Salaries with their Experience level and remote ratio in {{ country }}</p>
+        <div class="titlebox" >
+            <p class="title">Fig. 2 Data Science Job Salaries with their Experience level and remote ratio  in {{ country }}</p> 
+            <!-- -->
         </div>
         
     </div>
