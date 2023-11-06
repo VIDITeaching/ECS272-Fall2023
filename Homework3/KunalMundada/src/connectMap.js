@@ -1,6 +1,7 @@
 import * as d3 from "d3";
 import Data from "../data/iso3166.json";
 import { unroll } from "./utils";
+import { getState, setState } from './globals';
 import { isEmpty, debounce } from "lodash";
 
 const margin = { left: 40, right: 20, top: 50, bottom: 60 };
@@ -201,6 +202,17 @@ function initChart() {
           .style("left", event.x + 10 + "px")
           .style("top", event.y + 10 + "px");
       }
+    })
+    .on("click", (event, feature) => {
+      d3.selectAll(".country")
+        .attr("opacity", "0.7")
+        .attr("stroke-width", ".5px");
+
+        const updatedState = { country: feature.properties.name }; // Modify the 'country' property as needed.
+        setState(updatedState);
+
+        console.log(getState());
+
     });
 
   let color_neg = false;
