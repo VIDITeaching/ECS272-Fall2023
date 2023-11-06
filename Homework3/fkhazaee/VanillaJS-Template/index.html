@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Visualization Dashboard</title>
+  <style>
+    /* Inline CSS styles */
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .chart {
+      width: 48%;
+      margin-bottom: 10px;
+    }
+    #overview-pie-chart {
+      margin-left: -20px; /* Adjust the margin-left as needed */
+      position: relative;
+    }
+    #parallel-coordinate-plot.chart {
+      margin-bottom:-100px; /* Adjust the margin-bottom to reduce space */
+    }
+    #parallel-coordinate-plot.chart h3 {
+      margin-bottom: -140px; /* Adjust the negative margin to your desired value */
+    }
+    /* Updated CSS for moving legends and rectangles by adjusting the right property */
+    .legend-container {
+      position: absolute;
+      top: 200px;
+      right: 250px; /* Adjust the right value as needed to move them more to the right */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .legend {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .legend-text {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+<header>
+
+</header>
+<div class="container">
+  <div class="chart" id="bar-chart">
+    <h3> Overview Bar Chart with selection and zoom option</h3>
+    <h4>Please select a bar to see datailed data</h4>
+    <!-- Bar chart will be appended here -->
+    <div class="dropdown-container">
+      <label for="dropdown">Select Category:</label>
+      <select id="dropdown">
+        <option value="job_title">Job Title</option>
+        <option value="employment_type">Employment Type</option>
+        <option value="experience_level">Experience Level</option>
+      </select>
+    </div>
+    <div class="legend-container" id="legend-container"></div> <!-- Added container for legends -->
+  </div>
+  <div class="chart" id="overview-pie-chart">
+    <h3>Distribution of Job Experience Pie Chart</h3>
+    <!-- Overview pie chart will be appended here -->
+    <svg></svg> <!-- Added SVG element for the pie chart -->
+    <div class="legend-container" id="legend-container"></div> <!-- Added container for legends -->
+  </div>
+  <div class="chart" id="line-chart">
+    <h3> Salary trend Line Chart with animation</h3>
+    <!-- Line chart will be appended here -->
+  </div>
+  <div class="chart" id="parallel-coordinate-plot">
+    <h3>Parallel Coordinates Plot with brushing for axis</h3>
+
+    <!-- Parallel Coordinates Plot will be appended here -->
+    <svg></svg> <!-- Added SVG element for the parallel coordinate plot -->
+  </div>
+</div>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
