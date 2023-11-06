@@ -9,35 +9,62 @@ import { Dot, ComponentSize, Margin } from '../types';
 // A "extends" B means A inherits the properties and methods from B.
 interface Title extends Dot{
     salary_in_usd: number;
-    job_title: string
+    job_title: string;
+    cat_salary:string;
+    company_location:string;
 }
 
 
 export default {
+    inject: ['eventBusSalary'],
     data() {
         return {
             newdataC: [] as Title[],
             size: { width: 0, height: 0 } as ComponentSize,
-            margin: {left: 50, right: 50, top: 0, bottom: 5} as Margin,
+            margin: {left: 40, right: 40, top: 0, bottom: 5} as Margin,
+            salaryandcountry:'your interested salary range with your interested country',
         }
     },
     computed: {
         rerender() {
             return (!isEmpty(this.newdataC)) && this.size
         },
+        update_country(){
+            this.eventBusSalary.on('salarymsg',(data)=>{this.salaryandcountry = data})
+            
+            
+        },
+        SalaryandCountry(){
+            return `${this.salary}|${this.country}`;
+        }
 
     
     },
     created() {
         if (isEmpty(Data)) return;
-        this.newdataC = Data.data.filter((d) => (d.company_location == ('US')) &&
-                                               (d.employee_residence == ('US'))&&
-                                               (d.salary_currency == ('USD'))&&                                                 
-                                               (d.employment_type==('FT'))&&
-                                               (d.work_year==(2023))&&
-                                               (d.salary_in_usd > (300000)));
-        console.log(this.newdataC)
+        this.eventBusSalary.on('salarymsg',(data)=>{this.salaryandcountry = data})
+        const salaryCategories = [
+            { range: [0, 50000], category: "0-50k" },
+            { range: [50000, 100000], category: "50-100k" },
+            { range: [100000, 150000], category: "100-150k" },
+            { range: [150000, 200000], category: "150-200k" },
+            { range: [200000, 250000], category: "200-250k" },
+            { range: [250000, 300000], category: "250-300k" },
+            { range: [300000, 450000], category: ">300k" },
+            ];
+        // this.newdataC = Data.data
+        const newData: Title[] = Data.data.map((item) => {
+            const salary = item.salary_in_usd;
+            const category = salaryCategories.find((cat) => salary >= cat.range[0] && salary < cat.range[1]);
+            return {
+                ...item,
+                cat_salary: category ? category.category : "Unknown",
+            };
+        })
+        this.newdataC = newData
     },
+
+    
     methods: {
         onResize() {  
             let target = this.$refs.donutContainer as HTMLElement
@@ -46,37 +73,48 @@ export default {
         },
         
         initChart() {
+            d3.select('#donut-svg').selectAll('*').remove()
+            
             let donutContainer = d3.select('#donut-svg')
+             
             let yTitle: string[] = [ ...new Set(this.newdataC.map((d: Title) => d.job_title as string))]
             let count = {};
             this.newdataC.map((d: Title) => count[d.job_title] = 1 + (count[d.job_title] || 0));
-            // let Modified_Object = Object.keys(count)  
-            //     .sort().reduce(function(Obj, key) {  
-                        
-            //         Obj[key] = count[key];  
-            //         return Obj;  
-            // }, {}); 
-            var color = d3.scaleOrdinal()
-                          .domain(yTitle)
-                          .range(['#4e79a7',
-                                '#59a14f',
-                                '#9c755f',
-                                '#f28e2b',
-                                '#edc948',
-                                '#e15759',
-                                '#b07aa1',
-                                '#bab0ac',
-                                '#ff9da7',
-                                '#76b7b2',
-                                '#016651',
-                                '#b30000',
-                                '#542788']);
+            const values = Object.values(count);
+
+            // Sort the values in ascending order
+            values.sort((a, b) => a - b);
+
+            // Calculate the median
+            const median = values[Math.floor(values.length / 2)];
+            const sum = values.reduce((acc, value) => acc + value, 0);
+            const average = sum / values.length;
+
+            // Filter and accumulate values less than the median
+            const lessThanMedian = values.filter(value => value < average);
+            const sumOfLessThanMedian = lessThanMedian.reduce((acc, value) => acc + value, 0);
+
+            // Create a new object with the "others" property
+            const resultObject = { ...count, "Others": sumOfLessThanMedian };
+
+            
+            const newObject = {};
+            for (const key in resultObject) {
+                if (resultObject[key] >= average) {
+                    newObject[key] = resultObject[key];
+                }
+            }
+
+            const keysArray = Object.keys(newObject);
+            var color = d3.scaleOrdinal(d3.schemeTableau10)
+                          .domain(keysArray)
+            
             
             // Compute the position of each group on the pie:
             var pie = d3.pie()
                         .sort(null) // Do not sort group by size
                         .value(function(d) {return d[1]; })
-            var data_ready = pie(Object.entries(count))
+            var data_ready = pie(Object.entries(newObject))
             var radius = Math.min(this.size.width, this.size.height) / 2.1
             // The arc generator
             var arc = d3.arc()
@@ -135,25 +173,68 @@ export default {
                     var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
                     return (midangle < Math.PI ? 'start' : 'end')
                 })
-                .style('font-size', '.9rem')
-                const title = donutContainer.append('g')
-                    .append('text') 
-                    .attr('transform', `translate(${this.size.width / 2}, ${this.size.height-this.margin.bottom})`)
-                    .style('text-anchor', 'middle')
-                    .style('font-weight', 'bold')
-                    .style('font-size', '1rem')
-                    .text('Fig. 3 The Job Titles of the Data Scientist of US in 2023 with salary > 300,000 USD') 
+                .style('font-size', '1rem')
+            
 
             
-        }
+        },
+        no_chosen(){
+            const box = d3.select('#donut-svg').append('g')
+                .append("rect")
+                .attr("x", this.margin.top+10 )
+                .attr("y", this.margin.top)
+                .attr("width", this.size.width-this.margin.right-10)
+                .attr("height", this.size.height-this.margin.bottom+10 )
+                .style("fill", " #E6E3DB")
+            d3.select('#donut-svg').append('g')
+                .append('text')
+                .attr('transform', `translate(${(this.size.width)/ 4.3}, ${this.margin.top+20+(this.size.height-this.margin.bottom)/2})`)
+                .style('font-weight', 'bold')
+                .style('font-size', '1rem')
+                .text('choose the salary range from the axis of the sankey chart first')
+             
+
+        },
     },
     watch: {
         rerender(newSize) {
             if (!isEmpty(newSize)) {
                 d3.select('#donut-svg').selectAll('*').remove() 
-                this.initChart()
+                this.no_chosen()
             }
         },
+        salaryandcountry:function(value){
+            
+            const [newCountry,newSalary] = value.split(' with ');
+            console.log(newSalary)
+            // this.country = newCountry
+            // this.salary = newSalary
+            const salaryCategories = [
+                { range: [0, 50000], category: "0-50k" },
+                { range: [50000, 100000], category: "50-100k" },
+                { range: [100000, 150000], category: "100-150k" },
+                { range: [150000, 200000], category: "150-200k" },
+                { range: [200000, 250000], category: "200-250k" },
+                { range: [250000, 300000], category: "250-300k" },
+                { range: [300000, 450000], category: ">300k" },
+            ];
+            
+            const newData: Title[] = Data.data.map((item) => {
+                const salary = item.salary_in_usd;
+                const category = salaryCategories.find((cat) => salary >= cat.range[0] && salary < cat.range[1]);
+                return {
+                    ...item,
+                    cat_salary: category ? category.category : "Unknown",
+                };
+            })
+            this.newdataC = newData.filter((d) => (d.cat_salary === newSalary)&&(d.company_location === newCountry))
+            this.initChart()
+                
+        }
+        
+        
+            
+        
         
     },
     
@@ -172,13 +253,21 @@ export default {
     <div class="chart-container-donut" ref="donutContainer">
         <svg id="donut-svg" width="100%" height="100%" >
         </svg>
-
+        <div class="titlebox" >
+            <p class="title">Fig. 3 The Job Titles of the Data Scientist in {{salaryandcountry}} (USD) </p> 
+        </div>
     </div>
 </template>
 
 <style >
 .chart-container-donut{
     height: 100%;
+}
+.title{
+    
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
 }
 </style>
 

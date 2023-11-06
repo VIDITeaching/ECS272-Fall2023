@@ -21,7 +21,7 @@ interface JobInfo extends Dot{
 }
 
 export default {
-    inject: ['eventBus'],
+    inject: ['eventBus','eventBusSalary'],
     data() {
         // Here we define the local states of this component. If you think the component as a class, then these are like its private variables.
         return {
@@ -61,7 +61,10 @@ export default {
         },
         initSan(){
             d3.select('#line-svg').selectAll('*').remove()
-            let lineContainer = d3.select('#line-svg')
+            let lineContainer = d3.select('#line-svg').append("g")
+                                    .call(d3.zoom().on("zoom", function (e) {
+                                        lineContainer.attr("transform", e.transform)
+                                    }))
             // Define the salary categories and their corresponding ranges
             const salaryCategories = [
             { range: [0, 50000], category: "0-50k" },
@@ -71,9 +74,6 @@ export default {
             { range: [200000, 250000], category: "200-250k" },
             { range: [250000, 300000], category: "250-300k" },
             { range: [300000, 450000], category: ">300k" },
-            // { range: [300000, 350000], category: "300-350k" },
-            // { range: [350000, 400000], category: "350-400k" },
-            // { range: [400000, 450000], category: "400-450k" },
             ];
             
             this.newdata.forEach((item) => {
@@ -81,17 +81,14 @@ export default {
                 const category = salaryCategories.find((cat) => salary >= cat.range[0] && salary < cat.range[1]);
                 item.cat_salary = category ? category.category : "Unknown";
             });
-            // console.log(this.newdata)
             const updatedData = this.newdata.map((d) => ({
                     ...d,
                     remote_ratio: d.remote_ratio.toString()
             }));
-            // console.log(updatedData)
             // Define possible values for each property
-            const experienceLevels = ["EN", "MI", "SE", "EX"];
-            const catSalaries = ["0-50k", "50-100k", "100-150k", "150-200k","200-250k",
-                                 "250-300k", ">300k"]; //{ range: [300000, 350000], category: "300-350k" },
-            const remoteRatios = ["0", "50", "100"];
+            const experienceLevels = ["EX","SE","MI","EN"];
+            const catSalaries = [">300k","250-300k", "200-250k","150-200k","100-150k","50-100k","0-50k"]; 
+            const remoteRatios = ["100", "50", "0"];
 
             // Iterate over the combinations and count occurrences
             // console.log(this.newdata);
@@ -104,7 +101,7 @@ export default {
                             item.cat_salary === catSalary &&
                             item.remote_ratio === remoteRatio
                         ).length;
-                        console.log(count)
+                        // console.log(count)
 
                     result.push({
                         "experience-level": experienceLevel,
@@ -168,7 +165,7 @@ export default {
                 nodes: Nodes.map(d => Object.create(d)),
                 links: Links.map(d => Object.create(d))
             });
-            console.log({nodes, links})
+            // console.log({nodes, links})
             let axislabel1 = lineContainer.append("g")
                             .append('text')
                             .attr("transform", d => `translate(${this.margin.left-10},${this.margin.top})`)
@@ -187,24 +184,35 @@ export default {
                             .style('text-anchor', 'middle')
                             .style('font-size', '1rem')
                             .text('remote ratio (%)') // text content
-                //             const title = chartContainer.append('g')
-                // .append('text') // adding the text
-                // .attr('transform', `translate(${this.size.width / 2}, ${this.size.height - 3})`)
-                // .style('text-anchor', 'middle')
-                // .style('font-weight', 'bold')
-                // .style('font-size', '1rem')
-                // .text('Fig.1 Data Scientist Salaries in different Countries') // text content
+                
             let allnodes = lineContainer.append("g")
                         .attr("transform", d => `translate(10,20)`)
                         .selectAll("rect")
                         .data(nodes)
                         .join("rect")
+                        .attr("class",function(d){
+                                                    if(!experienceLevels.includes(d.name) && !remoteRatios.includes(d.name)){
+                                                        return "nodes"
+                                                    }
+                                                    else{
+                                                        return "othernodes"
+                                                 }})
                         .attr("x", d => d.x0)
                         .attr("y", d => d.y0)
                         .attr("height", d => d.y1 - d.y0)
                         .attr("width", d => d.x1 - d.x0 +2)
+                        .attr("fill","dark grey")
                         .append("title")
                         .text(d => `${d.name}\n${d.value.toLocaleString()}`);
+            let self = this
+            const selection = d3.selectAll("rect.nodes")
+                                        .on('click', function(e,d){
+                                            const str = `${self.country} with ${d.name}`
+                                            self.eventBusSalary.emit('salarymsg',str)
+                                        })
+                                    
+                                    
+                                      
             const color = d3.scaleOrdinal(d3.schemeGnBu[4]).domain(['EN','MI','SE','EX'])
             // var color = d3.scaleOrdinal(['#FFE366','#64D19E','#578FB5','#3e4989']).domain(['EN','MI','SE','EX'])
             let alllinks = lineContainer.append("g")
@@ -230,16 +238,48 @@ export default {
                         .attr("dy", "0.35em")
                         .attr("text-anchor", d => d.x0 < this.size.width / 2 ? "start" : "end")
                         .text(d => d.name)
+            let legend_rect = lineContainer.selectAll("mydots")
+                            .data(experienceLevels)
+                            .enter()
+                            .append("g") // Create a container <g> for both rect and text
+                            .attr("class", "legend-item")
+                            .attr("transform", function(d, i) { return "translate(" + (400 + i * 35) + "," + 300 + ")"; });
+
+            legend_rect
+                .append("rect")
+                .attr("width", 10)
+                .attr("height", 10)
+                .style("fill", function(d) { return color(d); });
+
+            legend_rect
+                .append("text")
+                .attr("x", 15) // Adjust the x position to move text to the right of the rect
+                .attr("y", 8) // Adjust the y position to center the text vertically
+                .text(function(d) { return d; });
+            // let legend_rect = lineContainer.selectAll("mydots")
+            //             .data(experienceLevels)
+            //             .enter()
+            //             .append("rect")
+            //             .attr("x", function(d,i){ return 450+i*15})//this.size.width-this.margin.right*2
+            //             .attr("y", this.size.height-this.margin.bottom)
+            //             .attr("width",10)
+            //             .attr("height",10) 
+            //             .style("fill", function(d){ return color(d)})
+            // legend_rect.selectAll('rect').append('g')
+            //             .data(experienceLevels)
+            //             .enter()
+            //             .append("text")
+            //             .text(d=>d)
                         
         },
         no_chosen(){
             const box = d3.select('#line-svg').append('g')
                 .append("rect")
                 .attr("x", this.margin.top )
-                .attr("y", this.margin.top+20)
+                .attr("y", this.margin.top)
                 .attr("width", this.size.width-this.margin.right)
-                .attr("height", this.size.height-this.margin.bottom )
-                .style("fill", "#CEE3F6")
+                .attr("height", this.size.height-this.margin.bottom+20 )
+                .style("fill", " #E6E3DB")
             d3.select('#line-svg').append('g')
                 .append('text')
                 .attr('transform', `translate(${(this.size.width)/ 4.3}, ${this.margin.top+20+(this.size.height-this.margin.bottom)/2})`)
@@ -480,7 +520,7 @@ export default {
         <svg id="line-svg" width="100%" height="100%" >
         </svg>
         <div class="titlebox" >
-            <p class="title">Fig. 2 Data Science Job Salaries with their Experience level and remote ratio  in {{ country }}</p> 
+            <p class="title">Fig. 2 Data Science Job Salaries with their experience level and remote ratio  in {{ country }}</p> 
             <!-- -->
         </div>
         

@@ -13,6 +13,7 @@ interface CategoricalDot extends Dot{
     work_year: number;
     experience_level: string;
     company_size:string;
+    country_name:string;
 }
 
 // Computed property: https://vuejs.org/guide/essentials/computed.html
@@ -45,25 +46,293 @@ export default {
         },
         updateChart(){ //will show the box-plot if switch value is on
             let isBox = this.model
+            let xExtents = d3.extent(this.dots.map((d: CategoricalDot) => d.salary_in_usd as number)) as [number, number]
+            let yCategories: string[] = [ ...new Set(this.dots.map((d: CategoricalDot) => d.company_location as string))].sort()
+            // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
+            let yScale = d3.scalePoint()
+                .range([this.size.height - this.margin.bottom -5, this.margin.top])
+                .domain(yCategories)
             
+            let xScale = d3.scaleLinear()
+                .range([this.margin.left, this.size.width - this.margin.right+20]) 
+                .domain([0, xExtents[1]]) 
             if(!isBox){
                 d3.select('#dot-svg').selectAll('.vertLines').remove()
                 d3.select('#dot-svg').selectAll('.boxes').remove()
                 d3.select('#dot-svg').selectAll('.medianLines').remove()
+                let chartContainer = d3.select('#dot-svg')
+                const dots = chartContainer.append('g')
+                            .selectAll('circle')
+                            .data<CategoricalDot>(this.dots) // TypeScript expression. This always expects an array of objects.
+                            .enter()
+                            .append('circle')
+                            .attr('class','dots')
+                            .attr('cx', (d: CategoricalDot) => xScale(d.salary_in_usd) as number)
+                            .attr('cy', (d: CategoricalDot) => yScale(d.company_location) as string)
+                            .attr("stroke",function (d) { return "#A4A4A4"})
+                            .attr('fill','none')
+                            .attr("r",2.5)
+                
             }
             if(isBox){
+                d3.select('#dot-svg').selectAll('circle').remove()
                 let chartContainer = d3.select('#dot-svg')
-
-                let xExtents = d3.extent(this.dots.map((d: CategoricalDot) => d.salary_in_usd as number)) as [number, number]
-                let yCategories: string[] = [ ...new Set(this.dots.map((d: CategoricalDot) => d.company_location as string))].sort()
-                // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
-                let yScale = d3.scalePoint()
-                    .range([this.size.height - this.margin.bottom -5, this.margin.top])
-                    .domain(yCategories)
+                var isoCountries = {
+                    'AF' : 'Afghanistan',
+                    'AX' : 'Aland Islands',
+                    'AL' : 'Albania',
+                    'DZ' : 'Algeria',
+                    'AS' : 'American Samoa',
+                    'AD' : 'Andorra',
+                    'AO' : 'Angola',
+                    'AI' : 'Anguilla',
+                    'AQ' : 'Antarctica',
+                    'AG' : 'Antigua And Barbuda',
+                    'AR' : 'Argentina',
+                    'AM' : 'Armenia',
+                    'AW' : 'Aruba',
+                    'AU' : 'Australia',
+                    'AT' : 'Austria',
+                    'AZ' : 'Azerbaijan',
+                    'BS' : 'Bahamas',
+                    'BH' : 'Bahrain',
+                    'BD' : 'Bangladesh',
+                    'BB' : 'Barbados',
+                    'BY' : 'Belarus',
+                    'BE' : 'Belgium',
+                    'BZ' : 'Belize',
+                    'BJ' : 'Benin',
+                    'BM' : 'Bermuda',
+                    'BT' : 'Bhutan',
+                    'BO' : 'Bolivia',
+                    'BA' : 'Bosnia And Herzegovina',
+                    'BW' : 'Botswana',
+                    'BV' : 'Bouvet Island',
+                    'BR' : 'Brazil',
+                    'IO' : 'British Indian Ocean Territory',
+                    'BN' : 'Brunei Darussalam',
+                    'BG' : 'Bulgaria',
+                    'BF' : 'Burkina Faso',
+                    'BI' : 'Burundi',
+                    'KH' : 'Cambodia',
+                    'CM' : 'Cameroon',
+                    'CA' : 'Canada',
+                    'CV' : 'Cape Verde',
+                    'KY' : 'Cayman Islands',
+                    'CF' : 'Central African Republic',
+                    'TD' : 'Chad',
+                    'CL' : 'Chile',
+                    'CN' : 'China',
+                    'CX' : 'Christmas Island',
+                    'CC' : 'Cocos (Keeling) Islands',
+                    'CO' : 'Colombia',
+                    'KM' : 'Comoros',
+                    'CG' : 'Congo',
+                    'CD' : 'Congo, Democratic Republic',
+                    'CK' : 'Cook Islands',
+                    'CR' : 'Costa Rica',
+                    'CI' : 'Cote D\'Ivoire',
+                    'HR' : 'Croatia',
+                    'CU' : 'Cuba',
+                    'CY' : 'Cyprus',
+                    'CZ' : 'Czech Republic',
+                    'DK' : 'Denmark',
+                    'DJ' : 'Djibouti',
+                    'DM' : 'Dominica',
+                    'DO' : 'Dominican Republic',
+                    'EC' : 'Ecuador',
+                    'EG' : 'Egypt',
+                    'SV' : 'El Salvador',
+                    'GQ' : 'Equatorial Guinea',
+                    'ER' : 'Eritrea',
+                    'EE' : 'Estonia',
+                    'ET' : 'Ethiopia',
+                    'FK' : 'Falkland Islands (Malvinas)',
+                    'FO' : 'Faroe Islands',
+                    'FJ' : 'Fiji',
+                    'FI' : 'Finland',
+                    'FR' : 'France',
+                    'GF' : 'French Guiana',
+                    'PF' : 'French Polynesia',
+                    'TF' : 'French Southern Territories',
+                    'GA' : 'Gabon',
+                    'GM' : 'Gambia',
+                    'GE' : 'Georgia',
+                    'DE' : 'Germany',
+                    'GH' : 'Ghana',
+                    'GI' : 'Gibraltar',
+                    'GR' : 'Greece',
+                    'GL' : 'Greenland',
+                    'GD' : 'Grenada',
+                    'GP' : 'Guadeloupe',
+                    'GU' : 'Guam',
+                    'GT' : 'Guatemala',
+                    'GG' : 'Guernsey',
+                    'GN' : 'Guinea',
+                    'GW' : 'Guinea-Bissau',
+                    'GY' : 'Guyana',
+                    'HT' : 'Haiti',
+                    'HM' : 'Heard Island & Mcdonald Islands',
+                    'VA' : 'Holy See (Vatican City State)',
+                    'HN' : 'Honduras',
+                    'HK' : 'Hong Kong',
+                    'HU' : 'Hungary',
+                    'IS' : 'Iceland',
+                    'IN' : 'India',
+                    'ID' : 'Indonesia',
+                    'IR' : 'Iran, Islamic Republic Of',
+                    'IQ' : 'Iraq',
+                    'IE' : 'Ireland',
+                    'IM' : 'Isle Of Man',
+                    'IL' : 'Israel',
+                    'IT' : 'Italy',
+                    'JM' : 'Jamaica',
+                    'JP' : 'Japan',
+                    'JE' : 'Jersey',
+                    'JO' : 'Jordan',
+                    'KZ' : 'Kazakhstan',
+                    'KE' : 'Kenya',
+                    'KI' : 'Kiribati',
+                    'KR' : 'Korea',
+                    'KW' : 'Kuwait',
+                    'KG' : 'Kyrgyzstan',
+                    'LA' : 'Lao People\'s Democratic Republic',
+                    'LV' : 'Latvia',
+                    'LB' : 'Lebanon',
+                    'LS' : 'Lesotho',
+                    'LR' : 'Liberia',
+                    'LY' : 'Libyan Arab Jamahiriya',
+                    'LI' : 'Liechtenstein',
+                    'LT' : 'Lithuania',
+                    'LU' : 'Luxembourg',
+                    'MO' : 'Macao',
+                    'MK' : 'Macedonia',
+                    'MG' : 'Madagascar',
+                    'MW' : 'Malawi',
+                    'MY' : 'Malaysia',
+                    'MV' : 'Maldives',
+                    'ML' : 'Mali',
+                    'MT' : 'Malta',
+                    'MH' : 'Marshall Islands',
+                    'MQ' : 'Martinique',
+                    'MR' : 'Mauritania',
+                    'MU' : 'Mauritius',
+                    'YT' : 'Mayotte',
+                    'MX' : 'Mexico',
+                    'FM' : 'Micronesia, Federated States Of',
+                    'MD' : 'Moldova',
+                    'MC' : 'Monaco',
+                    'MN' : 'Mongolia',
+                    'ME' : 'Montenegro',
+                    'MS' : 'Montserrat',
+                    'MA' : 'Morocco',
+                    'MZ' : 'Mozambique',
+                    'MM' : 'Myanmar',
+                    'NA' : 'Namibia',
+                    'NR' : 'Nauru',
+                    'NP' : 'Nepal',
+                    'NL' : 'Netherlands',
+                    'AN' : 'Netherlands Antilles',
+                    'NC' : 'New Caledonia',
+                    'NZ' : 'New Zealand',
+                    'NI' : 'Nicaragua',
+                    'NE' : 'Niger',
+                    'NG' : 'Nigeria',
+                    'NU' : 'Niue',
+                    'NF' : 'Norfolk Island',
+                    'MP' : 'Northern Mariana Islands',
+                    'NO' : 'Norway',
+                    'OM' : 'Oman',
+                    'PK' : 'Pakistan',
+                    'PW' : 'Palau',
+                    'PS' : 'Palestinian Territory, Occupied',
+                    'PA' : 'Panama',
+                    'PG' : 'Papua New Guinea',
+                    'PY' : 'Paraguay',
+                    'PE' : 'Peru',
+                    'PH' : 'Philippines',
+                    'PN' : 'Pitcairn',
+                    'PL' : 'Poland',
+                    'PT' : 'Portugal',
+                    'PR' : 'Puerto Rico',
+                    'QA' : 'Qatar',
+                    'RE' : 'Reunion',
+                    'RO' : 'Romania',
+                    'RU' : 'Russian Federation',
+                    'RW' : 'Rwanda',
+                    'BL' : 'Saint Barthelemy',
+                    'SH' : 'Saint Helena',
+                    'KN' : 'Saint Kitts And Nevis',
+                    'LC' : 'Saint Lucia',
+                    'MF' : 'Saint Martin',
+                    'PM' : 'Saint Pierre And Miquelon',
+                    'VC' : 'Saint Vincent And Grenadines',
+                    'WS' : 'Samoa',
+                    'SM' : 'San Marino',
+                    'ST' : 'Sao Tome And Principe',
+                    'SA' : 'Saudi Arabia',
+                    'SN' : 'Senegal',
+                    'RS' : 'Serbia',
+                    'SC' : 'Seychelles',
+                    'SL' : 'Sierra Leone',
+                    'SG' : 'Singapore',
+                    'SK' : 'Slovakia',
+                    'SI' : 'Slovenia',
+                    'SB' : 'Solomon Islands',
+                    'SO' : 'Somalia',
+                    'ZA' : 'South Africa',
+                    'GS' : 'South Georgia And Sandwich Isl.',
+                    'ES' : 'Spain',
+                    'LK' : 'Sri Lanka',
+                    'SD' : 'Sudan',
+                    'SR' : 'Suriname',
+                    'SJ' : 'Svalbard And Jan Mayen',
+                    'SZ' : 'Swaziland',
+                    'SE' : 'Sweden',
+                    'CH' : 'Switzerland',
+                    'SY' : 'Syrian Arab Republic',
+                    'TW' : 'Taiwan',
+                    'TJ' : 'Tajikistan',
+                    'TZ' : 'Tanzania',
+                    'TH' : 'Thailand',
+                    'TL' : 'Timor-Leste',
+                    'TG' : 'Togo',
+                    'TK' : 'Tokelau',
+                    'TO' : 'Tonga',
+                    'TT' : 'Trinidad And Tobago',
+                    'TN' : 'Tunisia',
+                    'TR' : 'Turkey',
+                    'TM' : 'Turkmenistan',
+                    'TC' : 'Turks And Caicos Islands',
+                    'TV' : 'Tuvalu',
+                    'UG' : 'Uganda',
+                    'UA' : 'Ukraine',
+                    'AE' : 'United Arab Emirates',
+                    'GB' : 'United Kingdom',
+                    'US' : 'United States',
+                    'UM' : 'United States Outlying Islands',
+                    'UY' : 'Uruguay',
+                    'UZ' : 'Uzbekistan',
+                    'VU' : 'Vanuatu',
+                    'VE' : 'Venezuela',
+                    'VN' : 'Viet Nam',
+                    'VG' : 'Virgin Islands, British',
+                    'VI' : 'Virgin Islands, U.S.',
+                    'WF' : 'Wallis And Futuna',
+                    'EH' : 'Western Sahara',
+                    'YE' : 'Yemen',
+                    'ZM' : 'Zambia',
+                    'ZW' : 'Zimbabwe'
+                };
+                function getCountryName (countryCode) {
+                    if (isoCountries.hasOwnProperty(countryCode)) {
+                        return isoCountries[countryCode];
+                    } else {
+                        return countryCode;
+                    }
+                }
                 
-                let xScale = d3.scaleLinear()
-                    .range([this.margin.left, this.size.width - this.margin.right+20]) 
-                    .domain([0, xExtents[1]]) 
+                
                 let groupData = d3.group(this.dots, (d) => d.company_location);
                 const sortedGroupData = new Map(yCategories.map((key) => [key, groupData.get(key)]));
                 // console.log(sortedGroupData)
@@ -77,15 +346,17 @@ export default {
                     const interQuantileRange = q3 - q1;
                     const min = d3.min(salaries);
                     const max = d3.max(salaries);
+                    const country_name = getCountryName(key);
+                    // console.log(country_name)
 
                     return {
                         key,
-                        value: { q1, median, q3, interQuantileRange, min, max , length_of_data},
+                        value: { q1, median, q3, interQuantileRange, min, max , length_of_data, country_name},
                     };
                 });
                 const ver_line = chartContainer.append('g')
                     .selectAll("vertLines")
-                    .data(sumstat.filter(d => d.value.length_of_data > 10))
+                    .data(sumstat.filter(d => d.value.length_of_data > 0))
                     .enter()
                     .append("line")
                     .attr('class','vertLines')
@@ -100,7 +371,7 @@ export default {
                 var boxWidth = 5
                 const boxes = chartContainer.append('g')
                     .selectAll("boxes")
-                    .data(sumstat.filter(d => d.value.length_of_data > 10))
+                    .data(sumstat.filter(d => d.value.length_of_data > 0))
                     .enter()
                     .append("rect")
                     .attr('class','boxes')
@@ -109,7 +380,7 @@ export default {
                     .attr("width", function(d){return(xScale(d.value.q3)-xScale(d.value.q1))})
                     .attr("height", boxWidth )
                     .attr("stroke", "black")
-                    .style("fill", "#CEE3F6")
+                    .style("fill", 'lightgrey')//"#CEE3F6"
                     .on('mouseover', function(e,d) {
                         let median = d.value.median;
                         // Create a new <g> element for text and position it
@@ -118,7 +389,7 @@ export default {
                         const textbox = textGroup.append('rect')
                             .attr('class', 'tooltiprect')
                             .attr('x', e.clientX +10 )
-                            .attr('y', e.clientY -10) 
+                            .attr('y', e.clientY -40) 
                             .attr('width', 30) 
                             .attr('height', 35) 
                             .attr('rx',3)
@@ -126,42 +397,51 @@ export default {
                             .attr('stroke', 'black') 
                             .attr('stroke-width', 1) 
 
-                        const text1 = textGroup.append('text')
+                        const text_name = textGroup.append('text')
                             .attr('class', 'tooltiptext')
                             .attr('x', e.clientX + 20)
-                            .attr('y', e.clientY +5) 
+                            .attr('y', e.clientY -25) 
+                            .style('font-weight', 500)
+                            .style('font-family', 'Arial')
+                            .style('fill', 'black')
+                            .style('text-anchor', 'justify')
+                            .text("country name:"+d.value.country_name);
+                        const text_num = textGroup.append('text')
+                            .attr('class', 'tooltiptext')
+                            .attr('x', e.clientX + 20)
+                            .attr('y', e.clientY -15) 
+                            .style('font-weight', 500)
+                            .style('font-family', 'Arial')
+                            .style('fill', 'black')
+                            .style('text-anchor', 'justify')
+                            .text("the total number of Data Scientists:"+d.value.length_of_data);
+                        const text_min = textGroup.append('text')
+                            .attr('class', 'tooltiptext')
+                            .attr('x', e.clientX + 20)
+                            .attr('y', e.clientY -5) 
                             .style('font-weight', 500)
                             .style('font-family', 'Arial')
                             .style('fill', 'black')
                             .style('text-anchor', 'justify')
                             .text("minimum: "+(d.value.min).toLocaleString()+" (USD)");
-                        const text2 = textGroup.append('text')
+                        const text_max = textGroup.append('text')
                             .attr('class', 'tooltiptext')
                             .attr('x', e.clientX + 20)
-                            .attr('y', e.clientY +15) 
+                            .attr('y', e.clientY+5 ) 
                             .style('font-weight', 500)
                             .style('font-family', 'Arial')
                             .style('fill', 'black')
                             .style('text-anchor', 'justify')
                             .text("maximum: "+(d.value.max).toLocaleString()+" (USD)");
-                        const text3 = textGroup.append('text')
+                        const text_med = textGroup.append('text')
                             .attr('class', 'tooltiptext')
                             .attr('x', e.clientX + 20)
-                            .attr('y', e.clientY +25) 
+                            .attr('y', e.clientY+15 ) 
                             .style('font-weight', 500)
                             .style('font-family', 'Arial')
                             .style('fill', 'black')
                             .style('text-anchor', 'justify')
-                            .text("median: "+median.toLocaleString()+" (USD)");  
-                        const text4 = textGroup.append('text')
-                            .attr('class', 'tooltiptext')
-                            .attr('x', e.clientX + 20)
-                            .attr('y', e.clientY+35 ) 
-                            .style('font-weight', 500)
-                            .style('font-family', 'Arial')
-                            .style('fill', 'black')
-                            .style('text-anchor', 'justify')
-                            .text("the total number of Data Scientists:"+d.value.length_of_data); 
+                            .text("median: "+median.toLocaleString()+" (USD)");   
                         // Add a mouseout event to remove the text when not hovering
                         d3.select(this)
                             .on('mouseout', function () {
@@ -172,7 +452,7 @@ export default {
                 // Show the median
                 const median = chartContainer.append('g')
                         .selectAll("medianLines")
-                        .data(sumstat.filter(d => d.value.length_of_data > 10))
+                        .data(sumstat.filter(d => d.value.length_of_data > 0))
                         .enter()
                         .append("line")
                         .attr('class','medianLines')
@@ -185,7 +465,7 @@ export default {
             }
             
 
-            // d3.select('#dot-svg').selectAll('circle').remove() //clean the dot we draw with last selection
+            
             // // console.log(this.SliderValue)
             // let range = this.SliderValue
             // // console.log(this.tickLabels[range])
@@ -193,18 +473,7 @@ export default {
             // let certain_year_data = this.dots.filter((d)=> (d.work_year== (chosen_year)))
             // let others = this.dots.filter((d)=> (d.work_year != (chosen_year)))
             
-            // let chartContainer = d3.select('#dot-svg')
-            // let xExtents = d3.extent(this.dots.map((d: CategoricalDot) => d.salary_in_usd as number)) as [number, number]
-            // let yCategories: string[] = [ ...new Set(this.dots.map((d: CategoricalDot) => d.company_location as string))].sort()
-
             
-            // let yScale = d3.scalePoint()
-            //     .range([this.size.height - this.margin.bottom, this.margin.top])
-            //     .domain(yCategories)
-            
-            // let xScale = d3.scaleLinear()
-            //     .range([this.margin.left, this.size.width - this.margin.right+20]) 
-            //     .domain([0, xExtents[1]]) 
             // const dots_grey = chartContainer.append('g')
             //     .selectAll('circle')
             //     .data<CategoricalDot>(others)
@@ -251,7 +520,7 @@ export default {
         },
         
         initChart() {
-            const temp = this
+            
             let chartContainer = d3.select('#dot-svg')
             
             let xExtents = d3.extent(this.dots.map((d: CategoricalDot) => d.salary_in_usd as number)) as [number, number]
@@ -309,6 +578,7 @@ export default {
                 .data<CategoricalDot>(this.dots) // TypeScript expression. This always expects an array of objects.
                 .enter()
                 .append('circle')
+                .attr('class','dots')
                 .attr('cx', (d: CategoricalDot) => xScale(d.salary_in_usd) as number)
                 .attr('cy', (d: CategoricalDot) => yScale(d.company_location) as string)
                 .attr("stroke",function (d) { return "#A4A4A4"})
@@ -381,8 +651,8 @@ export default {
             class="button"
             @input="updateChart" 
             v-model="model"
-            color="blue"
-            label="toggle and hover the box to see the statistic info. for the country which data scientists > 10"
+            color="light grey"
+            label="toggle and hover the box to see the statistic info. with box-plot"
             hide-details
         ></v-switch>
         <!-- <v-slider v-model = "SliderValue" class="yearslider" id="year-slider" @input="updateChart" 
@@ -416,7 +686,7 @@ export default {
 
 .chart-container g rect.tooltiprect{
     width: 38vh;
-    height:8vh;
+    height:10vh;
     
 }
 

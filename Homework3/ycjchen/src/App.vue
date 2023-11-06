@@ -59,8 +59,8 @@ export default {
                     in EX level get the highest salary.
                   </div> -->
               </v-col>
-              <v-col cols="12" style="height: 45vh;">
-                  <!-- <JobTitle class="donut"/> -->
+              <v-col cols="12" style="height: 41vh;">
+                  <JobTitle class="donut"/>
                   <!-- <div class="donutText " >
                     Fig. 3 shows the donut chart of the job titles of the data scientists of US in 2023 with salary &gt 
                     300,000 USD. In this chart we are interested in what job titles are among those who gets highest 
