@@ -7,11 +7,7 @@ export type InteractionData = {
   name: string;
 };
 
-type TooltipProps = {
-  interactionData: InteractionData | null;
-};
-
-export const Tooltip = ({ interactionData }: TooltipProps) => {
+export const Tooltip = ({ interactionData }) => {
   if (!interactionData) {
     return null;
   }
@@ -20,11 +16,11 @@ export const Tooltip = ({ interactionData }: TooltipProps) => {
     <div
       className={styles.tooltip}
       style={{
-        left: interactionData.xPos,
-        top: interactionData.yPos,
+        left: interactionData.x,
+        bottom: interactionData.y,
       }}
     >
-      {interactionData.name}
+      {`${interactionData.subGroup}, Attack: ${interactionData.y}, Defense: ${interactionData.x}`}
     </div>
   );
 };
