@@ -169,7 +169,7 @@ function ParallelPlot(props){
             .attr("y", -50)
             .attr("font-weight", "bold")
             .attr("font-size", 20)
-            .text("Parallel Plot for Pokemon Physical Characteristic and Battle Stat Data");
+            .text("Overview of Pokemon Type, Physical Characteristic, and Battle Stat Data");
 
     })
 

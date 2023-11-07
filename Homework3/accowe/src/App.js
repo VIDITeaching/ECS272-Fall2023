@@ -63,39 +63,19 @@ function App() {
   return (
     <div className="App">
         <h1 className={"App-header"}>Interactive Visualization Dashboard for Pokemon Data</h1>
-        {selectType}
         {loading && <p>Dataset loading...</p>}
         {!loading &&
             <div>
+                <ParallelPlot data={data} resetCharts={resetCharts}/>
                 <div className={"dashboard"}>
                     <DonutChart data={data} resetCharts={resetCharts}/>
                     <svg width={100} height={410} />
                     <ChordDiagram data={data} resetCharts={resetCharts}/>
                 </div>
-                <ParallelPlot data={data} resetCharts={resetCharts}/>
             </div>
         }
         {detailView &&
             <div className={"details"}>
-                <h2>Dataset: Pokémon for Data Mining and Machine Learning</h2>
-                <p><a href={"https://www.kaggle.com/datasets/alopez247/pokemon/data"}>https://www.kaggle.com/datasets/faisaljanjua0555/best-video-games-of-all-time</a></p>
-
-                <h2>Description:</h2>
-                <p> This interactive visualization aims to show the <b>distribution of 721 Pokemon</b> across their <b>18 (primary) elemental types</b>,
-                    the distribution of secondary types across each primary type, and the relation between a pokemon's type and their physical characteristics (height and weight) and battle stats (HP, attack, defense, special attack, special fefense, and speed).</p>
-
-            <p> The two circular visualizations each show the <b>distribution of Pokemon</b> across <b>18 different elemental types</b>. </p>
-            <p> In particular, the <b>donut chart</b> shows the numerical distribution of <b>721 pokemon</b> across their <b>primary typings</b> (Type_1).
-                For context, Many pokemon, especially those in the later generations, have secondary types (i.e. they have two types) but we focus on primary typing to avoid overcounting.
-            </p>
-
-            <p>The <b>chord diagram</b> on the right shows the (directed) relationships between the <b>pokemons' primary and secondary typings</b> for
-                the <b>350 pokemon</b> that have two types. In particular, the outer arc denotes the number of pokemon with primary type X, similarly to the donut chart,
-                while the inner chord denotes the number of pokemon with secondary type Y (target) that have primary type X (source). </p>
-
-            <p> Finally, the <b>parallel plot</b> at the bottom shows the broader relationships between <b>type, physical characteristics, and battle stats</b> across the <b>721 pokemon</b>.
-                The lines are colored by the individual pokemon's primary type per the color scheme established in the donut chart.</p>
-
                 <h2>Interactions:</h2>
                 <ol>
                     <li><b>Global filtering by primary type for donut chart selection:</b> You can filter displayed data by primary type across all charts by clicking on the corresponding donut chart segment for that type. Double click on any pie chart segment to revert to the default view.</li>
