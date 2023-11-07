@@ -1,0 +1,24 @@
+.App {
+  height: 100%;
+}
+
+.App-header {
+  margin: 0px 0px 10px 0px;
+  padding: 10px 10px 10px 15px;
+  font-size: 22px;
+  background: lightgrey;
+}
+
+.dashboard{
+  text-align: center;
+
+}
+
+.dashboard_g{
+  border: black;
+  border-style: solid;
+}
+
+.details{
+  margin: 10px 10px 15px 20px;
+}
