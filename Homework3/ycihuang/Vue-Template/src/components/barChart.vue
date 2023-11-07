@@ -91,7 +91,6 @@ export default {
                     acc[key].push(current)
                 return acc
             }, {})
-            console.log(Object.keys(type_group))
             let main_type = [] as string[]
             let tgroup = [] as weight_height[]
             for (let key of Object.keys(type_group)) {
@@ -120,9 +119,7 @@ export default {
                 tgroup.push(temp)
 
             }
-            console.log(type_group[main_type[0]])
             for (let key of main_type) {
-                console.log(type_group[key])
             }
             let dimensions = ["Height_m", "Weight_kg", "Total"]
             
@@ -139,7 +136,6 @@ export default {
                 let temp = d3.extent(mainPokemon.map((d) => parseFloat(d[name] as string) as number)) as [number, number]
                 yExtents.push(temp)
             }
-            console.log(yExtents)
             // let yExtents = d3.extent(type_group.map((d) => d.len as number)) as [number, number]
             // let xExtents = d3.extent(tgroup.map((d: weight_height) => d.weight as number)) as [number, number]
             // console.log(xExtents, yExtents)
@@ -183,10 +179,15 @@ export default {
             function path(d) {
                 return d3.line()(dimensions.map((p) => [x(p), y[p](d[p])] ));
             }
+            let i = 0
             chartContainer.selectAll("myPath")
             .data(mainPokemon)
                 .join("path")
-                .attr("class", (d) => d["Type_1"]) // group name as the class
+                .attr("class", (d) => {
+                    let temp  = "path "+"path"+ i.toString() + " "+ d["Type_1"]
+                    i++;
+                    return temp
+                }) // group name as the class
                 .attr("d",  path)
                 .style("fill", "none" )
                 .style("stroke", d => color(d["Type_1"]))
@@ -212,7 +213,6 @@ export default {
                     })
             
             d3.select("#but").on("click", (event) => {
-                console.log("event")
                 d3.selectAll(".Normal").transition().style("opacity", 0)
                 d3.selectAll(".Water").transition().style("opacity", 0)
                 d3.selectAll(".Grass").transition().style("opacity", 0)

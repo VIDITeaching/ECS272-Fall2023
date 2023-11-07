@@ -89,7 +89,6 @@ export default {
             }, {})
 
             let typekey = Object.keys(type_group)
-            console.log(typekey)
             let topData = [] as ability[]
             for (let i = 0; i < typekey.length; i++) {
                 //@ts-ignore
@@ -114,7 +113,6 @@ export default {
                 }
                 
             }
-            console.log(topData.length)
             let num_elements = Object.keys(topData[0]).length - 4
             let chartContainer = d3.select('#star-svg')
             
@@ -134,7 +132,6 @@ export default {
                 thetaList.push(theta)
                 theta += radian
             }
-            console.log(thetaList)
 
             const line = group.selectAll("allLines")
             .data(keys)
@@ -242,6 +239,13 @@ export default {
             .append("text")
             .attr("transform", (d, i) => "translate(" + (this.margin.left * 1.5 + (i%4) * this.size.width/5) + ","+ (this.margin.top + this.size.height / 50 * (Math.floor(i/4))+1) +")")
             .text(d => d.Type_1+': '+ d.name)
+            .on("click", function(event,d){
+                    // is the element currently visible ?
+                    let currentOpacity = d3.selectAll("." + d.Type_1).style("opacity")
+                    // Change the opacity: from 0 to 1 or from 1 to 0
+                    d3.selectAll("." + d.Type_1).transition().style("opacity", currentOpacity > 0 ? 0:0.5)
+
+                })
             // .style("text-anchor", "begin")
             // .style("font", "5px times")
             // Here we compute the [min, max] from the data values of the attributes that will be used to represent x- and y-axis.

@@ -2,7 +2,7 @@
 import * as d3 from "d3";
 import Data from '../../data/demo.json'; /* Example of reading in data directly from file */
 import axios from 'axios';
-import { isEmpty, debounce } from 'lodash';
+import { isEmpty, debounce, range } from 'lodash';
 
 import { Bar, ComponentSize, Margin } from '../types';
 // A "extends" B means A inherits the properties and methods from B.
@@ -49,7 +49,6 @@ export default {
             })
             .catch(error => console.log(error));
         */
-        console.log(Data);
         if (isEmpty(Data)) return;
         this.bars = Data.data;
     },
@@ -90,13 +89,11 @@ export default {
                     acc[key].push(current)
                 return acc
             }, {})
-            console.log(Object.keys(type_group))
             let main_type = [] as string[]
             let tgroup = [] as weight_height[]
             for (let key of Object.keys(type_group)) {
                 //@ts-ignore
                 let len = type_group[key].length
-                console.log(len)
                 let sum_height = 0
                 let sum_weight = 0
                 //@ts-ignore
@@ -128,7 +125,6 @@ export default {
                 return d3.schemeCategory10[colorI]
             }
             
-            console.log(tgroup)
 
             let yExtents = d3.extent(mainPokemon.map((d) => parseFloat(d["Height_m"]) as number)) as [number, number]
             let xExtents = d3.extent(mainPokemon.map((d) => parseFloat(d["Weight_kg"]) as number)) as [number, number]
@@ -139,8 +135,8 @@ export default {
 
             // In viewport (our screen), the topmost side always refer to 0 in the vertical coordinates in pixels (y). 
             let yScale = d3.scaleLinear()
-                .range([this.size.height - this.margin.bottom, this.margin.top]) //bottom side to the top side on the screen
-                .domain([0, 8]) // This is based on your data, but if there is a natural value range for your data attribute, you should follow
+                .range([this.size.height - this.margin.bottom, this.margin.top * 3]) //bottom side to the top side on the screen
+                .domain([0, yExtents[1]]) // This is based on your data, but if there is a natural value range for your data attribute, you should follow
                 // e.g., it is natural to define [0, 100] for the exame score, or [0, <maxVal>] for counts.
 
             const xAxis = chartContainer.append('g')
@@ -162,6 +158,19 @@ export default {
                 .append('text')
                 .text('Weight (kg)')
                 .style('font-size', '.8rem')
+            
+            const label = chartContainer.selectAll("myLegend")
+                .data(main_type)
+                .enter()
+                // .append("text")
+                .append('text')
+                .attr("x", (d, i) => this.margin.left + i * this.size.width/10)
+                .attr("y", this.margin.top)
+                .text(d => d)
+                .style('font-size', '.8rem')
+                .style("fill", d => color(d))
+                .style("font-size", 12)
+                .style("opacity", 0.5)
             const svg = chartContainer.append('g')
             const scatter = svg
                 .selectAll('points')
@@ -196,9 +205,22 @@ export default {
                                 && y0 <= yScale(d["Height_m"]) && yScale(d["Height_m"]) < y1)
                         .style("fill", (d) => color(d["Type_1"]))
                         .data();
+                    d3.selectAll(".path").style("opacity", 0)
+                    for (let i = 0; i < mainPokemon.length;i ++) {
+                        
+                        if (x0 <= xScale(mainPokemon[i]["Weight_kg"]) && xScale(mainPokemon[i]["Weight_kg"]) < x1
+                            && y0 <= yScale(mainPokemon[i]["Height_m"]) && yScale(mainPokemon[i]["Height_m"]) < y1) {
+                                d3.selectAll("." + "path" +i.toString()).style("opacity", 1)
+                            }
+                    }
+                        
+                    
                 } else {
                     scatter.style("fill",d => color(d["Type_1"]));
+                    d3.selectAll(".path").style("opacity", 0.5)
                 }
+
+                
                 // chartContainer.property("value", value).dispatch("input");
             }))
 
