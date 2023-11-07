@@ -197,7 +197,7 @@ export default {
             d3.select('#donut-svg').append('g')
             .append("text")
             .attr("x", 10) // X-coordinate of the text
-            .attr("y", 90) // Y-coordinate of the first line
+            .attr("y", 60) // Y-coordinate of the first line
             // .style('font-weight', 'bold')
             .style('font-size', '1.2rem')
             .style("line-height", "1.2") // Line height for spacing
@@ -206,12 +206,14 @@ export default {
             'From the the Sankey chart shown in Fig. 2, You may want to know the composition of the job',
             "titles for a particular salary range. Then you can select the salary range you are interested in",
             "from the middle axis of the Sankey chart in Fig. 2. Then you will see a donut chart pops up in",
-            "Fig. 3 showing the composition of the job titles for the particular salary range you select.",
+            "Fig. 3 showing the composition of the job titles for the particular salary range you select. The ",
+            "donut chart is animated as you can see it turns counter clockwises smoothly each time when ",
+            "a new salary range is selected."
             ])
             .enter()
             .append("tspan")
             .text((d) => d)
-            .attr("x", this.margin.left+10) // X-coordinate for each line
+            .attr("x", this.margin.left+20) // X-coordinate for each line
             .attr("dy", "1.5em"); // Adjust the vertical spacing between lines
                 
 

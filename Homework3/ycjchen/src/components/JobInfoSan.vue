@@ -268,7 +268,9 @@ export default {
                 .append("rect")
                 .attr("width", 10)
                 .attr("height", 10)
-                .style("fill", function(d) { return color(d); });
+                .style("fill", function(d) { return color(d); })
+                .attr('stroke', 'black') 
+                .attr('stroke-width', 1) ;
 
             legend_rect
                 .append("text")
@@ -306,7 +308,7 @@ export default {
                 .enter()
                 .append("tspan")
                 .text((d) => d)
-                .attr("x", this.margin.left+5) // X-coordinate for each line
+                .attr("x", this.margin.left+10) // X-coordinate for each line
                 .attr("dy", "1.5em"); // Adjust the vertical spacing between lines
              
 
