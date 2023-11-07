@@ -1,0 +1,5 @@
+rect.selection {
+    stroke: none;
+    fill: darkgray;
+    fill-opacity: 0.6;
+}
