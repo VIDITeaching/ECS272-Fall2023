@@ -1,9 +1,9 @@
-# Set-up Instructions
+# General Instructions
 
 ## Dependencies
 Make sure you have Node.js v14.18.0 or above installed beforehand. 
 
-## Instructions
+## Installation Instructions
 1. Clone the repo or download the folder as a zip folder
 2. Navigate to `accowe` folder via `cd <repo-path>/ECS272-Fall2023/Homework2/accowe`
 3. Run `npm install` to install dependencies from `package.json`
@@ -11,6 +11,11 @@ Make sure you have Node.js v14.18.0 or above installed beforehand.
 
 Additional details on the npm commands/scripts related to this react app are detailed below.
 (Feel free to reach out if the set-up above isn't working)
+
+## [NEW] Interactions
+1. **Global filtering by primary type for donut chart selection**: You can filter displayed data by primary type across all charts by clicking on the corresponding donut chart segment for that type. Double click on any pie chart segment to revert to the default view. 
+2. **Local filtering by primary type for chord diagram selection**: You can filter displayed ribbons by primary type for by clicking on the corresponding arc segment or ribbons. Double click on any segment or ribbon to revert to the default view. 
+3. **Brushing for parallel coordinate plot**: For each axis, you can select groups of lines to highlight by clicking on the axis, then dragging the box to enclose the desired region. Double click on axis (or refresh page) to revert to default view.
 
 _______
 # Getting Started with Create React App
