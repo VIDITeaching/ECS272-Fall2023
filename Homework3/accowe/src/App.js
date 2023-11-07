@@ -96,7 +96,13 @@ function App() {
             <p> Finally, the <b>parallel plot</b> at the bottom shows the broader relationships between <b>type, physical characteristics, and battle stats</b> across the <b>721 pokemon</b>.
                 The lines are colored by the individual pokemon's primary type per the color scheme established in the donut chart.</p>
 
-                <h3>References:</h3>
+                <h2>Interactions:</h2>
+                <ol>
+                    <li><b>Global filtering by primary type for donut chart selection:</b> You can filter displayed data by primary type across all charts by clicking on the corresponding donut chart segment for that type. Double click on any pie chart segment to revert to the default view.</li>
+                    <li><b>Local filtering by primary type for chord diagram selection:</b> You can filter displayed ribbons by primary type for by clicking on the corresponding arc segment or ribbons. Double click on any segment or ribbon to revert to the default view.</li>
+                    <li><b>Brushing for parallel coordinate plot:</b> For each axis, you can select groups of lines to highlight by clicking on the axis, then dragging the box to enclose the desired region. Double click on axis (or refresh page) to revert to default view.</li>
+                </ol>
+                <h2>References:</h2>
                 <ul>
                     <li><b>Donut chart:</b> <a href={"https://observablehq.com/@d3/donut-chart/2?intent=fork"}>Donut Chart Notebook</a> by Observable, <a href={"https://gist.github.com/dbuezas/9306799"}>Pie Chart Labels</a> by dbuezas on GitHub</li>
                     <li><b>Chord diagram:</b> <a href={"https://d3js.org/d3-chord/chord"}>d3-chords</a> + <a href={"https://observablehq.com/@d3/chord-diagram"}>Chord Diagram I Notebook</a> by Observable</li>
