@@ -1,4 +1,4 @@
-# Set-up Instructions
+# General Instructions
 
 ## Dependencies
 Make sure you have Node.js v14.18.0 or above installed beforehand. 
