@@ -157,7 +157,7 @@ export default {
             const sankey = d3Sankey()
                             .nodeSort(null)
                             .linkSort(null)
-                            .nodeWidth(3)
+                            .nodeWidth(5)
                             .nodePadding(15)
                             .extent([[0, 0], [this.size.width-this.margin.right, this.size.height-this.margin.bottom]])
 
@@ -184,7 +184,21 @@ export default {
                             .style('text-anchor', 'middle')
                             .style('font-size', '1rem')
                             .text('remote ratio (%)') // text content
-                
+            const color = d3.scaleOrdinal(d3.schemeGnBu[4]).domain(['EN','MI','SE','EX'])
+            let alllinks = lineContainer.append("g")
+                        .attr("transform", d => `translate(10,20)`)
+                        .attr("fill", "none")
+                        .selectAll("g")
+                        .data(links)
+                        .join("path")
+                        .attr("class","links")
+                        .attr("d", d3SsankeyLinkHorizontal())
+                        .attr("stroke",d => color(d.names[0]))
+                        .attr("stroke-width", d => d.width)
+                        .style("mix-blend-mode", "multiply")
+                        .append("title")
+                        .text(d => `${d.names.join(" → ")}\n${d.value.toLocaleString()}`);
+            
             let allnodes = lineContainer.append("g")
                         .attr("transform", d => `translate(10,20)`)
                         .selectAll("rect")
@@ -201,32 +215,37 @@ export default {
                         .attr("y", d => d.y0)
                         .attr("height", d => d.y1 - d.y0)
                         .attr("width", d => d.x1 - d.x0 +2)
-                        .attr("fill","dark grey")
+                        .attr("fill","#2a2727")
                         .append("title")
                         .text(d => `${d.name}\n${d.value.toLocaleString()}`);
             let self = this
-            const selection = d3.selectAll("rect.nodes")
+            const selection = d3.selectAll("rect.othernodes")
+                                        .on('mouseover',function(){
+                                            d3.select(this)
+                                            .style("fill", "#A9A9A9")
+                                            ;})
+                                        .on('mouseout',function(){
+                                            d3.select(this)
+                                            .style("fill", "#2a2727");
+                                        })
+            const selectionSalary = d3.selectAll("rect.nodes")
+                                        .on('mouseover',function(){
+                                            d3.select(this)
+                                            .style("fill", "red");})
+                                        .on('mouseout',function(){
+                                            d3.select(this)
+                                            .style("fill", "#2a2727");
+                                        })
                                         .on('click', function(e,d){
-                                            const str = `${self.country} with ${d.name}`
+                                            const str = `${d.name} (USD) in ${self.country}`
                                             self.eventBusSalary.emit('salarymsg',str)
                                         })
                                     
                                     
                                       
-            const color = d3.scaleOrdinal(d3.schemeGnBu[4]).domain(['EN','MI','SE','EX'])
+            
             // var color = d3.scaleOrdinal(['#FFE366','#64D19E','#578FB5','#3e4989']).domain(['EN','MI','SE','EX'])
-            let alllinks = lineContainer.append("g")
-                        .attr("transform", d => `translate(10,20)`)
-                        .attr("fill", "none")
-                        .selectAll("g")
-                        .data(links)
-                        .join("path")
-                        .attr("d", d3SsankeyLinkHorizontal())
-                        .attr("stroke",d => color(d.names[0]))
-                        .attr("stroke-width", d => d.width)
-                        .style("mix-blend-mode", "multiply")
-                        .append("title")
-                        .text(d => `${d.names.join(" → ")}\n${d.value.toLocaleString()}`);
+            
             let labels = lineContainer.append("g")
                         .attr("transform", d => `translate(10,20)`)
                         .style("font", "10px sans-serif")
@@ -256,20 +275,6 @@ export default {
                 .attr("x", 15) // Adjust the x position to move text to the right of the rect
                 .attr("y", 8) // Adjust the y position to center the text vertically
                 .text(function(d) { return d; });
-            // let legend_rect = lineContainer.selectAll("mydots")
-            //             .data(experienceLevels)
-            //             .enter()
-            //             .append("rect")
-            //             .attr("x", function(d,i){ return 450+i*15})//this.size.width-this.margin.right*2
-            //             .attr("y", this.size.height-this.margin.bottom)
-            //             .attr("width",10)
-            //             .attr("height",10) 
-            //             .style("fill", function(d){ return color(d)})
-            // legend_rect.selectAll('rect').append('g')
-            //             .data(experienceLevels)
-            //             .enter()
-            //             .append("text")
-            //             .text(d=>d)
                         
         },
         no_chosen(){
@@ -277,214 +282,36 @@ export default {
                 .append("rect")
                 .attr("x", this.margin.top )
                 .attr("y", this.margin.top)
-                .attr("width", this.size.width-this.margin.right)
+                .attr("width", this.size.width-this.margin.right+20)
                 .attr("height", this.size.height-this.margin.bottom+20 )
                 .style("fill", " #E6E3DB")
             d3.select('#line-svg').append('g')
-                .append('text')
-                .attr('transform', `translate(${(this.size.width)/ 4.3}, ${this.margin.top+20+(this.size.height-this.margin.bottom)/2})`)
-                .style('font-weight', 'bold')
-                .style('font-size', '1rem')
-                .text('choose the country from the y-axis of the scatter plot first')
+                .append("text")
+                .attr("x", 20) // X-coordinate of the text
+                .attr("y", 90) // Y-coordinate of the first line
+                // .style('font-weight', 'bold')
+                .style('font-size', '1.2rem')
+                .style("line-height", "1.2") // Line height for spacing
+                .selectAll("tspan") // Create multiple <tspan> elements for each line
+                .data([
+                'There is a switch at the upper left corner in Fig. 1. If you turn the switch to the left, you will',
+                "see a scatter plot displayed. If it is turned right, a box plot will be displayed. You can select",
+                "the country you are interested in from the y-axis. Then Fig. 2 will pop up a parallel set plot",
+                "showing the correspondence between salary range, experience level and remote ratio for",
+                "the data scientists in the country you select. Hover your mouse over the nodes and links in",
+                "Fig. 2, the detailed information of the correspondence under the mouse will pop up. Zoom",
+                "and pan your mouse to the region interesting you in Fig. 2, you will see the region displayed",
+                "in a higher resolution."
+                ])
+                .enter()
+                .append("tspan")
+                .text((d) => d)
+                .attr("x", this.margin.left+5) // X-coordinate for each line
+                .attr("dy", "1.5em"); // Adjust the vertical spacing between lines
              
 
         },
-        initChart() {
-            d3.select('#line-svg').selectAll('*').remove()
-            let lineContainer = d3.select('#line-svg')
-            let key:string[] = ['experience_level','salary_in_usd']
-            const updatedData = this.newdata.map((d) => ({
-                    ...d,
-                    remote_ratio: d.remote_ratio.toString()
-            }));
-            let yLevel = d3.scalePoint()
-                          .domain(['EX','SE','MI','EN'])
-                          .range([this.margin.top ,this.size.height-this.margin.bottom])
-            let ySalary = d3.scaleLinear()
-                            .domain(d3.extent(this.newdata.map((d: JobInfo) => d.salary_in_usd as number)).reverse() as [number, number])
-                            .range([this.margin.top ,this.size.height-this.margin.bottom])
-            // let ySize = d3.scalePoint()
-            //              .domain(['100','50','0'])
-            //             .range([this.margin.top ,this.size.height-this.margin.bottom])
-            
-            let xScale = d3.scalePoint()
-                  .range([this.margin.left, this.size.width-this.margin.right])
-                  .padding(0.01)
-                  .domain(key);
 
-            var color = d3.scaleOrdinal(['#FFBF00','#35b779','#31688e','#6A1B78']).domain(['EN','MI','SE','EX'])
-            
-            var y = {}
-            y[key[0]] = yLevel
-            
-            y[key[1]] = ySalary
-            
-            // y[key[2]] = ySize
-            
-            function path(d) {
-                return d3.line()(key.map(function(p) { return [xScale(p), y[p](d[p])+50]; }));
-            }
-            let lines = lineContainer.append('g')
-                .selectAll("myPath")
-                .data(updatedData)
-                .enter().append("path")
-                .attr("d",  path)
-                .style("fill", "none")
-                .style("stroke", 
-                function(d){return color(d.experience_level)})
-                .style("opacity", 0.7)
-                .style('stroke-width', '1.2px')
-            let axes = lineContainer.append("g")
-                        .selectAll("g")
-                        .data(key)
-                        .join("g")
-                        .attr("transform", d => `translate(${xScale(d)},50)`)
-                        .each(function(d) { d3.select(this).call(d3.axisLeft(y[d])); })
-                        .call(g => g.append("text")
-                            .attr("x",-5)
-                            .attr("y", -15)
-                            .attr("text-anchor", "middle")
-                            .attr("fill", "black")
-                            .style('font-size', '.9rem')
-                            .text(d => d))
-                        .call(g => g.selectAll("text")
-                            .clone(true).lower()
-                            .attr("fill", "none")
-                            .attr("stroke-width", 2)
-                            .attr("stroke-linejoin", "round")
-                            .attr("stroke", "white"));
-            const yAxis = axes.nodes()
-            const yAxis2 = yAxis[1]
-            const deselectedColor = "#ddd";
-            const brushwidth = 50;
-            const brush = d3.brushY()
-                            .extent([[-(brushwidth/2), 0], [brushwidth/2, this.size.height-this.margin.bottom]])
-                            .on("brush", brushed);
-
-            d3.select(yAxis2).call(brush);
-            const selections = new Map();
-
-            function brushed({selection}, key) {
-                if (selection === null) selections.delete(key);
-                else selections.set(key, selection.map(y[key].invert));
-                // console.log(selections)
-                const selected = [];
-                lines.each(function(d) {
-                    // console.log(d)
-                    const active = Array.from(selections).every(([key, [max, min]]) => { return (d[key] >= min && d[key] <= max);});
-                    d3.select(this).style("stroke", active ? color(d.experience_level) : deselectedColor); 
-                    if (active) {
-                        d3.select(this).raise();
-                        selected.push(d);
-                    }
-                });
-                
-            }    
-           
-            
-            
-
-            
-        },
-        updateChart(){
-            d3.select('#line-svg').selectAll('*').remove() //clean the path from the last choice
-            let lineContainer = d3.select('#line-svg')
-            let key:string[] = ['experience_level','salary_in_usd','remote_ratio']
-            let yLevel = d3.scalePoint()
-                          .domain(['EN','MI','SE','EX'])
-                          .range([this.size.height - this.margin.bottom-25, 0])
-            let ySalary = d3.scaleLinear()
-                            .domain(d3.extent(this.newdata.map((d: JobInfo) => d.salary_in_usd as number)) as [number, number])
-                            .range([this.size.height- this.margin.bottom-25, 0])
-
-            
-            const updatedData = this.newdata.map((d) => ({
-                    ...d,
-                    remote_ratio: d.remote_ratio.toString()
-            }));
-
-            
-            let ySize = d3.scalePoint()
-                         .domain(['0','50','100'])
-                        .range([this.size.height- this.margin.bottom-25, 0])
-            
-            let xScale = d3.scalePoint()
-                  .range([this.margin.left, this.size.width-this.margin.right])
-                  .padding(0.01)
-                  .domain(key);
-
-            var color = d3.scaleOrdinal(['#fde725','#35b779','#31688e','#440154']).domain(['EN','MI','SE','EX'])
-            
-            var y = {}
-            y[key[0]] = yLevel
-            y[key[1]] = ySalary
-            y[key[2]] = ySize
-
-            function path(d) {
-                return d3.line()(key.map(function(p) { return [xScale(p), y[p](d[p])+50]; }));
-            }
-            let lines = lineContainer.append('g')
-                .selectAll("myPath")
-                .data(updatedData)
-                .enter().append("path")
-                .attr("class",'allpath')
-                .attr("d",  path)
-                .style("fill", "none")
-                .style("stroke", 
-                         function(d){return color(d.experience_level);}) //color(d.experience_level);
-                .style("opacity", 0.7)
-                .style('stroke-width', '0.8px')
-
-            const yAxis1 = lineContainer.append("g")
-                .attr("transform", "translate(" + xScale(key[0]) + ",50)")
-                .call(d3.axisLeft(yLevel))
-                .style('font-size', '.9rem')
-                .append("text")
-                .style("text-anchor", "middle")
-                .attr("y", -15)
-                .text(key[0])
-                .style("fill", "black")
-                .style('font-size', '.9rem')
-
-
-            const yAxis2 = lineContainer.append("g")
-            .attr("transform", "translate(" + xScale(key[1]) + ",50)")
-            .call(d3.axisLeft(ySalary))
-
-            const highlight = yAxis2.selectAll("text")
-                                  .style('font-weight', 'bold')
-
-            const y2title = yAxis2
-            .append("text")
-            .style("text-anchor", "middle")
-            .attr("y", -15)
-            .text(key[1])
-            .style("fill", "black")
-            .style('font-size', '.9rem')
-
-            let yAxis3 = lineContainer.append("g")
-            .attr("transform", "translate(" + xScale(key[2]) + ",50)")
-            .call(d3.axisRight(ySize))
-            .append("text")
-            .style("text-anchor", "middle")
-            .attr("y", -15)
-            .text(key[2])
-            .style("fill", "black")
-            .style('font-size', '.9rem')
-
-            const title = lineContainer.append('g')
-            .append('text') 
-            .attr('transform', `translate(${this.size.width / 2}, ${this.size.height-this.margin.top})`)
-            .style('text-anchor', 'middle')
-            .style('font-weight', 'bold')
-            .style('font-size', '1rem')
-            .text('Fig. 2 Full Time Data Science Job Salaries of US in 2023') 
-
-
-
-            
-
-        }
     },
     watch: {
         
@@ -520,7 +347,7 @@ export default {
         <svg id="line-svg" width="100%" height="100%" >
         </svg>
         <div class="titlebox" >
-            <p class="title">Fig. 2 Data Science Job Salaries with their experience level and remote ratio  in {{ country }}</p> 
+            <p class="title">Fig. 2 Data Scientist Job Salaries with corresponding experience level and remote ratio in {{ country }}</p> 
             <!-- -->
         </div>
         

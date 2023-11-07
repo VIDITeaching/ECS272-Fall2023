@@ -22,7 +22,7 @@ export default {
             newdataC: [] as Title[],
             size: { width: 0, height: 0 } as ComponentSize,
             margin: {left: 40, right: 40, top: 0, bottom: 5} as Margin,
-            salaryandcountry:'your interested salary range with your interested country',
+            salaryandcountry:'the salary range you select in your interested country',
         }
     },
     computed: {
@@ -34,9 +34,7 @@ export default {
             
             
         },
-        SalaryandCountry(){
-            return `${this.salary}|${this.country}`;
-        }
+        
 
     
     },
@@ -96,7 +94,7 @@ export default {
 
             // Create a new object with the "others" property
             const resultObject = { ...count, "Others": sumOfLessThanMedian };
-
+            console.log(resultObject)
             
             const newObject = {};
             for (const key in resultObject) {
@@ -104,7 +102,7 @@ export default {
                     newObject[key] = resultObject[key];
                 }
             }
-
+            console.log(newObject)
             const keysArray = Object.keys(newObject);
             var color = d3.scaleOrdinal(d3.schemeTableau10)
                           .domain(keysArray)
@@ -137,6 +135,15 @@ export default {
             .attr("stroke", "white")
             .style("stroke-width", "2px")
             .style("opacity", 0.9)
+            .transition()
+            .duration(1000)
+            .attrTween("d", function (d) {
+                var i = d3.interpolate(d.endAngle, d.startAngle);
+                return function (t) {
+                    d.startAngle = i(t);
+                    return arc(d);
+                }
+            });
 
             let polylines = donutContainer.append('g')
             .attr('transform', 'translate(' + this.size.width/2 +  ',' + this.size.height/2 +')')
@@ -173,7 +180,7 @@ export default {
                     var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
                     return (midangle < Math.PI ? 'start' : 'end')
                 })
-                .style('font-size', '1rem')
+            .style('font-size', '1rem')
             
 
             
@@ -183,16 +190,30 @@ export default {
                 .append("rect")
                 .attr("x", this.margin.top+10 )
                 .attr("y", this.margin.top)
-                .attr("width", this.size.width-this.margin.right-10)
+                .attr("width", this.size.width-this.margin.right+10)
                 .attr("height", this.size.height-this.margin.bottom+10 )
                 .style("fill", " #E6E3DB")
+                
             d3.select('#donut-svg').append('g')
-                .append('text')
-                .attr('transform', `translate(${(this.size.width)/ 4.3}, ${this.margin.top+20+(this.size.height-this.margin.bottom)/2})`)
-                .style('font-weight', 'bold')
-                .style('font-size', '1rem')
-                .text('choose the salary range from the axis of the sankey chart first')
-             
+            .append("text")
+            .attr("x", 10) // X-coordinate of the text
+            .attr("y", 90) // Y-coordinate of the first line
+            // .style('font-weight', 'bold')
+            .style('font-size', '1.2rem')
+            .style("line-height", "1.2") // Line height for spacing
+            .selectAll("tspan") // Create multiple <tspan> elements for each line
+            .data([
+            'From the the Sankey chart shown in Fig. 2, You may want to know the composition of the job',
+            "titles for a particular salary range. Then you can select the salary range you are interested in",
+            "from the middle axis of the Sankey chart in Fig. 2. Then you will see a donut chart pops up in",
+            "Fig. 3 showing the composition of the job titles for the particular salary range you select.",
+            ])
+            .enter()
+            .append("tspan")
+            .text((d) => d)
+            .attr("x", this.margin.left+10) // X-coordinate for each line
+            .attr("dy", "1.5em"); // Adjust the vertical spacing between lines
+                
 
         },
     },
@@ -205,7 +226,7 @@ export default {
         },
         salaryandcountry:function(value){
             
-            const [newCountry,newSalary] = value.split(' with ');
+            const [newSalary,newCountry] = value.split(' (USD) in ');
             console.log(newSalary)
             // this.country = newCountry
             // this.salary = newSalary
@@ -254,7 +275,7 @@ export default {
         <svg id="donut-svg" width="100%" height="100%" >
         </svg>
         <div class="titlebox" >
-            <p class="title">Fig. 3 The Job Titles of the Data Scientist in {{salaryandcountry}} (USD) </p> 
+            <p class="title">Fig. 3 Composition of Job Title of the Data Scientists for {{salaryandcountry}}</p> 
         </div>
     </div>
 </template>

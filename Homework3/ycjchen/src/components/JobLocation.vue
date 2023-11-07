@@ -405,7 +405,7 @@ export default {
                             .style('font-family', 'Arial')
                             .style('fill', 'black')
                             .style('text-anchor', 'justify')
-                            .text("country name:"+d.value.country_name);
+                            .text("country name: "+d.value.country_name);
                         const text_num = textGroup.append('text')
                             .attr('class', 'tooltiptext')
                             .attr('x', e.clientX + 20)
@@ -585,7 +585,6 @@ export default {
                 .attr('fill','none')
                 .attr("r",2.5)
             
-
             const grid = chartContainer.append('g')
                 .selectAll('line')
                 .data(xScale.ticks())
