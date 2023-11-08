@@ -177,7 +177,6 @@ function plot() {
     <div v-if="store.pokemon.length > 0" class="height-container">
         <div class="search">
             <Search @on-select="(pk) => add(pk)" :disabled="pokemon_list.length > 8"></Search>
-            <p>Interaction: Various Pokemon can be added and removed from the plot.</p>
             <div>
                 <ul class="pokemon-list">
                     <li v-for="pk, ind in pokemon_list">
@@ -192,12 +191,13 @@ function plot() {
             <svg id="svg"></svg>
         </div>
     </div>
+    <p>Interaction: Type/drop-down to add pokemon. Click to remove. Pan to left/right.</p>
 </template>
 
 <style scoped>
 .height-container {
     width: 100%;
-    height: 90%;
+    height: 80%;
     margin: 0 auto;
     display: flex;
 }
