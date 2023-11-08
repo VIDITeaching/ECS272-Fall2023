@@ -17,7 +17,7 @@ function DashboardPokemon() {
       <PageTitleWrapper>
         <PageHeader />
       </PageTitleWrapper>
-      <Container >
+      <Container>
         <Grid
           container
           direction="row"
@@ -32,12 +32,20 @@ function DashboardPokemon() {
               <Typography variant="h5">
                 A sankey diagram showing the primary types of new Pokemons
                 introduced in each generation.
+
+                <br /><br />
+                Features:
+                <ul>
+                  <li>Advanced visualization with sankey diagram</li>
+                </ul>
               </Typography>
-              <Box style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
+              <Box
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
                 <Sankey pokemonData={pokemonData} width={200} height={500} />
               </Box>
             </Box>
@@ -47,14 +55,26 @@ function DashboardPokemon() {
               <Typography variant="h2">Bar Chart with Transitions</Typography>
               <hr></hr>
               <Typography variant="h5">
-                A bar chart showing the count of the primary types of pokemons in different generations. Click the buttons to select the generation to visualize. 
+                A bar chart showing the count of the primary types of pokemons
+                added in different generations. Click the buttons to select the
+                generation to visualize. <br /><br />
+                Features:
+                <ul>
+                  <li>Buttons trigger transitions to visualize new pokemons added in the selected generation </li>
+                </ul>
               </Typography>
-              <Box style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <BarplotDatasetTransition pokemonData={pokemonData} width={460} height={450} />
+              <Box
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                <BarplotDatasetTransition
+                  pokemonData={pokemonData}
+                  width={460}
+                  height={450}
+                />
               </Box>
             </Box>
           </Grid>
@@ -63,20 +83,35 @@ function DashboardPokemon() {
               <Typography variant="h2">Zoomable Scatterplot Chart</Typography>
               <hr></hr>
               <Typography variant="h5">
-                A zoomable scatterplot Chart showing the distribution of pokemons based on their attack and defense. The pokemon of same primary type shares the same color. 
-                Hover over the datapoint to select and show details of the pokemon
+                A zoomable scatterplot Chart showing the distribution of
+                pokemons based on their attack and defense. The pokemon of same
+                primary type shares the same color. Hover over the datapoint to
+                select and show details of the pokemon
+
+                <br /><br />
+                Features:
+                <ul>
+                  <li>Selection of data point by hovering over the dot to reveal more details </li>
+                  <li>Pan and zoom the plot</li>
+                </ul>
               </Typography>
-              <Box style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <Scatterplot pokemonData={pokemonData} width={450} height={450} />
+              <Box
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                <Scatterplot
+                  pokemonData={pokemonData}
+                  width={450}
+                  height={450}
+                />
               </Box>
             </Box>
           </Grid>
         </Grid>
-      </Container >
+      </Container>
     </>
   );
 }
