@@ -3,7 +3,7 @@
     <div class="chart-container" ref="barContainer">
       <div class="tooltip"></div>
     </div>
-    <button class="reset-button" @click="initializeBarPlot">Reset Overview</button>
+    <button class="reset-button" @click="resetChart">Reset Overview</button>
     <svg id="svg"></svg>
   </div>
 </template>
@@ -245,7 +245,7 @@ export default {
     resetChart() {
       const self = this;
       // Select and remove existing chart elements
-      d3.select('#chart svg').remove();
+      d3.select('#chart svg').selectAll('*').remove();
       self.genSelect(-1);
       self.resetSelect(0);
       this.initializeBarPlot();

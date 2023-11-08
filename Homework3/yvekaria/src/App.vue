@@ -41,7 +41,7 @@ export default {
       </v-col>
     </v-row>
     <v-row class="flex-nowrap">
-      <v-col class="scatterplot-col" cols="7.5">
+      <v-col class="scatterplot-col">
         <ScatterPlot :gen="generation" :res="reset" />
       </v-col>
     </v-row>
@@ -55,10 +55,16 @@ export default {
 }
 
 .barplot-col,
-.starplot-col,
-.scatterplot-col {
+.starplot-col {
   height: 60vh;
   width: 100vw;
+  margin: 0.5rem;
+  border: 2px solid black;
+}
+
+.scatterplot-col {
+  height: 35vh;
+  width: 90vw;
   margin: 0.5rem;
   border: 2px solid black;
 }
