@@ -4,8 +4,9 @@ import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { pokemonData } from '../../../data/PokemonData';
 import { Sankey } from './Sankey';
-import { PieChart } from './PieChart';
+import { Barplot } from './BarChart';
 import { Scatterplot } from './Scatterplot';
+import { BarplotDatasetTransition } from './BarplotDatasetTransition';
 
 function DashboardPokemon() {
   return (
@@ -43,26 +44,27 @@ function DashboardPokemon() {
           </Grid>
           <Grid item xs={12} md={5}>
             <Box>
-              <Typography variant="h2">Pie Chart</Typography>
+              <Typography variant="h2">Bar Chart with Transitions</Typography>
               <hr></hr>
               <Typography variant="h5">
-                A pie chart showing the count of the primary types of pokemons in all generations.
+                A bar chart showing the count of the primary types of pokemons in different generations. 
               </Typography>
               <Box style={{
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center'
               }}>
-                <PieChart pokemonData={pokemonData} width={460} height={450} />
+                <BarplotDatasetTransition pokemonData={pokemonData} width={460} height={450} />
               </Box>
             </Box>
           </Grid>
           <Grid item xs={12} md={4.5}>
             <Box>
-              <Typography variant="h2">Scatterplot Chart</Typography>
+              <Typography variant="h2">Zoomable Scatterplot Chart</Typography>
               <hr></hr>
               <Typography variant="h5">
-                A scatterplot Chart showing the distribution of pokemons based on their attack and defense. The pokemon of same primary type shares the same color.
+                A zoomable scatterplot Chart showing the distribution of pokemons based on their attack and defense. The pokemon of same primary type shares the same color. 
+                Hover over the datapoint to select and show details of the pokemon
               </Typography>
               <Box style={{
                 width: '100%',
