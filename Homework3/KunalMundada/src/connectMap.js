@@ -2,7 +2,7 @@ import * as d3 from "d3";
 import Data from "../data/iso_name.json";
 import { unroll } from "./utils";
 import { isEmpty, debounce } from "lodash";
-import PubSub from "PubSub";
+import { legendColor, legendHelpers } from "d3-svg-legend";
 import { updateCharts } from "./globals";
 
 const margin = { left: 40, right: 20, top: 50, bottom: 60 };
@@ -103,10 +103,11 @@ function initChart() {
   //   .nice()
   //   .interpolator(d3.interpolateBlues);
 
-const colorScale = d3.scaleThreshold()
-        .domain([10000,100000,1000000,10000000])
-        .range(["#DCE9FF", "#8EBEFF", "#589BE5", "#0072BC"])
-        .unknown("#E6E6E6")
+  const colorScale = d3
+    .scaleThreshold()
+    .domain([10000, 100000, 1000000, 10000000])
+    .range(["#DCE9FF", "#8EBEFF", "#589BE5", "#0072BC"])
+    .unknown("#E6E6E6");
 
   // Define tooltip
   const Tooltip = d3
@@ -261,6 +262,20 @@ const colorScale = d3.scaleThreshold()
       //   .attr("opacity", "0.7")
       //   .attr("stroke-width", "1px");
     });
+
+  map
+    .append("g")
+    .attr("class", "legendThreshold")
+    .attr("transform", "translate(5,350)");
+
+  const legend = legendColor()
+    .labelFormat(d3.format(",.0f"))
+    .labels(legendHelpers.thresholdLabels)
+    .labelOffset(3)
+    .shapePadding(0)
+    .scale(colorScale);
+
+  map.select(".legendThreshold").call(legend);
 
   let color_neg = false;
   // Add the path
