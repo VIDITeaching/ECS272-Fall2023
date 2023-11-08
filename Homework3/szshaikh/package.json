@@ -1,0 +1,24 @@
+{
+  "name": "vanillajs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "axios": "^1.2.1",
+    "d3": "^7.8.0",
+    "lodash": "^4.17.21",
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "convert-csv-to-json": "^2.0.0",
+    "csv-parser": "^3.0.0",
+    "csvtojson": "^2.0.10",
+    "d3-sankey": "^0.12.3",
+    "fast-csv": "^4.3.6"
+  }
+}
