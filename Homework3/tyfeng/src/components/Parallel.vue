@@ -94,7 +94,7 @@ export default {
                 .domain(["L", "M", "S"]);
             
             var deselectedColor = d3
-                .scaleOrdinal(["#9FCBFF", "#FFCEA1", "#A2E0A2"])
+                .scaleOrdinal(["#cfe7ff", "#fae1c3", "#c4ffc4"])
                 .domain(["L", "M", "S"]);
 
             var y: { [key: string]: d3.ScaleLinear<number, number> | d3.ScalePoint<string> } = {};
@@ -246,7 +246,6 @@ export default {
                 else {
                     selections.set(key, selection.map(ySalary.invert));
                 }
-                console.log(selections);
                 const selected: Job[] = [];
                 lines.each(function(d: Job) {
                     if (key in d) {

@@ -14,7 +14,6 @@ import { isEmpty, debounce } from 'lodash';
 import { ComponentSize, Margin } from '../types';
 import { state } from '../state';
 import { useEventEmitter } from '../useEventEmitter';
-import { schemeCategory10 } from 'd3-scale-chromatic';
 
 const emitter = useEventEmitter();
 
@@ -33,6 +32,7 @@ export default {
             chartData: [] as Job[],
             size: { width: 0, height: 0 } as ComponentSize,
             margin: {left: 50, right: 50, top: 50, bottom: 50} as Margin,
+            remoteRatioOrder: [100, 50, 0] as number[], 
         }
     },
     computed: {
@@ -59,7 +59,7 @@ export default {
 
             } else {
                 // Handle the case where 'salaryRange' is not an array
-                console.error('The salary range is not iterable or not defined.');
+                console.log('The salary range is not defined.');
             }
 
             const groupedData = d3.group(parsedData, (d: any) => d.remote_ratio);
@@ -71,12 +71,18 @@ export default {
                 // salary_in_usd: d3.mean(value, d => d.salary_in_usd),
             }));
 
-            this.chartData = aggregatedData.map((d: any) => {
-                    return {
-                        remote_ratio: d.remote_ratio,
-                        count: d.count
-                    }
+            this.chartData = aggregatedData
+                .map((d: any) => ({
+                    remote_ratio: d.remote_ratio,
+                    count: d.count
+                }))
+                .sort((a, b) => {
+                    // Use indexOf the predefined order for sorting
+                    let orderA = this.remoteRatioOrder.indexOf(a.remote_ratio);
+                    let orderB = this.remoteRatioOrder.indexOf(b.remote_ratio);
+                    return orderA - orderB;
                 }) as Job[];
+
             d3.select('#donut-svg').selectAll('*').remove();
             this.initChart();
         },
@@ -90,10 +96,10 @@ export default {
 
             const radius = Math.min(this.size.width - this.margin.left - this.margin.right, 
                                     this.size.height - this.margin.top - this.margin.bottom) / 2;
-
-
+            
             const pie = d3.pie<{ remote_ratio: string; count: number }>()
-                        .value(d => d.count);
+                  .sort(null) // Disable the built-in sort
+                  .value(d => d.count);
 
             const arcs = pie(this.chartData as any);
 
@@ -149,7 +155,7 @@ export default {
                 .attr('dy', '0px') 
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
-                .text('Data Science jobs by remote ratio');
+                .text('Number of data science jobs by remote ratio');
             
             // add color legends for each key value
             const legendGroup = d3.select('#donut-svg')

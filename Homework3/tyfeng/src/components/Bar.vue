@@ -44,18 +44,12 @@ export default {
             if (Array.isArray(salaryRange)) {
                 // If `salaryRange` is an array, it is safe to iterate over it.
                 const [max, min] = salaryRange;
-                console.log(`Max: ${max}, Min: ${min}`);
                 parsedData = parsedData.filter((d) => d.salary_in_usd >= min && d.salary_in_usd <= max);
-                console.log("parsed filtered", parsedData);
-
 
             } else {
                 // Handle the case where 'salaryRange' is not an array
-                console.error('The salary range is not iterable or not defined.');
+                console.log('The salary range is not defined.');
             }
-            
-            // get the length of parsedData array
-            console.log("parsedData length", parsedData.length);
 
             const groupedData = d3.group(parsedData, (d: any) => d.company_size);
 
@@ -83,13 +77,17 @@ export default {
         initChart() {
             let chartContainer = d3.select('#bar-svg');
 
-            let yExtents = d3.extent(this.bars.map((d: JobBar) => d.count)) as [number, number]
-            let xCategories: string[] = [ ...new Set(this.bars.map((d: JobBar) => d.company_size))]
+            let sortedBars = [...this.bars].sort((a, b) => b.count - a.count);
+
+            // Extract the company_size values from the sorted bars for the xScale's domain
+            let sortedCategories = sortedBars.map(d => d.company_size);
 
             let xScale = d3.scaleBand()
                 .rangeRound([this.margin.left, this.size.width - this.margin.right])
-                .domain(xCategories)
-                .padding(0.1)
+                .domain(sortedCategories) // Use the sorted categories
+                .padding(0.1);
+
+            let yExtents = d3.extent(this.bars.map((d: JobBar) => d.count)) as [number, number]
 
             let yScale = d3.scaleLinear()
                 .range([this.size.height - this.margin.bottom, this.margin.top]) 
