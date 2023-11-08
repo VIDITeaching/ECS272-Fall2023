@@ -9,7 +9,7 @@ export default {
       // set the dimensions and margins of the graph
       // set the dimensions and margins of the graph
       const width = 900;
-      const height = Math.min(width, 400);
+      const height = Math.min(width, 350);
 
       console.log(data_pie);
 
@@ -126,7 +126,7 @@ export default {
 
   
 <template>
-  <div>
+  <div class="container">
     <h3>Pie Plot of 2023 Salaries by Experience Level</h3>
     <svg id="plot1"></svg>
     <p>
@@ -140,6 +140,12 @@ export default {
 
 <style scoped>
 p{font-size: 0.7em;}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 </style>
   
   

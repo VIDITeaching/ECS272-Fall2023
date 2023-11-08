@@ -6,16 +6,18 @@ import { max, min } from "lodash";
 export default {
   methods: {
     plot: async function () {
+
+      const plot3 = d3.select("#plot3");
       // set the dimensions and margins of the graph
-      var margin = { top: 10, right: 30, bottom: 30, left: 60 },
-        width = 800 - margin.left - margin.right,
-        height = 600 - margin.top - margin.bottom;
+      var margin = { top: 10, right: 30, bottom: 10, left: 60 },
+        width = plot3.node().clientWidth - margin.left - margin.right,
+        height = plot3.node().clientHeight - margin.top - margin.bottom;
 
       // append the svg object to the body of the page
-      var svg = d3.select("#plot3")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .attr("viewBox", `-100 0 ${ width + margin.left + margin.right + 200} ${height + margin.top + margin.bottom + 60}`)
+      var svg = plot3
+        .attr("width", width)
+        .attr("height", height)
+        .attr("viewBox", `0 0 ${ width  } ${height + 100}`)
         .append("g")
         .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
@@ -86,7 +88,7 @@ export default {
         .attr("height", function (d) { return (y(d.q1) - y(d.q3)) })
         .attr("width", boxWidth)
         .attr("stroke", "black")
-        .style("fill", "lightblue")
+        .style("fill", "violet")
         .on('mousemove', function (e, d) {
           const event = d3.pointer(e);
           info.attr('transform', `translate(${event[0] + 10}, ${event[1] + 10})`);
@@ -96,12 +98,12 @@ export default {
           texts[3].text(`q1: ${d.q1.toFixed(0)}`);
           info.style('opacity', 1);
           const elem = d3.select(this);
-          elem.style('fill', 'steelblue');
+          elem.style('fill', 'violet');
           elem.style('opacity', 1);
         })
         .on('mouseout', function (e, d) {
           info.style('opacity', 0);
-          d3.select(this).style("fill", "lightblue")
+          d3.select(this).style("fill", "violet")
         });
 
       // Show the median
@@ -116,6 +118,51 @@ export default {
         .attr("y2", function (d) { return (y(d.median)) })
         .attr("stroke", "black")
         .style("width", 80);
+      svg.append('text')
+        .attr('x', width -50) // Set x-coordinate for the center of the plot
+        .attr('y', 10) // Set y-coordinate for the top of the plot
+        .attr('text-anchor', 'middle')
+        .style('font-size', '24px')
+        .text('Most Frequent Countries:');
+      svg.append('text')
+        .attr('x', width-50) // Set x-coordinate for the center of the plot
+        .attr('y', 30) // Set y-coordinate for the top of the plot
+        .attr('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .text('US = United States');
+      svg.append('text')
+        .attr('x', width-50) // Set x-coordinate for the center of the plot
+        .attr('y', 50) // Set y-coordinate for the top of the plot
+        .attr('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .text('GB = Great Britain');
+      svg.append('text')
+        .attr('x', width-50) // Set x-coordinate for the center of the plot
+        .attr('y', 70) // Set y-coordinate for the top of the plot
+        .attr('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .text('CA = Canada');
+      svg.append('text')
+        .attr('x', width-50) // Set x-coordinate for the center of the plot
+        .attr('y', 90) // Set y-coordinate for the top of the plot
+        .attr('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .text('ES = Spain');
+      svg.append('text')
+        .attr('x', width-50) // Set x-coordinate for the center of the plot
+        .attr('y', 110) // Set y-coordinate for the top of the plot
+        .attr('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .text('IN = India');
+      svg.append('text')
+        .attr('x', width-50) // Set x-coordinate for the center of the plot
+        .attr('y', 130) // Set y-coordinate for the top of the plot
+        .attr('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .text('DE = Denmark');
+      
+
+
 
       const info = svg.append("g").style('opacity', 0);
       info.append('rect')
@@ -165,17 +212,19 @@ export default {
 </script>
 
 
-  
-  <!-- "ref" registers a reference to the HTML element so that we can access it via the reference in Vue.  -->
-  <!-- We use flex (d-flex) to arrange the layout-->
 <template>
-  <div>
-    <h3>Box Plot of the yearly salaries of the top 6 most frequent countries</h3>
-    <svg id="plot3"></svg>
-  </div>
+  <h3>Box Plot of the yearly salaries of the top 6 most frequent countries</h3>
+  <svg id="plot3"></svg>
 </template>
 
 
-<style scoped></style>
+<style scoped>
+
+#plot3 {
+  width: 80%;
+  height: 100%;
+}
+
+</style>
   
   
