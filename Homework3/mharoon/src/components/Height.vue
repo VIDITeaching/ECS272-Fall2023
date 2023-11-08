@@ -57,7 +57,7 @@ function plot() {
     // get dimensions
     const margin = 60;
     const width = svg.node().clientWidth - margin;
-    const panWidth = pokemon_list.value.length * (svg.node().clientWidth / 3);
+    const panWidth = pokemon_list.value.length * (svg.node().clientWidth / 4);
     const height = svg.node().clientHeight - margin;
 
     // set dimensions
@@ -176,9 +176,9 @@ function plot() {
 <template>
     <div v-if="store.pokemon.length > 0" class="height-container">
         <div class="search">
-            <Search @on-select="(pk) => add(pk)" :disabled="pokemon_list.length > 8"></Search>
+            <Search @on-select="(pk) => add(pk)" :disabled="pokemon_list.length > 6"></Search>
             <div>
-                <ul class="pokemon-list">
+                <ul class="pokemon-list" v-if="pokemon_list.length > 0">
                     <li v-for="pk, ind in pokemon_list">
                         <v-btn size="small" @click="remove(ind)" variant="outlined" class="remove-button"
                             prepend-icon="mdi-minus-circle">{{ pk.Name
