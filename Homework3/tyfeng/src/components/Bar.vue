@@ -1,29 +1,23 @@
 <script lang="ts">
 import * as d3 from "d3";
 import { isEmpty, debounce } from 'lodash';
-import axios from 'axios';
-import { Bar, ComponentSize, Margin } from '../types';
 import { state } from '../state';
-import { onMounted, onBeforeUnmount } from 'vue';
 import { useEventEmitter } from '../useEventEmitter';
 
 const emitter = useEventEmitter();
 
-interface Job {
+interface JobBar {
     salary_in_usd: number;
     company_size: string;
     remote_ratio: number;
+    count: number;
 }
 
-interface SalaryByLocationBar {
-    company_location: string;
-    salary_in_usd: number;
-}
 
 export default {
     data() {
         return {
-            bars: [] as Job[],
+            bars: [] as JobBar[],
             size: { width: 0, height: 0 },
             margin: {left: 60, right: 20, top: 30, bottom: 70},
         }
@@ -55,25 +49,29 @@ export default {
                 console.log("parsed filtered", parsedData);
 
 
-
             } else {
                 // Handle the case where 'salaryRange' is not an array
                 console.error('The salary range is not iterable or not defined.');
             }
             
+            // get the length of parsedData array
+            console.log("parsedData length", parsedData.length);
+
             const groupedData = d3.group(parsedData, (d: any) => d.company_size);
 
             const aggregatedData = Array.from(groupedData, ([key, value]) => ({
                 company_size: key,
-                salary_in_usd: d3.mean(value, d => d.salary_in_usd),
+                // count of data points in each company size
+                count: value.length,
+                // salary_in_usd: d3.mean(value, d => d.salary_in_usd),
             }));
 
             this.bars = aggregatedData.map((d: any) => {
                     return {
                         company_size: d.company_size,
-                        salary_in_usd: d.salary_in_usd
+                        count: d.count
                     }
-                }) as Job[];
+                }) as JobBar[];
             d3.select('#bar-svg').selectAll('*').remove();
             this.initChart();
         },
@@ -85,8 +83,8 @@ export default {
         initChart() {
             let chartContainer = d3.select('#bar-svg');
 
-            let yExtents = d3.extent(this.bars.map((d: Job) => d.salary_in_usd)) as [number, number]
-            let xCategories: string[] = [ ...new Set(this.bars.map((d: Job) => d.company_size))]
+            let yExtents = d3.extent(this.bars.map((d: JobBar) => d.count)) as [number, number]
+            let xCategories: string[] = [ ...new Set(this.bars.map((d: JobBar) => d.company_size))]
 
             let xScale = d3.scaleBand()
                 .rangeRound([this.margin.left, this.size.width - this.margin.right])
@@ -108,28 +106,50 @@ export default {
             const yLabel = chartContainer.append('g')
                 .attr('transform', `translate(${10}, ${this.size.height / 2}) rotate(-90)`)
                 .append('text')
-                .text('Salary in USD')
+                .text('Number of jobs')
                 .style('font-size', '.8rem')
 
             const xLabel = chartContainer.append('g')
                 .attr('transform', `translate(${this.size.width / 2 - this.margin.left}, ${this.size.height - this.margin.top - 5})`)
                 .append('text')
-                .text('Company Location')
+                .text('Company Size')
                 .style('font-size', '.8rem')
             
             const color = d3
                 .scaleOrdinal(["#1E90FF", "#FF8C00", "#32CD32"])
                 .domain(["L", "M", "S"]);
 
+            const tooltip = d3.select("#tooltip");
+
+            // map d.company_size to Large, Medium, Small
+            const sizeMapping: { [key: string]: string } = {
+                'S': 'Small',
+                'M': 'Medium',
+                'L': 'Large'
+            };
+
             const bars = chartContainer.append('g')
                 .selectAll('rect')
-                .data<Job>(this.bars)
+                .data<JobBar>(this.bars)
                 .join('rect')
-                .attr('x', (d: Job) => xScale(d.company_size) as number)
-                .attr('y', (d: Job) => yScale(d.salary_in_usd) as number)
+                .attr('x', (d: JobBar) => xScale(d.company_size) as number)
+                .attr('y', (d: JobBar) => yScale(d.count) as number)
                 .attr('width', xScale.bandwidth())
-                .attr('height', (d: Job) => Math.abs(yScale(0) - yScale(d.salary_in_usd))) 
-                .attr('fill', (d: Job) => color(d.company_size) as string);
+                .attr('height', (d: JobBar) => Math.abs(yScale(0) - yScale(d.count))) 
+                .attr('fill', (d: JobBar) => color(d.company_size) as string)
+                .on("mouseover", (event, d) => {
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", .9);
+                    tooltip.html(`Company Size: ${sizeMapping[d.company_size]} <br> Count: ${d.count}`)
+                        .style("left", (event.pageX) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mouseout", () => {
+                    tooltip.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                });
 
             const title = chartContainer.append('g')
             .append('text') 
@@ -137,7 +157,7 @@ export default {
             .attr('dy', '10px') 
             .style('text-anchor', 'middle')
             .style('font-weight', 'bold')
-            .text('Average Salary by Company Size');
+            .text('Number of Data Science Jobs by Company Size');
         }
     },
     watch: {
@@ -166,10 +186,30 @@ export default {
         <svg id="bar-svg" width="100%" height="100%">
         </svg>
     </div>
+    <div id="tooltip" class="tooltip" style="opacity:0;">
+        <p>Count: <span id="tooltip-value"></span></p>
+    </div>
 </template>
 
 <style scoped>
 .chart-container{
     height: 100%;
+}
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* Hide the tooltip when not in use */
+.tooltip {
+    opacity: 0;
 }
 </style>
