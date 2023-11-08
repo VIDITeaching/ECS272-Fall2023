@@ -2,9 +2,14 @@
 For this assignment, I improved upon the visualization from Homework 2 by adding animations and transitions as well as fixing bugs with the sankey plot and adding color encoding to the histogram. 
 
 ## Interactions
-1. Selection: Hovering over pie chart arcs and sankey plot nodes will reveal more detail about each visualization (see below).
-![](/Homework3/amaustin/demo/demo-1.gif)
-2. Pan and zoom: The binwidth of the histogram is now adjustable, allowing the user to focus on different age ranges and compare the average listening hours across each range (see below).
+#### Selection
+Hovering over pie chart arcs and sankey plot nodes will reveal more detail about each visualization (see below).   
+
+![](/Homework3/amaustin/demo/demo-1.gif)   
+
+#### Pan and zoom
+The binwidth of the histogram is now adjustable, allowing the user to focus on different age ranges and compare the average listening hours across each range (see below).   
+
 ![](/Homework3/amaustin/demo/demo-2.gif)
 
 
