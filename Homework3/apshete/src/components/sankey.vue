@@ -222,14 +222,14 @@ export default{
         .style('font-size', '8px')
         .text(d => d);
 
-      // Optional: Add a title to your legend
-      legend.append('text')
-        .attr('x', 0)
-        .attr('y', -10) 
-        .attr('class', 'legend-title')
-        .style('font-size', '10px')
-        .style('text-anchor', 'start')
-        .text('Job Titles');
+      // // Optional: Add a title to your legend
+      // legend.append('text')
+      //   .attr('x', 0)
+      //   .attr('y', -10) 
+      //   .attr('class', 'legend-title')
+      //   .style('font-size', '10px')
+      //   .style('text-anchor', 'start')
+      //   .text('Job Titles and ex');
       }
 
       createLegend(svg, colorScale, this.size.width, this.margin);
