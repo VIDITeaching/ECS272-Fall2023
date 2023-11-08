@@ -5,7 +5,7 @@ import { pokemonStore } from '../stores/pokemon';
 import { ref } from 'vue'
 
 const emit = defineEmits(['onSelect']);
-const props = defineProps(['randomize']);
+const props = defineProps(['randomize', 'disabled']);
 
 // load store
 const store = computed(() => pokemonStore());
@@ -32,6 +32,7 @@ if (props.randomize == '') {
                 auto-select-first
                 no-data-text="No Pokemon found!"
                 return-object
+                :disabled="disabled"
                 :on-update:model-value="$emit('onSelect', pokemon)"
               ></v-autocomplete>
 </template>
