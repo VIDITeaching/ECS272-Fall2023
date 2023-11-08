@@ -38,6 +38,8 @@ export const DetailTop = () => (`
     </div>
 `)
 
+let x, gx, xAxis
+
 export function mountDetailTop(_data, _context) {
     gdata = _data.filter(d => d["Hours per day"] && d["BPM"] < 250 && d["BPM"] > 0)
     gcontext = _context
@@ -46,7 +48,22 @@ export function mountDetailTop(_data, _context) {
 
     document.querySelector('#scat-param').addEventListener('change', ev => {
         gmode = ev.target.value
-        resetDetailTop()
+        if (gcontext.keepsame == "detailtop") return
+        // d3.select('#detailtop-svg').selectAll('*').remove()
+        //console.log(size, bars)
+        x.domain(d3.extent(gdata, d => d[gmode]))
+        d3.select("#detailtop-svg")
+            .selectAll(".cscat")
+            // .data([...gdata, ...gdata, ...gdata, ...gdata])
+            // .join("circle")
+            .transition()
+            .duration(200)
+            .attr('cx', (d) => x(d[gmode]))
+            
+        gx.transition()
+            .duration(200)
+            .call(xAxis, x)
+        // initChart()
     })
 }
 
@@ -58,7 +75,7 @@ function initChart() {
     
     const svg = d3.select("#detailtop-svg")
 
-    const x = d3.scaleLinear()
+    x = d3.scaleLinear()
         .domain(d3.extent(gdata, d => d[gmode]))
         .range([margin.left, size.width - margin.right]);
     const y = d3.scaleLinear()
@@ -71,6 +88,7 @@ function initChart() {
     const circs = svg.selectAll("circle").data(gdata).enter()
 
     circs.append("circle")
+        .attr("class", "cscat")
         .attr('cx', (d) => x(d[gmode]))
         .attr('cy', (d) => y(d["Anxiety"]))
         .attr("r", (d) => 5)
@@ -78,6 +96,7 @@ function initChart() {
         .attr("opacity", d => (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
 
     circs.append("circle")
+        .attr("class", "cscat")
         .attr('cx', (d) => x(d[gmode]))
         .attr('cy', (d) => y(d["Depression"]))
         .attr("r", (d) => 5)
@@ -85,6 +104,7 @@ function initChart() {
         .attr("opacity", d => (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
 
     circs.append("circle")
+        .attr("class", "cscat")
         .attr('cx', (d) => x(d[gmode]))
         .attr('cy', (d) => y(d["Insomnia"]))
         .attr("r", (d) => 5)
@@ -92,13 +112,14 @@ function initChart() {
         .attr("opacity", d => (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
 
     circs.append("circle")
+        .attr("class", "cscat")
         .attr('cx', (d) => x(d[gmode]))
         .attr('cy', (d) => y(d["OCD"]))
         .attr("r", (d) => 5)
         .attr("fill", d => color("OCD"))
         .attr("opacity", d => (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
 
-    const xAxis = g => g
+    xAxis = g => g
         .attr("transform", `translate(0,${size.height - margin.bottom})`)
         .call(d3.axisBottom(x))
 
@@ -106,7 +127,7 @@ function initChart() {
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y))
 
-    svg.append("g")
+    gx = svg.append("g")
         .call(xAxis)
         // .call(g =>
         //     g.select(".tick:last-of-type text")
