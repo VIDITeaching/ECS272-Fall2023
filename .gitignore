@@ -154,3 +154,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Homework2/smunir/data/globalterrorismdb_0718dist.csv

@@ -6,7 +6,7 @@ import { isEmpty, debounce } from 'lodash';
 
 import { Bar, ComponentSize, Margin } from '../types';
 // A "extends" B means A inherits the properties and methods from B.
-interface CategoricalBar extends Bar{
+interface CategoricalBar extends Bar {
     category: string;
 }
 
@@ -19,7 +19,7 @@ export default {
         return {
             bars: [] as CategoricalBar[], // "as <Type>" is a TypeScript expression to indicate what data structures this variable is supposed to store.
             size: { width: 0, height: 0 } as ComponentSize,
-            margin: {left: 40, right: 20, top: 20, bottom: 60} as Margin,
+            margin: { left: 40, right: 20, top: 20, bottom: 60 } as Margin,
         }
     },
     computed: {
@@ -58,7 +58,7 @@ export default {
             // Here we compute the [min, max] from the data values of the attributes that will be used to represent x- and y-axis.
             let yExtents = d3.extent(this.bars.map((d: CategoricalBar) => d.value as number)) as [number, number]
             // This is to get the unique categories from the data using Set, then store in an array.
-            let xCategories: string[] = [ ...new Set(this.bars.map((d: CategoricalBar) => d.category as string))]
+            let xCategories: string[] = [...new Set(this.bars.map((d: CategoricalBar) => d.category as string))]
 
             // We need a way to map our data to where it should be rendered within the svg (in screen pixels), based on the data value, 
             //      so the extents and the unique values above help us define the limits.
@@ -75,10 +75,10 @@ export default {
             let yScale = d3.scaleLinear()
                 .range([this.size.height - this.margin.bottom, this.margin.top]) //bottom side to the top side on the screen
                 .domain([0, yExtents[1]]) // This is based on your data, but if there is a natural value range for your data attribute, you should follow
-                // e.g., it is natural to define [0, 100] for the exame score, or [0, <maxVal>] for counts.
+            // e.g., it is natural to define [0, 100] for the exame score, or [0, <maxVal>] for counts.
 
             // There are other scales such as scaleOrdinal,
-                // whichever is appropriate depends on the data types and the kind of visualizations you're creating.
+            // whichever is appropriate depends on the data types and the kind of visualizations you're creating.
 
             // This following part visualizes the axes along with axis labels.
             // Check out https://observablehq.com/@d3/margin-convention?collection=@d3/d3-axis for more details
@@ -101,7 +101,7 @@ export default {
                 .append('text')
                 .text('Categories')
                 .style('font-size', '.8rem')
-            
+
             // "g" is grouping element that does nothing but helps avoid DOM looking like a mess
             // We iterate through each <CategoricalBar> element in the array, create a rectangle for each and indicate the coordinates, the rectangle, and the color.
             const bars = chartContainer.append('g')
@@ -136,11 +136,11 @@ export default {
     },
     // The following are general setup for resize events.
     mounted() {
-        window.addEventListener('resize', debounce(this.onResize, 100)) 
+        window.addEventListener('resize', debounce(this.onResize, 100))
         this.onResize()
     },
     beforeDestroy() {
-       window.removeEventListener('resize', this.onResize)
+        window.removeEventListener('resize', this.onResize)
     }
 }
 
@@ -157,7 +157,7 @@ export default {
 </template>
 
 <style scoped>
-.chart-container{
+.chart-container {
     height: 100%;
 }
 </style>
