@@ -1,0 +1,8 @@
+{
+  "theme_color": "#1975ff",
+  "background_color": "#f2f5f9",
+  "display": "standalone",
+  "start_url": ".",
+  "short_name": "Tokyo Free White",
+  "name": "Tokyo Free White React Typescript Admin Dashboard"
+}
