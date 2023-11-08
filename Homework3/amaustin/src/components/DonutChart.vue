@@ -176,7 +176,7 @@ export default {
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
                 .style('font-family', 'monospace')
-                .style('font-size', '18')
+                .style('font-size', '20')
                 .text('Primary Streaming Services')
         }
     },

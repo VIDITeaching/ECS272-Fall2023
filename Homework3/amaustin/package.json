@@ -12,15 +12,17 @@
     "@vueuse/core": "^9.9.0",
     "axios": "^1.5.1",
     "d3": "^7.8.5",
+    "d3-color-legend": "^1.4.1",
     "d3-sankey": "^0.12.3",
     "lodash": "^4.17.21",
     "pinia": "^2.0.28",
     "vite-plugin-vuetify": "^1.0.1",
     "vue": "^3.2.45",
+    "vue-slider-component": "^3.2.24",
     "vuetify": "^3.0.6"
   },
   "devDependencies": {
-    "@types/d3": "^7.4.0",
+    "@types/d3": "^7.4.2",
     "@types/d3-sankey": "^0.12.3",
     "@types/lodash": "^4.14.191",
     "@vitejs/plugin-vue": "^4.0.0",

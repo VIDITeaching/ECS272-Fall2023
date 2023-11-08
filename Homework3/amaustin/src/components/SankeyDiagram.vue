@@ -225,7 +225,7 @@ export default {
                         linkType : 'targetLinks',
                         nodeType : 'source',
                     }];
-                    
+
                     traverse.forEach((step) => {
                         v[step.linkType].forEach((l) => {
                             linkedNodes.push(l[step.nodeType]);
@@ -240,6 +240,7 @@ export default {
                     
                     // Update links style
                     d3.selectAll('.link').style('stroke', p => (p && (p.source.name === v.name || p.target.name === v.name)) ? colors(v.name) : '#aaa')
+
                     d3.selectAll('.link').style('opacity', p => (p && (p.source.name === v.name || p.target.name === v.name)) ? '0.5' : '0.3');
                 })
                 .on('mouseout', (event, v) => {
@@ -250,6 +251,7 @@ export default {
                     d3.selectAll('.link').style('opacity', '0.3');
                     d3.selectAll('.link').style('stroke', '#aaa')
                 })
+            
             
             // node titles
             node.append("title")
