@@ -14,7 +14,7 @@ pokemonStore().loadPokedex();
 
 <template>
   <div class="container">
-    <div class="flex-row">
+    <div class="flex-row top">
       <div class="widget1">
         <h1>Types by Generation</h1>
         <Overview></Overview>
@@ -24,7 +24,7 @@ pokemonStore().loadPokedex();
         <Stats></Stats>
       </div>
     </div>
-    <div class="flex-row">
+    <div class="flex-row bottom">
       <div class="widget3">
         <h1>Height Compare</h1>
         <Height></Height>
@@ -34,6 +34,22 @@ pokemonStore().loadPokedex();
 </template>
 
 <style scoped>
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.container > div.top {
+  height: 40%;
+}
+
+.container > div.bottom {
+  height: 60%;
+}
+
 .widget1,
 .widget2,
 .widget3 {
@@ -41,7 +57,7 @@ pokemonStore().loadPokedex();
   padding: 8px;
   text-align: center;
   border-radius: 12px;
-  margin: 8px 12px;
+  margin: 2px;
 }
 
 .widget3,

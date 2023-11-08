@@ -48,7 +48,7 @@ function plot() {
     svg.attr("width", width);
     svg.attr("height", height);
     // set dimensions
-    svg.attr('viewBox', `0 -130 ${width} ${height + 250}`)
+    svg.attr('viewBox', `${-width / 2} 0 ${width * 2} ${height - 20}`)
 
     // clear old
     svg.selectAll('*').remove();
@@ -103,14 +103,12 @@ function plot() {
         .join(enter => enter.append("text")
             .attr("x", d => d.label_coord.x)
             .attr("y", d => d.label_coord.y)
-            .style("font-size", "1.5em")
+            .style("font-size", "200%")
             .style("text-anchor", d => {
                 return d.name.startsWith('Sp_') ? 'end' : 'start';
             })
             .text(d => d.name)
         );
-
-
 
     svg.selectAll(".ticklabel")
         .data(ticks)
@@ -142,13 +140,13 @@ function plot() {
         .attr("stroke", store.type_colors[pok.Type_1])
         .attr("fill", store.type_colors[pok.Type_1])
         .attr("stroke-opacity", 1)
-        .attr("opacity", 0.5);
+        .attr("opacity", 1);
 
     svg.append('image')
-        .attr("x", 100)
-        .attr("y", margin * 2)
-        .attr("width", width * 0.75)
-        .attr("height", height * 0.75)
+        .attr("x", 0)
+        .attr("y", margin)
+        .attr("width", width)
+        .attr("height", height)
         .attr("xlink:href", `https://haroon96.github.io/Pokemon/${formatNumber(pokemon.value.Number)}.png`);
 
     svg.append('g')
@@ -184,7 +182,6 @@ function plot() {
         .attr('width', 100)
         .attr('height', 50)
         .attr('rx', 8)
-        .style('opacity', 0.5)
         .attr('fill', store.type_colors[pok.Type_1]);
 
     hover.append('text')
@@ -202,9 +199,8 @@ watch(pokemon, plot);
 </script>
 
 <template>
-    <div v-if="store.pokemon.length > 0">
+    <div v-if="store.pokemon.length > 0" class="stats-container">
         <Search @on-select="(pk) => pokemon = pk" randomize></Search>
-        <p>Interaction: Search lets you select a Pokemon's stats to view.</p>
         <div class="stats-list" v-if="pokemon">
             <ul>
                 <li>{{ pokemon.Number }} - {{ pokemon.Name }}</li>
@@ -216,13 +212,19 @@ watch(pokemon, plot);
             </ul>
         </div>
         <svg id="stats"></svg>
+        <p>Interaction: Type/drop-down select. Hover to view stat value.</p>
     </div>
 </template>
 
 <style scoped>
+.stats-container {
+    width: 100%;
+    height: 100%;
+}
+
 #stats {
-    width: 80%;
-    height: 400px;
+    width: 100%;
+    height: 60%;
 }
 
 ul {

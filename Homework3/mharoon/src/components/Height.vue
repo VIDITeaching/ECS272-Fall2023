@@ -164,58 +164,62 @@ function plot() {
 </script>
 
 <template>
-    <div v-if="store.pokemon.length > 0">
+    <div v-if="store.pokemon.length > 0" class="height-container">
         <div class="search">
             <Search @on-select="(pk) => add(pk)"></Search>
+            <p>Interaction: Various Pokemon can be added and removed from the plot.</p>
+            <div>
+                <ul class="pokemon-list">
+                    <li v-for="pk, ind in pokemon_list">
+                        <v-btn size="small" @click="remove(ind)" variant="outlined" class="remove-button"
+                            prepend-icon="mdi-minus-circle">{{ pk.Name
+                            }}</v-btn>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div>
-            <ul class="pokemon-list">
-                <li v-for="pk, ind in pokemon_list">
-                    <v-btn size="small" @click="remove(ind)" variant="outlined" class="remove-button"
-                        prepend-icon="mdi-minus-circle">{{ pk.Name
-                        }}</v-btn>
-                </li>
-            </ul>
-        </div>
-        <div class="container">
+        <div class="plot">
             <svg id="bar"></svg>
         </div>
     </div>
 </template>
 
 <style scoped>
-.search {
+.height-container {
+    width: 100%;
+    height: 90%;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+}
+
+.search {
+    width: 300px;
 }
 
 .search>*:first-child {
     margin-right: 8px;
 }
 
-.container {
-    width: 100%;
-}
-
-.img-container {
-    margin: 0 auto;
-    text-align: center;
-}
-
-.img-container img {
-    width: 256px;
+.plot {
+    width: calc(100% - 300px);
+    height: 100%;
 }
 
 svg {
     width: 100%;
-    max-width: 1920px;
-    min-width: 300px;
-    height: 400px;
+    height: 100%;
 }
 
 .pokemon-list {
+    max-height: 300px;
+    width: 100%;
+    overflow-x: scroll;
+    text-align: left;
+    background-color: #eee;
+    padding: 4px;
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .pokemon-list li {

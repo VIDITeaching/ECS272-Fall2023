@@ -63,7 +63,7 @@ function plot() {
     const radius = Math.min(width, height) / 2;
 
     // set dimensions
-    svg.attr('viewBox', `-${radius * 1.5} -${radius} ${width + 10} ${height}`);
+    svg.attr('viewBox', `-${radius * 1.5} -${radius} ${width / 2 - radius} ${height}`);
 
     // create color scale
     const colorScale = d3.scaleOrdinal()
@@ -79,7 +79,7 @@ function plot() {
 
     // arc generator
     const arc = d3.arc()
-        .innerRadius(radius - 40)         // This is the size of the donut hole
+        .innerRadius(radius * 0.8)
         .outerRadius(radius);
 
     svg.selectAll('g')
@@ -108,7 +108,7 @@ function plot() {
     // middle text
     svg.append("text")
         .text("Gen " + generation.value)
-        .style("font-size", "2em")
+        .style("font-size", "125%")
         .attr("text-anchor", "middle");
 
     // info element on hover
@@ -123,27 +123,31 @@ plot();
 </script>
 
 <template>
-    <div class="container">
+    <div class="pie-container">
         <div class="flex-row generation-slider">
             <span>Generation</span> &nbsp;&nbsp;&nbsp;
             <v-slider v-model="generation" :min="1" :max="6" :step="1" thumb-label
                 :on-update:model-value="plot()"></v-slider>
         </div>
-        <p>Interaction: Slider controls Pokemon generation.</p>
+        <!-- <p>Interaction: Slider controls Pokemon generation.</p> -->
         <svg id="overview"></svg>
-        <p>Interaction: Individual slices have a hover event that shows the values.</p>
+        <p>Interactions: Hover to see percentage. Slide to select gen.</p>
     </div>
 </template>
 
 <style scoped>
+
+.pie-container {
+    width: 80%;
+    height: 60%;
+    margin: 0 auto;
+}
 .generation-slider>span {
     margin-top: 3px;
 }
 
 svg {
-    width: 80%;
-    max-width: 900px;
-    min-width: 300px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
 }
 </style>
