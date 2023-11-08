@@ -52,27 +52,26 @@ function plot() {
     const type_colors = store.type_colors;
 
     // get svg object
-    const xSvg = d3.select('#xSvg');
-    const ySvg = d3.select('#ySvg');
+    const svg = d3.select('#svg');
 
     // get dimensions
     const margin = 60;
-    const width = xSvg.node().clientWidth - margin;
-    const panWidth = pokemon_list.value.length * (xSvg.node().clientWidth / 3);
-    const height = ySvg.node().clientHeight - margin;
+    const width = svg.node().clientWidth - margin;
+    const panWidth = pokemon_list.value.length * (svg.node().clientWidth / 3);
+    const height = svg.node().clientHeight - margin;
 
     // set dimensions
-    xSvg.attr('width', width);
-    xSvg.attr('viewBox', `0 -${margin} ${width - margin} ${height + 100}`);
-    ySvg.attr('viewBox', `0 -${margin} ${width - margin} ${height + 100}`);
+    svg.attr('width', width);
+    svg.attr('viewBox', `0 -${margin} ${width - margin} ${height + 100}`);
+    svg.attr('viewBox', `0 -${margin} ${width - margin} ${height + 100}`);
 
     // get data
     const pokemon = pokemon_list.value;
     const data = pokemon.map(p => parseFloat(p.Height_m));
 
     // clear out old plots
-    xSvg.selectAll('g').remove();
-    ySvg.selectAll('g').remove();
+    svg.selectAll('g').remove();
+    svg.selectAll('g').remove();
 
     // create xscale
     const xScale = d3.scaleLinear()
@@ -84,24 +83,9 @@ function plot() {
         .domain([0, Math.max(...data)])
         .range([height, 0]);
 
-    // append x axis
-    xSvg.append("g")
-        .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(xScale).tickValues([]));
-
-    // append y axis
-    ySvg.append("g")
-        .call(d3.axisLeft(yScale));
-
-    ySvg.append("text")
-        .style("transform", "rotate(-90deg)")
-        .attr("x", -height / 2 - 20)
-        .attr("y", -40)
-        .text("Height (m)");
-
     // append new heights
-    const bars = xSvg.append("g")
-        .selectAll()
+    const panArea = svg.append('g');
+    const bars = panArea.selectAll()
         .data(data);
 
     // bar height
@@ -148,10 +132,34 @@ function plot() {
         .style("font-size", "0.9em")
         .text((d, ind) => `${pokemon_list.value[ind].Height_m}m`);
 
+    // white area
+    svg.append('rect')
+        .style("transform", "rotate(-90deg)")
+        .attr("x", -height)
+        .attr("y", -200)
+        .attr('width', height + 100)
+        .attr('height', 200)
+        .attr('fill', 'white');
+
+    // append x axis
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(xScale).tickValues([]));
+
+    // append y axis
+    svg.append("g")
+        .call(d3.axisLeft(yScale));
+
+    svg.append("text")
+        .style("transform", "rotate(-90deg)")
+        .attr("x", -height / 2 - 20)
+        .attr("y", -40)
+        .text("Height (m)");
+
     // pan behavior
     function handlePan(e) {
         console.log(e.transform);
-        xSvg.select('g:last-child').attr('transform', `translate(${e.transform.x}, 0)`);
+        panArea.attr('transform', `translate(${e.transform.x}, 0)`);
     }
 
     const pan = d3.zoom()
@@ -159,7 +167,7 @@ function plot() {
         .on('zoom', handlePan);
 
     // pan on xSvg
-    xSvg.call(pan).on('wheel.zoom', null);
+    svg.call(pan).on('wheel.zoom', null);
 
 }
 
@@ -181,8 +189,7 @@ function plot() {
             </div>
         </div>
         <div class="plot">
-            <svg id="ySvg"></svg>
-            <svg id="xSvg"></svg>
+            <svg id="svg"></svg>
         </div>
     </div>
 </template>
@@ -209,7 +216,7 @@ function plot() {
     position: relative;
 }
 
-#xSvg, #ySvg {
+#svg {
     width: 100%;
     height: 100%;
     position: absolute;
