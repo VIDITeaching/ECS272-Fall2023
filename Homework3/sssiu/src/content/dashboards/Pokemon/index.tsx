@@ -47,7 +47,7 @@ function DashboardPokemon() {
               <Typography variant="h2">Bar Chart with Transitions</Typography>
               <hr></hr>
               <Typography variant="h5">
-                A bar chart showing the count of the primary types of pokemons in different generations. 
+                A bar chart showing the count of the primary types of pokemons in different generations. Click the buttons to select the generation to visualize. 
               </Typography>
               <Box style={{
                 width: '100%',
