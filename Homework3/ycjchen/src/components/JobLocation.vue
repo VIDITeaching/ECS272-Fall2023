@@ -380,7 +380,7 @@ export default {
                     .attr("width", function(d){return(xScale(d.value.q3)-xScale(d.value.q1))})
                     .attr("height", boxWidth )
                     .attr("stroke", "black")
-                    .style("fill", 'lightgrey')//"#CEE3F6"
+                    .style("fill", '#E6E3DB')//"#CEE3F6"
                     .on('mouseover', function(e,d) {
                         let median = d.value.median;
                         // Create a new <g> element for text and position it
@@ -549,16 +549,17 @@ export default {
                                 .selectAll("text")                 
                                 .data(yCategories)
                                 .attr('class','zoom')
-                                .on('mouseover',function(){
+                                .on('mouseover',function(e,d){
                                     d3.select(this)
-                                      .style("fill", "red");})
+                                      .style("fill", "#EB7A7A");
+                                    self.eventBus.emit('countrymsg',d)})
                                 .on('mouseout',function(){
                                     d3.select(this)
                                     .style("fill", "black");
                                 })
-                                .on('click', function(e,d){
-                                    self.eventBus.emit('countrymsg',d)
-                                })
+                                // .on('click', function(e,d){
+                                //     self.eventBus.emit('countrymsg',d)
+                                // })
             
             
             const yLabel = chartContainer.append('g')

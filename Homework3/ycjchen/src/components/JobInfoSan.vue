@@ -89,24 +89,26 @@ export default {
             const experienceLevels = ["EX","SE","MI","EN"];
             const catSalaries = [">300k","250-300k", "200-250k","150-200k","100-150k","50-100k","0-50k"]; 
             const remoteRatios = ["100", "50", "0"];
+            const companySizes = ["L","M","S"];
 
             // Iterate over the combinations and count occurrences
             // console.log(this.newdata);
             const result=[]
-            experienceLevels.forEach((experienceLevel) => {
-                catSalaries.forEach((catSalary) => {
-                    remoteRatios.forEach((remoteRatio) => {
+            catSalaries.forEach((catSalary) => {
+                experienceLevels.forEach((experienceLevel) => {
+                    companySizes.forEach((companySize) => {
                         const count = updatedData.filter((item) =>
-                            item.experience_level === experienceLevel &&
                             item.cat_salary === catSalary &&
-                            item.remote_ratio === remoteRatio
+                            item.experience_level === experienceLevel &&
+                            item.company_size === companySize
                         ).length;
                         // console.log(count)
 
                     result.push({
-                        "experience-level": experienceLevel,
+                        
                         "cat_salary": catSalary,
-                        "remote-ratio": remoteRatio,
+                        "experience-level": experienceLevel,
+                        "remote-ratio": companySize,
                         "value": count,
                     });
                     });
@@ -115,7 +117,7 @@ export default {
 
             // console.log(result);
             
-            const keys = ["experience-level","cat_salary","remote-ratio"]
+            const keys = ["cat_salary","experience-level","remote-ratio"]
             let index = -1;
             const Nodes = [];
             const nodeByKey = new d3.InternMap([], JSON.stringify);;
@@ -159,7 +161,7 @@ export default {
                             .linkSort(null)
                             .nodeWidth(5)
                             .nodePadding(15)
-                            .extent([[0, 0], [this.size.width-this.margin.right, this.size.height-this.margin.bottom]])
+                            .extent([[0, 30], [this.size.width-this.margin.right, this.size.height-this.margin.bottom]])
 
             const {nodes, links} = sankey({
                 nodes: Nodes.map(d => Object.create(d)),
@@ -168,23 +170,28 @@ export default {
             // console.log({nodes, links})
             let axislabel1 = lineContainer.append("g")
                             .append('text')
-                            .attr("transform", d => `translate(${this.margin.left-10},${this.margin.top})`)
+                            .attr("transform", d => `translate(${this.margin.left-10},${this.margin.top+30})`)
                             .style('text-anchor', 'middle')
                             .style('font-size', '1rem')
-                            .text('experience level') // text content
+                            .style('font-weight','bold')
+                            .text('salary (USD)') // text content
             let axislabel2 = lineContainer.append("g")
                             .append('text')
-                            .attr("transform", d => `translate(${this.size.width / 2},${this.margin.top})`)
+                            .attr("transform", d => `translate(${this.size.width / 2},${this.margin.top+30})`)
                             .style('text-anchor', 'middle')
                             .style('font-size', '1rem')
-                            .text('salary (USD)') // text content
+                            .style('font-weight','bold')
+                            .text('experience level') // text content
             let axislabel3 = lineContainer.append("g")
                             .append('text')
-                            .attr("transform", d => `translate(${this.size.width-this.margin.right},${this.margin.top})`)
+                            .attr("transform", d => `translate(${this.size.width-this.margin.right},${this.margin.top+30})`)
                             .style('text-anchor', 'middle')
                             .style('font-size', '1rem')
-                            .text('remote ratio (%)') // text content
-            const color = d3.scaleOrdinal(d3.schemeGnBu[4]).domain(['EN','MI','SE','EX'])
+                            .style('font-weight','bold')
+                            .text('company size') // text content
+            const color = d3.scaleOrdinal(d3.schemeGnBu[7]).domain(["0-50k","50-100k","100-150k","150-200k","200-250k","250-300k",">300k"])
+            // const color = d3.scaleSequential(d3.interpolate("white","black")).domain([1,8])
+            // console.log(links)
             let alllinks = lineContainer.append("g")
                         .attr("transform", d => `translate(10,20)`)
                         .attr("fill", "none")
@@ -205,7 +212,7 @@ export default {
                         .data(nodes)
                         .join("rect")
                         .attr("class",function(d){
-                                                    if(!experienceLevels.includes(d.name) && !remoteRatios.includes(d.name)){
+                                                    if(!experienceLevels.includes(d.name) && !companySizes.includes(d.name)){
                                                         return "nodes"
                                                     }
                                                     else{
@@ -219,32 +226,24 @@ export default {
                         .append("title")
                         .text(d => `${d.name}\n${d.value.toLocaleString()}`);
             let self = this
-            const selection = d3.selectAll("rect.othernodes")
-                                        .on('mouseover',function(){
-                                            d3.select(this)
-                                            .style("fill", "#A9A9A9")
-                                            ;})
-                                        .on('mouseout',function(){
-                                            d3.select(this)
-                                            .style("fill", "#2a2727");
-                                        })
             const selectionSalary = d3.selectAll("rect.nodes")
-                                        .on('mouseover',function(){
+                                        .on('mouseover',function(e,d){
                                             d3.select(this)
-                                            .style("fill", "red");})
+                                            .style("fill", "indianred");
+                                            const str = `${d.name} (USD) in ${self.country}`
+                                            self.eventBusSalary.emit('salarymsg',str)})
                                         .on('mouseout',function(){
                                             d3.select(this)
                                             .style("fill", "#2a2727");
                                         })
-                                        .on('click', function(e,d){
-                                            const str = `${d.name} (USD) in ${self.country}`
-                                            self.eventBusSalary.emit('salarymsg',str)
-                                        })
+                                        // .on('click', function(e,d){
+                                        //     const str = `${d.name} (USD) in ${self.country}`
+                                        //     self.eventBusSalary.emit('salarymsg',str)
+                                        // })
                                     
                                     
                                       
             
-            // var color = d3.scaleOrdinal(['#FFE366','#64D19E','#578FB5','#3e4989']).domain(['EN','MI','SE','EX'])
             
             let labels = lineContainer.append("g")
                         .attr("transform", d => `translate(10,20)`)
@@ -257,26 +256,30 @@ export default {
                         .attr("dy", "0.35em")
                         .attr("text-anchor", d => d.x0 < this.size.width / 2 ? "start" : "end")
                         .text(d => d.name)
-            let legend_rect = lineContainer.selectAll("mydots")
-                            .data(experienceLevels)
-                            .enter()
-                            .append("g") // Create a container <g> for both rect and text
-                            .attr("class", "legend-item")
-                            .attr("transform", function(d, i) { return "translate(" + (400 + i * 35) + "," + 300 + ")"; });
-
-            legend_rect
-                .append("rect")
-                .attr("width", 10)
-                .attr("height", 10)
-                .style("fill", function(d) { return color(d); })
-                .attr('stroke', 'black') 
-                .attr('stroke-width', 1) ;
-
-            legend_rect
-                .append("text")
-                .attr("x", 15) // Adjust the x position to move text to the right of the rect
-                .attr("y", 8) // Adjust the y position to center the text vertically
-                .text(function(d) { return d; });
+            let legendElementWidth = 50
+            let legendHeight = 10         
+            let legends = lineContainer.append("g")
+                        .attr("transform", d => `translate(10,-300)` )
+                        .selectAll("rect")
+                        .data(catSalaries.reverse())
+                        .enter()
+                        .append("rect")
+                        .attr("x", (d, i) => legendElementWidth * i)
+                        .attr("y", this.size.height - (2*legendHeight))
+                        .attr("width", legendElementWidth)
+                        .attr("height", legendHeight)
+                        .style("fill", d => color(d));
+            lineContainer.append("g")
+                        .attr("transform", "translate(10,-300)" )
+                        .selectAll("text")
+                        .data(catSalaries)
+                        .enter()
+                        .append("text")
+                        .text(d => d )
+                        .attr("x", (d, i) => legendElementWidth * i)
+                        .attr("y", this.size.height - (legendHeight / 2)+5)
+                        .style("font-size", "1rem")
+                        .style("fill", "light grey")
                         
         },
         no_chosen(){
@@ -299,7 +302,7 @@ export default {
                 'There is a switch at the upper left corner in Fig. 1. If you turn the switch to the left, you will',
                 "see a scatter plot displayed. If it is turned right, a box plot will be displayed. You can select",
                 "the country you are interested in from the y-axis. Then Fig. 2 will pop up a parallel set plot",
-                "showing the correspondence between salary range, experience level and remote ratio for",
+                "showing the correspondence between salary range, experience level and company size for",
                 "the data scientists in the country you select. Hover your mouse over the nodes and links in",
                 "Fig. 2, the detailed information of the correspondence under the mouse will pop up. Zoom",
                 "and pan your mouse to the region interesting you in Fig. 2, you will see the region displayed",
@@ -349,7 +352,7 @@ export default {
         <svg id="line-svg" width="100%" height="100%" >
         </svg>
         <div class="titlebox" >
-            <p class="title">Fig. 2 Data Scientist Job Salaries with corresponding experience level and remote ratio in {{ country }}</p> 
+            <p class="title">Fig. 2 Data Scientist Job Salaries with corresponding experience level and company size in {{ country }}</p> 
             <!-- -->
         </div>
         

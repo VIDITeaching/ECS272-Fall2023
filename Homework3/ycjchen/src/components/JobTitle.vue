@@ -94,7 +94,6 @@ export default {
 
             // Create a new object with the "others" property
             const resultObject = { ...count, "Others": sumOfLessThanMedian };
-            console.log(resultObject)
             
             const newObject = {};
             for (const key in resultObject) {
@@ -102,21 +101,17 @@ export default {
                     newObject[key] = resultObject[key];
                 }
             }
-            console.log(newObject)
-            const keysArray = Object.keys(newObject);
-            var color = d3.scaleOrdinal(d3.schemeTableau10)
-                          .domain(keysArray)
-            
+            const keysArray = Object.keys(newObject);            
             
             // Compute the position of each group on the pie:
             var pie = d3.pie()
                         .sort(null) // Do not sort group by size
                         .value(function(d) {return d[1]; })
             var data_ready = pie(Object.entries(newObject))
-            var radius = Math.min(this.size.width, this.size.height) / 2.1
+            var radius = Math.min(this.size.width, this.size.height) / 2
             // The arc generator
             var arc = d3.arc()
-            .innerRadius(radius * 0.5)         // This is the size of the donut hole
+            .innerRadius(radius * 0.5)
             .outerRadius(radius * 0.8)
 
             // Another arc that won't be drawn. Just for labels positioning
@@ -131,7 +126,7 @@ export default {
             .enter()
             .append('path')
             .attr('d', arc)
-            .attr('fill', function(d){ return(color(d.data[0])); })
+            .attr('fill', function(d){ return("indianred"); }) //color(d.data[0])
             .attr("stroke", "white")
             .style("stroke-width", "2px")
             .style("opacity", 0.9)
@@ -182,7 +177,14 @@ export default {
                 })
             .style('font-size', '1rem')
             
-
+            // let title = donutContainer
+            //             .append("g")
+            //             .append("text")
+            //             .attr('transform', `translate(${this.size.width / 2}, ${this.size.height})`)
+            //             .style('text-anchor', 'middle')
+            //             .style('font-weight', 'bold')
+            //             .style('font-size', '1rem')
+            //             .text("Fig. 3 Composition of Job Title of the Data Scientists for"+this.salaryandcountry)
             
         },
         no_chosen(){
@@ -205,7 +207,7 @@ export default {
             .data([
             'From the the Sankey chart shown in Fig. 2, You may want to know the composition of the job',
             "titles for a particular salary range. Then you can select the salary range you are interested in",
-            "from the middle axis of the Sankey chart in Fig. 2. Then you will see a donut chart pops up in",
+            "from the left axis of the Sankey chart in Fig. 2. Then you will see a donut chart pops up in",
             "Fig. 3 showing the composition of the job titles for the particular salary range you select. The ",
             "donut chart is animated as you can see it turns counter clockwises smoothly each time when ",
             "a new salary range is selected."
@@ -215,7 +217,8 @@ export default {
             .text((d) => d)
             .attr("x", this.margin.left+20) // X-coordinate for each line
             .attr("dy", "1.5em"); // Adjust the vertical spacing between lines
-                
+            
+
 
         },
     },
@@ -229,7 +232,6 @@ export default {
         salaryandcountry:function(value){
             
             const [newSalary,newCountry] = value.split(' (USD) in ');
-            console.log(newSalary)
             // this.country = newCountry
             // this.salary = newSalary
             const salaryCategories = [
@@ -277,7 +279,7 @@ export default {
         <svg id="donut-svg" width="100%" height="100%" >
         </svg>
         <div class="titlebox" >
-            <p class="title">Fig. 3 Composition of Job Title of the Data Scientists for {{salaryandcountry}}</p> 
+            <p class="title">Fig. 3 Composition of Job Title of the Data Scientists for {{ salaryandcountry }} </p> 
         </div>
     </div>
 </template>
@@ -286,11 +288,12 @@ export default {
 .chart-container-donut{
     height: 100%;
 }
-.title{
+/* .title{
     
     font-weight: bold;
     font-size: 1rem;
     text-align: center;
-}
+} */
+
 </style>
 
