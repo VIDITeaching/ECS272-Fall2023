@@ -6,25 +6,24 @@ import { useEventEmitter } from '../useEventEmitter';
 
 const emitter = useEventEmitter();
 
-interface JobBar {
+interface JobPlot {
     salary_in_usd: number;
     company_size: string;
-    remote_ratio: number;
     count: number;
 }
-
 
 export default {
     data() {
         return {
-            bars: [] as JobBar[],
+            plots: [] as JobPlot[],
             size: { width: 0, height: 0 },
             margin: {left: 60, right: 20, top: 30, bottom: 70},
+            rScale: null as any,
         }
     },
     computed: {
         rerender() {
-            return (!isEmpty(this.bars)) && this.size
+            return (!isEmpty(this.plots)) && this.size
         }
     },
     async created() {
@@ -33,13 +32,10 @@ export default {
     methods: {
         async updateChart() {
             const rawData = await d3.csv("../../data/ds_salaries.csv");
-            console.log(rawData[0]);
             let parsedData = rawData.map(d => ({
                 salary_in_usd: Number(d.salary_in_usd ?? 0),
                 company_size: d.company_size || 'na',
-                remote_ratio: Number(d.remote_ratio ?? 0),
             }));
-
             const salaryRange = state.selections.get('salary_in_usd');
             if (Array.isArray(salaryRange)) {
                 // If `salaryRange` is an array, it is safe to iterate over it.
@@ -51,22 +47,20 @@ export default {
                 console.log('The salary range is not defined.');
             }
 
-            const groupedData = d3.group(parsedData, (d: any) => d.company_size);
-
-            const aggregatedData = Array.from(groupedData, ([key, value]) => ({
+            // Group by company_size and calculate average salary
+            const groupedData = d3.group(parsedData, d => d.company_size);
+            const aggregatedData = Array.from(groupedData, ([key, values]) => ({
                 company_size: key,
-                // count of data points in each company size
-                count: value.length,
-                // salary_in_usd: d3.mean(value, d => d.salary_in_usd),
+                salary_in_usd: d3.mean(values, d => d.salary_in_usd) as number,
+                count: values.length,
             }));
+            this.plots = aggregatedData.sort((a, b) => b.count - a.count);
+            const maxCount = d3.max(this.plots, d => d.count) as number;
+            this.rScale = d3.scaleSqrt() // scaleSqrt is usually a good choice for area-based visual encodings
+                .domain([0, maxCount])
+                .range([1, 36]); // Set the range of the radius of the circle points 
 
-            this.bars = aggregatedData.map((d: any) => {
-                    return {
-                        company_size: d.company_size,
-                        count: d.count
-                    }
-                }) as JobBar[];
-            d3.select('#bar-svg').selectAll('*').remove();
+            d3.select('#scatter-svg').selectAll('*').remove();
             this.initChart();
         },
         onResize() {  
@@ -75,36 +69,24 @@ export default {
             this.size = { width: target.clientWidth, height: target.clientHeight };
         },
         initChart() {
-            let chartContainer = d3.select('#bar-svg');
+            let chartContainer = d3.select('#scatter-svg');
+            let sortedPlots = [...this.plots].sort((a, b) => b.salary_in_usd - a.salary_in_usd);
+            let sortedCategories = this.plots.map(d => d.company_size);
 
-            let sortedBars = [...this.bars].sort((a, b) => b.count - a.count);
+            let xScale = d3.scalePoint()
+                .range([this.margin.left, this.size.width - this.margin.right])
+                .domain(sortedCategories)
+                .padding(1);
 
-            // Extract the company_size values from the sorted bars for the xScale's domain
-            let sortedCategories = sortedBars.map(d => d.company_size);
-
-            let xScale = d3.scaleBand()
-                .rangeRound([this.margin.left, this.size.width - this.margin.right])
-                .domain(sortedCategories) // Use the sorted categories
-                .padding(0.1);
-
-            let yExtents = d3.extent(this.bars.map((d: JobBar) => d.count)) as [number, number]
-
+            let maxSalary = d3.max(this.plots.map(d => d.salary_in_usd).filter((salary): salary is number => salary !== undefined));
             let yScale = d3.scaleLinear()
-                .range([this.size.height - this.margin.bottom, this.margin.top]) 
-                .domain([0, yExtents[1]]) 
-
-            const xAxis = chartContainer.append('g')
-                .attr('transform', `translate(0, ${this.size.height - this.margin.bottom})`)
-                .call(d3.axisBottom(xScale))
-
-            const yAxis = chartContainer.append('g')
-                .attr('transform', `translate(${this.margin.left}, 0)`)
-                .call(d3.axisLeft(yScale))
+                .range([this.size.height - this.margin.bottom, this.margin.top])
+                .domain([0, maxSalary as Number]).nice();
 
             const yLabel = chartContainer.append('g')
                 .attr('transform', `translate(${10}, ${this.size.height / 2}) rotate(-90)`)
                 .append('text')
-                .text('Number of jobs')
+                .text('Average Salary in USD')
                 .style('font-size', '.8rem')
 
             const xLabel = chartContainer.append('g')
@@ -112,34 +94,40 @@ export default {
                 .append('text')
                 .text('Company Size')
                 .style('font-size', '.8rem')
-            
-            const color = d3
-                .scaleOrdinal(["#1E90FF", "#FF8C00", "#32CD32"])
-                .domain(["L", "M", "S"]);
 
             const tooltip = d3.select("#tooltip");
-
-            // map d.company_size to Large, Medium, Small
             const sizeMapping: { [key: string]: string } = {
                 'S': 'Small',
                 'M': 'Medium',
                 'L': 'Large'
             };
 
-            const bars = chartContainer.append('g')
-                .selectAll('rect')
-                .data<JobBar>(this.bars)
-                .join('rect')
-                .attr('x', (d: JobBar) => xScale(d.company_size) as number)
-                .attr('y', (d: JobBar) => yScale(d.count) as number)
-                .attr('width', xScale.bandwidth())
-                .attr('height', (d: JobBar) => Math.abs(yScale(0) - yScale(d.count))) 
-                .attr('fill', (d: JobBar) => color(d.company_size) as string)
+            chartContainer
+                .append("g")
+                .attr("transform", `translate(0, ${this.size.height - this.margin.bottom})`)
+                .call(d3.axisBottom(xScale));
+
+            chartContainer
+                .append("g")
+                .attr("transform", `translate(${this.margin.left}, 0)`)
+                .call(d3.axisLeft(yScale));
+
+            const color = d3.scaleOrdinal(["#1E90FF", "#FF8C00", "#32CD32"])
+                .domain(["L", "M", "S"]);
+
+            chartContainer.selectAll("circle")
+                .data<JobPlot>(this.plots)
+                .enter()
+                .append("circle")
+                .attr("cx", d => xScale(d.company_size) as number)
+                .attr("cy", d => yScale(d.salary_in_usd) as number)
+                .attr('r', d => this.rScale ? this.rScale(d.count) : 0)
+                .attr("fill", d => color(d.company_size) as string)
                 .on("mouseover", (event, d) => {
                     tooltip.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    tooltip.html(`Company Size: ${sizeMapping[d.company_size]} <br> Data Count: ${d.count}`)
+                    tooltip.html(`Company Size: ${sizeMapping[d.company_size]} <br>Mean Salary: ${Math.ceil(d.salary_in_usd)} <br> Data Count: ${d.count}`)
                         .style("left", (event.pageX) + "px")
                         .style("top", (event.pageY - 28) + "px");
                 })
@@ -147,28 +135,28 @@ export default {
                     tooltip.transition()
                         .duration(500)
                         .style("opacity", 0);
-                });
+                });;
 
             const title = chartContainer.append('g')
-            .append('text') 
-            .attr('transform', `translate(${this.size.width / 2}, ${this.margin.top / 2})`)
-            .attr('dy', '10px') 
-            .style('text-anchor', 'middle')
-            .style('font-weight', 'bold')
-            .text('Number of Data Science Jobs by Company Size');
+                .append('text') 
+                .attr('transform', `translate(${this.size.width / 2}, ${this.margin.top / 2})`)
+                .attr('dy', '0px') 
+                .style('text-anchor', 'middle')
+                .style('font-weight', 'bold')
+                .text('Average Data Science Job Salary in USD by Company Size');
+            
         }
     },
     watch: {
         rerender(newSize) {
             if (!isEmpty(newSize)) {
-                d3.select('#bar-svg').selectAll('*').remove() 
+                d3.select('#scatter-svg').selectAll('*').remove() 
                 this.initChart()
             }
         }
     },
     mounted() {
         window.addEventListener('resize', debounce(this.onResize, 100));
-        // Listen for update event
         emitter.$on('update-chart', this.updateChart);
         this.onResize();
     },
@@ -181,7 +169,7 @@ export default {
 
 <template>
     <div class="chart-container d-flex" ref="barContainer">
-        <svg id="bar-svg" width="100%" height="100%">
+        <svg id="scatter-svg" width="100%" height="100%">
         </svg>
     </div>
     <div id="tooltip" class="tooltip" style="opacity:0;">
@@ -197,7 +185,7 @@ export default {
     position: absolute;
     text-align: center;
     width: 100px;
-    height: 50px;
+    height: 80px;
     padding: 2px;
     font: 12px sans-serif;
     background: lightsteelblue;

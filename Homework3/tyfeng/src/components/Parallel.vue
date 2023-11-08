@@ -25,7 +25,7 @@ export default {
     data() {
         return {
             chartData: [] as Job[],
-            size: { width: 0, height: 0, brushWidth : 30 } as ComponentSize,
+            size: { width: 0, height: 0, brushWidth : 50 } as ComponentSize,
             margin: { left: 50, right: 180, top: 5, bottom: 100 } as Margin,
             keys: [] as string[],
         }
@@ -53,7 +53,7 @@ export default {
         onResize() {
             let target = this.$refs.lineContainer as HTMLElement;
             if (target === undefined) return;
-            this.size = { width: target.clientWidth, height: target.clientHeight, brushWidth: 30 };
+            this.size = { width: target.clientWidth, height: target.clientHeight, brushWidth: 50 };
         },
         initChart() {
             let lineContainer = d3.select('#line-svg');

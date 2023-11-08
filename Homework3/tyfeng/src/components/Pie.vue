@@ -3,7 +3,7 @@
         <svg id="donut-svg" width="100%" height="100%">
         </svg>
     </div>
-    <div id="tooltip" class="tooltip" style="opacity:0;">
+    <div id="tooltip-pie" class="tooltip-pie" style="opacity:0;">
         <p>Count: <span id="tooltip-value"></span></p>
     </div>
 </template>
@@ -89,7 +89,7 @@ export default {
         onResize() {  
             let target = this.$refs.donutContainer as HTMLElement;
             if (target === undefined) return;
-            this.size = { width: target.clientWidth, height: target.clientHeight, brushWidth: 30 };
+            this.size = { width: target.clientWidth, height: target.clientHeight, brushWidth: 50 };
         },
         initChart() {
             let donutContainer = d3.select('#donut-svg');
@@ -114,7 +114,7 @@ export default {
                 .scaleOrdinal(["#3503fc", "#ad03fc", "#fc03b1"])
                 .domain(["0", "50", "100"]);
 
-            const tooltip = d3.select("#tooltip");
+            const tooltip = d3.select("#tooltip-pie");
             group.selectAll('path')
                 .data(arcs)
                 .join('path')
@@ -124,7 +124,7 @@ export default {
                     tooltip.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    tooltip.html(`Remote Ratio: ${d.data.remote_ratio}% <br> Count: ${d.data.count}`)
+                    tooltip.html(`Remote Ratio: ${d.data.remote_ratio}% <br> Data Count: ${d.data.count}`)
                         .style("left", (event.pageX) + "px")
                         .style("top", (event.pageY - 28) + "px");
                 })
@@ -226,7 +226,7 @@ export default {
     height: 100%;
 }
 
-.tooltip {
+.tooltip-pie {
     position: absolute;
     text-align: center;
     width: 100px;
@@ -240,7 +240,7 @@ export default {
 }
 
 /* Hide the tooltip when not in use */
-.tooltip {
+.tooltip-pie {
     opacity: 0;
 }
 </style>

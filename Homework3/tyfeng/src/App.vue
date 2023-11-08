@@ -3,11 +3,13 @@
 import Bar from './components/Bar.vue'
 import Pie from './components/Pie.vue'
 import Parallel from './components/Parallel.vue'
+import Scatter from './components/Scatter.vue'
 
 export default {
   data() {
     return {
       updateBar: null,
+      isScatter: false,
     };
   },
   provide() {
@@ -19,6 +21,7 @@ export default {
     Bar,
     Pie,
     Parallel,
+    Scatter
   }
 }
 </script>
@@ -33,13 +36,14 @@ export default {
     </v-row>
     <v-row no-gutters>
       <v-col cols="6">
-        <Bar />
+        <v-switch v-model="isScatter" label="Toggle Chart Type"></v-switch>
+        <Bar v-if="!isScatter" key="bar-chart" />
+        <Scatter v-if="isScatter" key="scatter-plot" />
       </v-col>
       <v-col cols="6">
         <Pie />
       </v-col>
     </v-row>
-    
   </v-container>
 
 </template>
