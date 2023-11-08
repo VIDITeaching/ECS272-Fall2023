@@ -50,7 +50,7 @@ export default {
             svg.append("text")
                 .attr("text-anchor", "end")
                 .attr("x", width / 2)
-                .attr("y", height - 30)
+                .attr("y", height)
                 .text("Time (year)");
 
             // Add Y axis
