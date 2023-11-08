@@ -1,0 +1,34 @@
+{
+	"data": [
+		{
+			"value": 68, 
+			"maxValue": 255,
+			"category": "HP"
+		}, 
+		{
+			"value": 69, 
+			"maxValue": 230, 
+			"category": "Sp. Defense"
+		},
+		{
+			"value": 75, 
+			"maxValue": 165, 
+			"category": "Attack"
+		}, 
+		{
+			"value": 69, 
+			"maxValue": 154, 
+			"category": "Sp. Attack"
+		}, 
+		{
+			"value": 71, 
+			"maxValue": 230, 
+			"category": "Defense"
+		}, 
+		{
+			"value": 66, 
+			"maxValue": 160, 
+			"category": "Speed"
+		}
+	]
+}
