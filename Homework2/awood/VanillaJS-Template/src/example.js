@@ -3,6 +3,9 @@ import Data from '../data/demo.json';
 import axios from 'axios';
 import { isEmpty, debounce } from 'lodash';
 
+let data = await d3.csv("./data/mxmh_survey_results.csv")
+console.log(data)
+
 const margin = { left: 40, right: 20, top: 20, bottom: 60 }
 var size = { width: 0, height: 0 }
 var bars = Data.data;

@@ -1,0 +1,97 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+#app{
+  height: 100vh;
+  width: 100vw;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.flex-column{
+  flex-direction: column;
+}
+
+.flex-row{
+  flex-direction: row;
+}
+
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+
+#main-container{
+  height: 100%;
+}
+
+#parallel-container{
+  height: 100%;
+}
+
+#bar-container{
+  height: 50%;
+}
+
+#scatter-container{
+  height: 100%;
+}
+
+.chart-container{
+  height: 50%;
+  width: 50%;
+}
+
+#note-card{
+  margin: 1rem 1rem;
+
+}
+
+.parallel{
+  width: 100%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.bar{
+  width: 100%;
+  border: 2px solid black;
+  display: flex;
+}
+
+.scatter{
+  width: 100%;
+  border: 2px solid black;
+  display: flex;
+}
+
+.container{
+  display: flex;
+  height: 100vh;
+  gap: 25px;
+  flex-direction: row;
+}
+
+#mybar-container{
+  height: 100%;
+}
+
+.flex-grow{
+  flex-grow: 1;
+}

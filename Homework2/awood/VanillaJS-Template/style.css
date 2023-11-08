@@ -26,12 +26,24 @@ body {
   flex-direction: column;
 }
 
+.flex-row{
+  flex-direction: row;
+}
+
 .flex-nowrap{
   flex-wrap: nowrap;
 }
 
 #main-container{
   height: 100%;
+}
+
+#parallel-container{
+  height: 100%;
+}
+
+#bar-container{
+  height: 50%;
 }
 
 .chart-container{
@@ -42,4 +54,36 @@ body {
 #note-card{
   margin: 1rem 1rem;
 
+}
+
+.parallel{
+  width: 100%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.bar{
+  width: 100%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  display: flex;
+  height: 100vh;
+  gap: 25px;
+  flex-direction: row;
+}
+
+#mybar-container{
+  height: 100%;
+}
+
+.flex-grow{
+  flex-grow: 1;
 }
