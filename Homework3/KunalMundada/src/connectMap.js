@@ -1,11 +1,15 @@
 import * as d3 from "d3";
-import Data from "../data/iso3166.json";
+import Data from "../data/iso_name.json";
 import { unroll } from "./utils";
-import { getState, setState } from './globals';
 import { isEmpty, debounce } from "lodash";
+import PubSub from "PubSub";
+import { updateCharts } from "./globals";
 
 const margin = { left: 40, right: 20, top: 50, bottom: 60 };
 let size = { width: 0, height: 0 };
+let country_name = "US";
+
+// console.log(JSON.parse(Data));
 // US-coords
 // const coords_us = [Data.US.lng,Data.US.lat];
 // console.log(coords_us);
@@ -14,11 +18,23 @@ function getMapData(orig_data) {
   const mapMap = d3.rollup(
     orig_data,
     (v) => d3.sum(v, (d) => d.salary_in_usd),
-    (d) => Data[d.company_location],
-    (d) => Data[d.employee_residence]
+    (d) => Data.iso[d.company_location]
   );
-  const mapData = unroll(mapMap, ["source", "target"], "total_amount");
+  const mapData = unroll(mapMap, ["country"], "market_size");
   return mapData;
+}
+
+function convertToInternationalCurrencySystem(labelValue) {
+  // Nine Zeroes for Billions
+  return Math.abs(Number(labelValue)) >= 1.0e9
+    ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
+    : // Six Zeroes for Millions
+    Math.abs(Number(labelValue)) >= 1.0e6
+    ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
+    : // Three Zeroes for Thousands
+    Math.abs(Number(labelValue)) >= 1.0e3
+    ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
+    : Math.abs(Number(labelValue));
 }
 
 // Variable that hold the data
@@ -36,6 +52,7 @@ await Promise.all([
 ]).then(function (initialize) {
   dataGeo = initialize[0];
   data = getMapData(initialize[1]);
+  console.log(data);
 });
 
 const onResize = (targets) => {
@@ -56,8 +73,9 @@ const chartObserver = new ResizeObserver(debounce(onResize, 100));
 
 export const ConnectMap = () =>
   // equivalent to <template> in Vue
-  `<div class='chart-container flex-column' id='map-container'>
-        <svg id='map-svg' width='100%' height='100%'>
+  `<div class='chart-container-1 flex-column' id='map-container'>
+    <p>Data science job market in USD across world</p>
+        <svg id='map-svg' width='100%' height='80%'>
         </svg>
     </div>`;
 
@@ -78,9 +96,21 @@ function initChart() {
   // A path generator
   const pathBuilder = d3.geoPath(projection); // d3.geoPath.projection(projection);
 
+  // A colorscale
+  // const colorScale = d3
+  //   .scaleSequentialLog()
+  //   .domain(d3.extent(data, (d) => d.market_size))
+  //   .nice()
+  //   .interpolator(d3.interpolateBlues);
+
+const colorScale = d3.scaleThreshold()
+        .domain([10000,100000,1000000,10000000])
+        .range(["#DCE9FF", "#8EBEFF", "#589BE5", "#0072BC"])
+        .unknown("#E6E6E6")
+
   // Define tooltip
   const Tooltip = d3
-    .select("body")
+    .select("#map-container")
     .append("div")
     .attr("class", "map-tooltip")
     .style("visibility", "hidden")
@@ -120,38 +150,38 @@ function initChart() {
   const map = d3
     .select("#map-svg")
     .attr("padding", "none")
-    .attr("height", size.height)
+    .attr("height", size.height - 40)
     .attr("width", size.width)
-    // .attr("border", "1px solid black")
+    .attr("border", "1px solid black")
     // .attr("margin-left", "10px")
     .attr("preserveAspectRatio", "xMinYMin meet")
     .call(zoom)
     .append("g");
 
   // Reformat the list of link. Note that columns in csv file are called long1, long2, lat1, lat2
-  const link = [];
-  data.forEach(function (row) {
-    if (
-      row.source &&
-      row.source.lng &&
-      row.source.lat &&
-      row.target &&
-      row.target.lng &&
-      row.target.lat
-    ) {
-      let source = [+row.source.lng, +row.source.lat];
-      let target = [+row.target.lng, +row.target.lat];
-      let topush = {
-        type: "LineString",
-        coordinates: [source, target],
-        value: +row.total_amount,
-        code: row.source.code,
-      };
-      link.push(topush);
-    } else {
-      console.log(row);
-    }
-  });
+  // const link = [];
+  // data.forEach(function (row) {
+  //   if (
+  //     row.source &&
+  //     row.source.lng &&
+  //     row.source.lat &&
+  //     row.target &&
+  //     row.target.lng &&
+  //     row.target.lat
+  //   ) {
+  //     let source = [+row.source.lng, +row.source.lat];
+  //     let target = [+row.target.lng, +row.target.lat];
+  //     let topush = {
+  //       type: "LineString",
+  //       coordinates: [source, target],
+  //       value: +row.total_amount,
+  //       code: row.source.code,
+  //     };
+  //     link.push(topush);
+  //   } else {
+  //     console.log(row);
+  //   }
+  // });
 
   // Draw the map
   map
@@ -164,7 +194,17 @@ function initChart() {
     .attr("id", (feature) => {
       return "country_" + feature.properties.name;
     })
-    .attr("fill", "#b8b8b8")
+    // .attr("fill", "#b8b8b8")
+    .attr("fill", (feature) => {
+      const value = data.find(
+        (item) => item.country === feature.properties.name
+      );
+      // console.log(value);
+      if (value) {
+        feature.properties.total = value.market_size;
+        return colorScale(value.market_size);
+      }
+    })
     .attr("d", (feature) => {
       return pathBuilder(feature);
     })
@@ -191,28 +231,35 @@ function initChart() {
     })
     .on("mousemove", (event, feature) => {
       const country = data.find(
-        (agg) => (Data[agg.company_location] === feature.properties.name)
+        (agg) => agg.country === feature.properties.name
       );
       if (country) {
-        Tooltip.html(feature.properties.name + "<br>" + "Count:0")
+        Tooltip.html(
+          feature.properties.name +
+            "<br>" +
+            "Market:$" +
+            convertToInternationalCurrencySystem(
+              parseInt(feature.properties.total)
+            )
+        )
           .style("left", event.x + 10 + "px")
           .style("top", event.y + 10 + "px");
       } else {
-        Tooltip.html(feature.properties.name + "<br>" + "Count:0")
+        Tooltip.html(feature.properties.name + "<br>" + "Market:$0")
           .style("left", event.x + 10 + "px")
           .style("top", event.y + 10 + "px");
       }
     })
     .on("click", (event, feature) => {
-      d3.selectAll(".country")
-        .attr("opacity", "0.7")
-        .attr("stroke-width", ".5px");
-
-        const updatedState = { country: feature.properties.name }; // Modify the 'country' property as needed.
-        setState(updatedState);
-
-        console.log(getState());
-
+      if (feature.properties.name != country_name) {
+        country_name = feature.properties.name;
+        updateCharts(Data.name[feature.properties.name]);
+      }
+      // d3.selectAll(".country")
+      //   .transition()
+      //   .duration(0)
+      //   .attr("opacity", "0.7")
+      //   .attr("stroke-width", "1px");
     });
 
   let color_neg = false;

@@ -3,7 +3,6 @@ import { mountConnectMap, ConnectMap } from './src/connectMap';
 import { mountSunburstChart, SunburstChart } from './src/sunburst';
 import { mountBubbleChart, BubbleChart } from "./src/bubblechart";
 import './style.css';
-import { LegendChart, mountLegendChart } from './src/legend';
 
 // You can manage your layout through CSS, or this template also has materialize library supported.
 // Materialize: https://materializecss.com/getting-started.html
@@ -21,6 +20,5 @@ document.querySelector('#app').innerHTML = `
 `
 
 mountConnectMap();
-// mountLegendChart();
 mountBubbleChart();
 mountSunburstChart(); 

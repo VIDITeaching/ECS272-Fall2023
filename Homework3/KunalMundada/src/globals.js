@@ -1,14 +1,7 @@
-let state = {
-  country: null, // You can initialize it with a default value or set it to a specific country.
-};
+import { updateBubbleChart } from "./bubblechart";
+import { updateSunburstChart } from "./sunburst";
 
-export const getState = () => {
-  return state;
-};
-
-export const setState = nextState => {
-  state = {
-    ...state,
-    ...nextState, // This will update the 'country' property without affecting other properties in 'state'.
-  };
-};
+export function updateCharts(key) {
+  updateBubbleChart(key);
+  updateSunburstChart(key);
+}
