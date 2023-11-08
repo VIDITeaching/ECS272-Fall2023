@@ -1,9 +1,10 @@
 <template>
   <div id="chart">
-    <div class="chart-container">
+    <div class="chart-container" ref="barContainer">
       <div class="tooltip"></div>
     </div>
-    <button class="reset-button" @click="resetChart">Reset Overview</button>
+    <button class="reset-button" @click="initializeBarPlot">Reset Overview</button>
+    <svg id="svg"></svg>
   </div>
 </template>
 
@@ -34,10 +35,22 @@ export default {
   },
   mounted() {
     this.initializeBarPlot(); // Call the initialization method in the mounted hook
+    window.addEventListener('resize', this.initializeBarPlot);
   },
   methods: {
     initializeBarPlot() {
       const self = this;
+
+      // Create SVG container
+      const chart = d3.select('#chart');
+      chart.select('svg').selectAll('*').remove();
+
+      if (!chart) return;
+      this.size = { width: chart.node().clientWidth, height: chart.node().clientHeight };
+      this.margin = { top: 70, right: 30, bottom: 70, left: 70 };
+      this.width = this.size.width - 100;
+      this.height = this.size.height - 150;
+
 
       // Load data from CSV file
       d3.csv('../../data/bar_data.csv').then(data => {
@@ -60,13 +73,21 @@ export default {
         data.sort((a, b) => b.total - a.total);
 
         // Set up chart dimensions
-        this.margin = { top: 70, right: 30, bottom: 70, left: 70 };
-        this.width = 930 - this.margin.left - this.margin.right;
-        this.height = 465 - this.margin.top - this.margin.bottom;
+        // let target = this.$refs.barContainer;
+        // if (target === undefined) return;
+        // this.size = { width: target.clientWidth, height: target.clientHeight };
+        // this.margin = { top: 70, right: 30, bottom: 70, left: 70 };
+        // this.width = this.size.width - 100;
+        // this.height = this.size.height + 325;
 
-        // Create SVG container
-        this.svg = d3.select('#chart')
-          .append('svg')
+        // this.width = 930 - this.margin.left - this.margin.right;
+        // this.height = 465 - this.margin.top - this.margin.bottom;
+
+
+
+        this.svg = chart
+          .select('svg')
+          .attr('id', 'svgPlot')
           .attr('width', this.width + this.margin.left + this.margin.right)
           .attr('height', this.height + this.margin.top + this.margin.bottom)
           .append('g')
@@ -111,7 +132,7 @@ export default {
           .attr('stroke-opacity', 0.7);
 
         // console.log(this.stackedData);
-        
+
         // Draw stacked bars
         this.svg.selectAll('.bar-group') // Updated class for the bars
           .data(this.stackedData)
@@ -302,7 +323,7 @@ export default {
         .enter()
         .append('rect')
         .attr('x', d => this.xScale(d.data.Type_1))
-        .attr('y', d => this.yScale(d[1]) - this.yScale(d[0]) + 325)
+        .attr('y', d => this.yScale(d[1]) - this.yScale(d[0]) + this.xScale.bandwidth()*9.15) //311
         .attr('height', d => this.yScale(d[0]) - this.yScale(d[1]))
         .attr('width', this.xScale.bandwidth())
         .on('mouseover', function(event, d) {
@@ -351,15 +372,28 @@ export default {
 </script>
 
 <style scoped>
+
 #chart {
+  height: 100%;
   position: relative;
 }
+
+#chart svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+
 .chart-container {
-  position: relative;
   width: 100%; /* Set width to 100% to fill the entire chart area */
   height: 100%; /* Set height to 100% to fill the entire chart area */
   /* Add other styling properties for the chart container if needed */
 }
+
 .tooltip {
   position: absolute;
   background-color: white;
@@ -370,7 +404,9 @@ export default {
   opacity: 0;
   top: 20px;
   left: 20px;
+  z-index: 100;
 }
+
 .reset-button {
   position: absolute;
   top: 20px;
@@ -388,4 +424,5 @@ export default {
 .reset-button:hover {
   background-color: #0056b3;
 }
+
 </style>

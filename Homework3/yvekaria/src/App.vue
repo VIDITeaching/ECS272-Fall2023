@@ -23,7 +23,7 @@ export default {
     */
   },
   data() {
-    return { generation:-1, reset:-1 } //not sure
+    return { generation:-1, reset:-1 }
   }
 };
 
@@ -32,7 +32,7 @@ export default {
 <!--This is using the grid component from Vuetify to do layout design-->
 <template>
   <v-container id="main-container" class="d-flex flex-column flex-nowrap" fluid>
-    <v-row no-gutters>
+    <v-row class="flex-nowrap">
       <v-col class="barplot-col" cols="8">
         <BarPlot @gen-select="g => { generation = g; console.log('gen', generation) }" @reset-select="r => { reset = r; console.log('res', reset) }" />
       </v-col>
@@ -40,8 +40,8 @@ export default {
         <RadialPlot :gen="generation" :res="reset" />
       </v-col>
     </v-row>
-    <v-row class="scatterplot-row" rows="3">
-      <v-col cols="11.5">
+    <v-row class="flex-nowrap">
+      <v-col class="scatterplot-col" cols="7.5">
         <ScatterPlot :gen="generation" :res="reset" />
       </v-col>
     </v-row>
@@ -50,6 +50,7 @@ export default {
 
 <style scoped>
 #main-container {
+  width: 100vw;
   height: 100vh;
 }
 
@@ -60,11 +61,5 @@ export default {
   width: 100vw;
   margin: 0.5rem;
   border: 2px solid black;
-}
-.scatterplot-row{
-  height: 33vh;
-  width: 100vw - 500;
-  margin: 0.3rem;
-  border: 2px solid;
 }
 </style>

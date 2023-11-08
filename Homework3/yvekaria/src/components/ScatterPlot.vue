@@ -1,10 +1,11 @@
 <template>
-  <div id="scatter-plot">
+  <div id="scatter-plot" ref="scatterContainer">
     <div class="chart-container">
       <div class="tooltip"></div>
     </div>
     <div class="slicer-container">
-      <input type="range" class="capture-rate-slicer" min="3" max="255" value="255">
+      <span>Size represents the scaled Pokemon Capture Rate</span>&nbsp;
+      <input type="range" class="capture-rate-slicer" min="3" max="255" value="255">&nbsp;
       <span class="slicer-value"> <span class="capture-rate-value"> 255</span></span>
     </div>
     <button class="reset-button" @click="resetView">Reset View</button>
@@ -18,6 +19,12 @@ import { watch } from 'vue';
 export default {
   props: ['gen', 'res'],
   mounted() {
+    this.margin = { top: 2, right: 20, bottom: 50, left: 50 };
+    let target = this.$refs.scatterContainer;
+    if (target === undefined) return;
+    this.size = { width: target.clientWidth, height: target.clientHeight };
+    this.width = this.size.width + 80;
+    this.height = this.size.height + 190;
     this.$watch('gen', () => {
       this.slicerInput = document.querySelector('.capture-rate-slicer');
       this.slicerValueDisplay = document.querySelector('.capture-rate-value');
@@ -65,9 +72,15 @@ export default {
         // console.log("Hello Scatter", this.gen, this.data);
 
         // Your D3.js code to create the scatter plot using processed data
-        this.margin = { top: 2, right: 20, bottom: 50, left: 50 };
-        this.width = 1450 // 1100 - margin.left - margin.right;
-        this.height = 240 - this.margin.top - this.margin.bottom;
+        // this.margin = { top: 2, right: 20, bottom: 50, left: 50 };
+        // let target = this.$refs.scatterContainer;
+        // if (target === undefined) return;
+        // this.size = { width: target.clientWidth, height: target.clientHeight };
+        // this.width = this.size.width + 80;
+        // this.height = this.size.height + 190;
+
+        // this.width = 1450 // 1100 - margin.left - margin.right;
+        // this.height = 240 - this.margin.top - this.margin.bottom;
 
         const el = d3
           .select('#scatter-plot');
@@ -143,7 +156,7 @@ export default {
             tooltip.html(`Name: ${d.Name} (Gen ${d.Generation})<br>Height: ${formattedHeight} cm<br>Weight: ${formattedWeight} kg<br>Catch Rate: ${d.Catch_Rate}`)
               .style('left', (event.pageX) + 'px')
               .style('top', (event.pageY - 72) + 'px')
-              .style('width', '200px');
+              .style('width', '250px');
           })
           .on('mouseout', function() {
             d3.select('.tooltip').transition().duration(500).style('opacity', 0);
@@ -217,12 +230,12 @@ export default {
           .text('Pokemon Physique Distribution');
 
         // Title
-        this.svg.append('text')
-          .attr('x', 175) // Set x-coordinate for the center of the plot
-          .attr('y', -this.height + 200) // Set y-coordinate for the top of the plot
-          .attr('text-anchor', 'middle')
-          .style('font-size', '14px')
-          .text('Size represents the scaled Pokemon Capture Rate');
+        // this.svg.append('text')
+        //   .attr('x', 175) // Set x-coordinate for the center of the plot
+        //   .attr('y', -this.height + 200) // Set y-coordinate for the top of the plot
+        //   .attr('text-anchor', 'middle')
+        //   .style('font-size', '14px')
+        //   .text('Size represents the scaled Pokemon Capture Rate');
 
         // Get unique capture rates from the data
         this.uniqueCaptureRates = [...new Set(this.data.map(d => d.Catch_Rate))];
@@ -240,13 +253,17 @@ export default {
 
         // Slicer functionality
         this.slider = document.querySelector('.capture-rate-slicer');
-        this.slider.setAttribute('list', 'capture-rate-options');
+        // this.slider.setAttribute('list', 'capture-rate-options');
         this.slicerValueDisplay = document.querySelector('.capture-rate-value');
         this.slider.parentNode.appendChild(this.datalist);
         // Set default value to max capture rate
         this.slider.value = Math.max(...this.uniqueCaptureRates);
         this.slider.addEventListener('input', () => {
-          this.selectedCaptureRate = parseInt(this.slider.value);
+          const diffs = this.uniqueCaptureRates.map(x => Math.abs(parseInt(this.slider.value) - x));
+          const idx = diffs.indexOf(Math.min(...diffs));
+          const value = this.uniqueCaptureRates[idx];
+          this.slider.value = value;
+          this.selectedCaptureRate = parseInt(value);
           this.slicerValueDisplay.textContent = this.selectedCaptureRate;
           this.handleSlicerChange(this.selectedCaptureRate);
         });
@@ -276,7 +293,7 @@ export default {
             tooltip.html(`Name: ${d.Name} (Gen ${d.Generation})<br>Height: ${formattedHeight} cm<br>Weight: ${formattedWeight} kg<br>Catch Rate: ${d.Catch_Rate}`)
               .style('left', (event.pageX) + 'px')
               .style('top', (event.pageY - 72) + 'px')
-              .style('width', '200px');
+              .style('width', '250px');
           })
           .on('mouseout', function() {
             d3.select('.tooltip').transition().duration(500).style('opacity', 0);
@@ -320,7 +337,7 @@ export default {
           tooltip.html(`Name: ${d.Name} (Gen ${d.Generation})<br>Height: ${formattedHeight} cm<br>Weight: ${formattedWeight} kg<br>Catch Rate: ${d.Catch_Rate}`)
             .style('left', (event.pageX) + 'px')
             .style('top', (event.pageY - 72) + 'px')
-            .style('width', '200px');
+            .style('width', '250px');
         })
         .on('mouseout', function() {
           d3.select('.tooltip').transition().duration(500).style('opacity', 0);
@@ -337,15 +354,12 @@ export default {
 .slicer-container {
   position: absolute;
   top : 537px; /* top: 548px; Set the desired top position for the slicer container */
-  left: 425px; /* Set the desired left position for the slicer container */
+  left: 100px; /* Set the desired left position for the slicer container */
   z-index: 1;
   font-size: 14px; /* Set the desired font size for the slicer container */
   color: #333; /* Set the desired text color for the slicer container */
-}
-.slicer-container .capture-rate-value {
-  position: absolute;
-  top: 0px; /* Set the desired top position for the capture-rate-value text */
-  left: 135px; /* Set the desired left position for the capture-rate-value text */
+  display: flex;
+  align-items: center;
 }
 .chart-container {
   position: relative;
@@ -382,29 +396,11 @@ export default {
 /* Add this style to your <style scoped> section */
 /* Hide the default slider styles */
 .capture-rate-slicer {
-  -webkit-appearance: none;
   appearance: none;
-  width: 100%;
-  height: 10px; /* Set your desired height for the slider track */
-  background: #d3d3d3; /* Set your desired background color for the slider track */
-  border-radius: 5px; /* Set border-radius to round the slider track */
-  outline: none;
-  opacity: 1.0; /* Set initial opacity for the slider track */
-  transition: opacity 0.3s; /* Add transition for smooth hover effect */
+  background: #aaa;
+  border-radius: 8px;
 }
 
-/* Style the slider thumb (handle) */
-.capture-rate-slicer::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px; /* Set your desired width for the slider thumb */
-  height: 20px; /* Set your desired height for the slider thumb */
-  background: #007BFF; /* Set your desired background color for the slider thumb */
-  border-radius: 50%; /* Ensure the thumb is circular */
-  cursor: pointer;
-  margin-top: 0px; /* margin-top: -10px; Move the slider thumb 5 pixels down */
-  margin-left: 0px; /* Move the slider thumb 10 pixels to the right */
-}
 
 /* Hide the default tooltip that appears on hover */
 .capture-rate-slicer::-webkit-slider-thumb::hover {

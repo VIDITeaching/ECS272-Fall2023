@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="radar-container" ref="radarContainer">
     <h3>
       <br />
       <center>Mean Pokemon Stats</center>
@@ -13,10 +13,11 @@
         @change="updateRadialPlot"
       >
         <option value="All Pokemons">All Pokemons</option>
-        <option v-for="pokemon in pokemonOptions" :value="pokemon">{{ pokemon }}</option>
+        <option v-for="pokemon in filteredPokemonOptions" :value="pokemon">{{ pokemon }}</option>
       </select>
       </div>
     </div>
+    <p><center>Stats are printed relative to max stat value of 255.</center></p>
     <svg id="radial-plot"></svg>
   </div>
 </template>
@@ -31,16 +32,15 @@ export default {
     return {
       selectedPokemon: "All Pokemons",
       pokemonOptions: ["All Pokemons"],
+      pokemonData: [],
       data: [],
     };
   },
   props: ['gen', 'res'],
   methods: {
     createRadialPlot(data_radar) {
-      // const categoryOrder = data_radar.map(x => x.category);
-      // const data = data_radar.map(x => x.value);
-      function calculateMeanAndMaxValues(datad, generation) {
-        const filteredData = datad.filter(entry => entry.Generation == generation);
+      function calculateMeanAndMaxValues(datad) {
+        const filteredData = datad;
         const attributes = ['HP', 'Defense', 'Attack', 'Speed', 'Sp. Attack', 'Sp. Defense'];
         const result = attributes.map(attribute => ({
           value: Math.round(filteredData.reduce((sum, entry) => sum + entry[attribute], 0) / filteredData.length),
@@ -52,10 +52,23 @@ export default {
       };
       
       const localPokemonData = this.pokemonData;
-      if (this.gen !== -1) {
-        const generationMeanAndMaxValues = localPokemonData.filter(item => item.Generation == this.gen);
-        data_radar = calculateMeanAndMaxValues(generationMeanAndMaxValues, this.gen);
+      if (!this.pokemonData) {
+        return;
       }
+      if (!data_radar || data_radar.length == 0) {
+        let generationMeanAndMaxValues = localPokemonData;
+        if (this.gen !== -1) {
+          generationMeanAndMaxValues = generationMeanAndMaxValues.filter(x => x.Generation == this.gen);
+        }
+        data_radar = calculateMeanAndMaxValues(generationMeanAndMaxValues);
+      }
+
+
+      let target = d3.select('#radial-plot').node();
+      if (target === undefined) return;
+      this.size = { width: target.clientWidth, height: target.clientHeight };
+      this.width = this.size.width;
+      this.height = this.size.height
 
       d3.select('#radial-plot').selectAll('*').remove();
       const categoryOrder = ['HP', 'Defense', 'Attack', 'Speed', 'Sp. Attack', 'Sp. Defense'];
@@ -69,17 +82,27 @@ export default {
       });
       
       const margin = { top: 0, right: 50, bottom: 50, left: 0 }; 
-      const width = 400 - margin.left - margin.right;
-      const height = 400 - margin.top - margin.bottom;
-      const radius = Math.min(width, height) / 2 - 50;
+      // let target = this.$refs.radarContainer;
+      // if (target === undefined) return;
+      // this.size = { width: target.clientWidth, height: target.clientHeight };
+      // this.width = this.size.width * 0.8;
+      // this.height = this.size.height * 0.8;
+
+      const width = this.width;
+      const height = this.height;
+      // console.log(this.size);
+      // const width = 400 - margin.left - margin.right;
+      // const height = 400 - margin.top - margin.bottom;
+      const radius = Math.min(width, height) / 2 - 36;
       const radialAngle = (Math.PI * 2) / data.length;
 
       const svg = d3
         .select('#radial-plot')
-        .attr('width', width + margin.left + margin.right)
-        .attr('height', height + margin.top + margin.bottom)
+        .attr('width', width)
+        .attr('height', height)
+        .attr('viewBox', `${-width / 2 - 30} ${-height / 2 - 20} ${width + 20} ${height + 20}`)
         .append('g')
-        .attr('transform', `translate(220,165)`);
+        // .attr('transform', `translate(${this.width - 100},${this.height - 100})`); // 225, 165
 
 
       // Draw grey radial axes
@@ -135,7 +158,7 @@ export default {
         { x: 0, y: -categoryDistance + 5 },  // HP
         { x: categoryDistance * Math.cos(Math.PI / 6) + 5, y: categoryDistance * Math.sin(Math.PI / 6) - 15}, // Def
         { x: categoryDistance * Math.cos(Math.PI / 9) - 15, y: -categoryDistance * Math.sin(Math.PI / 9) - 25}, // At
-        { x: 0, y: categoryDistance - 25 }, // Speed
+        { x: 0, y: categoryDistance - 20 }, // Speed
         { x: -categoryDistance * Math.cos(Math.PI / 6), y: -categoryDistance * Math.sin(Math.PI / 6) }, // Sp At
         { x: -categoryDistance * Math.cos(Math.PI / 9) - 5, y: categoryDistance * Math.sin(Math.PI / 9) + 15} // Sp Def
       ];
@@ -179,18 +202,18 @@ export default {
         .attr('fill', 'blue')
         .attr('opacity', '0.5');
 
-      const textPositions = [{ x: -150, y: 178, text: 'Stats are printed relative to max stat value of 255.' }]
-      svg.selectAll('.custom-text')
-        .data(textPositions)
-        .enter()
-        .append('text')
-        .attr('class', 'custom-text')
-        .attr('x', d => d.x)
-        .attr('y', d => d.y)
-        .text(d => d.text)
-        .attr('text-anchor', 'start') // Adjust text-anchor as needed ('start', 'middle', or 'end')
-        .style('font-size', '14px') // Adjust font size as needed
-        .attr('fill', 'black'); // Adjust text color as needed
+      // const textPositions = [{ x: -width / 2 + 15, y: -height / 3 +262, text: 'Stats are printed relative to max stat value of 255.' }]
+      // svg.selectAll('.custom-text')
+      //   .data(textPositions)
+      //   .enter()
+      //   .append('text')
+      //   .attr('class', 'custom-text')
+      //   .attr('x', d => d.x)
+      //   .attr('y', d => d.y)
+      //   .text(d => d.text)
+      //   .attr('text-anchor', 'start') // Adjust text-anchor as needed ('start', 'middle', or 'end')
+      //   .style('font-size', '14px') // Adjust font size as needed
+      //   .attr('fill', 'black'); // Adjust text color as needed
     },
     updateRadialPlot() {
       if (this.selectedPokemon === "All Pokemons") {
@@ -229,13 +252,13 @@ export default {
       });
     },
     async loadAggregatedData() {
-      const jsonData = await fetch('../../data/radar_data.json');
-      const data = await jsonData.json();
-      this.data = data.data;
+      // const jsonData = await fetch('../../data/radar_data.json');
+      // const data = await jsonData.json();
+      // this.data = data.data;
     }
   },
   mounted() {
-    this.loadPokemonData();
+    this.loadPokemonData().then(this.createRadialPlot);
     this.loadAggregatedData().then(() => {
       this.updateRadialPlot();
     });
@@ -250,6 +273,7 @@ export default {
       this.selectedPokemon = "All Pokemons";
       this.updateRadialPlot();
     });
+    window.addEventListener('resize', () =>  { this.createRadialPlot(this.data) });
   },
   created() {
     watch(this.gen, () => {
@@ -258,6 +282,11 @@ export default {
     watch(this.res, () => {
       console.log('test-res')
     });
+  },
+  computed: {
+    filteredPokemonOptions: function() {
+      return this.gen == -1 ? this.pokemonData.map(x => x.Pokemon) : this.pokemonData.filter(x => x.Generation == this.gen).map(x => x.Pokemon);
+    }
   }
 }
 
@@ -278,5 +307,13 @@ p{font-size: 0.8em;}
   border-radius: 5px;
   padding: 10px;
   margin-top: 5px;
+}
+#radar-container {
+  width: 100%;
+  height: 100%;
+}
+#radial-plot {
+  width: 100%;
+  height: 65%;
 }
 </style>
