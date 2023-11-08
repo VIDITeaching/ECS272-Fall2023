@@ -52,7 +52,7 @@ export default {
         },
         initChart() {
             let chartContainer = d3.select('#bar-svg')
-                                    .attr('width', 1000)
+                                    .attr('width', 1500)
                                     .attr('height', 500);
 
             let xExtents = d3.extent(this.bars.map((d: CategoricalBar) => d.value as number)) as [number, number]
@@ -167,6 +167,47 @@ export default {
                 .style('text-anchor', 'middle')
                 .style('font-weight', 'bold')
                 .text('Top 10 job titles with highest mean Salary') 
+            
+            
+            const categoriesAndColors = this.bars.map((d, i) => ({
+                category: d.category,
+                color: customColors[i % customColors.length]
+            }));
+
+            // Setup legend position
+            const legendMargin = { top: 5, right: 10, bottom: 5, left: 5 };
+            const legendSize = 5; 
+            const legendSpacing = 4;         
+            const legendWidth = 100;
+            const legendHeight = categoriesAndColors.length * (legendSize + legendSpacing);
+
+            // Create legend group element
+            const legend = chartContainer.append('g')
+                .attr('class', 'legend')
+                .attr('transform', `translate(${this.size.width - legendWidth - legendMargin.right}, ${legendMargin.top})`);
+
+            // Add rectangles to legend
+            legend.selectAll('rect')
+                .data(categoriesAndColors)
+                .enter()
+                .append('rect')
+                .attr('x', 0)
+                .attr('y', (d, i) => i * 20)
+                .attr('width', 18)
+                .attr('height', 18)
+                .style('fill', d => d.color);
+
+            // Add text labels to legend
+            legend.selectAll('text')
+                .data(categoriesAndColors)
+                .enter()
+                .append('text')
+                .attr('x', 22) // Offset from the colored square
+                .attr('y', (d, i) => i * 20 + 9) // Vertically center text
+                .attr('dy', '.35em') // Fine-tune vertical text alignment
+                .text(d => d.category)
+                .style('font-size', '8px');
+
         }
     },
     watch: {

@@ -17,7 +17,7 @@ export default{
         nodes: [],
         links: []
       },
-      size: { width: 700, height: 500 },
+      size: { width: 800, height: 500 },
       margin: { left: 50, right: 40, top: 40, bottom: 60 },
     }
   },
@@ -90,7 +90,7 @@ export default{
       const svgContainer = this.$refs.sankey as HTMLElement;
       d3.select(svgContainer).selectAll("*").remove();
 
-      const width = this.size.width - this.margin.left - this.margin.right;
+      const width = 600 - this.margin.left - this.margin.right;
       const height = this.size.height - this.margin.top - this.margin.bottom;
       const svg = d3.select(svgContainer)
         .append('svg')
@@ -177,12 +177,65 @@ export default{
 
 
     svg.append("text")
-    .attr("x", width / 2) 
-    .attr("y", -15)
-    .style('text-anchor', 'middle')
-    .style('font-weight', 'bold')
-    .text('15 job titles with highest mean salary and experience levels') 
+      .attr("x", width / 2) 
+      .attr("y", -15)
+      .style('text-anchor', 'middle')
+      .style('font-weight', 'bold')
+      .text('15 job titles with highest mean salary and experience levels') 
+
+    function createLegend(svg, colorScale, width, margin) {
+      // Define the size and spacing of the legend items
+      const legendItemSize = 10;
+      const legendSpacing = 5;
+
+      const legendPadding = 225; //space from right edge
+
+      // The x position is the width of the SVG minus the desired padding and the width of the legend
+      const legendX = width - margin.right - legendPadding;
+      const legendY = margin.top; 
+
+      // Create a legend group
+      const legend = svg.append('g')
+        .attr('class', 'legend')
+        .attr('transform', `translate(${legendX},${legendY})`); 
+
+      // Add legend items
+      const legendItems = legend.selectAll('.legend-item')
+        .data(colorScale.domain())
+        .enter().append('g')
+        .attr('class', 'legend-item')
+        .attr('transform', (d, i) => `translate(0, ${i * (legendItemSize + legendSpacing)})`);
+      
+      // Draw legend color boxes
+      legendItems.append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', legendItemSize)
+        .attr('height', legendItemSize)
+        .style('fill', colorScale)
+        .style('stroke', colorScale);
+
+      // Draw legend text
+      legendItems.append('text')
+        .attr('x', legendItemSize + legendSpacing)
+        .attr('y', legendItemSize - legendSpacing)
+        .style('font-size', '8px')
+        .text(d => d);
+
+      // Optional: Add a title to your legend
+      legend.append('text')
+        .attr('x', 0)
+        .attr('y', -10) 
+        .attr('class', 'legend-title')
+        .style('font-size', '10px')
+        .style('text-anchor', 'start')
+        .text('Job Titles');
+      }
+
+      createLegend(svg, colorScale, this.size.width, this.margin);
+
     }
+
 
   }
 

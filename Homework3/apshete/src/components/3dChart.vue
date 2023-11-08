@@ -1,6 +1,6 @@
 <template>
     <div id="tooltip" style="position: absolute; display: none; background-color: rgba(255,255,255,0.8); padding: 10px; border: 1px solid black;"></div>
-    <h4>Salaries Across Different Company Sizes and Employment Types</h4>
+    <h4 style="padding-left: 50px;">Salaries Across Different Company Sizes and Employment Types</h4>
     <div id="scatter3dContainer" style="position: relative;"></div>
     <div id="legend"></div>
   </template>
