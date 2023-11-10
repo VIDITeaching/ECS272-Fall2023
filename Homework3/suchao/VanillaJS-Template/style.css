@@ -1,0 +1,107 @@
+/* Define global styles for the entire document */
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif; /* Set the default font family */
+  font-size: 1rem; /* Set the default font size */
+
+  /* Font rendering and smoothing properties */
+  font-synthesis: none; /* Disable font synthesis */
+  text-rendering: optimizeLegibility; /* Optimize text rendering for legibility */
+  -webkit-font-smoothing: antialiased; /* Enable anti-aliased text rendering on WebKit browsers */
+  -moz-osx-font-smoothing: grayscale; /* Enable grayscale text rendering on macOS */
+  -webkit-text-size-adjust: 100%; /* Adjust text size for mobile devices */
+}
+
+/* Apply styles to the entire body of the HTML document */
+body {
+  margin: 0; /* Remove default margin */
+  height: 100vh; /* Set the body height to fill the viewport (100% of the viewport height) */
+}
+
+/* Apply styles to the element with the id "app" */
+#app {
+  height: 100%; /* Make sure #app takes up the entire viewport height */
+  width: 100%; /* Make sure #app takes up the entire viewport width */
+}
+
+/* Apply styles to elements with class "column" */
+.column {
+  padding: 10px; /* Add padding to all sides of the element */
+  flex: 1; /* Each column should take equal space within its container */
+  display: flex; /* Use a flexbox layout for the container */
+  flex-direction: column; /* Arrange child elements in a vertical column */
+  overflow: auto; /* Allow content to scroll if it overflows the container */
+}
+
+/* Apply styles to elements with class "d-flex" */
+.d-flex {
+  display: flex; /* Use a flexbox layout for elements with this class */
+}
+
+/* Apply styles to elements with class "flex-column" */
+.flex-column {
+  flex-direction: column; /* Arrange child elements in a vertical column */
+}
+
+.chart-container{
+  height: 50vh;
+  width: 100%;
+}
+
+.PCchart-container{
+  height: 100%;
+  width: 100vw;
+}
+
+/* Apply styles to elements with class "flex-nowrap" */
+.flex-nowrap {
+  flex-wrap: nowrap; /* Prevent child elements from wrapping to the next line */
+}
+
+/* Apply styles to the element with the id "main-container" */
+#main-container {
+  height: 100%; /* Make sure #main-container takes up the entire viewport height */
+  display: flex; /* Use a flexbox layout for the container */
+}
+
+/* Apply styles to elements with class "left-panel" */
+.left-panel {
+  display: flex; /* Use a flexbox layout for elements with this class */
+  flex-direction: column; /* Arrange child elements in a vertical column */
+  width: 50%; /* Set the width of the left panel to 50% of the parent container */
+}
+
+/* Apply styles to elements with class "top-half" and "bottom-half" */
+.top-half,
+.bottom-half {
+  flex: 1; /* Each of these sections should take equal space within their container */
+  display: flex; /* Use a flexbox layout for these sections */
+  justify-content: center; /* Center content horizontally within each section */
+  align-items: center; /* Center content vertically within each section */
+}
+
+/* Apply styles to the element with class "middle-center" */
+.middle-center {
+  width: 100%; 
+  /* Allow this element to adjust its width automatically */
+}
+
+/* Adjust the width and layout for the right panel */
+.right-panel {
+  width: 50%; /* Set the width of the right panel to 50% of the parent container */
+  display: flex; /* Use a flexbox layout for the right panel */
+  justify-content: center; /* Center content horizontally within each section */
+  align-items: center; /* Center content vertically within the right panel */
+  background-color: #f0f0f0; /* Set the background color for the right panel */
+}
+
+.chart-wrapper {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column layout. Button on top, chart container below. */
+  align-items: center; /* Center items horizontally within the wrapper. */
+}
+
+#switch-button {
+  margin-bottom: 1px; /* Add margin to the bottom of the button for spacing. */
+  font-size: .8rem; /* Adjust the font size as needed. */
+}
+

@@ -1,0 +1,376 @@
+{
+  "data":[
+    {
+      "job_title": "Principal Data Scientist",
+      "job_title_average_remote_ratio": 88
+    },
+    {
+      "job_title": "ML Engineer",
+      "job_title_average_remote_ratio": 68
+    },
+    {
+      "job_title": "Data Scientist",
+      "job_title_average_remote_ratio": 48
+    },
+    {
+      "job_title": "Applied Scientist",
+      "job_title_average_remote_ratio": 45
+    },
+    {
+      "job_title": "Data Analyst",
+      "job_title_average_remote_ratio": 46
+    },
+    {
+      "job_title": "Data Modeler",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "Research Engineer",
+      "job_title_average_remote_ratio": 19
+    },
+    {
+      "job_title": "Analytics Engineer",
+      "job_title_average_remote_ratio": 54
+    },
+    {
+      "job_title": "Business Intelligence Engineer",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "Machine Learning Engineer",
+      "job_title_average_remote_ratio": 41
+    },
+    {
+      "job_title": "Data Strategist",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "Data Engineer",
+      "job_title_average_remote_ratio": 42
+    },
+    {
+      "job_title": "Computer Vision Engineer",
+      "job_title_average_remote_ratio": 36
+    },
+    {
+      "job_title": "Data Quality Analyst",
+      "job_title_average_remote_ratio": 14
+    },
+    {
+      "job_title": "Compliance Data Analyst",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Data Architect",
+      "job_title_average_remote_ratio": 68
+    },
+    {
+      "job_title": "Applied Machine Learning Engineer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "AI Developer",
+      "job_title_average_remote_ratio": 32
+    },
+    {
+      "job_title": "Research Scientist",
+      "job_title_average_remote_ratio": 27
+    },
+    {
+      "job_title": "Data Analytics Manager",
+      "job_title_average_remote_ratio": 36
+    },
+    {
+      "job_title": "Business Data Analyst",
+      "job_title_average_remote_ratio": 70
+    },
+    {
+      "job_title": "Applied Data Scientist",
+      "job_title_average_remote_ratio": 80
+    },
+    {
+      "job_title": "Staff Data Analyst",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "ETL Engineer",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Data DevOps Engineer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Head of Data",
+      "job_title_average_remote_ratio": 55
+    },
+    {
+      "job_title": "Data Science Manager",
+      "job_title_average_remote_ratio": 47
+    },
+    {
+      "job_title": "Data Manager",
+      "job_title_average_remote_ratio": 16
+    },
+    {
+      "job_title": "Machine Learning Researcher",
+      "job_title_average_remote_ratio": 83
+    },
+    {
+      "job_title": "Big Data Engineer",
+      "job_title_average_remote_ratio": 59
+    },
+    {
+      "job_title": "Data Specialist",
+      "job_title_average_remote_ratio": 43
+    },
+    {
+      "job_title": "Lead Data Analyst",
+      "job_title_average_remote_ratio": 70
+    },
+    {
+      "job_title": "BI Data Engineer",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Director of Data Science",
+      "job_title_average_remote_ratio": 36
+    },
+    {
+      "job_title": "Machine Learning Scientist",
+      "job_title_average_remote_ratio": 44
+    },
+    {
+      "job_title": "MLOps Engineer",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "AI Scientist",
+      "job_title_average_remote_ratio": 72
+    },
+    {
+      "job_title": "Autonomous Vehicle Technician",
+      "job_title_average_remote_ratio": 25
+    },
+    {
+      "job_title": "Applied Machine Learning Scientist",
+      "job_title_average_remote_ratio": 79
+    },
+    {
+      "job_title": "Lead Data Scientist",
+      "job_title_average_remote_ratio": 61
+    },
+    {
+      "job_title": "Cloud Database Engineer",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Financial Data Analyst",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Data Infrastructure Engineer",
+      "job_title_average_remote_ratio": 67
+    },
+    {
+      "job_title": "Software Data Engineer",
+      "job_title_average_remote_ratio": 75
+    },
+    {
+      "job_title": "AI Programmer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Data Operations Engineer",
+      "job_title_average_remote_ratio": 80
+    },
+    {
+      "job_title": "BI Developer",
+      "job_title_average_remote_ratio": 69
+    },
+    {
+      "job_title": "Data Science Lead",
+      "job_title_average_remote_ratio": 19
+    },
+    {
+      "job_title": "Deep Learning Researcher",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "BI Analyst",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Data Science Consultant",
+      "job_title_average_remote_ratio": 27
+    },
+    {
+      "job_title": "Data Analytics Specialist",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "Machine Learning Infrastructure Engineer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "BI Data Analyst",
+      "job_title_average_remote_ratio": 73
+    },
+    {
+      "job_title": "Head of Data Science",
+      "job_title_average_remote_ratio": 28
+    },
+    {
+      "job_title": "Insight Analyst",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "Deep Learning Engineer",
+      "job_title_average_remote_ratio": 67
+    },
+    {
+      "job_title": "Machine Learning Software Engineer",
+      "job_title_average_remote_ratio": 55
+    },
+    {
+      "job_title": "Big Data Architect",
+      "job_title_average_remote_ratio": 75
+    },
+    {
+      "job_title": "Product Data Analyst",
+      "job_title_average_remote_ratio": 80
+    },
+    {
+      "job_title": "Computer Vision Software Engineer",
+      "job_title_average_remote_ratio": 90
+    },
+    {
+      "job_title": "Azure Data Engineer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Marketing Data Engineer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Data Analytics Lead",
+      "job_title_average_remote_ratio": 75
+    },
+    {
+      "job_title": "Data Lead",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "Data Science Engineer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Machine Learning Research Engineer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "NLP Engineer",
+      "job_title_average_remote_ratio": 43
+    },
+    {
+      "job_title": "Manager Data Management",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Machine Learning Developer",
+      "job_title_average_remote_ratio": 93
+    },
+    {
+      "job_title": "3D Computer Vision Researcher",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Principal Machine Learning Engineer",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Data Analytics Engineer",
+      "job_title_average_remote_ratio": 83
+    },
+    {
+      "job_title": "Data Analytics Consultant",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Data Management Specialist",
+      "job_title_average_remote_ratio": 0
+    },
+    {
+      "job_title": "Data Science Tech Lead",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Data Scientist Lead",
+      "job_title_average_remote_ratio": 75
+    },
+    {
+      "job_title": "Cloud Data Engineer",
+      "job_title_average_remote_ratio": 83
+    },
+    {
+      "job_title": "Data Operations Analyst",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Marketing Data Analyst",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Power BI Developer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Product Data Scientist",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Principal Data Architect",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Machine Learning Manager",
+      "job_title_average_remote_ratio": 83
+    },
+    {
+      "job_title": "Lead Machine Learning Engineer",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "ETL Developer",
+      "job_title_average_remote_ratio": 60
+    },
+    {
+      "job_title": "Cloud Data Architect",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Lead Data Engineer",
+      "job_title_average_remote_ratio": 67
+    },
+    {
+      "job_title": "Head of Machine Learning",
+      "job_title_average_remote_ratio": 50
+    },
+    {
+      "job_title": "Principal Data Analyst",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Principal Data Engineer",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Staff Data Scientist",
+      "job_title_average_remote_ratio": 100
+    },
+    {
+      "job_title": "Finance Data Analyst",
+      "job_title_average_remote_ratio": 50
+    }
+  ]
+}

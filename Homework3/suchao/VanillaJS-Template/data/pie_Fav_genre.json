@@ -1,0 +1,146 @@
+[
+ {
+   "Fav_genre": "Classical",
+   "Spotify": 25,
+   "Apple Music": 3,
+   "I do not use a streaming service.": 10,
+   "YouTube Music": 10,
+   "Other streaming service": 3,
+   "Pandora": 2
+ },
+ {
+   "Fav_genre": "Country",
+   "Spotify": 16,
+   "Apple Music": 3,
+   "I do not use a streaming service.": 1,
+   "YouTube Music": 2,
+   "Other streaming service": 3,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "EDM",
+   "Spotify": 21,
+   "Apple Music": 4,
+   "I do not use a streaming service.": 1,
+   "YouTube Music": 6,
+   "Other streaming service": 5,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "Folk",
+   "Spotify": 14,
+   "Apple Music": 1,
+   "I do not use a streaming service.": 1,
+   "YouTube Music": 4,
+   "Other streaming service": 1,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "Gospel",
+   "Spotify": 2,
+   "Apple Music": 0,
+   "I do not use a streaming service.": 1,
+   "YouTube Music": 1,
+   "Other streaming service": 0,
+   "Pandora": 2
+ },
+ {
+   "Fav_genre": "Hip_hop",
+   "Spotify": 28,
+   "Apple Music": 2,
+   "I do not use a streaming service.": 0,
+   "YouTube Music": 3,
+   "Other streaming service": 1,
+   "Pandora": 1
+ },
+ {
+   "Fav_genre": "Jazz",
+   "Spotify": 15,
+   "Apple Music": 0,
+   "I do not use a streaming service.": 0,
+   "YouTube Music": 2,
+   "Other streaming service": 3,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "K_pop",
+   "Spotify": 22,
+   "Apple Music": 1,
+   "I do not use a streaming service.": 0,
+   "YouTube Music": 2,
+   "Other streaming service": 1,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "Latin",
+   "Spotify": 2,
+   "Apple Music": 1,
+   "I do not use a streaming service.": 0,
+   "YouTube Music": 0,
+   "Other streaming service": 0,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "Lofi",
+   "Spotify": 8,
+   "Apple Music": 1,
+   "I do not use a streaming service.": 0,
+   "YouTube Music": 0,
+   "Other streaming service": 1,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "Metal",
+   "Spotify": 61,
+   "Apple Music": 5,
+   "I do not use a streaming service.": 8,
+   "YouTube Music": 11,
+   "Other streaming service": 3,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "Pop",
+   "Spotify": 68,
+   "Apple Music": 11,
+   "I do not use a streaming service.": 11,
+   "YouTube Music": 18,
+   "Other streaming service": 5,
+   "Pandora": 1
+ },
+ {
+   "Fav_genre": "R&B",
+   "Spotify": 23,
+   "Apple Music": 4,
+   "I do not use a streaming service.": 2,
+   "YouTube Music": 1,
+   "Other streaming service": 3,
+   "Pandora": 2
+ },
+ {
+   "Fav_genre": "Rap",
+   "Spotify": 12,
+   "Apple Music": 4,
+   "I do not use a streaming service.": 0,
+   "YouTube Music": 2,
+   "Other streaming service": 4,
+   "Pandora": 0
+ },
+ {
+   "Fav_genre": "Rock",
+   "Spotify": 118,
+   "Apple Music": 10,
+   "I do not use a streaming service.": 23,
+   "YouTube Music": 22,
+   "Other streaming service": 12,
+   "Pandora": 3
+ },
+ {
+   "Fav_genre": "Video_game_music",
+   "Spotify": 18,
+   "Apple Music": 1,
+   "I do not use a streaming service.": 13,
+   "YouTube Music": 8,
+   "Other streaming service": 4,
+   "Pandora": 0
+ }
+]

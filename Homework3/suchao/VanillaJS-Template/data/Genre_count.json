@@ -1,0 +1,66 @@
+{"data":[
+  {
+    "Fav_genre": "Latin",
+    "count_genre": 3
+  },
+  {
+    "Fav_genre": "Rock",
+    "count_genre": 188
+  },
+  {
+    "Fav_genre": "Video game music",
+    "count_genre": 44
+  },
+  {
+    "Fav_genre": "Jazz",
+    "count_genre": 20
+  },
+  {
+    "Fav_genre": "R&B",
+    "count_genre": 35
+  },
+  {
+    "Fav_genre": "K pop",
+    "count_genre": 26
+  },
+  {
+    "Fav_genre": "Country",
+    "count_genre": 25
+  },
+  {
+    "Fav_genre": "EDM",
+    "count_genre": 37
+  },
+  {
+    "Fav_genre": "Hip hop",
+    "count_genre": 35
+  },
+  {
+    "Fav_genre": "Pop",
+    "count_genre": 114
+  },
+  {
+    "Fav_genre": "Rap",
+    "count_genre": 22
+  },
+  {
+    "Fav_genre": "Classical",
+    "count_genre": 53
+  },
+  {
+    "Fav_genre": "Metal",
+    "count_genre": 88
+  },
+  {
+    "Fav_genre": "Folk",
+    "count_genre": 30
+  },
+  {
+    "Fav_genre": "Lofi",
+    "count_genre": 10
+  },
+  {
+    "Fav_genre": "Gospel",
+    "count_genre": 6
+  }
+]}
