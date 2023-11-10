@@ -1,0 +1,26 @@
+{"data":[
+  {
+    "Primary_streaming_service": "Spotify",
+    "count": 458
+  },
+  {
+    "Primary_streaming_service": "Pandora",
+    "count": 11
+  },
+  {
+    "Primary_streaming_service": "YouTube Music",
+    "count": 94
+  },
+  {
+    "Primary_streaming_service": "I do not use a streaming service.",
+    "count": 71
+  },
+  {
+    "Primary_streaming_service": "Apple Music",
+    "count": 51
+  },
+  {
+    "Primary_streaming_service": "Other streaming service",
+    "count": 50
+  }
+]}

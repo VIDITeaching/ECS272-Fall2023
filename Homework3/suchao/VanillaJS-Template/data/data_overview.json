@@ -1,0 +1,6626 @@
+[
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Latin",
+   "Exploratory": 1
+ },
+ {
+   "Age": 63,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 61,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 12,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 24,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 12,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 37,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 0.25,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Folk",
+   "Exploratory": 0
+ },
+ {
+   "Age": 36,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 12,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 42,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 36,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 41,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 36,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 37,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 0
+ },
+ {
+   "Age": 33,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 43,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 36,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 41,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 34,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 13,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 35,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 53,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 34,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 41,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 49,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 42,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 60,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Gospel",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 34,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 38,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 35,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 33,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 44,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 42,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 35,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 37,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 36,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 12,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 9,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 0
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 0
+ },
+ {
+   "Age": 40,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 64,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 35,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 33,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 53,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 38,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 34,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 0.7,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1.5,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 0.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 4.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 40,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 20,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2.5,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 33,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 56,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 49,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 13,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 38,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 59,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 40,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 35,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 13,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 33,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 0.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 16,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 15,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 24,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 43,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 10,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 64,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 33,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 12,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 0,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 54,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 13,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1.5,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 44,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 0
+ },
+ {
+   "Age": 57,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 14,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 13,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 57,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 12,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 0.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Country",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 69,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 12,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 38,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 0.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 13,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 72,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 73,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 12,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 39,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 9,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 0
+ },
+ {
+   "Age": 38,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Folk",
+   "Exploratory": 0
+ },
+ {
+   "Age": 13,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 61,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 34,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 0,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 49,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 33,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 38,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 34,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 40,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 54,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 35,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 41,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 63,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 58,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 58,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 67,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 70,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 0
+ },
+ {
+   "Age": 60,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 58,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 49,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 55,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 15,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 48,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 71,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0.25,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Gospel",
+   "Exploratory": 0
+ },
+ {
+   "Age": 60,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Gospel",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 74,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 36,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 60,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 60,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 43,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 0
+ },
+ {
+   "Age": 51,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 63,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 64,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 56,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 60,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 65,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "EDM",
+   "Exploratory": 0
+ },
+ {
+   "Age": 42,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 80,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 56,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 67,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 57,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Gospel",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 50,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 67,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 34,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 68,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Gospel",
+   "Exploratory": 0
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 53,
+   "Primary_streaming_service": "Pandora",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 13,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 59,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 40,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 56,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Gospel",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Lofi",
+   "Exploratory": 1
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 12,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Latin",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 46,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 0.1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Folk",
+   "Exploratory": 0
+ },
+ {
+   "Age": 56,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 12,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 25,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 33,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 48,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 0
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 49,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 42,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 31,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 42,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 0.25,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 34,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 37,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 43,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 12,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 28,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 12,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 32,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 15,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 24,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 0.5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 0
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 11,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 27,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 10,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Jazz",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1.5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 36,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "K pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Latin",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 89,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 24,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rap",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 0,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 9,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 0
+ },
+ {
+   "Age": 20,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 30,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 37,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 1
+ },
+ {
+   "Age": 44,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Folk",
+   "Exploratory": 0
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 35,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 8,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 0
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 23,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 22,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 3,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 4,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 16,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 13,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Video game music",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Apple Music",
+   "Hours_per_day": 18,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "EDM",
+   "Exploratory": 1
+ },
+ {
+   "Age": 26,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Metal",
+   "Exploratory": 1
+ },
+ {
+   "Age": 14,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 7,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Country",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "I do not use a streaming service.",
+   "Hours_per_day": 0.5,
+   "While_working": 0,
+   "Instrumentalist": 0,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 21,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "R&B",
+   "Exploratory": 1
+ },
+ {
+   "Age": 17,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Rock",
+   "Exploratory": 1
+ },
+ {
+   "Age": 18,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 1,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Pop",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Other streaming service",
+   "Hours_per_day": 6,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Rap",
+   "Exploratory": 1
+ },
+ {
+   "Age": 19,
+   "Primary_streaming_service": "Spotify",
+   "Hours_per_day": 5,
+   "While_working": 1,
+   "Instrumentalist": 1,
+   "Fav_genre": "Classical",
+   "Exploratory": 0
+ },
+ {
+   "Age": 29,
+   "Primary_streaming_service": "YouTube Music",
+   "Hours_per_day": 2,
+   "While_working": 1,
+   "Instrumentalist": 0,
+   "Fav_genre": "Hip hop",
+   "Exploratory": 1
+ }
+]
