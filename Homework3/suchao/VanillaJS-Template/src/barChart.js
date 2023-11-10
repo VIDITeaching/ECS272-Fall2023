@@ -7,8 +7,9 @@ const margin = { left: 45, right: 0, top: 20, bottom: 85 };
 var size = { width: 0, height: 0 };
 var bars = Data.data;
 
-// Define a color scale
-// const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+// Define a color scale, and each fav_genre has a unique color.
+const fav_genre_set = ["Classical", "Country", "EDM", "Folk", "Gospel", "Hip hop", "Jazz", "K pop", "Latin", "Lofi", "Metal", "Pop", "R&B", "Rap", "Rock", "Video game music"];
+const colorScale = d3.scaleOrdinal().domain(fav_genre_set).range(["red", "blue", "green", "brown", "orange", "grey", "purple", "yellow", "aqua", "fuchsia", "lime", "maroon", "navy", "olive", "silver", "teal"]); // Define a color scale
 
 const onResize = (targets) => {
   targets.forEach(target => {
@@ -75,7 +76,7 @@ function initChart() {
     .attr('y', d => y(d.count_genre))
     .attr('height', d => y(0) - y(d.count_genre))
     .attr('width', x.bandwidth())
-    .attr('fill', 'steelblue'); 
+    .attr('fill', (d, i) => colorScale(i)); // Assign different colors based on the index
 
   // Append the axes.
   svg.append('g')
@@ -105,6 +106,40 @@ function initChart() {
     .append('text')
     .text('Genre Name')
     .style('font-size', '.8rem');
+
+  // Create a color legend scale
+  const colorLegendScale = d3.scaleOrdinal()
+    .domain(xCategories)
+    .range(xCategories.map((category, i) => colorScale(i)));
+
+  // Create a legend SVG element
+  const legendSvg = svg.append('g')
+    .attr('class', 'legend')
+    .attr('transform', `translate(${size.width - margin.right - 100}, ${margin.top})`);
+
+  // Create colored rectangles and labels in the legend
+  const legendRectSize = 8;
+  const legendSpacing = 1;
+
+  const legendRects = legendSvg.selectAll('.legend-rect')
+    .data(xCategories)
+    .enter().append('rect')
+    .attr('class', 'legend-rect')
+    .attr('x', 0)
+    .attr('y', (d, i) => i * (legendRectSize + legendSpacing))
+    .attr('width', legendRectSize)
+    .attr('height', legendRectSize)
+    .style('fill', d => colorLegendScale(d));
+
+  const legendLabels = legendSvg.selectAll('.legend-label')
+    .data(xCategories)
+    .enter().append('text')
+    .attr('class', 'legend-label')
+    .attr('x', legendRectSize + legendSpacing)
+    .attr('y', (d, i) => i * (legendRectSize + legendSpacing) + legendRectSize / 2)
+    .style('font-size', '.5rem')
+    .attr('dy', '0.35em')
+    .text(d => d);
 
   function zoom(svg) {
     const extent = [[margin.left, margin.top], [size.width - margin.right, size.height - margin.top]];

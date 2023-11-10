@@ -217,9 +217,9 @@ function getTickValuesForDimension(dimension) {
     case 'While_working':
       return [151, 152];
     case 'Hours_per_day':
-      return [0, 0.1, 0.25, 0.5, 0.7, 1, 1.5, 2, 2.5, 3, 4, 4.5, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 24]
+      return [0, 0.1, 0.25, 0.5, 0.7, 1, 1.5, 2, 2.5, 3, 4, 4.5, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 24];
     case 'Fav_genre_index':
-      return [131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146]
+      return [131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146];
     default:
       return [];
   }
@@ -235,9 +235,9 @@ function getTickFormatForDimension(dimension) {
     case 'While_working':
       return ["Yes", "No"];
     case 'Hours_per_day':
-      return [0, 0.1, 0.25, 0.5, 0.7, 1, 1.5, 2, 2.5, 3, 4, 4.5, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 24]
+      return [0, 0.1, 0.25, 0.5, 0.7, 1, 1.5, 2, 2.5, 3, 4, 4.5, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 24];
     case 'Fav_genre_index':
-      return ["Classical", "Country", "EDM", "Folk", "Gospel", "Hip hop", "Jazz", "K pop", "Latin", "Lofi", "Metal", "Pop", "R&B", "Rap", "Rock", "Video game music"]
+      return ["Classical", "Country", "EDM", "Folk", "Gospel", "Hip hop", "Jazz", "K pop", "Latin", "Lofi", "Metal", "Pop", "R&B", "Rap", "Rock", "Video game music"];
     default:
       return [];
   }
