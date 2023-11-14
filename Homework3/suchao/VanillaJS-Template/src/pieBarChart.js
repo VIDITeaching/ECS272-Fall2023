@@ -1,10 +1,12 @@
 import * as d3 from 'd3';
-import Data from '../data/streaming_service.json';
+import AllData from '../data/streaming_service.json';
+import Data from '../data/pie_Fav_genre.json';
 import { isEmpty, debounce } from 'lodash';
 
 const margin = { left: 45, right: 20, top: 20, bottom: 75 };
 var size = { width: 0, height: 0 };
-var data = Data.data;
+var data = AllData.data;
+var selected = '';
 
 // Define a color scale for both charts
 const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
@@ -18,13 +20,43 @@ const onResize = (targets) => {
             if (isBarChartVisible) {
                 initBarChart();
             } else {
+                if (selected !== '') {
+                    data = Object.entries(Data.find((element) => element.Fav_genre === selected)).map(([key, value]) => {
+                        return {'Primary_streaming_service': key, 'count': value};
+                    }).filter(((element) => element.Primary_streaming_service !== "Fav_genre"));
+                }
                 initPieChart();
             }
         }
     });
 };
 
+const onChange = (targets) => {
+    targets.forEach(target => {
+        if(target.type === "attributes") {
+            if (target.target.getAttribute('id') !== 'bar-container') return;
+            selected = target.target.getAttribute('selected')
+            if (!isEmpty(size) && !isEmpty(data)) {
+                d3.select('#chart-svg').selectAll('*').remove();
+                if (isBarChartVisible) {
+                    initBarChart();
+                } else {
+                    if (selected !== '') {
+                        console.log(selected);
+                        data = Object.entries(Data.find((element) => element.Fav_genre === selected)).map(([key, value]) => {
+                            return {'Primary_streaming_service': key, 'count': value};
+                        }).filter(((element) => element.Primary_streaming_service !== "Fav_genre"));
+                    }
+                    initPieChart();
+                }
+            }
+        }
+        
+    })
+}
+
 const chartObserver = new ResizeObserver(debounce(onResize, 100));
+const selectionObserver = new MutationObserver(debounce(onChange, 100));
 
 export const Chart = () => (
     `<div class='chart-wrapper'>
@@ -38,6 +70,11 @@ export const Chart = () => (
 export function mountChart() {
     let chartContainer = document.querySelector('#chart-container');
     chartObserver.observe(chartContainer);
+
+    let barContainer = document.querySelector('#bar-container');
+    selectionObserver.observe(barContainer, {
+        attributes: true
+    });
 
     const switchButton = document.querySelector('#switch-button');
     switchButton.addEventListener('click', toggleChart);
@@ -179,8 +216,9 @@ function initBarChart() {
 
 // Define a function to initialize the Pie Chart
 function initPieChart() {
+    console.log(data);
     const pieContainer = d3.select('#chart-svg');
-
+    
     // Define your pie chart data and layout here
     const pieData = d3.pie().value(d => d.count)(data);
     const arcGenerator = d3.arc()
@@ -202,7 +240,7 @@ function initPieChart() {
         .attr('dy', '0.5rem')
         .style('text-anchor', 'middle')
         .style('font-size', '.9rem')
-        .text("Overview of the percentage of differnent respondent's primary streaming services");
+        .text(`Distribution of the streaming services under ${(selected)? selected: "all genres"}` );
 
     // Append pie chart slices and animate transitions
     const paths = sliceLabels.append('path')

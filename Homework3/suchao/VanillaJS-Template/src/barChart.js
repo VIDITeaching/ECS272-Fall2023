@@ -76,7 +76,10 @@ function initChart() {
     .attr('y', d => y(d.count_genre))
     .attr('height', d => y(0) - y(d.count_genre))
     .attr('width', x.bandwidth())
-    .attr('fill', (d, i) => colorScale(i)); // Assign different colors based on the index
+    .attr('fill', (d, i) => colorScale(i))
+    .on('click', function(event, d) {
+        d3.select('#bar-container').attr('selected', d.Fav_genre);
+    }); // Assign different colors based on the index
 
   // Append the axes.
   svg.append('g')
