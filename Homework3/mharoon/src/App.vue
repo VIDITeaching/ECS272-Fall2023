@@ -16,7 +16,7 @@ pokemonStore().loadPokedex();
   <div class="container">
     <div class="flex-row top">
       <div class="widget1">
-        <h1>Types by Generation</h1>
+        <h1>Overview</h1>
         <Overview></Overview>
       </div>
       <div class="widget2">

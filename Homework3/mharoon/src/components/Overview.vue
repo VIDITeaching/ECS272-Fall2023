@@ -105,8 +105,8 @@ function plot() {
             const mouse = d3.pointer(e);
             // create path
             hover.selectAll('tspan').remove();
-            hover.append('tspan').text(d.data.type).attr("x", mouse[0] + 5).attr("y", mouse[1] + 5);
-            hover.append('tspan').text((d.data.ratio * 100).toFixed(1) + '%').attr("x", mouse[0] + 5).attr("y", mouse[1] + 25);
+            hover.append('tspan').text(d.data.type).attr("x", mouse[0] + 5).attr("y", mouse[1]);
+            hover.append('tspan').text((d.data.ratio * 100).toFixed(1) + '%').attr("x", mouse[0] + 5).attr("y", mouse[1] + 15);
             hover.style('opacity', 1);
             d3.select(this).style('opacity', 1);
         })
@@ -125,6 +125,7 @@ function plot() {
     const hover = svg
         .append('text')
         .text('')
+        .style('font-size', '80%')
         .style('opacity', 0);
 }
 
@@ -138,9 +139,8 @@ plot();
             <v-slider v-model="generation" :min="0" :max="6" :step="1" thumb-label
                 :on-update:model-value="plot()"></v-slider>
         </div>
-        <!-- <p>Interaction: Slider controls Pokemon generation.</p> -->
         <svg id="overview"></svg>
-        <p>Interactions: Hover to see percentage. Slide to select gen.</p>
+        <p>Interactions: Hover to see percentage. Slide to filter by gen. Click to filter by type.</p>
     </div>
 </template>
 
