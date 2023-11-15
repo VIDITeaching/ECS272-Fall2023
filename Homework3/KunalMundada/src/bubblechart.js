@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import Data from "../data/iso_name.json";
 import { unroll } from "./utils";
 import { isEmpty, debounce } from "lodash";
+import { scatterColorScheme } from "./globals";
 
 const margin = { top: 20, right: 35, bottom: 20, left: 25 };
 let size = { width: 0, height: 0 };
@@ -128,10 +129,7 @@ function initBubbleChart() {
   // const zScale = d3.scaleLinear().domain([0, zExtents[1]]).range([4, 10]);
 
   // Add a scale for bubble color
-  const myColor = d3
-    .scaleOrdinal()
-    .domain([country_name, "ROW"])
-    .range(["#3978B6", "#BDD1EA"]);
+  const myColor = scatterColorScheme;
 
   // -1- Create a Tooltip div that is hidden by default:
   const tooltip = d3.select("#bubble-container")

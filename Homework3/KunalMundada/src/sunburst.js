@@ -3,6 +3,7 @@ import Data from "../data/iso_name.json";
 import axios from "axios";
 import { isEmpty, debounce } from "lodash";
 import { unroll } from "./utils";
+import { sunburstColorScheme } from "./globals";
 
 const margin = { left: 40, right: 20, top: 50, bottom: 60 };
 let size = { width: 0, height: 0 };
@@ -120,9 +121,7 @@ function initChart() {
   
   const sunburstData = convertToHierarchicalStructure(getSunburstData(rawData));
   console.log(sunburstData);
-  const color = d3.scaleOrdinal(
-    d3.quantize(d3.interpolateBlues, sunburstData.children.length + 1).reverse()
-  );
+  const color = sunburstColorScheme(sunburstData);
 
   // const color = d3
   //   .scaleOrdinal()

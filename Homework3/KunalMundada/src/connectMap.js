@@ -3,7 +3,7 @@ import Data from "../data/iso_name.json";
 import { unroll } from "./utils";
 import { isEmpty, debounce } from "lodash";
 import { legendColor, legendHelpers } from "d3-svg-legend";
-import { updateCharts } from "./globals";
+import { updateCharts, mapColorScheme } from "./globals";
 
 const margin = { left: 40, right: 20, top: 50, bottom: 60 };
 let size = { width: 0, height: 0 };
@@ -103,11 +103,7 @@ function initChart() {
   //   .nice()
   //   .interpolator(d3.interpolateBlues);
 
-  const colorScale = d3
-    .scaleThreshold()
-    .domain([10000, 100000, 1000000, 10000000])
-    .range(["#DCE9FF", "#8EBEFF", "#589BE5", "#0072BC"])
-    .unknown("#E6E6E6");
+  const colorScale = mapColorScheme;
 
   // Define tooltip
   const Tooltip = d3
@@ -195,15 +191,17 @@ function initChart() {
     .attr("id", (feature) => {
       return "country_" + feature.properties.name;
     })
-    // .attr("fill", "#b8b8b8")
     .attr("fill", (feature) => {
       const value = data.find(
         (item) => item.country === feature.properties.name
       );
-      // console.log(value);
+      console.log(value);
       if (value) {
         feature.properties.total = value.market_size;
         return colorScale(value.market_size);
+      } else {
+        feature.properties.total = 0;
+        return colorScale(null);
       }
     })
     .attr("d", (feature) => {
