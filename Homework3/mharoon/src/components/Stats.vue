@@ -166,17 +166,17 @@ function plot() {
                 // hover.append('tspan').text(d);
                 hover.attr('transform', `translate(${mouse[0] + 20}, ${mouse[1] + 20})`)
                 hover.select('text').text(d);
-                hover.style('opacity', 1);
+                hover.style('visibility', 'visible');
                 d3.select(this).style('opacity', 1);
             })
             .on('mouseout', function(e, d) {
                 d3.select(this).style('opacity', 0.5);
-                hover.style('opacity', 0);
+                hover.style('visibility', 'hidden');
             });
 
     // info element on hover
     const hover = svg.append('g')
-        .style('opacity', 0);
+        .style('visibility', 'hidden');
 
     hover.append('rect')
         .attr('width', 100)
@@ -195,6 +195,7 @@ function plot() {
 }
 
 watch(pokemon, plot);
+window.addEventListener('resize', plot);
 
 </script>
 

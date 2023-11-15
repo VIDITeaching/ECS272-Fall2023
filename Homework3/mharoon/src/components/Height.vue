@@ -23,6 +23,7 @@ let pokemon_list = ref(pokemon);
 
 // watchers
 watch([getPokemon, pokemon_list], plot, { deep: true });
+window.addEventListener('resize', plot);
 
 // methods
 function formatNumber(num: string) {

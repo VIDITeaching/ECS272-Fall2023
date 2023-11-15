@@ -58,13 +58,13 @@ function plot() {
     svg.selectAll('*').remove();
 
     // get dimensions
-    const margin = 60;
+    const margin = 4;
     const width = svg.node().clientWidth - margin;
     const height = svg.node().clientHeight - margin;
     const radius = Math.min(width, height) / 2;
 
     // set dimensions
-    svg.attr('viewBox', `-${radius * 1.5} -${radius} ${width / 2 - radius} ${height}`);
+    svg.attr('viewBox', `-${radius * 1.25} -${radius} ${width / 2} ${height + margin}`);
 
     // create color scale
     const colorScale = d3.scaleOrdinal()
@@ -90,10 +90,10 @@ function plot() {
         .attr('d', arc)
         .attr('fill', d => colorScale(d.data.type))
         .attr("stroke", "black")
+        .style('cursor', 'pointer')
         .style("stroke-width", function(d) {
-            return d.data.type == type.value ? '1px': '0px';
+            return d.data.type == type.value ? '1.5px': '0px';
         })
-        .style("opacity", 0.75)
         .on('click', function(e, d) {
             if (d.data.type == type.value) {
                 type.value = null;
@@ -105,14 +105,16 @@ function plot() {
             const mouse = d3.pointer(e);
             // create path
             hover.selectAll('tspan').remove();
-            hover.append('tspan').text(d.data.type).attr("x", mouse[0] + 5).attr("y", mouse[1]);
-            hover.append('tspan').text((d.data.ratio * 100).toFixed(1) + '%').attr("x", mouse[0] + 5).attr("y", mouse[1] + 15);
-            hover.style('opacity', 1);
-            d3.select(this).style('opacity', 1);
+            hover.append('tspan').text(d.data.type).attr("x", mouse[0] + 20).attr("y", mouse[1]);
+            hover.append('tspan').text((d.data.ratio * 100).toFixed(1) + '%').attr("x", mouse[0] + 20).attr("y", mouse[1] + 15);
+            hover.style('visibility', 'visible');
+            d3.select(this).style('stroke-width', '1.5px');
         })
         .on('mouseout', function (e, d) {
-            d3.select(this).style('opacity', 0.75);
-            hover.style('opacity', 0);
+            if (d.data.type != type.value) {
+                d3.select(this).style('stroke-width', '0px');
+            }
+            hover.style('visibility', 'hidden');
         });
 
     // middle text
@@ -125,11 +127,12 @@ function plot() {
     const hover = svg
         .append('text')
         .text('')
-        .style('font-size', '80%')
-        .style('opacity', 0);
+        .style('font-size', '100%')
+        .style('visibility', 'hidden');
 }
 
 plot();
+window.addEventListener('resize', plot);
 
 </script>
 
@@ -160,4 +163,5 @@ svg {
     width: 100%;
     height: 100%;
 }
+
 </style>

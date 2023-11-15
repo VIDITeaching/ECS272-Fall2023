@@ -55,9 +55,10 @@ function randomize() {
               <template v-slot:item="{ props, item }">
                 <v-list-item
                   v-bind="props"
-                  :title="item?.raw?.Name"
-                  :subtitle="item?.raw?.Type_1"
-                ></v-list-item>
+                  :title="`${item?.raw?.Number} - ${item?.raw?.Name}`"
+                  :subtitle="`Gen ${item?.raw?.Generation} - ${item?.raw?.Type_1}`"
+                >
+              </v-list-item>
               </template>
 
               </v-autocomplete>
