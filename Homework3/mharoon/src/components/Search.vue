@@ -1,19 +1,34 @@
 <script setup lang="ts">
 
-import { computed } from 'vue';
 import { pokemonStore } from '../stores/pokemon';
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { storeToRefs } from 'pinia';
 
 const emit = defineEmits(['onSelect']);
-const props = defineProps(['randomize', 'disabled']);
+const props = defineProps(['randomize', 'disabled', 'clearOnSelect']);
 
 // load store
-const store = computed(() => pokemonStore());
+const { generation, type, getPokemon } = storeToRefs(pokemonStore());
 
+// selected pokemon
 let pokemon = ref(null);
+
+if (props.clearOnSelect == '') {
+  watch(pokemon, () => {
+    setTimeout(() => {
+      pokemon.value = null;
+    }, 100);
+  });
+}
+
 if (props.randomize == '') {
-  const n = store.value.pokemon.length;
-  pokemon.value = store.value.pokemon[Math.floor(Math.random() * n)];
+  watch([generation, type], randomize);
+  randomize();
+}
+
+function randomize() {
+    const n = getPokemon.value.length;
+    pokemon.value = getPokemon.value[Math.floor(Math.random() * n)];
 }
 
 </script>
@@ -22,7 +37,7 @@ if (props.randomize == '') {
     <v-autocomplete
                 v-model="pokemon"
                 search="search"
-                :items="store.pokemon"
+                :items="getPokemon"
                 label="Pokemon"
                 :item-title="'Name'"
                 full-width
@@ -34,7 +49,18 @@ if (props.randomize == '') {
                 return-object
                 :disabled="disabled"
                 :on-update:model-value="$emit('onSelect', pokemon)"
-              ></v-autocomplete>
+              >
+              
+
+              <template v-slot:item="{ props, item }">
+                <v-list-item
+                  v-bind="props"
+                  :title="item?.raw?.Name"
+                  :subtitle="item?.raw?.Type_1"
+                ></v-list-item>
+              </template>
+
+              </v-autocomplete>
 </template>
 
 <style scoped>

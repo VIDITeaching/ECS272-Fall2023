@@ -43,11 +43,11 @@ pokemonStore().loadPokedex();
 }
 
 .container > div.top {
-  height: 40%;
+  height: 50%;
 }
 
 .container > div.bottom {
-  height: 60%;
+  height: 50%;
 }
 
 .widget1,

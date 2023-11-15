@@ -26,11 +26,25 @@ export const pokemonStore = defineStore('pokemon', {
       Fairy: "#e9e",
       Curse: "#698"
     };
-    return { pokemon, type_colors };
+    const generation = 0;
+    const type = null;
+    return { pokemon, type_colors, generation, type };
   },
   actions: {
     async loadPokedex() {
       this.pokemon = await d3.csv('../data/pokemon.csv');
+    }
+  },
+  getters: {
+    getPokemon: (state) => {
+      let pokemon = state.pokemon;
+      if (state.generation > 0) {
+        pokemon = pokemon.filter(x => parseInt(x.Generation) == state.generation);
+      }
+      if (state.type) {
+        pokemon = pokemon.filter(x => x.Type_1 == state.type || x.Type_2 == state.type);
+      }
+      return pokemon;
     }
   }
 })

@@ -11,15 +11,18 @@ import type { Pokemon } from '@/types/Pokemon';
 
 // stores
 import { pokemonStore } from '../stores/pokemon';
-const store = pokemonStore();
+import { storeToRefs } from 'pinia';
+import { fi } from 'vuetify/locale';
+
+// get store refs
+const { getPokemon, type_colors } = storeToRefs(pokemonStore());
 
 // initialize data
 const pokemon: Pokemon[] = [];
 let pokemon_list = ref(pokemon);
-let selected = ref({});
 
 // watchers
-watch([pokemon_list], plot, { deep: true });
+watch([getPokemon, pokemon_list], plot, { deep: true });
 
 // methods
 function formatNumber(num: string) {
@@ -35,7 +38,6 @@ function formatNumber(num: string) {
 function add(pokemon: Pokemon) {
     if (pokemon) {
         pokemon_list.value.push(pokemon);
-        selected.value = {};
     }
 }
 
@@ -45,19 +47,23 @@ function remove(ind: number) {
 
 function plot() {
 
-    if (pokemon_list.value.length < 1) {
-        return;
-    }
-
-    const type_colors = store.type_colors;
 
     // get svg object
     const svg = d3.select('#svg');
 
+    const filtered = pokemon_list.value.filter(x => getPokemon.value.map(i => i.Number).includes(x.Number));
+
+    // clear out old plots
+    svg.selectAll('*').remove();
+
+    if (filtered.length < 1) {
+        return;
+    }
+
     // get dimensions
     const margin = 60;
     const width = svg.node().clientWidth - margin;
-    const panWidth = pokemon_list.value.length * (svg.node().clientWidth / 4);
+    const panWidth = filtered.length * (svg.node().clientWidth / 4);
     const height = svg.node().clientHeight - margin;
 
     // set dimensions
@@ -66,12 +72,8 @@ function plot() {
     svg.attr('viewBox', `0 -${margin} ${width - margin} ${height + 100}`);
 
     // get data
-    const pokemon = pokemon_list.value;
+    const pokemon = filtered;
     const data = pokemon.map(p => parseFloat(p.Height_m));
-
-    // clear out old plots
-    svg.selectAll('g').remove();
-    svg.selectAll('g').remove();
 
     // create xscale
     const xScale = d3.scaleLinear()
@@ -97,7 +99,7 @@ function plot() {
         .attr("height", d => yScale(0) - yScale(d))
         .attr("transform", "translate(60,0)")
         .attr("opacity", 0.75)
-        .attr("fill", (d, ind) => type_colors[pokemon_list.value[ind].Type_1]);
+        .attr("fill", (d, ind) => type_colors.value[filtered[ind].Type_1]);
 
     // pokemon image
     bars.enter()
@@ -107,7 +109,7 @@ function plot() {
         .attr("width", d => yScale(0) - yScale(d) + 100)
         .attr("height", d => yScale(0) - yScale(d))
         .attr("transform", d => `translate(20,0)`)
-        .attr("xlink:href", (d, ind) => `https://haroon96.github.io/Pokemon/${formatNumber(pokemon[ind].Number)}.png`);
+        .attr("xlink:href", (d, ind) => `https://haroon96.github.io/Pokemon/${formatNumber(filtered[ind].Number)}.png`);
 
     // pokemon name
     bars.enter()
@@ -117,8 +119,8 @@ function plot() {
         .attr("width", d => yScale(0) - yScale(d))
         .attr("height", d => yScale(0) - yScale(d))
         .attr("transform", "translate(100,-30)")
-        .text((d, ind) => `${pokemon_list.value[ind].Name}`)
-        .attr("fill", (d, ind) => type_colors[pokemon_list.value[ind].Type_1]);
+        .text((d, ind) => `${filtered[ind].Name}`)
+        .attr("fill", (d, ind) => type_colors.value[filtered[ind].Type_1]);
 
     // pokemon image
     bars.enter()
@@ -128,9 +130,9 @@ function plot() {
         .attr("width", d => yScale(0) - yScale(d))
         .attr("height", d => yScale(0) - yScale(d))
         .attr("transform", "translate(100,-10)")
-        .attr("fill", (d, ind) => type_colors[pokemon_list.value[ind].Type_1])
+        .attr("fill", (d, ind) => type_colors.value[filtered[ind].Type_1])
         .style("font-size", "0.9em")
-        .text((d, ind) => `${pokemon_list.value[ind].Height_m}m`);
+        .text((d, ind) => `${filtered[ind].Height_m}m`);
 
     // white area
     svg.append('rect')
@@ -174,9 +176,9 @@ function plot() {
 </script>
 
 <template>
-    <div v-if="store.pokemon.length > 0" class="height-container">
+    <div v-if="getPokemon.length > 0" class="height-container">
         <div class="search">
-            <Search @on-select="(pk) => add(pk)" :disabled="pokemon_list.length > 6"></Search>
+            <Search @on-select="(pk) => add(pk)" :disabled="pokemon_list.length > 6" clear-on-select></Search>
             <div>
                 <ul class="pokemon-list" v-if="pokemon_list.length > 0">
                     <li v-for="pk, ind in pokemon_list">

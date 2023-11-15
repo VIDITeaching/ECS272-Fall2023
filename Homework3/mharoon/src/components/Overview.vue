@@ -3,20 +3,22 @@
 import * as d3 from 'd3';
 
 import { pokemonStore } from '../stores/pokemon';
-import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 
-
-let generation = ref(1);
+// get store refs
+const { generation, type, type_colors, pokemon } = storeToRefs(pokemonStore());
 
 // methods 
 function preprocess() {
-    let data = pokemonStore().pokemon;
+    let data = pokemon.value;
 
     if (!data || data.length == 0) {
         return null;
     }
 
-    data = data.filter(x => x.Generation == generation.value.toString());
+    if (generation.value > 0) {
+        data = data.filter(x => parseInt(x.Generation) == generation.value);
+    }
 
     let types = data.map(x => x.Type_1)
         .filter(x => x != '')
@@ -43,7 +45,6 @@ function plot() {
 
     // get preprocessed data
     const data = preprocess();
-    const type_colors = pokemonStore().type_colors;
 
     if (data == null) {
         setTimeout(plot, 100);
@@ -68,7 +69,7 @@ function plot() {
     // create color scale
     const colorScale = d3.scaleOrdinal()
         .domain(data)
-        .range(data.map(x => type_colors[x.type]))
+        .range(data.map(x => type_colors.value[x.type]))
 
     // create pie
     const pie = d3.pie()
@@ -89,8 +90,17 @@ function plot() {
         .attr('d', arc)
         .attr('fill', d => colorScale(d.data.type))
         .attr("stroke", "black")
-        .style("stroke-width", "0px")
+        .style("stroke-width", function(d) {
+            return d.data.type == type.value ? '1px': '0px';
+        })
         .style("opacity", 0.75)
+        .on('click', function(e, d) {
+            if (d.data.type == type.value) {
+                type.value = null;
+            } else {
+                type.value = d.data.type;
+            }
+        })
         .on('mousemove', function (e, d) {
             const mouse = d3.pointer(e);
             // create path
@@ -107,7 +117,7 @@ function plot() {
 
     // middle text
     svg.append("text")
-        .text("Gen " + generation.value)
+        .text(generation.value > 0 ? "Gen " + generation.value : "All Gens")
         .style("font-size", "125%")
         .attr("text-anchor", "middle");
 
@@ -125,8 +135,7 @@ plot();
 <template>
     <div class="pie-container">
         <div class="flex-row generation-slider">
-            <span>Generation</span> &nbsp;&nbsp;&nbsp;
-            <v-slider v-model="generation" :min="1" :max="6" :step="1" thumb-label
+            <v-slider v-model="generation" :min="0" :max="6" :step="1" thumb-label
                 :on-update:model-value="plot()"></v-slider>
         </div>
         <!-- <p>Interaction: Slider controls Pokemon generation.</p> -->
@@ -142,8 +151,9 @@ plot();
     height: 60%;
     margin: 0 auto;
 }
-.generation-slider>span {
-    margin-top: 3px;
+
+.generation-slider > *:first-child {
+    width: 5%;
 }
 
 svg {
