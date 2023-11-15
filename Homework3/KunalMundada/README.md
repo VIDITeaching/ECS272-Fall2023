@@ -3,11 +3,11 @@ https://www.informationisbeautifulawards.com/showcase/4646-hr-attrition-dashboar
 ### Issues to Solve:
 
 #### HW2
-- Data Science – map, scatter plot, dendrogram (-10) The overall ratio of component sizes can be improved. 
-- Title and legend are too big. 
-- The map view is compressed on my screen. The dengrogram could use a larger space. (-2) 
+- [X] Data Science – map, scatter plot, dendrogram (-10) The overall ratio of component sizes can be improved. 
+- [X] Title and legend are too big. 
+- [X] The map view is compressed on my screen. The dengrogram could use a larger space. (-2) 
 - The scatter plot could’ve had lines connected to provide some continuity. 
-- The current design on the map is also hard to tell which end refers to the employee, which end refers to the company. Tooltip could help resolve this issue.
+- [X] The current design on the map is also hard to tell which end refers to the employee, which end refers to the company. Tooltip could help resolve this issue.
 
 #### HW3
 - Legend in the scatter plot and sunburst is missing. (-1) 
