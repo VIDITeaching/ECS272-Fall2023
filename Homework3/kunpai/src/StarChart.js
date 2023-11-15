@@ -188,7 +188,9 @@ function createStarChart(data, selectedType) {
     for (var key in data) {
         if (data.hasOwnProperty(key)) {
             var elementData = data[key];
+            console.log(elementData);
             var elementValues = Object.values(elementData);
+            console.log(elementValues);
 
             var numElements = elementValues.length;
             var angleOffset = (2 * Math.PI) / numElements;
@@ -285,6 +287,8 @@ function addListener(svg, data, keyText, className) {
             updateCharts(key, false);
 
             var polygon = svg.selectAll(".polygon[data-key='" + key + "']");
+            svg.selectAll(".polygon:not([data-key='" + key + "'])")
+            .style("display", "none");
             selectedPolygon = polygon.clone(true);
             selectedPolygon.attr("stroke", "black");
             selectedPolygon.attr("pointer-events", "none");
@@ -320,6 +324,8 @@ function addListener(svg, data, keyText, className) {
         .on("mouseout", function () {
             if (selectedType) return;
             rectangle.attr("stroke", "transparent");
+            svg.selectAll(".polygon")
+            .style("display", "block");
             keyText.text("");
             selectedPolygon.remove();
             selectedPolygon = null;
