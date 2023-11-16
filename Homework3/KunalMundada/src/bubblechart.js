@@ -89,7 +89,16 @@ function initBubbleChart() {
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
-  const yExtents = d3.extent(bubbleData, (d) => d.y);
+    svg
+    .append("text")
+    .attr("x", size.width / 2)
+    .attr("y", 0)
+    .attr("text-anchor", "middle")
+    .style("font-size", "18px")
+    .style("text-decoration", "underline")
+    .text(`Average Salary from 2020 - 2023 in ${Data.iso[country_name]}`);
+
+  const yExtents = [d3.min(bubbleData, (d) => d.y), d3.max(bubbleData, (d) => d.y)*1.2];
 
   const xCategories = [...new Set(bubbleData.map((d) => d.x))];
 
@@ -98,24 +107,23 @@ function initBubbleChart() {
   // Add X axis
   const xScale = d3
     .scaleBand()
-    .rangeRound([margin.left, size.width * 0.8 - margin.right])
+    .rangeRound([margin.left*2, size.width * 0.8 - margin.right])
     .domain(xCategories)
     .paddingInner(1)
     .paddingOuter(0.5);
 
   svg
-    .append("text")
-    .attr("x", size.width / 2)
-    .attr("y", 0)
-    .attr("text-anchor", "middle")
-    .style("font-size", "18px")
-    .style("text-decoration", "underline")
-    .text(`Avg Salary from 2020 - 2023 in ${Data.iso[country_name]}`);
-
-  svg
     .append("g")
     .attr("transform", `translate(0, ${size.height - margin.bottom})`)
     .call(d3.axisBottom(xScale));
+
+    svg
+      .append("text")
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .attr("x", size.width*0.42)
+      .attr("y", size.height + margin.top - 5)
+      .text("Year");
 
   // Add Y axis
   const yScale = d3
@@ -125,8 +133,16 @@ function initBubbleChart() {
 
   svg
     .append("g")
-    .attr("transform", `translate(${margin.left}, 0)`)
+    .attr("transform", `translate(${margin.left*2}, 0)`)
     .call(d3.axisLeft(yScale));
+
+    svg.append("text")
+    .attr("text-anchor", "end")
+    .style("font-size", "12px")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -margin.left+20)
+    .attr("x", -margin.top)
+    .text("Avg Salary (in USD)")
 
   // Add a scale for bubble size
   // const zScale = d3.scaleLinear().domain([0, zExtents[1]]).range([4, 10]);
@@ -204,13 +220,14 @@ function initBubbleChart() {
   svg
     .append("g")
     .attr("class", "legendBubble")
-    .attr("transform", `translate(${size.width*0.8},50)`);
+    .attr("transform", `translate(${size.width*0.817},50)`);
 
   const legend = legendColor()
     .scale(myColor)
     .orient("vertical")
     .labelOffset(3)
-    .shapePadding(0);
+    .title("Legend")
+    .shapePadding(1);
 
     svg.select(".legendBubble").call(legend);
 }
