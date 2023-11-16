@@ -128,7 +128,7 @@ function initChart() {
   //   .domain(["Small", "Rest of World"])
   //   .range(["#3978B6", "#BDD1EA"]);
   // const viewradius = Math.min(size.width-margin.left-margin.right, size.height) / 2;
-  const radius = Math.min(size.width-margin.left-margin.right, size.height-margin.top - margin.bottom) / 2;
+  const radius = Math.min(size.width-margin.left-margin.right, size.height-margin.top - margin.bottom) / 2 * 1.1;
 
   const partition = (data) =>
     d3.partition().size([2 * Math.PI, radius])(
@@ -186,7 +186,7 @@ function initChart() {
     .join("path")
     .attr("fill", (d) => {
       while (d.depth > 1) d = d.parent;
-      console.log(d.data.name);
+      // console.log(d.data.name);
       return color(d.data.name);
     })
     .attr("d", arc)
@@ -220,6 +220,11 @@ function initChart() {
       return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
     })
     .attr("dy", "0.35em")
+    .attr("fill", (d) => {
+      while (d.depth > 1) d = d.parent;
+      if (d.data.name === "Large") { return "white"}
+      else return "black";
+    })
     .text((d) => d.data.name);
 }
 
