@@ -107,8 +107,8 @@ export default {
                     result.push({
                         
                         "cat_salary": catSalary,
-                        "experience-level": experienceLevel,
-                        "remote-ratio": companySize,
+                        "experience_level": experienceLevel,
+                        "company_size": companySize,
                         "value": count,
                     });
                     });
@@ -117,7 +117,7 @@ export default {
 
             // console.log(result);
             
-            const keys = ["cat_salary","experience-level","remote-ratio"]
+            const keys = ["cat_salary","experience_level","company_size"]
             let index = -1;
             const Nodes = [];
             const nodeByKey = new d3.InternMap([], JSON.stringify);;
@@ -229,17 +229,17 @@ export default {
             const selectionSalary = d3.selectAll("rect.nodes")
                                         .on('mouseover',function(e,d){
                                             d3.select(this)
-                                            .style("fill", "indianred");
-                                            const str = `${d.name} (USD) in ${self.country}`
-                                            self.eventBusSalary.emit('salarymsg',str)})
+                                            .style("fill", "indianred")
+                                            // const str = `${d.name} (USD) in ${self.country}`
+                                            // self.eventBusSalary.emit('salarymsg',str)})
                                         .on('mouseout',function(){
                                             d3.select(this)
                                             .style("fill", "#2a2727");
                                         })
-                                        // .on('click', function(e,d){
-                                        //     const str = `${d.name} (USD) in ${self.country}`
-                                        //     self.eventBusSalary.emit('salarymsg',str)
-                                        // })
+                                        .on('click', function(e,d){
+                                            const str = `${d.name} (USD) in ${self.country}`
+                                            self.eventBusSalary.emit('salarymsg',str)})
+                                        })
                                     
                                     
                                       
@@ -259,7 +259,7 @@ export default {
             let legendElementWidth = 50
             let legendHeight = 10         
             let legends = lineContainer.append("g")
-                        .attr("transform", d => `translate(10,-300)` )
+                        .attr("transform", d => `translate(10,-${this.size.height*0.92})` )
                         .selectAll("rect")
                         .data(catSalaries.reverse())
                         .enter()
@@ -270,7 +270,7 @@ export default {
                         .attr("height", legendHeight)
                         .style("fill", d => color(d));
             lineContainer.append("g")
-                        .attr("transform", "translate(10,-300)" )
+                        .attr("transform", d => `translate(10,-${this.size.height*0.91})` )
                         .selectAll("text")
                         .data(catSalaries)
                         .enter()
@@ -279,7 +279,8 @@ export default {
                         .attr("x", (d, i) => legendElementWidth * i)
                         .attr("y", this.size.height - (legendHeight / 2)+5)
                         .style("font-size", "1rem")
-                        .style("fill", "light grey")
+                        .style("fill", "#A4A4A4")
+                        .style('font-weight', 'bold')
                         
         },
         no_chosen(){
@@ -290,23 +291,21 @@ export default {
                 .attr("width", this.size.width-this.margin.right+20)
                 .attr("height", this.size.height-this.margin.bottom+20 )
                 .style("fill", " #E6E3DB")
+
+            
             d3.select('#line-svg').append('g')
                 .append("text")
                 .attr("x", 20) // X-coordinate of the text
-                .attr("y", 90) // Y-coordinate of the first line
+                .attr("y", 120) // Y-coordinate of the first line
                 // .style('font-weight', 'bold')
                 .style('font-size', '1.2rem')
                 .style("line-height", "1.2") // Line height for spacing
                 .selectAll("tspan") // Create multiple <tspan> elements for each line
                 .data([
-                'There is a switch at the upper left corner in Fig. 1. If you turn the switch to the left, you will',
-                "see a scatter plot displayed. If it is turned right, a box plot will be displayed. You can select",
-                "the country you are interested in from the y-axis. Then Fig. 2 will pop up a parallel set plot",
+                'Select the country you are interested in from the y-axis. HERE will pop up a Sankey chart',
                 "showing the correspondence between salary range, experience level and company size for",
                 "the data scientists in the country you select. Hover your mouse over the nodes and links in",
-                "Fig. 2, the detailed information of the correspondence under the mouse will pop up. Zoom",
-                "and pan your mouse to the region interesting you in Fig. 2, you will see the region displayed",
-                "in a higher resolution."
+                "Fig. 2, the detailed information of the correspondence under the mouse will pop up. "
                 ])
                 .enter()
                 .append("tspan")
@@ -327,9 +326,262 @@ export default {
             }
         },
         country: function(value){
-            
-            this.newdata = Data.data.filter((d) => (d.company_location == value))
-                       
+            var isoCountries = {
+                'AF' : 'Afghanistan',
+                'AX' : 'Aland Islands',
+                'AL' : 'Albania',
+                'DZ' : 'Algeria',
+                'AS' : 'American Samoa',
+                'AD' : 'Andorra',
+                'AO' : 'Angola',
+                'AI' : 'Anguilla',
+                'AQ' : 'Antarctica',
+                'AG' : 'Antigua And Barbuda',
+                'AR' : 'Argentina',
+                'AM' : 'Armenia',
+                'AW' : 'Aruba',
+                'AU' : 'Australia',
+                'AT' : 'Austria',
+                'AZ' : 'Azerbaijan',
+                'BS' : 'Bahamas',
+                'BH' : 'Bahrain',
+                'BD' : 'Bangladesh',
+                'BB' : 'Barbados',
+                'BY' : 'Belarus',
+                'BE' : 'Belgium',
+                'BZ' : 'Belize',
+                'BJ' : 'Benin',
+                'BM' : 'Bermuda',
+                'BT' : 'Bhutan',
+                'BO' : 'Bolivia',
+                'BA' : 'Bosnia And Herzegovina',
+                'BW' : 'Botswana',
+                'BV' : 'Bouvet Island',
+                'BR' : 'Brazil',
+                'IO' : 'British Indian Ocean Territory',
+                'BN' : 'Brunei Darussalam',
+                'BG' : 'Bulgaria',
+                'BF' : 'Burkina Faso',
+                'BI' : 'Burundi',
+                'KH' : 'Cambodia',
+                'CM' : 'Cameroon',
+                'CA' : 'Canada',
+                'CV' : 'Cape Verde',
+                'KY' : 'Cayman Islands',
+                'CF' : 'Central African Republic',
+                'TD' : 'Chad',
+                'CL' : 'Chile',
+                'CN' : 'China',
+                'CX' : 'Christmas Island',
+                'CC' : 'Cocos (Keeling) Islands',
+                'CO' : 'Colombia',
+                'KM' : 'Comoros',
+                'CG' : 'Congo',
+                'CD' : 'Congo, Democratic Republic',
+                'CK' : 'Cook Islands',
+                'CR' : 'Costa Rica',
+                'CI' : 'Cote D\'Ivoire',
+                'HR' : 'Croatia',
+                'CU' : 'Cuba',
+                'CY' : 'Cyprus',
+                'CZ' : 'Czech Republic',
+                'DK' : 'Denmark',
+                'DJ' : 'Djibouti',
+                'DM' : 'Dominica',
+                'DO' : 'Dominican Republic',
+                'EC' : 'Ecuador',
+                'EG' : 'Egypt',
+                'SV' : 'El Salvador',
+                'GQ' : 'Equatorial Guinea',
+                'ER' : 'Eritrea',
+                'EE' : 'Estonia',
+                'ET' : 'Ethiopia',
+                'FK' : 'Falkland Islands (Malvinas)',
+                'FO' : 'Faroe Islands',
+                'FJ' : 'Fiji',
+                'FI' : 'Finland',
+                'FR' : 'France',
+                'GF' : 'French Guiana',
+                'PF' : 'French Polynesia',
+                'TF' : 'French Southern Territories',
+                'GA' : 'Gabon',
+                'GM' : 'Gambia',
+                'GE' : 'Georgia',
+                'DE' : 'Germany',
+                'GH' : 'Ghana',
+                'GI' : 'Gibraltar',
+                'GR' : 'Greece',
+                'GL' : 'Greenland',
+                'GD' : 'Grenada',
+                'GP' : 'Guadeloupe',
+                'GU' : 'Guam',
+                'GT' : 'Guatemala',
+                'GG' : 'Guernsey',
+                'GN' : 'Guinea',
+                'GW' : 'Guinea-Bissau',
+                'GY' : 'Guyana',
+                'HT' : 'Haiti',
+                'HM' : 'Heard Island & Mcdonald Islands',
+                'VA' : 'Holy See (Vatican City State)',
+                'HN' : 'Honduras',
+                'HK' : 'Hong Kong',
+                'HU' : 'Hungary',
+                'IS' : 'Iceland',
+                'IN' : 'India',
+                'ID' : 'Indonesia',
+                'IR' : 'Iran, Islamic Republic Of',
+                'IQ' : 'Iraq',
+                'IE' : 'Ireland',
+                'IM' : 'Isle Of Man',
+                'IL' : 'Israel',
+                'IT' : 'Italy',
+                'JM' : 'Jamaica',
+                'JP' : 'Japan',
+                'JE' : 'Jersey',
+                'JO' : 'Jordan',
+                'KZ' : 'Kazakhstan',
+                'KE' : 'Kenya',
+                'KI' : 'Kiribati',
+                'KR' : 'Korea',
+                'KW' : 'Kuwait',
+                'KG' : 'Kyrgyzstan',
+                'LA' : 'Lao People\'s Democratic Republic',
+                'LV' : 'Latvia',
+                'LB' : 'Lebanon',
+                'LS' : 'Lesotho',
+                'LR' : 'Liberia',
+                'LY' : 'Libyan Arab Jamahiriya',
+                'LI' : 'Liechtenstein',
+                'LT' : 'Lithuania',
+                'LU' : 'Luxembourg',
+                'MO' : 'Macao',
+                'MK' : 'Macedonia',
+                'MG' : 'Madagascar',
+                'MW' : 'Malawi',
+                'MY' : 'Malaysia',
+                'MV' : 'Maldives',
+                'ML' : 'Mali',
+                'MT' : 'Malta',
+                'MH' : 'Marshall Islands',
+                'MQ' : 'Martinique',
+                'MR' : 'Mauritania',
+                'MU' : 'Mauritius',
+                'YT' : 'Mayotte',
+                'MX' : 'Mexico',
+                'FM' : 'Micronesia, Federated States Of',
+                'MD' : 'Moldova',
+                'MC' : 'Monaco',
+                'MN' : 'Mongolia',
+                'ME' : 'Montenegro',
+                'MS' : 'Montserrat',
+                'MA' : 'Morocco',
+                'MZ' : 'Mozambique',
+                'MM' : 'Myanmar',
+                'NA' : 'Namibia',
+                'NR' : 'Nauru',
+                'NP' : 'Nepal',
+                'NL' : 'Netherlands',
+                'AN' : 'Netherlands Antilles',
+                'NC' : 'New Caledonia',
+                'NZ' : 'New Zealand',
+                'NI' : 'Nicaragua',
+                'NE' : 'Niger',
+                'NG' : 'Nigeria',
+                'NU' : 'Niue',
+                'NF' : 'Norfolk Island',
+                'MP' : 'Northern Mariana Islands',
+                'NO' : 'Norway',
+                'OM' : 'Oman',
+                'PK' : 'Pakistan',
+                'PW' : 'Palau',
+                'PS' : 'Palestinian Territory, Occupied',
+                'PA' : 'Panama',
+                'PG' : 'Papua New Guinea',
+                'PY' : 'Paraguay',
+                'PE' : 'Peru',
+                'PH' : 'Philippines',
+                'PN' : 'Pitcairn',
+                'PL' : 'Poland',
+                'PT' : 'Portugal',
+                'PR' : 'Puerto Rico',
+                'QA' : 'Qatar',
+                'RE' : 'Reunion',
+                'RO' : 'Romania',
+                'RU' : 'Russian Federation',
+                'RW' : 'Rwanda',
+                'BL' : 'Saint Barthelemy',
+                'SH' : 'Saint Helena',
+                'KN' : 'Saint Kitts And Nevis',
+                'LC' : 'Saint Lucia',
+                'MF' : 'Saint Martin',
+                'PM' : 'Saint Pierre And Miquelon',
+                'VC' : 'Saint Vincent And Grenadines',
+                'WS' : 'Samoa',
+                'SM' : 'San Marino',
+                'ST' : 'Sao Tome And Principe',
+                'SA' : 'Saudi Arabia',
+                'SN' : 'Senegal',
+                'RS' : 'Serbia',
+                'SC' : 'Seychelles',
+                'SL' : 'Sierra Leone',
+                'SG' : 'Singapore',
+                'SK' : 'Slovakia',
+                'SI' : 'Slovenia',
+                'SB' : 'Solomon Islands',
+                'SO' : 'Somalia',
+                'ZA' : 'South Africa',
+                'GS' : 'South Georgia And Sandwich Isl.',
+                'ES' : 'Spain',
+                'LK' : 'Sri Lanka',
+                'SD' : 'Sudan',
+                'SR' : 'Suriname',
+                'SJ' : 'Svalbard And Jan Mayen',
+                'SZ' : 'Swaziland',
+                'SE' : 'Sweden',
+                'CH' : 'Switzerland',
+                'SY' : 'Syrian Arab Republic',
+                'TW' : 'Taiwan',
+                'TJ' : 'Tajikistan',
+                'TZ' : 'Tanzania',
+                'TH' : 'Thailand',
+                'TL' : 'Timor-Leste',
+                'TG' : 'Togo',
+                'TK' : 'Tokelau',
+                'TO' : 'Tonga',
+                'TT' : 'Trinidad And Tobago',
+                'TN' : 'Tunisia',
+                'TR' : 'Turkey',
+                'TM' : 'Turkmenistan',
+                'TC' : 'Turks And Caicos Islands',
+                'TV' : 'Tuvalu',
+                'UG' : 'Uganda',
+                'UA' : 'Ukraine',
+                'AE' : 'United Arab Emirates',
+                'GB' : 'United Kingdom',
+                'US' : 'United States',
+                'UM' : 'United States Outlying Islands',
+                'UY' : 'Uruguay',
+                'UZ' : 'Uzbekistan',
+                'VU' : 'Vanuatu',
+                'VE' : 'Venezuela',
+                'VN' : 'Viet Nam',
+                'VG' : 'Virgin Islands, British',
+                'VI' : 'Virgin Islands, U.S.',
+                'WF' : 'Wallis And Futuna',
+                'EH' : 'Western Sahara',
+                'YE' : 'Yemen',
+                'ZM' : 'Zambia',
+                'ZW' : 'Zimbabwe'
+            };
+            function getCountryName (countryCode) {
+                    if (isoCountries.hasOwnProperty(countryCode)) {
+                        return isoCountries[countryCode];
+                    } else {
+                        return countryCode;
+                    }
+            }
+            this.newdata = Data.data.filter((d) => (getCountryName(d.company_location) == value))
+                    
             this.initSan()
         },
         
