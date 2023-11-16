@@ -2,7 +2,8 @@ import * as d3 from "d3";
 import Data from "../data/iso_name.json";
 import { unroll } from "./utils";
 import { isEmpty, debounce } from "lodash";
-import { scatterColorScheme } from "./globals";
+import { bubbleColorScheme } from "./globals";
+import { legendColor, legendHelpers } from "d3-svg-legend";
 
 const margin = { top: 20, right: 35, bottom: 20, left: 25 };
 let size = { width: 0, height: 0 };
@@ -69,6 +70,8 @@ export const BubbleChart = () =>
   `<div class='chart-container-2 flex-column' id='bubble-container'>
       <svg id='bubble-svg' width='100%' height='100%'>
       </svg>
+  </div>
+  <div>
   </div>`;
 
 export function mountBubbleChart() {
@@ -95,7 +98,7 @@ function initBubbleChart() {
   // Add X axis
   const xScale = d3
     .scaleBand()
-    .rangeRound([margin.left, size.width - margin.right])
+    .rangeRound([margin.left, size.width * 0.8 - margin.right])
     .domain(xCategories)
     .paddingInner(1)
     .paddingOuter(0.5);
@@ -129,10 +132,11 @@ function initBubbleChart() {
   // const zScale = d3.scaleLinear().domain([0, zExtents[1]]).range([4, 10]);
 
   // Add a scale for bubble color
-  const myColor = scatterColorScheme;
+  const myColor = bubbleColorScheme(country_name);
 
   // -1- Create a Tooltip div that is hidden by default:
-  const tooltip = d3.select("#bubble-container")
+  const tooltip = d3
+    .select("#bubble-container")
     .append("div")
     .style("opacity", 0)
     .attr("class", "bubble-tooltip")
@@ -148,17 +152,17 @@ function initBubbleChart() {
       Tooltip.style("opacity", "0");
     });
 
-//   const line = d3.line()
-//   .x(d => xScale(d.x))
-//   .y(d => yScale(d.y))
-// svg.selectAll("myLines")
-//   .data(bubbleData)
-//   .join("path")
-//     .attr("class", d => d.fill)
-//     .attr("d", d => line(d.values))
-//     .attr("stroke", (d) => (d.fill == "US" ? myColor("US") : myColor("ROW")))
-//     .style("stroke-width", 4)
-//     .style("fill", "none")
+  //   const line = d3.line()
+  //   .x(d => xScale(d.x))
+  //   .y(d => yScale(d.y))
+  // svg.selectAll("myLines")
+  //   .data(bubbleData)
+  //   .join("path")
+  //     .attr("class", d => d.fill)
+  //     .attr("d", d => line(d.values))
+  //     .attr("stroke", (d) => (d.fill == "US" ? myColor("US") : myColor("ROW")))
+  //     .style("stroke-width", 4)
+  //     .style("fill", "none")
 
   // Add dots
   const jitterWidth = size.width * 0.1;
@@ -167,34 +171,48 @@ function initBubbleChart() {
     .selectAll("dot")
     .data(bubbleData)
     .join("circle")
-    .attr("class", d => d.fill)
+    .attr("class", (d) => d.fill)
     .attr(
       "cx",
       (d) => xScale(d.x) - jitterWidth / 2 + Math.random() * jitterWidth
     )
     .attr("cy", (d) => yScale(d.y))
     .attr("r", 10)
-    .style("fill", (d) => (d.fill == country_name ? myColor(country_name) : myColor("ROW")))
+    .style("fill", (d) =>
+      d.fill == country_name ? myColor(country_name) : myColor("ROW")
+    )
     // -3- Trigger the functions
     .on("mouseover", (event, d) => {
-      tooltip
-      .style("opacity", 1)
+      tooltip.style("opacity", 1);
     })
     .on("mousemove", (event, d) => {
-      const region_name = d.fill == country_name ? Data.iso[country_name] : "Rest of World";
+      const region_name =
+        d.fill == country_name ? Data.iso[country_name] : "Rest of World";
       tooltip
-        .html(`${region_name}<br>Avg salary:$${convertToInternationalCurrencySystem(
-          parseInt(d.y)
-        )}`)
-        .style("left", (event.x) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-        .style("top", (event.y)/2 + "px")
+        .html(
+          `${region_name}<br>Avg salary:$${convertToInternationalCurrencySystem(
+            parseInt(d.y)
+          )}`
+        )
+        .style("left", event.x + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+        .style("top", event.y / 2 + "px");
     })
     .on("mouseleave", (event, d) => {
-        tooltip
-          .transition()
-          .duration(200)
-          .style("opacity", 0)
+      tooltip.transition().duration(200).style("opacity", 0);
     });
+
+  svg
+    .append("g")
+    .attr("class", "legendBubble")
+    .attr("transform", `translate(${size.width*0.8},50)`);
+
+  const legend = legendColor()
+    .scale(myColor)
+    .orient("vertical")
+    .labelOffset(3)
+    .shapePadding(0);
+
+    svg.select(".legendBubble").call(legend);
 }
 
 export function updateBubbleChart(country) {
