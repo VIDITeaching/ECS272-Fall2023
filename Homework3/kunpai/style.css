@@ -1,0 +1,92 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+#main-container {
+  /* height: 100%; */
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-container {
+  height: 100%;
+}
+
+.star-container {
+  height: 100%;
+}
+
+.pie-chart-container {
+  height: 50%;
+}
+
+.heat-map-container {
+  height: 50%;
+}
+
+.stacked-bar-chart-container {
+  height: 50%;
+}
+
+.bar-chart-container {
+  height: 50%;
+}
+
+.highlight {
+  stroke: #000;
+}
+
+rect,
+circle,
+path {
+  transition: all 0.1s ease-in-out;
+}
+
+.navbar-fixed nav {
+  /* background-color: #008080; */
+  background: url("https://wallpaperswide.com/download/pokemon_pokeball-wallpaper-2048x768.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.navbar-fixed nav .brand-logo {
+  font-size: 50px;
+}
+
+#note-card {
+  margin: 1rem 1rem;
+
+}
