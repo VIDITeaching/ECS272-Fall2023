@@ -17,7 +17,8 @@ export function updateCharts(key) {
 export const mapColorScheme = d3
   .scaleThreshold()
   .domain([10000, 100000, 1000000, 10000000])
-  .range(["#F2B279", "#F2CCB6", "#F2E4DC", "#0D0D0D"])
+  .range(["#F2E4DC", "#F2CCB6", "#F2B279", "#0D0D0D"])
+  // .range(["#F2B279", "#F2CCB6", "#F2E4DC", "#0D0D0D"])
   // .range(["#0D0D0D", "#F2E4DC", "#F2CCB6", "#F2B279"])
   .unknown("#EBEBF2"); // #EBEBF2 or #FEFFFE
 
