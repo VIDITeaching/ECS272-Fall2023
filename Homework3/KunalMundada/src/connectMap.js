@@ -264,7 +264,7 @@ function initChart() {
   map
     .append("g")
     .attr("class", "legendThreshold")
-    .attr("transform", "translate(5,350)");
+    .attr("transform", `translate(${size.width*0.05},${size.height*0.65})`);
 
   const legend = legendColor()
     .labelFormat(d3.format(",.0f"))
