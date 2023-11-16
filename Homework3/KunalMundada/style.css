@@ -16,7 +16,7 @@ body {
 }
 
 p {
-  font-size: 14px;
+  font-size: 18px;
   text-align: center;
   text-decoration: underline;
 }
@@ -28,6 +28,7 @@ p {
 
 .d-flex {
   display: flex;
+
 }
 
 .flex-column {

@@ -108,7 +108,7 @@ function initBubbleChart() {
     .attr("x", size.width / 2)
     .attr("y", 0)
     .attr("text-anchor", "middle")
-    .style("font-size", "14px")
+    .style("font-size", "18px")
     .style("text-decoration", "underline")
     .text(`Avg Salary from 2020 - 2023 in ${Data.iso[country_name]}`);
 
