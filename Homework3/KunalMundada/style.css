@@ -58,18 +58,20 @@ p {
 }
 
 .chart-container-1 {
-  border-color: black;
-  border-style: dashed;
-  padding: 3%;
-  height: 70%;
+  padding: 1%;
+  height: 100%;
   width: 100%;
 }
 
 .chart-container-2 {
-  border-color: black;
-  border-style: dashed;
+  padding: 1%;
+  height: 40%;
+  width: 100%;
+}
+
+.chart-container-3 {
   padding: 3%;
-  height: 50%;
+  height: 60%;
   width: 100%;
 }
 
