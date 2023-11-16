@@ -79,7 +79,7 @@ export function mountBubbleChart() {
   chartObserver.observe(bubbleContainer);
 }
 
-function initBubbleChart() {
+function initBubbleChart(country_color) {
   bubbleData = getBubbleData(rawData);
   const svg = d3
     .select("#bubble-svg")
@@ -148,7 +148,7 @@ function initBubbleChart() {
   // const zScale = d3.scaleLinear().domain([0, zExtents[1]]).range([4, 10]);
 
   // Add a scale for bubble color
-  const myColor = bubbleColorScheme(country_name);
+  const myColor = bubbleColorScheme(country_name, country_color);
 
   // -1- Create a Tooltip div that is hidden by default:
   const tooltip = d3
@@ -232,8 +232,8 @@ function initBubbleChart() {
     svg.select(".legendBubble").call(legend);
 }
 
-export function updateBubbleChart(country) {
+export function updateBubbleChart(country, country_color) {
   country_name = country;
   d3.select("#bubble-svg").selectAll("*").remove();
-  initBubbleChart();
+  initBubbleChart(country_color);
 }

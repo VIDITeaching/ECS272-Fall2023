@@ -200,8 +200,8 @@ function initChart() {
         feature.properties.total = value.market_size;
         return colorScale(value.market_size);
       } else {
-        feature.properties.total = 0;
-        return colorScale(null);
+        feature.properties.total = null;
+        return colorScale(feature.properties.total);
       }
     })
     .attr("d", (feature) => {
@@ -252,7 +252,12 @@ function initChart() {
     .on("click", (event, feature) => {
       if (feature.properties.name != country_name) {
         country_name = feature.properties.name;
-        updateCharts(Data.name[feature.properties.name]);
+        if(feature.properties.total != null) {
+          updateCharts(
+            [Data.name[feature.properties.name],
+            colorScale(feature.properties.total)]
+          );
+        }
       }
       // d3.selectAll(".country")
       //   .transition()
