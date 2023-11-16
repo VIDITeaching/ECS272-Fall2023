@@ -2,13 +2,10 @@ import * as d3 from "d3";
 import { updateBubbleChart } from "./bubblechart";
 import { updateSunburstChart } from "./sunburst";
 
-let country_name;
 
 export function updateCharts(key) {
-  country_name = key;
   updateBubbleChart(key);
   updateSunburstChart(key);
-  country_name = key;
 }
 
 // export const mapColorScheme = d3
@@ -24,10 +21,9 @@ export const mapColorScheme = d3
   // .range(["#0D0D0D", "#F2E4DC", "#F2CCB6", "#F2B279"])
   .unknown("#EBEBF2"); // #EBEBF2 or #FEFFFE
 
-export const scatterColorScheme = d3
-  .scaleOrdinal()
-  .domain([country_name, "ROW"])
-  .range(["#F2B279", "#0D0D0D"]);
+export function bubbleColorScheme (country) {
+  return d3.scaleOrdinal().domain([country, "ROW"]).range(["#F2B279", "#0D0D0D"]);
+}
 
 export function sunburstColorScheme(data) {
   return d3.scaleOrdinal(
