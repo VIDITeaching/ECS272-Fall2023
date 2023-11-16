@@ -12,7 +12,6 @@ import type { Pokemon } from '@/types/Pokemon';
 // stores
 import { pokemonStore } from '../stores/pokemon';
 import { storeToRefs } from 'pinia';
-import { fi } from 'vuetify/locale';
 
 // get store refs
 const { getPokemon, type_colors } = storeToRefs(pokemonStore());
@@ -37,7 +36,7 @@ function formatNumber(num: string) {
 }
 
 function add(pokemon: Pokemon) {
-    if (pokemon) {
+    if (pokemon && !pokemon_list.value.map(x => x.Number).includes(pokemon.Number)) {
         pokemon_list.value.push(pokemon);
     }
 }
