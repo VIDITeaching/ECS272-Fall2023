@@ -1,9 +1,10 @@
 import * as d3 from "d3";
 import Data from "../data/iso_name.json";
-import axios from "axios";
+// import axios from "axios";
 import { isEmpty, debounce } from "lodash";
 import { unroll } from "./utils";
 import { sunburstColorScheme } from "./globals";
+import { legendColor } from "d3-svg-legend";
 
 const margin = { left: 40, right: 20, top: 50, bottom: 60 };
 let size = { width: 0, height: 0 };
@@ -179,7 +180,7 @@ function initChart() {
   // .call(legend);
   svg
     .append("g")
-    .attr('transform', `translate(${size.width / 2}, ${margin.top + 14 + 6 + radius})`)
+    .attr('transform', `translate(${size.width / 2.5}, ${margin.top + 14 + 6 + radius})`)
     .attr("fill-opacity", 0.6)
     .selectAll("path")
     .data(root.descendants().filter((d) => d.depth))
@@ -202,7 +203,7 @@ function initChart() {
 
   svg
     .append("g")
-    .attr('transform', `translate(${size.width / 2}, ${margin.top + 14 + 6 + radius})`)
+    .attr('transform', `translate(${size.width / 2.5}, ${margin.top + 14 + 6 + radius})`)
     .attr("pointer-events", "none")
     .attr("text-anchor", "middle")
     .attr("font-size", 10)
@@ -226,6 +227,20 @@ function initChart() {
       else return "black";
     })
     .text((d) => d.data.name);
+
+    svg
+    .append("g")
+    .attr("class", "legendSunburst")
+    .attr("transform", `translate(${size.width*0.7},${size.height*0.3})`);
+
+  const legend = legendColor()
+    .scale(color)
+    .orient("vertical")
+    .labelOffset(3)
+    .title("Legend")
+    .shapePadding(5);
+
+    svg.select(".legendSunburst").call(legend);
 }
 
 export function updateSunburstChart(country){
