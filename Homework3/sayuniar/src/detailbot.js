@@ -134,6 +134,7 @@ export function mountDetailBot(_data, _context) {
                 .transition()
                 .duration(200)
                 .attr('y', getY)
+                .attr("width", x.bandwidth())
                 .attr('height', getHeight)
             barrect
                 .transition()
@@ -152,6 +153,7 @@ export function mountDetailBot(_data, _context) {
                 .transition()
                 .duration(200)
                 .attr('x', getX)
+                .attr("width", x.bandwidth() / 3)
             barrect
                 .transition()
                 .duration(200)
@@ -190,7 +192,7 @@ function initChart() {
             .attr('x', (d) => x(d.favGenre))
             .attr('y', (d) => y(d["Anxiety"]) + y(d["Depression"]) + y(d["Insomnia"]) + y(d["OCD"]) - y(0) * 3)
             .attr("height", (d) => y(0) - y(d["Anxiety"]))
-            .attr("width", x.bandwidth() / 3)
+            .attr("width", x.bandwidth())
             .attr("fill", d => color("Anxiety"))
             .attr("opacity", d => (!gcontext.genre || gcontext.genre == d.favGenre) ? 1 : 0.1)
 
@@ -199,7 +201,7 @@ function initChart() {
             .attr('x', (d) => x(d.favGenre))
             .attr('y', (d) => y(d["Depression"]) + y(d["Insomnia"]) + y(d["OCD"]) - y(0) * 2)
             .attr("height", (d) => y(0) - y(d["Depression"]))
-            .attr("width", x.bandwidth() / 3)
+            .attr("width", x.bandwidth())
             .attr("fill", d => color("Depression"))
             .attr("opacity", d => (!gcontext.genre || gcontext.genre == d.favGenre) ? 1 : 0.1)
 
@@ -208,7 +210,7 @@ function initChart() {
             .attr('x', (d) => x(d.favGenre))
             .attr('y', (d) => y(d["Insomnia"]) + y(d["OCD"]) - y(0))
             .attr("height", (d) => y(0) - y(d["Insomnia"]))
-            .attr("width", x.bandwidth() / 3)
+            .attr("width", x.bandwidth())
             .attr("fill", d => color("Insomnia"))
             .attr("opacity", d => (!gcontext.genre || gcontext.genre == d.favGenre) ? 1 : 0.1)
 
@@ -217,7 +219,7 @@ function initChart() {
             .attr('x', (d) => x(d.favGenre))
             .attr('y', (d) => y(d["OCD"]))
             .attr("height", (d) => y(0) - y(d["OCD"]))
-            .attr("width", x.bandwidth() / 3)
+            .attr("width", x.bandwidth())
             .attr("fill", d => color("OCD"))
             .attr("opacity", d => (!gcontext.genre || gcontext.genre == d.favGenre) ? 1 : 0.1)
     }

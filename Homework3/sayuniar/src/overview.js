@@ -47,9 +47,10 @@ function initChart() {
 
     const svg = d3.select("#overview-svg")
 
-    const color = d3.scaleOrdinal()
-        .domain(["Latin", "Rock", "Video game music", "Jazz", "R&B", "K pop", "Country", "EDM", "Hip hop", "Pop", "Rap", "Classical", "Metal", "Folk", "Lofi", "Gospel"])
-        .range(["#2f4f4f", "#800000", "#006400", "#b8860b", "#00008b", "#ff0000", "#00ced1", "#7cfc00", "#00fa9a", "#0000ff", "#ff00ff", "#1e90ff", "#ffff54", "#dda0dd", "#ff1493", "#ffe4b5"])
+    const color = () => "#800000"
+    // d3.scaleOrdinal()
+    //     .domain(["Latin", "Rock", "Video game music", "Jazz", "R&B", "K pop", "Country", "EDM", "Hip hop", "Pop", "Rap", "Classical", "Metal", "Folk", "Lofi", "Gospel"])
+    //     .range(["#2f4f4f", "#800000", "#006400", "#b8860b", "#00008b", "#ff0000", "#00ced1", "#7cfc00", "#00fa9a", "#0000ff", "#ff00ff", "#1e90ff", "#ffff54", "#dda0dd", "#ff1493", "#ffe4b5"])
 
     const dimensions = ["Age", "Anxiety", "Depression", "Insomnia", "OCD"]
 
@@ -72,24 +73,25 @@ function initChart() {
         selected_genre = d["Fav genre"]
         ppath.each(function(pd) {
 
-            if (pd["Fav genre"] == selected_genre) {
-                if (selected.length != 0 && !selected.includes(pd))
-                    d3.select(this)
-                        // .transition().duration(200)
-                        .style("stroke", color(selected_genre))
-                        .style("opacity", "0.15")
-                else
-                    d3.select(this)
-                        .raise()
-                        // .transition().duration(200)
-                        .style("stroke", color(selected_genre))
-                        .style("opacity", "1")
+            if ((selected.length == 0 || selected.includes(pd)) && (!selected_genre || pd["Fav genre"] == selected_genre)) {
+                d3.select(this)
+                    .raise()
+                    // .transition().duration(200)
+                    .style("stroke", color(pd["Fav genre"]))
+                    .style("opacity", "1")
+            }
+            else if (pd["Fav genre"] == selected_genre) {
+                d3.select(this)
+                    // .transition().duration(200)
+                    .style("stroke", color(pd["Fav genre"]))
+                    .style("opacity", "0.05")
             }
             else {
                 d3.select(this)
                 // .transition().duration(200)
+                .lower()
                 .style("stroke", "lightgrey")
-                .style("opacity", "0.15")
+                .style("opacity", "0.5")
             }
         });
         d3.selectAll(".leg-item")
@@ -105,28 +107,35 @@ function initChart() {
     }
 
     const doNotHighlight = function (event, d) {
-        selected_genre = ""
+        selected_genre = null
         ppath.each(function(pd) {
 
-            if (selected.length == 0 || selected.includes(pd)) {
+            if ((selected.length == 0 || selected.includes(pd)) && (!selected_genre || pd["Fav genre"] == selected_genre)) {
                 d3.select(this)
-                .raise()
-                // .transition().duration(200)
-                .style("stroke", color(pd["Fav genre"]))
-                .style("opacity", "1")
+                    .raise()
+                    // .transition().duration(200)
+                    .style("stroke", color(pd["Fav genre"]))
+                    .style("opacity", "1")
+            }
+            else if (pd["Fav genre"] == selected_genre) {
+                d3.select(this)
+                    // .transition().duration(200)
+                    .style("stroke", color(pd["Fav genre"]))
+                    .style("opacity", "0.05")
             }
             else {
                 d3.select(this)
                 // .transition().duration(200)
+                .lower()
                 .style("stroke", "lightgrey")
-                .style("opacity", "0.15")
+                .style("opacity", "0.5")
             }
         });
-
         d3.selectAll(".leg-item")
             // .transition().duration(200)
             .style("opacity", "1")
-        gcontext.genre = null
+
+        gcontext.genre = selected_genre
         gcontext.keepsame = "overview"
         gcontext.reset()
     }
@@ -189,12 +198,12 @@ function initChart() {
         key.append("title")
             .text(val)
     
-        key.append("rect")
-            .attr("width", 10)
-            .attr("height", 10)
-            .attr("x", -12)
-            .attr("y", -10)
-            .attr("fill", color(val))
+        // key.append("rect")
+        //     .attr("width", 10)
+        //     .attr("height", 10)
+        //     .attr("x", -12)
+        //     .attr("y", -10)
+        //     .attr("fill", color(val))
     
         key.append("text")
             .text(shorten(val))
@@ -241,24 +250,25 @@ function initChart() {
                 }
             }
 
-            if (d["Fav genre"] == selected_genre) {
-                if (selected.length != 0 && !selected.includes(d))
-                    d3.select(this)
-                        // .transition().duration(200)
-                        .style("stroke", color(selected_genre))
-                        .style("opacity", "0.15")
-                else
-                    d3.select(this)
-                        .raise()
-                        // .transition().duration(200)
-                        .style("stroke", color(selected_genre))
-                        .style("opacity", "1")
+            if (active && (!selected_genre || d["Fav genre"] == selected_genre)) {
+                d3.select(this)
+                    .raise()
+                    // .transition().duration(200)
+                    .style("stroke", color(d["Fav genre"]))
+                    .style("opacity", "1")
+            }
+            else if (d["Fav genre"] == selected_genre) {
+                d3.select(this)
+                    // .transition().duration(200)
+                    .style("stroke", color(d["Fav genre"]))
+                    .style("opacity", "0.05")
             }
             else {
                 d3.select(this)
                 // .transition().duration(200)
+                .lower()
                 .style("stroke", "lightgrey")
-                .style("opacity", "0.15")
+                .style("opacity", "0.5")
             }
         });
     }

@@ -39,9 +39,38 @@ export const DetailTop = () => (`
 `)
 
 let x, gx, xAxis
+let selectedMI = ""
+
+const highlight = function (event) {
+    d3.select("#detailtop-svg")
+        .selectAll(".cscat")
+        // .data([...gdata, ...gdata, ...gdata, ...gdata])
+        // .join("circle")
+            .transition()
+            .duration(200)
+            .attr("r", d => (selectedMI == "" || selectedMI == d["MI"]) && (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 5 : 0)
+}
+
+const doNotHighlight = function (event) {
+    d3.select("#detailtop-svg")
+        .selectAll(".cscat")
+        // .data([...gdata, ...gdata, ...gdata, ...gdata])
+        // .join("circle")
+            .transition()
+            .duration(200)
+            .attr("r", d => (selectedMI == "" || selectedMI == d["MI"]) && (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 5 : 0)
+}
 
 export function mountDetailTop(_data, _context) {
     gdata = _data.filter(d => d["Hours per day"] && d["BPM"] < 250 && d["BPM"] > 0)
+    
+    gdata = [
+        ...gdata.map(g => ({ ...g, MI: "Anxiety", Measure: g["Anxiety"] })),
+        ...gdata.map(g => ({ ...g, MI: "Depression", Measure: g["Depression"] })),
+        ...gdata.map(g => ({ ...g, MI: "Insomnia", Measure: g["Insomnia"] })),
+        ...gdata.map(g => ({ ...g, MI: "OCD", Measure: g["OCD"] })),
+    ]
+
     gcontext = _context
     let barContainer = document.querySelector('#detailtop')
     chartObserver.observe(barContainer)
@@ -67,6 +96,7 @@ export function mountDetailTop(_data, _context) {
     })
 }
 
+
 function initChart() {    
     
     let dd = document.querySelector('#scat-param').style
@@ -90,34 +120,11 @@ function initChart() {
     circs.append("circle")
         .attr("class", "cscat")
         .attr('cx', (d) => x(d[gmode]))
-        .attr('cy', (d) => y(d["Anxiety"]))
-        .attr("r", (d) => 5)
-        .attr("fill", d => color("Anxiety"))
-        .attr("opacity", d => (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
-
-    circs.append("circle")
-        .attr("class", "cscat")
-        .attr('cx', (d) => x(d[gmode]))
-        .attr('cy', (d) => y(d["Depression"]))
-        .attr("r", (d) => 5)
-        .attr("fill", d => color("Depression"))
-        .attr("opacity", d => (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
-
-    circs.append("circle")
-        .attr("class", "cscat")
-        .attr('cx', (d) => x(d[gmode]))
-        .attr('cy', (d) => y(d["Insomnia"]))
-        .attr("r", (d) => 5)
-        .attr("fill", d => color("Insomnia"))
-        .attr("opacity", d => (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
-
-    circs.append("circle")
-        .attr("class", "cscat")
-        .attr('cx', (d) => x(d[gmode]))
-        .attr('cy', (d) => y(d["OCD"]))
-        .attr("r", (d) => 5)
-        .attr("fill", d => color("OCD"))
-        .attr("opacity", d => (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
+        .attr('cy', (d) => y(d["Measure"]))
+        // .attr("r", (d) => 5)
+            .attr("r", d => (selectedMI == "" || selectedMI == d["MI"]) && (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 5 : 0)
+            .attr("fill", d => color(d["MI"]))
+        // .attr("opacity", d => (!selectedMI || selectedMI == d["MI"]) && (!gcontext.genre || gcontext.genre == d["Fav genre"]) ? 1 : 0)
 
     xAxis = g => g
         .attr("transform", `translate(0,${size.height - margin.bottom})`)
@@ -173,6 +180,17 @@ function initChart() {
         key.append("text")
             .text(val)
             .attr("font-size", 10)
+            .on("click", evt => {
+                if (selectedMI != val) {
+                    selectedMI = val
+                    highlight(evt)
+                }
+                else {
+                    selectedMI = ""
+                    doNotHighlight(evt)
+                }
+                // clicked = !clicked
+            })
 
         offset += 100
 
