@@ -154,31 +154,32 @@ function initChart() {
 
   const svg = d3
     .select("#sunburst-svg")
-    .attr("viewBox", `-${0} -${radius} ${2 * radius} ${2 * radius}`)
+    // .attr("viewBox", `-${0} -${radius} ${2 * radius} ${2 * radius}`)
     .style("font", "10px sans-serif");
 
   svg
     .append("text")
-    .attr("x", 2 * radius)
-    .attr("y", margin.top - radius)
+    .attr("x", size.width / 2)
+    .attr("y", margin.top)
     .attr("text-anchor", "middle")
     .style("font-size", "14px")
     .style("text-decoration", "underline")
-    .text("Job distribution across company size & experience");
-    svg
-    .append("text")
-    .attr("x", 2 * radius)
-    .attr("y", margin.top - radius + 20)
-    .attr("text-anchor", "middle")
-    .style("font-size", "14px")
-    .style("text-decoration", "underline")
-    .text(`level in ${Data.iso[country_name]}`);
+    .text(`Job distribution across company size & experience level in ${Data.iso[country_name]}`);
+    // svg
+    // .append("text")
+    // .attr("x", 2 * radius)
+    // .attr("y", margin.top - radius + 20)
+    // .attr("text-anchor", "middle")
+    // .style("font-size", "14px")
+    // .style("text-decoration", "underline")
+    // .text(`level in ${Data.iso[country_name]}`);
 
   // svg.append("g")
   // .attr("transform", `translate(${2*radius},0)`)
   // .call(legend);
   svg
     .append("g")
+    .attr('transform', `translate(${size.width / 2}, ${margin.top + 14 + 6 + radius})`)
     .attr("fill-opacity", 0.6)
     .selectAll("path")
     .data(root.descendants().filter((d) => d.depth))
@@ -201,6 +202,7 @@ function initChart() {
 
   svg
     .append("g")
+    .attr('transform', `translate(${size.width / 2}, ${margin.top + 14 + 6 + radius})`)
     .attr("pointer-events", "none")
     .attr("text-anchor", "middle")
     .attr("font-size", 10)
