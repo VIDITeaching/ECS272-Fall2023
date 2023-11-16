@@ -46,10 +46,10 @@ function convertToHierarchicalStructure(data) {
 function getSunburstData(data) {
   // The code for preparing Sunburst data (as provided in previous steps) goes here.
   const experienceLevel = {
-    EN: "Entry Level",
-    MI: "Mid Level",
-    SE: "Senior Level",
-    EX: "Executive Level",
+    EN: "Entry",
+    MI: "Mid",
+    SE: "Senior",
+    EX: "Exec",
   };
   const companySize = {
     S: "Small",
@@ -106,7 +106,7 @@ const onResize = (targets) => {
 const chartObserver = new ResizeObserver(debounce(onResize, 100));
 //   <h6>Distribution of Jobs across companies and experience levels</h6>
 export const SunburstChart = () =>
-  `<div class='chart-container-2 d-flex flex-column' id='sunburst-container'>
+  `<div class='chart-container-3 d-flex flex-column' id='sunburst-container'>
     
       <svg id='sunburst-svg' width='100%' height='100%'>
       </svg>
@@ -127,7 +127,8 @@ function initChart() {
   //   .scaleOrdinal()
   //   .domain(["Small", "Rest of World"])
   //   .range(["#3978B6", "#BDD1EA"]);
-  const radius = Math.min(size.width, size.height) / 2;
+  // const viewradius = Math.min(size.width-margin.left-margin.right, size.height) / 2;
+  const radius = Math.min(size.width-margin.left-margin.right, size.height-margin.top - margin.bottom) / 2;
 
   const partition = (data) =>
     d3.partition().size([2 * Math.PI, radius])(
@@ -184,6 +185,7 @@ function initChart() {
     .join("path")
     .attr("fill", (d) => {
       while (d.depth > 1) d = d.parent;
+      console.log(d.data.name);
       return color(d.data.name);
     })
     .attr("d", arc)
