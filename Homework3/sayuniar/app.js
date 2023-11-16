@@ -13,20 +13,25 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-let data = d3.csvParse((await axios.get('./data/mxmh_survey_results.csv')).data, d3.autoType)
+const main = async () => {
+  
+  let data = d3.csvParse((await axios.get('./data/mxmh_survey_results.csv')).data, d3.autoType)
 
-let context = {}
+  let context = {}
 
-const reset = () => {
-  console.log(context)
-  resetOverview()
-  resetDetailTop()
-  resetDetailBot()
-  context.keepsame = null
+  const reset = () => {
+    console.log(context)
+    resetOverview()
+    resetDetailTop()
+    resetDetailBot()
+    context.keepsame = null
+  }
+
+  context.reset = reset
+
+  mountOverview(data, context)
+  mountDetailTop(data, context)
+  mountDetailBot(data, context)
 }
 
-context.reset = reset
-
-mountOverview(data, context)
-mountDetailTop(data, context)
-mountDetailBot(data, context)
+main()
