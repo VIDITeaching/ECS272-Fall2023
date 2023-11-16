@@ -138,8 +138,8 @@ function createHeatMap(data, selectedXType, selectedYType) {
         .call(d3.axisLeft(y).tickFormat(label => label.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')));
 
     var myColor = d3.scaleLinear()
-        .range(["white", "red"])
-        .domain([1, 50]);
+    .range(["#ffffff", "#000000"])
+    .domain([1, 50]);
 
     svg.selectAll()
         .data(data)
