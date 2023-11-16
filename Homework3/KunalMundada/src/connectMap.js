@@ -74,7 +74,7 @@ const chartObserver = new ResizeObserver(debounce(onResize, 100));
 export const ConnectMap = () =>
   // equivalent to <template> in Vue
   `<div class='chart-container-1 flex-column' id='map-container'>
-    <p>Data science job market in USD across world</p>
+    <p>Data science job market across world</p>
         <svg id='map-svg' width='100%' height='80%'>
         </svg>
     </div>`;
@@ -244,7 +244,7 @@ function initChart() {
           .style("left", event.x + 10 + "px")
           .style("top", event.y + 10 + "px");
       } else {
-        Tooltip.html(feature.properties.name + "<br>" + "Market:$0")
+        Tooltip.html(feature.properties.name + "<br>" + "Market:N/A")
           .style("left", event.x + 10 + "px")
           .style("top", event.y + 10 + "px");
       }
@@ -264,10 +264,10 @@ function initChart() {
   map
     .append("g")
     .attr("class", "legendThreshold")
-    .attr("transform", `translate(${size.width*0.05},${size.height*0.65})`);
+    .attr("transform", `translate(${size.width*0.04},${size.height*0.65})`);
 
   const legend = legendColor()
-    .labelFormat(d3.format(",.0f"))
+    .labelFormat(d3.format(",.0s"))
     .labels(legendHelpers.thresholdLabels)
     .labelOffset(3)
     .shapePadding(0)
