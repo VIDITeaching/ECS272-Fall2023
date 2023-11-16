@@ -25,7 +25,7 @@ export const mapColorScheme = d3
   .unknown("#EBEBF2"); // #EBEBF2 or #FEFFFE
 
 export function bubbleColorScheme (country, map_color="#F2B279") {
-  return d3.scaleOrdinal().domain([country, "ROW"]).range([map_color, "#EBEBF2"]);
+  return d3.scaleOrdinal().domain([country, "ROW"]).range([map_color, "lightGray"]);
 }
 
 export function sunburstColorScheme(data) {
