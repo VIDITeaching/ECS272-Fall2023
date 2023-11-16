@@ -3,7 +3,7 @@ import Data from "../data/iso_name.json";
 import { unroll } from "./utils";
 import { isEmpty, debounce } from "lodash";
 import { bubbleColorScheme } from "./globals";
-import { legendColor, legendHelpers } from "d3-svg-legend";
+import { legendColor } from "d3-svg-legend";
 
 const margin = { top: 20, right: 35, bottom: 20, left: 25 };
 let size = { width: 0, height: 0 };
