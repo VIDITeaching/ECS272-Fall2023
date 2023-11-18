@@ -44,6 +44,7 @@ export default {
         console.log(Data);
         if (isEmpty(Data)) return;
         this.bars = Data.data;
+        console.log(this.bars)
     },
     methods: {
         onResize() {  // record the updated size of the target element
@@ -57,8 +58,10 @@ export default {
 
             // Here we compute the [min, max] from the data values of the attributes that will be used to represent x- and y-axis.
             let yExtents = d3.extent(this.bars.map((d: CategoricalBar) => d.value as number)) as [number, number]
+            // console.log(yExtents)
             // This is to get the unique categories from the data using Set, then store in an array.
             let xCategories: string[] = [ ...new Set(this.bars.map((d: CategoricalBar) => d.category as string))]
+            // console.log(xCategories)
 
             // We need a way to map our data to where it should be rendered within the svg (in screen pixels), based on the data value, 
             //      so the extents and the unique values above help us define the limits.
