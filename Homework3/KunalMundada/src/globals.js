@@ -22,7 +22,7 @@ export const mapColorScheme = d3
   .range(["#F2E4DC", "#F2CCB6", "#F2B279", "#0D0D0D"])
   // .range(["#F2B279", "#F2CCB6", "#F2E4DC", "#0D0D0D"])
   // .range(["#0D0D0D", "#F2E4DC", "#F2CCB6", "#F2B279"])
-  .unknown("#EBEBF2"); // #EBEBF2 or #FEFFFE
+  .unknown("#FFFFFF"); // #EBEBF2 or #FEFFFE
 
 export function bubbleColorScheme (country, map_color="#F2B279") {
   return d3.scaleOrdinal().domain([country, "ROW"]).range([map_color, "lightGray"]);
@@ -34,6 +34,6 @@ export function sunburstColorScheme(data) {
   // );
   return d3
     .scaleOrdinal()
-    .domain(["Small", "Medium", "Large"])
-    .range(["#F2CCB6", "#F2B279", "#0D0D0D"]);
+    .domain(["Small", "Medium", "Large", "Entry", "Mid", "Senior", "Exec"])
+    .range(["#F2CCB6", "#F2B279", "#0D0D0D", "#EFF3FF", "#3A5A78", "#306FAB", "#122E48"]);
 }

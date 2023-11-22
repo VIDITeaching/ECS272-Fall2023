@@ -186,7 +186,7 @@ function initChart() {
     .data(root.descendants().filter((d) => d.depth))
     .join("path")
     .attr("fill", (d) => {
-      while (d.depth > 1) d = d.parent;
+      // while (d.depth > 1) d = d.parent;
       // console.log(d.data.name);
       return color(d.data.name);
     })
