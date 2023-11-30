@@ -1,0 +1,89 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  /* background-color: #ccc; */
+  overflow: hidden;
+}
+
+p {
+  font-size: 18px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.d-flex {
+  display: flex;
+
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+#main-container {
+  height: 100%;
+  width: 100%;
+}
+
+#left-container {
+  height: 100%;
+  width: 50%;
+}
+
+#right-container {
+  height: 100%;
+  width: 50%;
+}
+
+.chart-container-1 {
+  padding: 1%;
+  height: 100%;
+  width: 100%;
+}
+
+.chart-container-2 {
+  padding: 1%;
+  height: 40%;
+  width: 100%;
+}
+
+.chart-container-3 {
+  padding: 3%;
+  height: 60%;
+  width: 100%;
+}
+
+.tick text {
+  font-size: 10px;
+}
+
+.bubbles {
+  stroke-width: 2px;
+  stroke: white;
+}
+.bubbles:hover {
+  stroke: black;
+}

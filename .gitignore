@@ -9,7 +9,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# NodeJS files
 node_modules
+package-lock.json
+yarn.lock
+
 dist
 dist-ssr
 *.local
